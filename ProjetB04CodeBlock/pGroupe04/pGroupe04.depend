@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1605778299 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/main.cpp
+	<SFML/Graphics.hpp>
+	"Game.h"
+
+1605778665 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Game.h
+	<SFML/Graphics.hpp>
+	"Window.h"
+
+1605778731 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Window.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1605778254 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Window.cpp
+	"Window.h"
+
+1605778530 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Game.cpp
+	"Game.h"
+
