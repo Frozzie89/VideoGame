@@ -73,3 +73,13 @@ int Characteristics::SearchCharacteristic(Characteristic& l_characteristic)
     }
     return -1;
 }
+//Augmente la caracteristique choisi par la valeur passee en argument
+void Characteristics::RaiseCharacteristic(int l_index, int l_value)
+{
+    m_characteristics[l_index]->RaiseValue(l_value);
+}
+//Diminue la caracteristique choisi par la valeur passe en argument
+void Characteristics::LowerCharacteristic(int l_index, int l_value)
+{
+    m_characteristics[l_index]->LowerValue(l_value);
+}

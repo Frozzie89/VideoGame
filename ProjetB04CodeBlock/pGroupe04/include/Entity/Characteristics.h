@@ -21,6 +21,9 @@ class Characteristics
         void DeleteCharacteristic(Characteristic& l_characteristic); //Permet de supprimer une caractéristique au vecteur
         int SearchCharacteristic(Characteristic& l_characteristic); //Permet de retrouver une caracteristique du vecteur.
 
+        void RaiseCharacteristic(int l_index,int l_value);
+        void LowerCharacteristic(int l_index,int l_value);
+
         std::string getCharacteristics() const; //Permet de sortir les caracteristiques
 
 };

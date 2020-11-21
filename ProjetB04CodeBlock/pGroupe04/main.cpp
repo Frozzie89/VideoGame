@@ -26,8 +26,9 @@ int main()
     cout<<c.getCharacteristics()<<endl;
     c.AddCharacteristic(&h);
     cout<<c.getCharacteristics()<<endl;
-
-
+    c.RaiseCharacteristic(1,15);
+    c.LowerCharacteristic(0,10);
+    cout<<c.getCharacteristics()<<endl;
 
 	// Start the game loop
     while (!game.GetWindow()->isDone())
