@@ -19,7 +19,14 @@ Game::~Game()
 // Sert à gerer les events tel que la gestion du clavier ou de la souris
 void Game::HandleInput()
 {
-
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) )
+    {
+        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y -1);
+    }
+     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) )
+    {
+        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y +1);
+    }
 }
 /* Sert a mettre a jour la position du sprite
     appel a la methode Update de Window

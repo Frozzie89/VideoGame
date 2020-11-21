@@ -19,7 +19,7 @@ class Window
     public:
         //Constructeur par defaut
         Window();
-        //Constructeur avec paratre
+        //Constructeur avec parametre
         Window(const std::string& l_title,const sf::Vector2u& l_size);
         //Destructeur
         virtual ~Window();

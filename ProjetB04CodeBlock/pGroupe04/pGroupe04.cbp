@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
@@ -27,6 +28,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -39,8 +41,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="cb.bmp" />
+		<Unit filename="include/Entity/Characteristic.h" />
+		<Unit filename="include/Entity/Characteristics.h" />
+		<Unit filename="include/Entity/Entity.h" />
+		<Unit filename="include/Entity/Health.h" />
+		<Unit filename="include/Entity/Shield.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/Window.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Entity/Characteristic.cpp" />
+		<Unit filename="src/Entity/Characteristics.cpp" />
+		<Unit filename="src/Entity/Entity.cpp" />
+		<Unit filename="src/Entity/Health.cpp" />
+		<Unit filename="src/Entity/Shield.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Window.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

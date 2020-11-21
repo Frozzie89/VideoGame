@@ -1,19 +1,56 @@
 # depslib dependency file v1.0
-1605778299 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/main.cpp
+1605987201 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/main.cpp
 	<SFML/Graphics.hpp>
 	"Game.h"
+	"Entity/Health.h"
+	"Entity/Shield.h"
+	"Entity/Characteristics.h"
+	<iostream>
 
 1605778665 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Game.h
 	<SFML/Graphics.hpp>
 	"Window.h"
 
-1605778731 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Window.h
+1605799279 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Window.h
 	<string>
 	<SFML/Graphics.hpp>
 
 1605778254 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Window.cpp
 	"Window.h"
 
-1605778530 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Game.cpp
+1605800798 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Game.cpp
 	"Game.h"
+
+1605983968 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics.cpp
+	"Entity/Characteristics.h"
+
+1605974476 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics.h
+	"Entity/Characteristic.h"
+	<vector>
+
+1605986804 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Entity.cpp
+	"Entity/Entity.h"
+
+1605986802 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Entity.h
+	"Entity/Characteristics.h"
+	"Entity/Health.h"
+	"Entity/Shield.h"
+
+1605971518 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Health.cpp
+	"Entity/Health.h"
+
+1605972892 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Health.h
+	"Entity/Characteristic.h"
+
+1605971594 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Shield.cpp
+	"Entity/Shield.h"
+
+1605972455 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Shield.h
+	"Entity/Characteristic.h"
+
+1605965261 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristic.cpp
+	"Entity/Characteristic.h"
+
+1605972414 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristic.h
+	<string>
 
