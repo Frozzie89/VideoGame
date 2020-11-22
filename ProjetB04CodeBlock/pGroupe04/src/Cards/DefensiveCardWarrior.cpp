@@ -1,8 +1,8 @@
-#include "DefensiveCardWarrior.h"
+#include "Cards/DefensiveCardWarrior.h"
 
-using namespace std;
+;
 
-DefensiveCardWarrior::DefensiveCardWarrior(string label, string description, int costAction, int value, bool isHealth)
+DefensiveCardWarrior::DefensiveCardWarrior(std::string label, std::string description, int costAction, int value, bool isHealth)
 {
     setLabel(label);
     setDescription(description);

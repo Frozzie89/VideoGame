@@ -3,8 +3,6 @@
 #include <string>
 #include "Card.h"
 
-using namespace std;
-
 class DefensiveCard : public Card
 {
 private:
@@ -12,7 +10,7 @@ private:
     bool isHealth;
 
 public:
-    DefensiveCard(string label = "No_Label", string description = "No_Description", int costAction = 0, int value = 0, bool isHealth = true);
+    DefensiveCard(std::string label = "No_Label", std::string description = "No_Description", int costAction = 0, int value = 0, bool isHealth = true);
     virtual ~DefensiveCard();
     DefensiveCard(const DefensiveCard &other);
     DefensiveCard &operator=(const DefensiveCard &rhs);

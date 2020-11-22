@@ -1,8 +1,8 @@
-#include "OffensiveCardGambler.h"
+#include "Cards/OffensiveCardGambler.h"
 
-using namespace std;
+;
 
-OffensiveCardGambler::OffensiveCardGambler(string label, string description, int costAction, int value)
+OffensiveCardGambler::OffensiveCardGambler(std::string label, std::string description, int costAction, int value)
 {
     setLabel(label);
     setDescription(description);

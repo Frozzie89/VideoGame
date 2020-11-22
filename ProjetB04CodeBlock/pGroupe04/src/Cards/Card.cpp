@@ -1,8 +1,8 @@
-#include "Card.h"
+#include "Cards/Card.h"
 
-using namespace std;
+;
 
-Card::Card(string label, string description, int costAction, int value) : label(label), description(description), costAction(costAction), value(value) {}
+Card::Card(std::string label, std::string description, int costAction, int value) : label(label), description(description), costAction(costAction), value(value) {}
 
 Card::~Card() {}
 
@@ -25,22 +25,22 @@ Card &Card::operator=(const Card &rhs)
     return *this;
 }
 
-string Card::getLabel() const
+std::string Card::getLabel() const
 {
     return label;
 }
 
-void Card::setLabel(const string label)
+void Card::setLabel(const std::string label)
 {
     this->label = label;
 }
 
-string Card::getDescription() const
+std::string Card::getDescription() const
 {
     return description;
 }
 
-void Card::setDescription(const string description)
+void Card::setDescription(const std::string description)
 {
     this->description = description;
 }

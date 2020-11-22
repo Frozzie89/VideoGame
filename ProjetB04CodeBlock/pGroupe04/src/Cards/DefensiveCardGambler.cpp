@@ -1,8 +1,8 @@
-#include "DefensiveCardGambler.h"
+#include "Cards/DefensiveCardGambler.h"
 
-using namespace std;
+;
 
-DefensiveCardGambler::DefensiveCardGambler(string label, string description, int costAction, int value, bool isHealth)
+DefensiveCardGambler::DefensiveCardGambler(std::string label, std::string description, int costAction, int value, bool isHealth)
 {
     setLabel(label);
     setDescription(description);

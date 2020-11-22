@@ -4,12 +4,12 @@
     On va ensuite instancier notre sprite en passant par le chargement de sa texture
 
 */
-Game::Game(): m_window("Vous n'etes que des salopes",sf::Vector2u(800,600))
+Game::Game() : m_window("Vous n'etes que des salopes", sf::Vector2u(800, 600))
 {
     //ctor
-    m_texturePicture.loadFromFile("test.png");
+    m_texturePicture.loadFromFile("assets/test.png");
     m_picture.setTexture(m_texturePicture);
-    m_picture.setPosition(10,10);
+    m_picture.setPosition(10, 10);
 }
 //Destructeur
 Game::~Game()
@@ -19,13 +19,13 @@ Game::~Game()
 // Sert à gerer les events tel que la gestion du clavier ou de la souris
 void Game::HandleInput()
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) )
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y -1);
+        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y - 1);
     }
-     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) )
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y +1);
+        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y + 1);
     }
 }
 /* Sert a mettre a jour la position du sprite
@@ -39,12 +39,12 @@ void Game::Update()
 //Permet d'afficher des elements
 void Game::Render()
 {
-    m_window.BeginDraw(); // Ou clear
+    m_window.BeginDraw();     // Ou clear
     m_window.Draw(m_picture); // Dessine le sprite
-    m_window.EndDraw(); // Display
+    m_window.EndDraw();       // Display
 }
 // Permet de recuperer la fenetre
-Window* Game::GetWindow()
+Window *Game::GetWindow()
 {
     return &m_window;
 }
@@ -58,7 +58,8 @@ void Game::RestartClock()
 {
     m_elapsed += m_clock.restart();
     float frametime = 1.0F / 60.0F;
-    if(m_elapsed.asSeconds() >= frametime){
-        m_elapsed -=sf::seconds(frametime);
+    if (m_elapsed.asSeconds() >= frametime)
+    {
+        m_elapsed -= sf::seconds(frametime);
     }
 }

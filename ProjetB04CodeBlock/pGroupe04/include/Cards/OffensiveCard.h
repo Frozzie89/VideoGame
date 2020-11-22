@@ -4,13 +4,11 @@
 #include "Card.h"
 #include "../Entity/Entity.h"
 
-using namespace std;
-
 class OffensiveCard : public Card
 {
 private:
 public:
-    OffensiveCard(string label = "No_Label", string description = "No_Description", int costAction = 0, int value = 0);
+    OffensiveCard(std::string label = "No_Label", std::string description = "No_Description", int costAction = 0, int value = 0);
     virtual ~OffensiveCard();
     OffensiveCard(const OffensiveCard &other);
     OffensiveCard &operator=(const OffensiveCard &rhs);

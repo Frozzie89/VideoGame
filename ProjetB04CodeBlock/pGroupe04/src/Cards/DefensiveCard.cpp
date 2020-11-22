@@ -1,8 +1,8 @@
-#include "DefensiveCard.h"
+#include "Cards/DefensiveCard.h"
 
-using namespace std;
+;
 
-DefensiveCard::DefensiveCard(string label, string description, int costAction, int value, bool isHealth) : isHealth(isHealth)
+DefensiveCard::DefensiveCard(std::string label, std::string description, int costAction, int value, bool isHealth) : isHealth(isHealth)
 {
     setLabel(label);
     setDescription(description);

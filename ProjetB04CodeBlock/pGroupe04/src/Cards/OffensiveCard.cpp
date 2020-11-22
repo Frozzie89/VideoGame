@@ -1,8 +1,8 @@
-#include "OffensiveCard.h"
+#include "Cards/OffensiveCard.h"
 
-using namespace std;
+;
 
-OffensiveCard::OffensiveCard(string label, string description, int costAction, int value)
+OffensiveCard::OffensiveCard(std::string label, std::string description, int costAction, int value)
 {
     setLabel(label);
     setDescription(description);
