@@ -7,7 +7,7 @@ class OffensiveCardWarrior : public OffensiveCard
 {
 private:
 public:
-    OffensiveCardWarrior(std::string label = "No_Label", std::string description = "No_Description", int costAction = 0, int value = 0);
+    OffensiveCardWarrior(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0);
     virtual ~OffensiveCardWarrior();
     OffensiveCardWarrior(const OffensiveCardWarrior &other);
     OffensiveCardWarrior &operator=(const OffensiveCardWarrior &rhs);

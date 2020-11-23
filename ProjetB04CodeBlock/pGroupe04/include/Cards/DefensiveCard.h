@@ -10,7 +10,7 @@ private:
     bool isHealth;
 
 public:
-    DefensiveCard(std::string label = "No_Label", std::string description = "No_Description", int costAction = 0, int value = 0, bool isHealth = true);
+    DefensiveCard(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0, bool isHealth = true);
     virtual ~DefensiveCard();
     DefensiveCard(const DefensiveCard &other);
     DefensiveCard &operator=(const DefensiveCard &rhs);
@@ -18,6 +18,7 @@ public:
     bool getIsHealth() const;
     void setIsHealth(const bool isHealth);
 
+    std::string str()const;
     virtual void activateEffect() = 0;
     virtual DefensiveCard *clone() const = 0;
 };

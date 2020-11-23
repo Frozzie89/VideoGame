@@ -7,7 +7,7 @@ class DefensiveCardGambler : public DefensiveCard
 {
 private:
 public:
-    DefensiveCardGambler(std::string label = "No_Label", std::string description = "No_Description", int costAction = 0, int value = 0, bool isHealth = true);
+    DefensiveCardGambler(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0, bool isHealth = true);
     virtual ~DefensiveCardGambler();
     DefensiveCardGambler(const DefensiveCardGambler &other);
     DefensiveCardGambler &operator=(const DefensiveCardGambler &rhs);

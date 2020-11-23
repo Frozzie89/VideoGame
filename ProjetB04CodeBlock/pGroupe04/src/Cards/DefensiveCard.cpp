@@ -1,35 +1,27 @@
 #include "Cards/DefensiveCard.h"
 
-;
-
-DefensiveCard::DefensiveCard(std::string label, std::string description, int costAction, int value, bool isHealth) : isHealth(isHealth)
-{
-    setLabel(label);
-    setDescription(description);
-    setCostAction(costAction);
-    setValue(value);
-}
+DefensiveCard::DefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth) : Card(label, path, costAction, value), isHealth(isHealth) {}
 
 DefensiveCard::~DefensiveCard() {}
 
-DefensiveCard::DefensiveCard(const DefensiveCard &other)
+DefensiveCard::DefensiveCard(const DefensiveCard &other) : Card(other)
 {
-    setLabel(other.getLabel());
-    setDescription(other.getDescription());
-    setCostAction(other.getCostAction());
-    setValue(other.getValue());
+    isHealth = other.isHealth;
 }
 
 DefensiveCard &DefensiveCard::operator=(const DefensiveCard &rhs)
 {
     if (this != &rhs)
     {
-        setLabel(rhs.getLabel());
-        setDescription(rhs.getDescription());
-        setCostAction(rhs.getCostAction());
-        setValue(rhs.getValue());
+        Card::operator=(rhs);
+        isHealth = rhs.isHealth;
     }
     return *this;
+}
+
+std::string DefensiveCard::str() const
+{
+    return Card::str() + " IsHealth : " + std::to_string(isHealth);
 }
 
 bool DefensiveCard::getIsHealth() const

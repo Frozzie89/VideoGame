@@ -8,7 +8,7 @@ class OffensiveCard : public Card
 {
 private:
 public:
-    OffensiveCard(std::string label = "No_Label", std::string description = "No_Description", int costAction = 0, int value = 0);
+    OffensiveCard(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0);
     virtual ~OffensiveCard();
     OffensiveCard(const OffensiveCard &other);
     OffensiveCard &operator=(const OffensiveCard &rhs);

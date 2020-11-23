@@ -1,15 +1,14 @@
 #include "Cards/Card.h"
+#include <sstream>
 
-;
-
-Card::Card(std::string label, std::string description, int costAction, int value) : label(label), description(description), costAction(costAction), value(value) {}
+Card::Card(std::string label, std::string path, int costAction, int value) : label(label), path(path), costAction(costAction), value(value) {}
 
 Card::~Card() {}
 
 Card::Card(const Card &other)
 {
     this->label = other.label;
-    this->description = other.description;
+    this->path = other.path;
     this->costAction = other.costAction;
     this->value = other.value;
 }
@@ -18,7 +17,7 @@ Card &Card::operator=(const Card &rhs)
     if (this != &rhs)
     {
         this->label = rhs.label;
-        this->description = rhs.description;
+        this->path = rhs.path;
         this->costAction = rhs.costAction;
         this->value = rhs.value;
     }
@@ -35,14 +34,9 @@ void Card::setLabel(const std::string label)
     this->label = label;
 }
 
-std::string Card::getDescription() const
+std::string Card::getPath() const
 {
-    return description;
-}
-
-void Card::setDescription(const std::string description)
-{
-    this->description = description;
+    return path;
 }
 
 int Card::getCostAction() const
@@ -63,4 +57,25 @@ int Card::getValue() const
 void Card::setValue(const int value)
 {
     this->value = value;
+}
+
+std::string Card::str() const
+{
+    std::stringstream res;
+    res << "Label : " << label << " - Path : " << path
+        << " - CA : " << costAction << " - Value :  " << value << std::endl;
+
+    return res.str();
+}
+
+void Card::HandleInput()
+{
+}
+
+void Card::Update()
+{
+}
+
+void Card::Render()
+{
 }

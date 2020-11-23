@@ -1,33 +1,16 @@
 #include "Cards/OffensiveCard.h"
 
-;
-
-OffensiveCard::OffensiveCard(std::string label, std::string description, int costAction, int value)
-{
-    setLabel(label);
-    setDescription(description);
-    setCostAction(costAction);
-    setValue(value);
-}
+OffensiveCard::OffensiveCard(std::string label, std::string path, int costAction, int value) : Card(label, path, costAction, value) {}
 
 OffensiveCard::~OffensiveCard() {}
 
-OffensiveCard::OffensiveCard(const OffensiveCard &other)
-{
-    setLabel(other.getLabel());
-    setDescription(other.getDescription());
-    setCostAction(other.getCostAction());
-    setValue(other.getValue());
-}
+OffensiveCard::OffensiveCard(const OffensiveCard &other) : Card(other) {}
 
 OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
 {
     if (this != &rhs)
     {
-        setLabel(rhs.getLabel());
-        setDescription(rhs.getDescription());
-        setCostAction(rhs.getCostAction());
-        setValue(rhs.getValue());
+        Card::operator=(rhs);
     }
     return *this;
 }

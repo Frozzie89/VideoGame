@@ -7,7 +7,7 @@
 Game::Game() : m_window("Vous n'etes que des salopes", sf::Vector2u(800, 600))
 {
     //ctor
-    m_texturePicture.loadFromFile("assets/test.png");
+    m_texturePicture.loadFromFile("assets/cards/blank_shield.png");
     m_picture.setTexture(m_texturePicture);
     m_picture.setPosition(10, 10);
 }
