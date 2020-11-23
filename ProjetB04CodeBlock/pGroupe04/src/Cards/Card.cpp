@@ -12,6 +12,7 @@ Card::Card(const Card &other)
     this->costAction = other.costAction;
     this->value = other.value;
 }
+
 Card &Card::operator=(const Card &rhs)
 {
     if (this != &rhs)

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1605988718 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/main.cpp
+1605988798 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/main.cpp
 	<SFML/Graphics.hpp>
 	"Game.h"
 	"Entity/Health.h"
@@ -53,4 +53,53 @@
 
 1605972414 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristic.h
 	<string>
+
+1606061193 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/Card.cpp
+	"Cards/Card.h"
+
+1606061158 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/Card.h
+	<string>
+
+1606061206 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCard.cpp
+	"Cards/DefensiveCard.h"
+
+1606061158 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCard.h
+	<string>
+	"Card.h"
+
+1606061248 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCardGambler.cpp
+	"Cards/DefensiveCardGambler.h"
+
+1606061158 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCardGambler.h
+	<string>
+	"DefensiveCard.h"
+
+1606061262 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCardWarrior.cpp
+	"Cards/DefensiveCardWarrior.h"
+
+1606061158 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCardWarrior.h
+	<string>
+	"DefensiveCard.h"
+
+1606061268 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCard.cpp
+	"Cards/OffensiveCard.h"
+
+1606061158 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCard.h
+	<string>
+	"Card.h"
+	"../Entity/Entity.h"
+
+1606061274 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCardGambler.cpp
+	"Cards/OffensiveCardGambler.h"
+
+1606061158 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCardGambler.h
+	<string>
+	"OffensiveCard.h"
+
+1606061280 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCardWarrior.cpp
+	"Cards/OffensiveCardWarrior.h"
+
+1606061158 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCardWarrior.h
+	<string>
+	"OffensiveCard.h"
 
