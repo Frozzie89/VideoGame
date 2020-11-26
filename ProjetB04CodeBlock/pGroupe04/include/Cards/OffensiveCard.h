@@ -15,6 +15,7 @@ public:
 
     virtual void activateEffect(Entity &entity) = 0;
     virtual OffensiveCard *clone() const = 0;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) =0;
 };
 
 #endif // OFFENSIVECARD_PGROUPE04_H

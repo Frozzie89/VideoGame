@@ -2,6 +2,7 @@
 #define WINDOWS_H
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "EventManager.h"
 
 class Window
 {
@@ -16,12 +17,14 @@ class Window
 
         bool m_isDone;
         bool m_isFullscreen;
+
+        //Addition lie a EventManager
+        EventManager m_eventManager;
+        bool m_isFocused;
+
     public:
-        //Constructeur par defaut
         Window();
-        //Constructeur avec parametre
         Window(const std::string& l_title,const sf::Vector2u& l_size);
-        //Destructeur
         virtual ~Window();
 
         void BeginDraw(); // Clear the window
@@ -29,13 +32,21 @@ class Window
 
         void Update();
 
-        bool isDone();  //Permet de savoir si on a encore besoin de la fenetre ou non
-        bool isFullscreen(); // Permet de savoir si nous sommes en fullscreen ou non
-        sf::Vector2u GetWindowSize(); //Permet de retourner la taille de la fenetre
+        bool isDone();
+        bool isFullscreen();
+        sf::Vector2u GetWindowSize();
+        sf::RenderWindow* GetRenderWindow();
 
         void ToggleFullscreen();
 
         void Draw(sf::Drawable& l_drawable);
+
+        //Addition lie a EventManager
+        bool isFocused();
+        EventManager* GetEventManager();
+        void ToggleFullscreen(EventDetails* l_details);
+        void Close(EventDetails* l_details = nullptr);
+
 };
 
 #endif // WINDOWS_H

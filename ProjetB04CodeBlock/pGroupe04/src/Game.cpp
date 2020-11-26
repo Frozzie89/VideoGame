@@ -7,9 +7,10 @@
 Game::Game() : m_window("Vous n'etes que des salopes", sf::Vector2u(800, 600))
 {
     //ctor
-    m_texturePicture.loadFromFile("assets/cards/blank_shield.png");
+    /*m_texturePicture.loadFromFile("assets/test.png");
     m_picture.setTexture(m_texturePicture);
-    m_picture.setPosition(10, 10);
+    //m_picture.setPosition(10, 10);
+    m_window.GetEventManager()->AddCallback("Move",&Game::MoveSprite,this);*/
 }
 //Destructeur
 Game::~Game()
@@ -19,14 +20,14 @@ Game::~Game()
 // Sert à gerer les events tel que la gestion du clavier ou de la souris
 void Game::HandleInput()
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
         m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y - 1);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
         m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y + 1);
-    }
+    }*/
 }
 /* Sert a mettre a jour la position du sprite
     appel a la methode Update de Window
@@ -62,4 +63,14 @@ void Game::RestartClock()
     {
         m_elapsed -= sf::seconds(frametime);
     }
+}
+void Game::MoveSprite(EventDetails* l_details)
+{
+    //while(sf::Mouse::isButtonPressed)
+    //{
+        sf::Vector2i mousepos = m_window.GetEventManager()->GetMousePos(m_window.GetRenderWindow());
+        m_picture.setPosition(mousepos.x,mousepos.y);
+        std::cout<<"Moving sprite to: "<<mousepos.x<<":"<<mousepos.y<<std::endl;
+    //}
+
 }

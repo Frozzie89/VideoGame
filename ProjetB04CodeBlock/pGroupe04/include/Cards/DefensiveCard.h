@@ -21,6 +21,7 @@ public:
     std::string str()const;
     virtual void activateEffect() = 0;
     virtual DefensiveCard *clone() const = 0;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) =0;
 };
 
 #endif // DEFENSIVECARD_PGROUPE04_H

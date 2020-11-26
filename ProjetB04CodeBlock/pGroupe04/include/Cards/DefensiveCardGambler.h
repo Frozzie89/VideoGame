@@ -12,8 +12,9 @@ public:
     DefensiveCardGambler(const DefensiveCardGambler &other);
     DefensiveCardGambler &operator=(const DefensiveCardGambler &rhs);
 
-    virtual DefensiveCardGambler *clone() const;
-    virtual void activateEffect();
+    DefensiveCardGambler *clone() const;
+    void activateEffect();
+    void draw(sf::RenderTarget& target, sf::RenderStates states);
 };
 
 #endif // DEFENSIVECARDGAMBLER_PGROUPE04_H

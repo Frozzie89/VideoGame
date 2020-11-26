@@ -12,8 +12,9 @@ public:
     OffensiveCardWarrior(const OffensiveCardWarrior &other);
     OffensiveCardWarrior &operator=(const OffensiveCardWarrior &rhs);
 
-    virtual void activateEffect(Entity &entity);
-    virtual OffensiveCardWarrior *clone() const;
+    void activateEffect(Entity &entity);
+    OffensiveCardWarrior *clone() const;
+    void draw(sf::RenderTarget& target, sf::RenderStates states);
 };
 
 #endif // OFFENSIVECARDWARRIOR_PGROUPE04_H

@@ -13,6 +13,9 @@ class Game
         sf::Clock m_clock;
         sf::Time m_elapsed;
 
+        //Ajout suite à l'implementation de EventManager
+        void MoveSprite(EventDetails* l_details);
+
     public:
 
         Game(); //Constructeur

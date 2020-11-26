@@ -1,7 +1,11 @@
 #include "Cards/Card.h"
 #include <sstream>
 
-Card::Card(std::string label, std::string path, int costAction, int value) : label(label), path(path), costAction(costAction), value(value) {}
+Card::Card(std::string label, std::string path, int costAction, int value) : label(label), path(path), costAction(costAction), value(value)
+{
+
+        //m_sprite.setScale(0.5,0.5);
+}
 
 Card::~Card() {}
 
@@ -72,11 +76,22 @@ std::string Card::str() const
 void Card::HandleInput()
 {
 }
-
-void Card::Update()
+sf::Vector2f Card::GetPosition()
 {
+    return positions;
 }
 
-void Card::Render()
+void Card::SetPosition(sf::Vector2f l_position)
 {
+    positions = l_position;
+}
+
+bool Card::checkCollision()
+{
+    return false;
+}
+
+void Card::Move(sf::RenderWindow& l_window)
+{
+
 }

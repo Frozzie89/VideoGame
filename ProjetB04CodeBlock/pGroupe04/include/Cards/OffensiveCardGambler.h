@@ -12,8 +12,9 @@ public:
     OffensiveCardGambler(const OffensiveCardGambler &other);
     OffensiveCardGambler &operator=(const OffensiveCardGambler &rhs);
 
-    virtual void activateEffect(Entity &entity);
-    virtual OffensiveCardGambler *clone() const;
+    void activateEffect(Entity &entity);
+    OffensiveCardGambler *clone() const;
+    void draw(sf::RenderTarget& target, sf::RenderStates states);
 };
 
 #endif // OFFENSIVECARDGAMBLER_PGROUPE04_H

@@ -13,9 +13,10 @@ int main()
 {
     Game game;
 
-    DefensiveCardWarrior dcw1("coucou", "path", 5, 4, false);
+    DefensiveCardWarrior dcw1("coucou", "assets/test.png", 5, 4, false);
 
     cout << dcw1.str() << endl;
+    dcw1.draw(*game.GetWindow(),sf::RenderStates::Default);
 
     // Start the game loop
     while (!game.GetWindow()->isDone())

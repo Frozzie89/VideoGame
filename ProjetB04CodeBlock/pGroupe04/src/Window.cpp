@@ -32,6 +32,10 @@ void Window::SetUp(const std::string& l_title, const sf::Vector2u& l_size)
     m_isFullscreen = false;
     m_isDone = false;
     Create();
+    //Ajout suit à l'implementation de EventManager
+    m_isFocused = true;
+    m_eventManager.AddCallback("Fullscreen_toggle",&Window::ToggleFullscreen,this);
+    m_eventManager.AddCallback("Window_close",&Window::Close,this);
 }
 // Sert a fermer la fenetre
 void Window::Destroy()
@@ -75,13 +79,17 @@ void Window::Update()
 {
     sf::Event event;
     while(m_window.pollEvent(event)){
-        if(event.type == sf::Event::Closed){
-            m_isDone = true;
+        if(event.type == sf::Event::LostFocus){
+            m_isFocused = false;
+            m_eventManager.SetFocus(false);
         }
-        else if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F5){
-            ToggleFullscreen();
+        else if(event.type == sf::Event::GainedFocus){
+            m_isFocused = true;
+            m_eventManager.SetFocus(true);
         }
+        m_eventManager.HandleEvent(event);
     }
+    m_eventManager.Update();
 }
 // Retourne la valeur isDone, valeur qui permet de savoir si on en a fini avec la fenetre. Si oui, on la detruit
 bool Window::isDone()
@@ -98,7 +106,11 @@ sf::Vector2u Window::GetWindowSize()
 {
     return m_windowSize;
 }
-
+// Retourne la fenetre
+sf::RenderWindow* Window::GetRenderWindow()
+{
+    return &m_window;
+}
 // Permet de switcher entre le fullscreen et un affichage plus classique
 void Window::ToggleFullscreen()
 {
@@ -111,3 +123,23 @@ void Window::Draw(sf::Drawable& l_drawable)
 {
     m_window.draw(l_drawable);
 }
+bool Window::isFocused()
+{
+    return m_isFocused;
+}
+
+EventManager* Window::GetEventManager()
+{
+    return &m_eventManager;
+}
+
+void Window::ToggleFullscreen(EventDetails* l_details)
+{
+
+}
+
+void Window::Close(EventDetails* l_details)
+{
+    m_isDone = true;
+}
+

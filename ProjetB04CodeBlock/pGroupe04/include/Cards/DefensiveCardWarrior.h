@@ -12,8 +12,9 @@ public:
     DefensiveCardWarrior(const DefensiveCardWarrior &other);
     DefensiveCardWarrior &operator=(const DefensiveCardWarrior &rhs);
 
-    virtual DefensiveCardWarrior *clone() const;
-    virtual void activateEffect();
+    DefensiveCardWarrior *clone() const;
+    void activateEffect();
+    void draw(sf::RenderTarget& target, sf::RenderStates states);
 };
 
 #endif // DEFENSIVECARDWARRIOR_PGROUPE04_H
