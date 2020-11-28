@@ -14,7 +14,6 @@ public:
 
     DefensiveCardWarrior *clone() const;
     void activateEffect();
-    void draw(sf::RenderTarget& target, sf::RenderStates states);
 };
 
 #endif // DEFENSIVECARDWARRIOR_PGROUPE04_H

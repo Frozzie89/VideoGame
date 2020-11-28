@@ -4,13 +4,15 @@
     On va ensuite instancier notre sprite en passant par le chargement de sa texture
 
 */
-Game::Game() : m_window("Vous n'etes que des salopes", sf::Vector2u(800, 600))
+Game::Game() : m_window("Duck the issue !", sf::Vector2u(800, 600)),m_stateManager(&m_context)
 {
     //ctor
-    /*m_texturePicture.loadFromFile("assets/test.png");
-    m_picture.setTexture(m_texturePicture);
-    //m_picture.setPosition(10, 10);
-    m_window.GetEventManager()->AddCallback("Move",&Game::MoveSprite,this);*/
+    //m_texturePicture.loadFromFile("chapitre5.jpg");
+    //m_picture.setTexture(m_texturePicture);
+    //m_window.GetEventManager()->AddCallback(StateType::Intro,"Move",&Game::MoveSprite,this);
+    m_context.m_wind = &m_window;
+    m_context.m_eventManager = m_window.GetEventManager();
+    m_stateManager.SwitchTo(StateType::Intro);
 }
 //Destructeur
 Game::~Game()
@@ -20,14 +22,6 @@ Game::~Game()
 // Sert à gerer les events tel que la gestion du clavier ou de la souris
 void Game::HandleInput()
 {
-    /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-    {
-        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y - 1);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        m_picture.setPosition(m_picture.getPosition().x, m_picture.getPosition().y + 1);
-    }*/
 }
 /* Sert a mettre a jour la position du sprite
     appel a la methode Update de Window
@@ -36,12 +30,13 @@ void Game::HandleInput()
 void Game::Update()
 {
     m_window.Update();
+    m_stateManager.Update(m_elapsed);
 }
 //Permet d'afficher des elements
 void Game::Render()
 {
     m_window.BeginDraw();     // Ou clear
-    m_window.Draw(m_picture); // Dessine le sprite
+     m_stateManager.Draw(); // Dessine le sprite
     m_window.EndDraw();       // Display
 }
 // Permet de recuperer la fenetre
@@ -73,4 +68,9 @@ void Game::MoveSprite(EventDetails* l_details)
         std::cout<<"Moving sprite to: "<<mousepos.x<<":"<<mousepos.y<<std::endl;
     //}
 
+}
+void Game::LateUpdate()
+{
+    m_stateManager.ProcessRequests();
+    RestartClock();
 }

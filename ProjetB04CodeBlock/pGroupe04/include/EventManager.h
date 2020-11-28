@@ -1,5 +1,6 @@
 #ifndef EVENTMANAGER_H
 #define EVENTMANAGER_H
+
 #include <SFML/Graphics.hpp>
 
 #include<functional> // Permet d'avoir std::function et std::bind
@@ -7,6 +8,8 @@
 #include <iostream>
 #include <sstream> //Permet d'avoir stringstream
 #include <fstream> //Permet de couper stringstream
+
+#include "State/StateType.h"
 
 //Differents d'Event qu'on peut avoir
 enum class EventType{
@@ -99,7 +102,9 @@ using Bindings = std::unordered_map<std::string, Binding*>;
 //Un callback, c'est un bout de code qui peut être passé en argument d'un autre bout de code qui sera execute en temps voulu
 //Typiquement, un callback est une fonction passé en argument d'une autre
 //On va utiliser une map afin de n'avoir qu'un callback par action
-using Callbacks = std::unordered_map<std::string,std::function<void(EventDetails*)>>;
+using CallbackContainer = std::unordered_map< std::string, std::function<void(EventDetails*)>>;
+
+using Callbacks = std::unordered_map<StateType, CallbackContainer>;
 
 class EventManager
 {
@@ -114,14 +119,26 @@ class EventManager
         //Ceci doit etre defini dans le header
         //On l'implemente ici au lieu du .cpp a cause du compilateur vu qu'on utilise une classe templee
         template<class T>
-        bool AddCallback(const std::string& l_name, void(T::*l_func) (EventDetails*), T* l_instance){
-            auto temp = std::bind(l_func,l_instance,std::placeholders::_1);
-            return m_callbacks.emplace(l_name,temp).second;
+        bool AddCallback(StateType l_state, const std::string& l_name,void(T::*l_func)(EventDetails*), T* l_instance)
+        {
+            auto itr = m_callbacks.emplace(
+            l_state, CallbackContainer()).first;
+            auto temp = std::bind(l_func, l_instance,std::placeholders::_1);
+            return itr->second.emplace(l_name, temp).second;
         }
 
         //Pour avoir une certaine coherance, on va instancier cette classe ici aussi
-        void RemoveCallback(const std::string& l_name){
-            m_callbacks.erase(l_name);
+        bool RemoveCallback(StateType l_state, const std::string& l_name){
+            auto itr = m_callbacks.find(l_state);
+            if (itr == m_callbacks.end()){
+                return false;
+            }
+            auto itr2 = itr->second.find(l_name);
+            if (itr2 == itr->second.end()){
+                return false;
+            }
+            itr->second.erase(l_name);
+            return true;
         }
 
         void HandleEvent(sf::Event& l_event);
@@ -133,6 +150,9 @@ class EventManager
             return (l_wind ? sf::Mouse::getPosition(*l_wind) : sf::Mouse::getPosition());
         }
 
+        void SetCurrentState(const StateType& l_type);
+        StateType GetCurrentState()const;
+
     protected:
 
     private:
@@ -141,6 +161,7 @@ class EventManager
         Bindings m_bindings;
         Callbacks m_callbacks;
         bool m_hasFocus;
+        StateType m_currentState;
 };
 
 #endif // EVENTMANAGER_H

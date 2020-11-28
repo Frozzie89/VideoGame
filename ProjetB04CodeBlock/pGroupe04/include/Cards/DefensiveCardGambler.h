@@ -14,7 +14,6 @@ public:
 
     DefensiveCardGambler *clone() const;
     void activateEffect();
-    void draw(sf::RenderTarget& target, sf::RenderStates states);
 };
 
 #endif // DEFENSIVECARDGAMBLER_PGROUPE04_H

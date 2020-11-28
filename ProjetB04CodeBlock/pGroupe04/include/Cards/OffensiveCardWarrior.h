@@ -14,7 +14,6 @@ public:
 
     void activateEffect(Entity &entity);
     OffensiveCardWarrior *clone() const;
-    void draw(sf::RenderTarget& target, sf::RenderStates states);
 };
 
 #endif // OFFENSIVECARDWARRIOR_PGROUPE04_H

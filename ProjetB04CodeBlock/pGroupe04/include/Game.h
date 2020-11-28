@@ -2,7 +2,11 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+
 #include "Window.h"
+#include "StateManager.h"
+#include "SharedContext.h"
+#include "State/StateType.h"
 
 class Game
 {
@@ -13,6 +17,9 @@ class Game
         sf::Clock m_clock;
         sf::Time m_elapsed;
 
+        StateType m_state;
+        StateManager m_stateManager;
+        SharedContext m_context;
         //Ajout suite à l'implementation de EventManager
         void MoveSprite(EventDetails* l_details);
 
@@ -27,6 +34,8 @@ class Game
         Window* GetWindow();    //Permet de recuperer la fenetre
         sf::Time GetElapsed();  //Permet de recuperer m_elapsed
         void RestartClock(); //Permet de restart m_eclapsed et d'obtenir 60FPS
+
+         void LateUpdate();
 
     protected:
 

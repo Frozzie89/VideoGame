@@ -138,8 +138,8 @@ void EventManager::Update()
         Binding* bindin = b_itr.second;
         for(auto &e_itr : bindin->m_events)
         {
-            switch(e_itr.first){
-            case(EventType::Keyboard):
+            if(e_itr.first == EventType::Keyboard)
+            {
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key(e_itr.second.m_code)))
                 {
                     std::cout<<"Touche Ok"<<std::endl;
@@ -149,8 +149,9 @@ void EventManager::Update()
                     }
                     ++(bindin->c);
                 }
-                break;
-            case(EventType::MButtonDown):
+            }
+            if(e_itr.first == EventType::MButtonDown)
+            {
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Button(e_itr.second.m_code)))
                 {
 
@@ -160,23 +161,35 @@ void EventManager::Update()
                             bindin->m_details.m_keyCode = e_itr.second.m_code;
                         }
                         ++(bindin->c);
-
-
                 }
-                break;
-            case(EventType::Joystick):
-                //Up for expansion
-                break;
-            /*default:
-                std::cout<<"Default ma gueule"<<std::endl;
-                break;*/
             }
         }
-        if((int)bindin->m_events.size() == bindin->c){
-            auto callItr = m_callbacks.find(bindin->m_name);
-            if(callItr != m_callbacks.end())
+        if (bindin->m_events.size() == bindin->c){
+            //Permet d'obtenir la map de l'etat actuel
+            auto stateCallbacks = m_callbacks.find(m_currentState);
+            //Permet d'obtenir la map lorsque la valeur de l'etat dans l'enumeration vaudra 0
+            //Ce dernier n'est pas un etat valide parce que l'enumeration commence a 1
+            //Ceci est fait parce que nous voulons toujours traiter les callbacks generaux notamment pour la classe Window
+            //et pour toutes les autres classes qui depassent la porte des etats simples et qui persiste tout au long de la durée de vie de l'application
+            //Tout etat de type 0 sera invoque peu importe l'etat dans lequel nous sommes
+            auto otherCallbacks = m_callbacks.find(StateType(0));
+            if (stateCallbacks != m_callbacks.end())
             {
-                callItr->second(&bindin->m_details);
+                auto callItr = stateCallbacks->second.find(bindin->m_name);
+                //Recherche dans la seconde map afin de trouver une correspondance
+                if (callItr != stateCallbacks->second.end())
+                {
+                    // Pass in information about events.
+                    callItr->second(&bindin->m_details);
+                }
+            }
+            if (otherCallbacks != m_callbacks.end()){
+                auto callItr = otherCallbacks->second.find(bindin->m_name);
+                if (callItr != otherCallbacks->second.end())
+                {
+                    // Pass in information about events.
+                    callItr->second(&bindin->m_details);
+                }
             }
         }
         bindin->c =0;
@@ -233,4 +246,14 @@ void EventManager::LoadBindings()
         bindin = nullptr;
     }
     bindings.close();
+}
+//Change l'etat actuel
+void EventManager::SetCurrentState(const StateType& l_type)
+{
+    m_currentState = l_type;
+}
+//Retourne l'etat actuel
+StateType EventManager::GetCurrentState() const
+{
+    return m_currentState;
 }

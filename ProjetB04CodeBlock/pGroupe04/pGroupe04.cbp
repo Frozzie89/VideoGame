@@ -57,6 +57,13 @@
 		<Unit filename="include/Entity/Shield.h" />
 		<Unit filename="include/EventManager.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/SharedContext.h" />
+		<Unit filename="include/State/BaseState.h" />
+		<Unit filename="include/State/StateType.h" />
+		<Unit filename="include/State/State_Game.h" />
+		<Unit filename="include/State/State_Intro.h" />
+		<Unit filename="include/State/State_MainMenu.h" />
+		<Unit filename="include/StateManager.h" />
 		<Unit filename="include/Window.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Cards/Card.cpp" />
@@ -73,6 +80,12 @@
 		<Unit filename="src/Entity/Shield.cpp" />
 		<Unit filename="src/EventManager.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/State/BaseState.cpp" />
+		<Unit filename="src/State/StateType.cpp" />
+		<Unit filename="src/State/State_Game.cpp" />
+		<Unit filename="src/State/State_Intro.cpp" />
+		<Unit filename="src/State/State_MainMenu.cpp" />
+		<Unit filename="src/StateManager.cpp" />
 		<Unit filename="src/Window.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

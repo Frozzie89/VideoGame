@@ -25,10 +25,3 @@ void DefensiveCardWarrior::activateEffect()
 {
     // Todo
 }
-
-void Card::draw(sf::RenderTarget& target, sf::RenderStates states)
-{
-    m_texture.loadFromFile(path);
-    //m_sprite.setTexture(m_texture,states);
-    target.draw(m_sprite, states);
-}

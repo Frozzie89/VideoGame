@@ -2,9 +2,8 @@
 #define CARD_PGROUPE04_H
 #include <string>
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
 
-class Card : public sf::Drawable
+class Card
 {
 private:
     std::string label, path;
@@ -39,7 +38,6 @@ public:
 
     void HandleInput();
 
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) =0;
 };
 
 #endif // CARD_PGROUPE04_H

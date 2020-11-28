@@ -34,8 +34,8 @@ void Window::SetUp(const std::string& l_title, const sf::Vector2u& l_size)
     Create();
     //Ajout suit à l'implementation de EventManager
     m_isFocused = true;
-    m_eventManager.AddCallback("Fullscreen_toggle",&Window::ToggleFullscreen,this);
-    m_eventManager.AddCallback("Window_close",&Window::Close,this);
+    m_eventManager.AddCallback(m_eventManager.GetCurrentState(),"Fullscreen_toggle",&Window::ToggleFullscreen,this);
+    m_eventManager.AddCallback(m_eventManager.GetCurrentState(),"Window_close",&Window::Close,this);
 }
 // Sert a fermer la fenetre
 void Window::Destroy()
@@ -86,6 +86,8 @@ void Window::Update()
         else if(event.type == sf::Event::GainedFocus){
             m_isFocused = true;
             m_eventManager.SetFocus(true);
+        }else if(event.type == sf::Event::Closed){
+            Close();
         }
         m_eventManager.HandleEvent(event);
     }
