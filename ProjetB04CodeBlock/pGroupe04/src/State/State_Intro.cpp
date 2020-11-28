@@ -26,13 +26,13 @@ void State_Intro::OnCreate()
     m_font.loadFromFile("assets/font/superboom.ttf");
     m_text.setFont(m_font);
     m_text.setString("Press SPACE to continue");
-    m_text.setColor(sf::Color(209, 222, 27, 255));
-    m_text.setCharacterSize(15);
-    m_text.setOutlineColor(sf::Color(255, 255, 255, 255));
-    m_text.setOutlineThickness(0.5f);
+    m_text.setColor(sf::Color(239, 195, 46, 255));
+    m_text.setCharacterSize(50);
+    m_text.setOutlineColor(sf::Color(239, 200, 27, 255));
+    m_text.setOutlineThickness(1.0f);
     sf::FloatRect textRect = m_text.getLocalBounds();
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    m_text.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f + 150.0f);
+    m_text.setPosition(windowSize.x / 2.0f, windowSize.y - 50.0f);
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
     evMgr->AddCallback(StateType::Intro, "Intro_Continue", &State_Intro::Continue, this);
 }
