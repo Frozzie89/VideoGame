@@ -20,7 +20,12 @@ OffensiveCardGambler *OffensiveCardGambler::clone() const
     return new OffensiveCardGambler(*this);
 }
 
-void OffensiveCardGambler::activateEffect(Entity &entity)
+int OffensiveCardGambler::activateEffect(Entity &entity)
 {
     // Todo
+}
+
+std::string OffensiveCardGambler::getClassName() const
+{
+    return "OffsensiveCardGambler";
 }

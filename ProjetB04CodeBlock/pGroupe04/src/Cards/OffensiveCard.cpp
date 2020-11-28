@@ -14,3 +14,8 @@ OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
     }
     return *this;
 }
+
+std::string OffensiveCard::getClassName() const
+{
+    return "OffsensiveCard";
+}

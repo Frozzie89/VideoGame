@@ -7,15 +7,15 @@
 
 class Entity
 {
+private:
+    Characteristics m_entityCaracteristics; //Liste de caracteristiques de l'entite
+    bool m_turn;                            //Permet de savoir s'il s'agit du tour de l'entite
+
 public:
     Entity();
     virtual ~Entity();
     Entity(const Entity &other);
     Entity &operator=(const Entity &other);
-
-private:
-    Characteristics m_entityCaracteristics; //Liste de caracteristiques de l'entite
-    bool m_turn;                            //Permet de savoir s'il s'agit du tour de l'entite
 
     //Methode a redefinir dans les sous-classes
     virtual void action() = 0; //Permet d'executer une action

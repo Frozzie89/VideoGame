@@ -21,7 +21,12 @@ DefensiveCardGambler *DefensiveCardGambler::clone() const
     return new DefensiveCardGambler(*this);
 }
 
-void DefensiveCardGambler::activateEffect()
+int DefensiveCardGambler::activateEffect()
 {
     // Todo
+}
+
+std::string DefensiveCardGambler::getClassName() const
+{
+    return "DefensiveCardGambler";
 }

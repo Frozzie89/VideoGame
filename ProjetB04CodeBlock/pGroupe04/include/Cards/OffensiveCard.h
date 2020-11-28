@@ -13,8 +13,9 @@ public:
     OffensiveCard(const OffensiveCard &other);
     OffensiveCard &operator=(const OffensiveCard &rhs);
 
-    virtual void activateEffect(Entity &entity) = 0;
+    virtual int activateEffect(Entity &entity) = 0;
     virtual OffensiveCard *clone() const = 0;
+    virtual std::string getClassName() const;
 };
 
 #endif // OFFENSIVECARD_PGROUPE04_H

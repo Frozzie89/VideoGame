@@ -12,8 +12,9 @@ public:
     OffensiveCardWarrior(const OffensiveCardWarrior &other);
     OffensiveCardWarrior &operator=(const OffensiveCardWarrior &rhs);
 
-    void activateEffect(Entity &entity);
+    int activateEffect(Entity &entity);
     OffensiveCardWarrior *clone() const;
+    std::string getClassName() const;
 };
 
 #endif // OFFENSIVECARDWARRIOR_PGROUPE04_H

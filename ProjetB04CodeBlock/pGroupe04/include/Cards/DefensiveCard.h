@@ -19,8 +19,9 @@ public:
     void setIsHealth(const bool isHealth);
 
     std::string str() const;
-    virtual void activateEffect() = 0;
+    virtual int activateEffect() = 0;
     virtual DefensiveCard *clone() const = 0;
+    virtual std::string getClassName() const;
 };
 
 #endif // DEFENSIVECARD_PGROUPE04_H

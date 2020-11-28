@@ -91,6 +91,11 @@ bool Card::checkCollision()
     return false;
 }
 
+std::string Card::getClassName() const
+{
+    return "Card";
+}
+
 void Card::Move(sf::RenderWindow &l_window)
 {
 }

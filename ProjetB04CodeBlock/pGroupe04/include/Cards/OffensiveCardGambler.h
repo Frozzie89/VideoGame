@@ -12,8 +12,9 @@ public:
     OffensiveCardGambler(const OffensiveCardGambler &other);
     OffensiveCardGambler &operator=(const OffensiveCardGambler &rhs);
 
-    void activateEffect(Entity &entity);
-    virtual OffensiveCardGambler *clone() const;
+    int activateEffect(Entity &entity);
+    OffensiveCardGambler *clone() const;
+    std::string getClassName() const;
 };
 
 #endif // OFFENSIVECARDGAMBLER_PGROUPE04_H

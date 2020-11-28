@@ -33,3 +33,8 @@ void DefensiveCard::setIsHealth(const bool isHealth)
 {
     this->isHealth = isHealth;
 }
+
+std::string DefensiveCard::getClassName() const
+{
+    return "DefensiveCard";
+}
