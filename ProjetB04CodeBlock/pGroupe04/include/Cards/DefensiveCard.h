@@ -18,7 +18,7 @@ public:
     bool getIsHealth() const;
     void setIsHealth(const bool isHealth);
 
-    std::string str()const;
+    std::string str() const;
     virtual void activateEffect() = 0;
     virtual DefensiveCard *clone() const = 0;
 };

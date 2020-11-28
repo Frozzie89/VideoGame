@@ -5,19 +5,19 @@
 
 class Health : public Characteristic
 {
-    public:
-        Health(int l_health);
-        virtual ~Health();
-        Health(const Health& other);
-        Health& operator=(const Health& other);
+public:
+    Health(int l_health);
+    virtual ~Health();
+    Health(const Health &other);
+    Health &operator=(const Health &other);
 
-        //Methodes heritees
-        std::string str() const;
-        std::string getClassName() const;
+    //Methodes heritees
+    std::string str() const;
+    std::string getClassName() const;
 
-        Health* clone() const{ return new Health(*this);}
+    Health *clone() const { return new Health(*this); }
 
-    private:
+private:
 };
 
 #endif // HEALTH_H

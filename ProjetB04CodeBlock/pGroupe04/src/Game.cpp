@@ -4,7 +4,7 @@
     On va ensuite instancier notre sprite en passant par le chargement de sa texture
 
 */
-Game::Game() : m_window("Duck the issue !", sf::Vector2u(800, 600)),m_stateManager(&m_context)
+Game::Game() : m_window("Duck the issue !", sf::Vector2u(800, 600)), m_stateManager(&m_context)
 {
     //ctor
     //m_texturePicture.loadFromFile("chapitre5.jpg");
@@ -35,9 +35,9 @@ void Game::Update()
 //Permet d'afficher des elements
 void Game::Render()
 {
-    m_window.BeginDraw();     // Ou clear
-     m_stateManager.Draw(); // Dessine le sprite
-    m_window.EndDraw();       // Display
+    m_window.BeginDraw();  // Ou clear
+    m_stateManager.Draw(); // Dessine le sprite
+    m_window.EndDraw();    // Display
 }
 // Permet de recuperer la fenetre
 Window *Game::GetWindow()
@@ -59,15 +59,14 @@ void Game::RestartClock()
         m_elapsed -= sf::seconds(frametime);
     }
 }
-void Game::MoveSprite(EventDetails* l_details)
+void Game::MoveSprite(EventDetails *l_details)
 {
     //while(sf::Mouse::isButtonPressed)
     //{
-        sf::Vector2i mousepos = m_window.GetEventManager()->GetMousePos(m_window.GetRenderWindow());
-        m_picture.setPosition(mousepos.x,mousepos.y);
-        std::cout<<"Moving sprite to: "<<mousepos.x<<":"<<mousepos.y<<std::endl;
+    sf::Vector2i mousepos = m_window.GetEventManager()->GetMousePos(m_window.GetRenderWindow());
+    m_picture.setPosition(mousepos.x, mousepos.y);
+    std::cout << "Moving sprite to: " << mousepos.x << ":" << mousepos.y << std::endl;
     //}
-
 }
 void Game::LateUpdate()
 {

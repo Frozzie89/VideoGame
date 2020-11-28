@@ -9,28 +9,33 @@ Characteristics::Characteristics()
 Characteristics::~Characteristics()
 {
     //dtor
-    for(int i=0; i< (int)m_characteristics.size();i++){
-           delete m_characteristics[i];
+    for (int i = 0; i < (int)m_characteristics.size(); i++)
+    {
+        delete m_characteristics[i];
     }
 }
 //Constructeur de copie
-Characteristics::Characteristics(const Characteristics& other)
+Characteristics::Characteristics(const Characteristics &other)
 {
     //copy ctor
-    for(int i=0; i< (int)other.m_characteristics.size();i++){
+    for (int i = 0; i < (int)other.m_characteristics.size(); i++)
+    {
         m_characteristics.push_back(other.m_characteristics[i]->clone());
     }
 }
 //Operateur d'affectation
-Characteristics& Characteristics::operator=(const Characteristics& rhs)
+Characteristics &Characteristics::operator=(const Characteristics &rhs)
 {
-    if (this == &rhs){
-        for(int i =0; i<(int)m_characteristics.size();i++){
-           delete m_characteristics[i];
+    if (this == &rhs)
+    {
+        for (int i = 0; i < (int)m_characteristics.size(); i++)
+        {
+            delete m_characteristics[i];
         }
         m_characteristics.clear();
 
-        for(int i=0; i< (int)rhs.m_characteristics.size();i++){
+        for (int i = 0; i < (int)rhs.m_characteristics.size(); i++)
+        {
             m_characteristics.push_back(rhs.m_characteristics[i]->clone());
         }
     }
@@ -38,19 +43,21 @@ Characteristics& Characteristics::operator=(const Characteristics& rhs)
     return *this;
 }
 //Permet d'ajouter une caracteristique a la liste
-void Characteristics::AddCharacteristic(Characteristic* l_characteristic)
+void Characteristics::AddCharacteristic(Characteristic *l_characteristic)
 {
-    if(SearchCharacteristic(*l_characteristic) == -1){
+    if (SearchCharacteristic(*l_characteristic) == -1)
+    {
         m_characteristics.push_back(l_characteristic->clone());
     }
 }
 //Permet de supprimer une caracteristique de la liste
-void Characteristics::DeleteCharacteristic(Characteristic& l_characteristic)
+void Characteristics::DeleteCharacteristic(Characteristic &l_characteristic)
 {
     int ind = SearchCharacteristic(l_characteristic);
-    if(ind != -1){
-        Characteristic* tmp = *(m_characteristics.begin()+ind);
-        m_characteristics.erase(m_characteristics.begin()+ind);
+    if (ind != -1)
+    {
+        Characteristic *tmp = *(m_characteristics.begin() + ind);
+        m_characteristics.erase(m_characteristics.begin() + ind);
         delete tmp;
     }
 }
@@ -58,16 +65,19 @@ void Characteristics::DeleteCharacteristic(Characteristic& l_characteristic)
 std::string Characteristics::getCharacteristics() const
 {
     std::string tmp = "";
-    for(int i =0; i<(int)m_characteristics.size();i++){
-        tmp += m_characteristics[i]->str()+"\n";
+    for (int i = 0; i < (int)m_characteristics.size(); i++)
+    {
+        tmp += m_characteristics[i]->str() + "\n";
     }
     return tmp;
 }
 //Permet de chercher une caracteristique dans la liste. Si elle est la, renvoie son indice, sinon, -1
-int Characteristics::SearchCharacteristic(Characteristic& l_characteristic)
+int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)
 {
-    for(int i=0; i<(int)m_characteristics.size();i++){
-        if(m_characteristics[i]->getClassName() == l_characteristic.getClassName()){
+    for (int i = 0; i < (int)m_characteristics.size(); i++)
+    {
+        if (m_characteristics[i]->getClassName() == l_characteristic.getClassName())
+        {
             return i;
         }
     }

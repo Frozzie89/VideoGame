@@ -3,14 +3,14 @@
 Window::Window()
 {
     //ctor
-    SetUp("Window",sf::Vector2u(640,480));
+    SetUp("Window", sf::Vector2u(640, 480));
 }
 /*Constructeur avec parametres
     l_title -> Le titre de l'écran || l_size -> La taille de l'écran
 */
-Window::Window(const std::string& l_title, const sf::Vector2u& l_size)
+Window::Window(const std::string &l_title, const sf::Vector2u &l_size)
 {
-    SetUp(l_title,l_size);
+    SetUp(l_title, l_size);
 }
 /* Destructeur
     Destroy -> sert à fermer la fenetre
@@ -25,7 +25,7 @@ Window::~Window()
     m_isFullscreen -> Indique si on est en fullscreen ou non || m_isDone -> sert à savoir si on en a fini avec la fenetre
     On fait appel a la methode Create pour creer la fenetre
 */
-void Window::SetUp(const std::string& l_title, const sf::Vector2u& l_size)
+void Window::SetUp(const std::string &l_title, const sf::Vector2u &l_size)
 {
     m_windowTitle = l_title;
     m_windowSize = l_size;
@@ -34,8 +34,8 @@ void Window::SetUp(const std::string& l_title, const sf::Vector2u& l_size)
     Create();
     //Ajout suit à l'implementation de EventManager
     m_isFocused = true;
-    m_eventManager.AddCallback(m_eventManager.GetCurrentState(),"Fullscreen_toggle",&Window::ToggleFullscreen,this);
-    m_eventManager.AddCallback(m_eventManager.GetCurrentState(),"Window_close",&Window::Close,this);
+    m_eventManager.AddCallback(m_eventManager.GetCurrentState(), "Fullscreen_toggle", &Window::ToggleFullscreen, this);
+    m_eventManager.AddCallback(m_eventManager.GetCurrentState(), "Window_close", &Window::Close, this);
 }
 // Sert a fermer la fenetre
 void Window::Destroy()
@@ -53,11 +53,9 @@ void Window::Destroy()
 void Window::Create()
 {
     auto style = (m_isFullscreen ? sf::Style::Fullscreen : sf::Style::Default); //----> LE DEMON !!!!
-    m_window.create({
-                        m_windowSize.x,
-                        m_windowSize.y,
-                        32
-                    },
+    m_window.create({m_windowSize.x,
+                     m_windowSize.y,
+                     32},
                     m_windowTitle,
                     style);
 }
@@ -78,15 +76,20 @@ void Window::EndDraw()
 void Window::Update()
 {
     sf::Event event;
-    while(m_window.pollEvent(event)){
-        if(event.type == sf::Event::LostFocus){
+    while (m_window.pollEvent(event))
+    {
+        if (event.type == sf::Event::LostFocus)
+        {
             m_isFocused = false;
             m_eventManager.SetFocus(false);
         }
-        else if(event.type == sf::Event::GainedFocus){
+        else if (event.type == sf::Event::GainedFocus)
+        {
             m_isFocused = true;
             m_eventManager.SetFocus(true);
-        }else if(event.type == sf::Event::Closed){
+        }
+        else if (event.type == sf::Event::Closed)
+        {
             Close();
         }
         m_eventManager.HandleEvent(event);
@@ -109,7 +112,7 @@ sf::Vector2u Window::GetWindowSize()
     return m_windowSize;
 }
 // Retourne la fenetre
-sf::RenderWindow* Window::GetRenderWindow()
+sf::RenderWindow *Window::GetRenderWindow()
 {
     return &m_window;
 }
@@ -121,7 +124,7 @@ void Window::ToggleFullscreen()
     Create();
 }
 //Permet de dessiner un element drawable dans la fenetre
-void Window::Draw(sf::Drawable& l_drawable)
+void Window::Draw(sf::Drawable &l_drawable)
 {
     m_window.draw(l_drawable);
 }
@@ -130,18 +133,16 @@ bool Window::isFocused()
     return m_isFocused;
 }
 
-EventManager* Window::GetEventManager()
+EventManager *Window::GetEventManager()
 {
     return &m_eventManager;
 }
 
-void Window::ToggleFullscreen(EventDetails* l_details)
+void Window::ToggleFullscreen(EventDetails *l_details)
 {
-
 }
 
-void Window::Close(EventDetails* l_details)
+void Window::Close(EventDetails *l_details)
 {
     m_isDone = true;
 }
-

@@ -24,4 +24,3 @@ void OffensiveCardGambler::activateEffect(Entity &entity)
 {
     // Todo
 }
-

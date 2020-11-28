@@ -1,6 +1,6 @@
 #include "Entity/Characteristic.h"
 //Constructeur
-Characteristic::Characteristic(int l_value): m_value(l_value)
+Characteristic::Characteristic(int l_value) : m_value(l_value)
 {
     //ctor
 }
@@ -10,14 +10,15 @@ Characteristic::~Characteristic()
     //dtor
 }
 //Constructeur de copie
-Characteristic::Characteristic(const Characteristic& other)
+Characteristic::Characteristic(const Characteristic &other)
 {
     m_value = other.m_value;
 }
 //Operateur d'affection
-Characteristic& Characteristic::operator=(const Characteristic& other)
+Characteristic &Characteristic::operator=(const Characteristic &other)
 {
-    if(this != &other){
+    if (this != &other)
+    {
         m_value = other.m_value;
     }
     return *this;
@@ -33,6 +34,7 @@ void Characteristic::LowerValue(int l_value)
     m_value -= l_value;
 }
 //Retourne la valeur interne
-int Characteristic::GetValue() const{
+int Characteristic::GetValue() const
+{
     return m_value;
 }

@@ -26,7 +26,7 @@ public:
     int getValue() const;
     void setValue(const int value);
 
-    sf::Vector2f GetPosition(); // Retourne la position de la carte
+    sf::Vector2f GetPosition();                // Retourne la position de la carte
     void SetPosition(sf::Vector2f l_position); // Modifie la position de la carte
 
     virtual std::string str() const;
@@ -34,10 +34,9 @@ public:
 
     bool checkCollision();
 
-    void Move(sf::RenderWindow& l_window);
+    void Move(sf::RenderWindow &l_window);
 
     void HandleInput();
-
 };
 
 #endif // CARD_PGROUPE04_H

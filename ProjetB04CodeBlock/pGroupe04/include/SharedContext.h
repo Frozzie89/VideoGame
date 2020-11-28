@@ -7,12 +7,14 @@
 #include <iostream>
 using namespace std;
 //Permet d'avoir en un seul element les elements les plus utilisé
-struct SharedContext{
-    SharedContext():m_wind(nullptr),m_eventManager(nullptr){
-        cout<<"SharedContext"<<endl;
+struct SharedContext
+{
+    SharedContext() : m_wind(nullptr), m_eventManager(nullptr)
+    {
+        cout << "SharedContext" << endl;
     }
-    Window* m_wind;
-    EventManager* m_eventManager;
+    Window *m_wind;
+    EventManager *m_eventManager;
 };
 
 #endif // SHAREDCONTEXT_H

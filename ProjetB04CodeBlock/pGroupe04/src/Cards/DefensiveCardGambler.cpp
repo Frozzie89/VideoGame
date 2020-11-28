@@ -25,4 +25,3 @@ void DefensiveCardGambler::activateEffect()
 {
     // Todo
 }
-

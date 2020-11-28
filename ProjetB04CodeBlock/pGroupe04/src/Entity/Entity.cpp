@@ -7,17 +7,17 @@ Entity::Entity()
 //Destructeur
 Entity::~Entity()
 {
-
 }
 //Constructeur de copie
-Entity::Entity(const Entity& other)
+Entity::Entity(const Entity &other)
 {
     m_turn = other.m_turn;
 }
 //operateur d'affectation
-Entity& Entity::operator=(const Entity& rhs)
+Entity &Entity::operator=(const Entity &rhs)
 {
-    if(this != &rhs){
+    if (this != &rhs)
+    {
         m_turn = rhs.m_turn;
     }
     return *this;
@@ -33,7 +33,8 @@ void Entity::setTurn()
     m_turn = !m_turn;
 }
 
-std::string Entity::getClassName()const{
+std::string Entity::getClassName() const
+{
     return "Entity";
 }
 

@@ -24,4 +24,3 @@ void OffensiveCardWarrior::activateEffect(Entity &entity)
 {
     // Todo
 }
-

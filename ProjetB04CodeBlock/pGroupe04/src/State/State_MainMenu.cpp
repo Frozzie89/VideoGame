@@ -9,29 +9,31 @@ void State_MainMenu::OnCreate()
     m_timePassed = 0.0f;
     m_font.loadFromFile("assets/font/superboom.ttf");
     m_text.setFont(m_font);
-    m_text.setString(sf::String("DUCK THE ISSUE :"));
-    m_text.setCharacterSize(18);
+    m_text.setString(sf::String("Play as a ..."));
+    m_text.setCharacterSize(25);
+
+    m_hint.setFont(m_font);
+    m_hint.setString(sf::String(""));
+    m_hint.setCharacterSize(18);
+
+    sf::Vector2u windowSize = m_stateMgr->GetContext()->m_wind->GetRenderWindow()->getSize();
 
     sf::FloatRect textRect = m_text.getLocalBounds();
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
     m_text.setPosition(400, 100);
 
-    //Easter EGG pas tres cache
-    m_Easter.setFont(m_font);
-    m_Easter.setString(sf::String("MAIS TU VAS TE DEPECHER???"));
-    m_Easter.setCharacterSize(32);
-    sf::FloatRect textEaster = m_Easter.getLocalBounds();
-    m_Easter.setOrigin(textEaster.left + textEaster.width / 2.0f, textEaster.top + textEaster.height / 2.0f);
-    m_Easter.setPosition(400, 400);
+    sf::FloatRect textRectHint = m_hint.getLocalBounds();
+    m_hint.setOrigin(textRectHint.left + textRectHint.width / 2.0f, textRectHint.top + textRectHint.height / 2.0f);
+    m_hint.setPosition(100, windowSize.y / 2.0f + 150);
 
     //Gestion des parametres des differents boutons
-    m_buttonSize = sf::Vector2f(300.0f, 32.0f);
+    m_buttonSize = sf::Vector2f(600.0f, 64.0f);
     m_buttonPos = sf::Vector2f(400, 200);
     m_buttonPadding = 4; //4 pour 4px
 
     std::string str[3];
-    str[0] = "Play as a Warrior";
-    str[1] = "Play as a Gambler";
+    str[0] = "Warrior";
+    str[1] = "Gambler";
     str[2] = "Quit";
 
     for (int i = 0; i < 3; ++i)
@@ -45,26 +47,16 @@ void State_MainMenu::OnCreate()
         //Caracteristiques du label relatif au "bouton"
         m_labels[i].setFont(m_font);
         m_labels[i].setString(sf::String(str[i]));
-        m_labels[i].setCharacterSize(12);
+        m_labels[i].setCharacterSize(25);
 
         //Placement du label
         sf::FloatRect rect = m_labels[i].getLocalBounds();
 
         //Position et origine du "bouton"
-        if (i <= 1)
-        {
-            m_rects[i].setOrigin(m_buttonSize.x / 2.0f, m_buttonSize.y / 2.0f);
-            m_rects[i].setPosition(buttonPosition);
-            m_labels[i].setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
-            m_labels[i].setPosition(buttonPosition);
-        }
-        else
-        {
-            m_rects[i].setOrigin(m_buttonSize.x / 2.0f, m_buttonSize.y / 2.0f);
-            m_rects[i].setPosition(buttonPosition.x, buttonPosition.y + 50);
-            m_labels[i].setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
-            m_labels[i].setPosition(buttonPosition.x, buttonPosition.y + 50);
-        }
+        m_rects[i].setOrigin(m_buttonSize.x / 2.0f, m_buttonSize.y / 2.0f);
+        m_rects[i].setPosition(buttonPosition.x, buttonPosition.y + (i <= 1 ? 0 : 50));
+        m_labels[i].setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
+        m_labels[i].setPosition(buttonPosition.x, buttonPosition.y + (i <= 1 ? 0 : 50));
     }
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
     evMgr->AddCallback(StateType::MainMenu, "Mouse_Left", &State_MainMenu::MouseClick, this);
@@ -91,6 +83,8 @@ void State_MainMenu::Deactivate() {}
 
 void State_MainMenu::Update(const sf::Time &l_time)
 {
+    MouseHover();
+
     if (m_timePassed < 100.0f)
         m_timePassed += l_time.asSeconds();
 }
@@ -99,14 +93,13 @@ void State_MainMenu::Draw()
 {
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     window->draw(m_text);
+    window->draw(m_hint);
+
     for (int i = 0; i < 3; ++i)
     {
         window->draw(m_rects[i]);
         window->draw(m_labels[i]);
     }
-
-    if (m_timePassed > 100.0f)
-        window->draw(m_Easter);
 }
 //Va permettre de gerer les clicks de souris
 void State_MainMenu::MouseClick(EventDetails *l_details)
@@ -140,6 +133,31 @@ void State_MainMenu::MouseClick(EventDetails *l_details)
                 cout << "QUIT THE GAME" << endl;
                 m_stateMgr->GetContext()->m_wind->Close();
             }
+        }
+    }
+}
+
+void State_MainMenu::MouseHover()
+{
+    sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
+    sf::Vector2i mousePos = sf::Mouse::getPosition(*window);
+
+    m_hint.setString(sf::String(""));
+
+    float halfX = m_buttonSize.x / 2.0f;
+    float halfY = m_buttonSize.y / 2.0f;
+    for (int i = 0; i < 3; ++i)
+    {
+        if (mousePos.x >= m_rects[i].getPosition().x - halfX && mousePos.x <= m_rects[i].getPosition().x + halfX && mousePos.y >= m_rects[i].getPosition().y - halfY && mousePos.y <= m_rects[i].getPosition().y + halfY)
+        {
+            if (i == 0)
+                m_hint.setString(sf::String("Basic Warrior cards, deals normal damages"));
+
+            else if (i == 1)
+                m_hint.setString(sf::String("Gambler's cards deals more damage, but have 50\% of failing"));
+
+            else
+                m_hint.setString(sf::String(""));
         }
     }
 }

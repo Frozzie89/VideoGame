@@ -4,7 +4,7 @@
 Card::Card(std::string label, std::string path, int costAction, int value) : label(label), path(path), costAction(costAction), value(value)
 {
 
-        //m_sprite.setScale(0.5,0.5);
+    //m_sprite.setScale(0.5,0.5);
 }
 
 Card::~Card() {}
@@ -91,7 +91,6 @@ bool Card::checkCollision()
     return false;
 }
 
-void Card::Move(sf::RenderWindow& l_window)
+void Card::Move(sf::RenderWindow &l_window)
 {
-
 }
