@@ -108,7 +108,7 @@ void State_MainMenu::Draw()
     if (m_timePassed > 100.0f)
         window->draw(m_Easter);
 }
-//Va permettre de gere les clicks de souris
+//Va permettre de gerer les clicks de souris
 void State_MainMenu::MouseClick(EventDetails *l_details)
 {
     sf::Vector2i mousePos = l_details->m_mouse;
