@@ -93,5 +93,5 @@
         <Extensions>
             <lib_finder disable_auto="1" />
         </Extensions>
-    </Project>
+    <Unit filename="include/Entity/Gambler.h" /><Unit filename="src/Entity/Gambler.cpp" /></Project>
 </CodeBlocks_project_file>

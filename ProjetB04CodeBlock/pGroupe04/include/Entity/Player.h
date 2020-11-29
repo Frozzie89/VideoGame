@@ -14,14 +14,15 @@ private:
 public:
     Player();
     Player(int actionPoints);
+    Player(int actionPoints, int health, int shield);
     virtual ~Player();
     Player(const Player &other);
     Player &operator=(const Player &rhs);
 
     int getActionPoints() const;
     void setActionPoints(const int actionPoints);
-    virtual void useCard(DefensiveCard &card);
-    virtual void useCard(OffensiveCard &card, Entity &enemy);
+    virtual std::string useCard(DefensiveCard &card);
+    virtual std::string useCard(OffensiveCard &card, Entity &enemy);
     virtual void action();
     virtual std::string getClassName() const;
 };

@@ -21,3 +21,19 @@ std::string Warrior::getClassName() const
 {
     return "Warrior";
 }
+
+std::string Warrior::useCard(DefensiveCard &card)
+{
+    return Player::useCard(card);
+}
+
+std::string Warrior::useCard(OffensiveCard &card, Entity &enemy)
+{
+    return Player::useCard(card, enemy);
+}
+
+void Warrior::action()
+{
+    // Todo
+    // Lucien dit : cette méthode ne me semble pas utile
+}

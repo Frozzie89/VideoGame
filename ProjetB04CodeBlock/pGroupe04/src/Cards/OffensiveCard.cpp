@@ -15,6 +15,10 @@ OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
     return *this;
 }
 
+int OffensiveCard::activateEffect(Entity &entity)
+{
+}
+
 std::string OffensiveCard::getClassName() const
 {
     return "OffsensiveCard";

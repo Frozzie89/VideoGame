@@ -1,4 +1,5 @@
 #include "Entity/Entity.h"
+
 //Constructeur
 Entity::Entity()
 {

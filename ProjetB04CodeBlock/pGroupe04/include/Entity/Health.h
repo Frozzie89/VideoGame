@@ -6,7 +6,7 @@
 class Health : public Characteristic
 {
 public:
-    Health(int l_health);
+    Health(int l_health = 100);
     virtual ~Health();
     Health(const Health &other);
     Health &operator=(const Health &other);

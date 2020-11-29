@@ -21,6 +21,7 @@ Characteristic &Characteristic::operator=(const Characteristic &other)
     {
         m_value = other.m_value;
     }
+
     return *this;
 }
 //Augmente de la valeur interne d'une valeur passée en argument

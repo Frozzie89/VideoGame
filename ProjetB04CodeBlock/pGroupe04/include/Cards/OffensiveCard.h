@@ -13,7 +13,7 @@ public:
     OffensiveCard(const OffensiveCard &other);
     OffensiveCard &operator=(const OffensiveCard &rhs);
 
-    virtual int activateEffect(Entity &entity) = 0;
+    virtual int activateEffect(Entity &entity);
     virtual OffensiveCard *clone() const = 0;
     virtual std::string getClassName() const;
 };

@@ -46,9 +46,7 @@ Characteristics &Characteristics::operator=(const Characteristics &rhs)
 void Characteristics::AddCharacteristic(Characteristic *l_characteristic)
 {
     if (SearchCharacteristic(*l_characteristic) == -1)
-    {
         m_characteristics.push_back(l_characteristic->clone());
-    }
 }
 //Permet de supprimer une caracteristique de la liste
 void Characteristics::DeleteCharacteristic(Characteristic &l_characteristic)
@@ -77,9 +75,7 @@ int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)
     for (int i = 0; i < (int)m_characteristics.size(); i++)
     {
         if (m_characteristics[i]->getClassName() == l_characteristic.getClassName())
-        {
             return i;
-        }
     }
     return -1;
 }

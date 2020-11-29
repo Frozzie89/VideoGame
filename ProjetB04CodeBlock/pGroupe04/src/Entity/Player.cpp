@@ -1,7 +1,24 @@
+#include <sstream>
 #include "Entity/Player.h"
 
 Player::Player() {}
-Player::Player(int actionPoints) : actionPoints(actionPoints) {}
+Player::Player(int actionPoints) : actionPoints(actionPoints)
+{
+    Shield shieldPlayer;
+    Health healthPlayer;
+
+    Entity::AddShield(shieldPlayer);
+    Entity::AddHealth(healthPlayer);
+}
+
+Player::Player(int actionPoints, int healthPt, int shieldPt)
+{
+    Shield shieldPlayer(shieldPt);
+    Health healthPlayer(healthPt);
+
+    Entity::AddShield(shieldPlayer);
+    Entity::AddHealth(healthPlayer);
+}
 
 Player::~Player() {}
 
@@ -28,30 +45,41 @@ void Player::setActionPoints(const int actionPoints)
 }
 
 // For Defensive Cards
-void Player::useCard(DefensiveCard &card)
+std::string Player::useCard(DefensiveCard &card)
 {
+    int ptEffect = card.activateEffect();
+    std::stringstream res;
+
     if (card.getIsHealth())
-    {
-        // Todo -> ajouter de la vie à la caractéristique Health
-        // card.activateEffect()
-    }
+        res << "Le joueur se soigne de "
+            << ptEffect << " PV ";
     else
-    {
-        // Todo -> ajouter de la vie à la caractéristique Shield
-        // card.activateEffect()
-    }
+        res << "Le joueur se donne "
+            << ptEffect << " d'armure ";
+
+    res << "[" << card.getLabel() << "]"
+        << std::endl;
+
+    return res.str();
 }
 
 // For Offensive Cards
-void Player::useCard(OffensiveCard &card, Entity &enemy)
+std::string Player::useCard(OffensiveCard &card, Entity &enemy)
 {
-    // Todo -> accéder aux caractéristiques de l'enemi pour lui retirer des points de vies
-    // card.activateEffect()
+    int ptEffect = card.activateEffect(enemy);
+    std::stringstream res;
+
+    res << "Le " << getClassName() << " inflige " << ptEffect << " dégats à l'enemi ["
+        << card.getLabel() << "]"
+        << std::endl;
+
+    return res.str();
 }
 
 void Player::action()
 {
     // Todo
+    // Lucien dit : me semble pas utile
 }
 
 std::string Player::getClassName() const

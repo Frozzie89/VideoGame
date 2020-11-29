@@ -19,7 +19,7 @@ public:
     void setIsHealth(const bool isHealth);
 
     std::string str() const;
-    virtual int activateEffect() = 0;
+    virtual int activateEffect();
     virtual DefensiveCard *clone() const = 0;
     virtual std::string getClassName() const;
 };
