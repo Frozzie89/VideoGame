@@ -93,5 +93,5 @@
         <Extensions>
             <lib_finder disable_auto="1" />
         </Extensions>
-    <Unit filename="include/Entity/Gambler.h" /><Unit filename="src/Entity/Gambler.cpp" /></Project>
+    <Unit filename="include/Entity/Gambler.h" /><Unit filename="src/Entity/Gambler.cpp" /><Unit filename="include/Factory/AbstractFactory.h" /><Unit filename="src/Factory/AbstractFactory.cpp" /><Unit filename="include/Factory/WarriorFactory.h" /><Unit filename="src/Factory/WarriorFactory.cpp" /><Unit filename="include/Factory/GamblerFactory.h" /><Unit filename="src/Factory/GamblerFactory.cpp" /></Project>
 </CodeBlocks_project_file>

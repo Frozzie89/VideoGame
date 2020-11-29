@@ -15,8 +15,7 @@ public:
 
     virtual std::string useCard(DefensiveCard &card);
     virtual std::string useCard(OffensiveCard &card, Entity &enemy);
-    virtual void action();
-    virtual std::string getClassName() const;
+    std::string getClassName() const;
 };
 
 #endif // WARRIOR_PGROUPE04_H

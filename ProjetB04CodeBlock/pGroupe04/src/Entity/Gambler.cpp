@@ -2,8 +2,6 @@
 #include <sstream>
 #include "Entity/Gambler.h"
 
-Gambler::Gambler(int luck) : luck(luck) {}
-
 Gambler::Gambler(int actionPoints, int luck) : Player(actionPoints), luck(luck) {}
 
 Gambler::~Gambler() {}
@@ -48,12 +46,6 @@ std::string Gambler::useCard(OffensiveCard &card, Entity &enemy)
         << std::endl;
 
     return res.str();
-}
-
-void Gambler::action()
-{
-    // Todo
-    // Lucien dit : cette méthode me semble inutile
 }
 
 bool Gambler::throwDie() const

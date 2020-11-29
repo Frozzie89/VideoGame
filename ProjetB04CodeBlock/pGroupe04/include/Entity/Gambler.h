@@ -9,7 +9,6 @@ private:
     int luck;
 
 public:
-    Gambler(int luck = 50);
     Gambler(int actionPoints, int luck = 50);
     virtual ~Gambler();
     Gambler(const Gambler &other);
@@ -17,9 +16,8 @@ public:
 
     virtual std::string useCard(DefensiveCard &card);
     virtual std::string useCard(OffensiveCard &card, Entity &enemy);
-    virtual void action();
     bool throwDie() const;
-    virtual std::string getClassName() const;
+    std::string getClassName() const;
 };
 
 #endif // GAMBLER_PGROUPE04_H

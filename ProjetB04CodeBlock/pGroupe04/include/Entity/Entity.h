@@ -13,12 +13,11 @@ private:
 
 public:
     Entity();
-    virtual ~Entity();
+    virtual ~Entity() = 0;
     Entity(const Entity &other);
     Entity &operator=(const Entity &other);
 
     //Methode a redefinir dans les sous-classes
-    virtual void action() = 0; //Permet d'executer une action
 
     //Methodes generals
     //Get/Setter

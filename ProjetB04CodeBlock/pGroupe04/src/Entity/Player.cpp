@@ -76,12 +76,6 @@ std::string Player::useCard(OffensiveCard &card, Entity &enemy)
     return res.str();
 }
 
-void Player::action()
-{
-    // Todo
-    // Lucien dit : me semble pas utile
-}
-
 std::string Player::getClassName() const
 {
     return "Player";

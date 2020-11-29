@@ -23,7 +23,6 @@ public:
     void setActionPoints(const int actionPoints);
     virtual std::string useCard(DefensiveCard &card);
     virtual std::string useCard(OffensiveCard &card, Entity &enemy);
-    virtual void action();
     virtual std::string getClassName() const;
 };
 
