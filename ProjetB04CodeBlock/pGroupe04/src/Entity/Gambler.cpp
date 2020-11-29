@@ -2,6 +2,8 @@
 #include <sstream>
 #include "Entity/Gambler.h"
 
+Gambler::Gambler() {}
+
 Gambler::Gambler(int actionPoints, int luck) : Player(actionPoints), luck(luck) {}
 
 Gambler::~Gambler() {}

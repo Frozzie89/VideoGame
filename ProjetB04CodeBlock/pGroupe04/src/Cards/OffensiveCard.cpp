@@ -17,6 +17,7 @@ OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
 
 int OffensiveCard::activateEffect(Entity &entity)
 {
+    // Todo
 }
 
 std::string OffensiveCard::getClassName() const

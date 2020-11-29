@@ -1,8 +1,8 @@
 #include <sstream>
 #include "Entity/Player.h"
 
-Player::Player() {}
-Player::Player(int actionPoints) : actionPoints(actionPoints)
+Player::Player() : Entity() {}
+Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 {
     Shield shieldPlayer;
     Health healthPlayer;
@@ -11,7 +11,7 @@ Player::Player(int actionPoints) : actionPoints(actionPoints)
     Entity::AddHealth(healthPlayer);
 }
 
-Player::Player(int actionPoints, int healthPt, int shieldPt)
+Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity()
 {
     Shield shieldPlayer(shieldPt);
     Health healthPlayer(healthPt);
@@ -22,13 +22,14 @@ Player::Player(int actionPoints, int healthPt, int shieldPt)
 
 Player::~Player() {}
 
-Player::Player(const Player &other) : actionPoints(other.actionPoints) {}
+Player::Player(const Player &other) : Entity(other), actionPoints(other.actionPoints) {}
 
 Player &Player::operator=(const Player &rhs)
 {
     if (this != &rhs)
     {
         actionPoints = rhs.actionPoints;
+        Entity::operator=(rhs);
     }
 
     return *this;
