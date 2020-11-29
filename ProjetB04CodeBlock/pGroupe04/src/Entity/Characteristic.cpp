@@ -15,11 +15,11 @@ Characteristic::Characteristic(const Characteristic &other)
     m_value = other.m_value;
 }
 //Operateur d'affection
-Characteristic &Characteristic::operator=(const Characteristic &other)
+Characteristic &Characteristic::operator=(const Characteristic &rhs)
 {
-    if (this != &other)
+    if (this != &rhs)
     {
-        m_value = other.m_value;
+        m_value = rhs.m_value;
     }
 
     return *this;

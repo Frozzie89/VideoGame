@@ -3,14 +3,19 @@
 #include "Cards/DefensiveCardGambler.h"
 #include "Cards/OffensiveCardGambler.h"
 
-GamblerFactory::GamblerFactory() {}
+GamblerFactory::GamblerFactory() : AbstractFactory() {}
 
 GamblerFactory::~GamblerFactory() {}
 
-GamblerFactory::GamblerFactory(const GamblerFactory &other) {}
+GamblerFactory::GamblerFactory(const GamblerFactory &other) : AbstractFactory(other) {}
 
 GamblerFactory &GamblerFactory::operator=(const GamblerFactory &rhs)
 {
+    if (this != &rhs)
+    {
+        AbstractFactory::operator=(rhs);
+    }
+
     return *this;
 }
 

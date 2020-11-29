@@ -26,7 +26,7 @@ Characteristics::Characteristics(const Characteristics &other)
 //Operateur d'affectation
 Characteristics &Characteristics::operator=(const Characteristics &rhs)
 {
-    if (this == &rhs)
+    if (this != &rhs)
     {
         for (int i = 0; i < (int)m_characteristics.size(); i++)
         {

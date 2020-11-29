@@ -9,7 +9,7 @@ public:
     Shield(int l_shield = 100);
     virtual ~Shield();
     Shield(const Shield &other);
-    Shield &operator=(const Shield &other);
+    Shield &operator=(const Shield &rhs);
 
     //Methodes heritees
     std::string str() const;          //Permet de connaitre les elements de la classe et leur valeur

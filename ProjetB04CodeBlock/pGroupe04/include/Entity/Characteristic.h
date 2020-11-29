@@ -14,7 +14,7 @@ public:
     Characteristic(int l_value = 100);
     virtual ~Characteristic();
     Characteristic(const Characteristic &other);
-    Characteristic &operator=(const Characteristic &other);
+    Characteristic &operator=(const Characteristic &rhs);
 
     void RaiseValue(int l_value); //Augmente de la valeur interne d'une valeur passée en argument
     void LowerValue(int l_value); //Diminue la valeur interne d'une valeur passée en argument

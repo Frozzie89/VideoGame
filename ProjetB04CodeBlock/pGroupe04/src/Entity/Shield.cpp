@@ -17,7 +17,7 @@ Shield::Shield(const Shield &other) : Characteristic(other)
 
 Shield &Shield::operator=(const Shield &rhs)
 {
-    if (this == &rhs)
+    if (this != &rhs)
     {
         Characteristic::operator=(rhs);
     };

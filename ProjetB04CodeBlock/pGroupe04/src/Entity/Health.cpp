@@ -17,7 +17,7 @@ Health::Health(const Health &other) : Characteristic(other)
 //Operateur d'affectation
 Health &Health::operator=(const Health &rhs)
 {
-    if (this == &rhs)
+    if (this != &rhs)
     {
         Characteristic::operator=(rhs);
     }

@@ -15,7 +15,7 @@ public:
     Entity();
     virtual ~Entity() = 0;
     Entity(const Entity &other);
-    Entity &operator=(const Entity &other);
+    Entity &operator=(const Entity &rhs);
 
     //Methode a redefinir dans les sous-classes
 

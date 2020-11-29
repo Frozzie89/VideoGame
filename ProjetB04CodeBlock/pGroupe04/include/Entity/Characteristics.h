@@ -15,7 +15,7 @@ public:
     Characteristics();
     virtual ~Characteristics();
     Characteristics(const Characteristics &other);
-    Characteristics &operator=(const Characteristics &other);
+    Characteristics &operator=(const Characteristics &rhs);
 
     void AddCharacteristic(Characteristic *l_characteristic);    //Permet d'ajouter une caractéristique au vecteur
     void DeleteCharacteristic(Characteristic &l_characteristic); //Permet de supprimer une caractéristique au vecteur

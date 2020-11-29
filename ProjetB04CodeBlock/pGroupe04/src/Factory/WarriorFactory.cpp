@@ -3,14 +3,18 @@
 #include "Cards/OffensiveCardWarrior.h"
 #include "Cards/DefensiveCardWarrior.h"
 
-WarriorFactory::WarriorFactory() {}
+WarriorFactory::WarriorFactory() : AbstractFactory() {}
 
 WarriorFactory::~WarriorFactory() {}
 
-WarriorFactory::WarriorFactory(const WarriorFactory &other) {}
+WarriorFactory::WarriorFactory(const WarriorFactory &other) : AbstractFactory(other) {}
 
 WarriorFactory &WarriorFactory::operator=(const WarriorFactory &rhs)
 {
+    if (this != &rhs)
+    {
+        AbstractFactory::operator=(rhs);
+    }
     return *this;
 }
 

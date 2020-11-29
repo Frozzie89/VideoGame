@@ -9,7 +9,7 @@ public:
     Health(int l_health = 100);
     virtual ~Health();
     Health(const Health &other);
-    Health &operator=(const Health &other);
+    Health &operator=(const Health &rhs);
 
     //Methodes heritees
     std::string str() const;
