@@ -21,9 +21,9 @@ DefensiveCardWarrior *DefensiveCardWarrior::clone() const
     return new DefensiveCardWarrior(*this);
 }
 
-int DefensiveCardWarrior::activateEffect()
+int DefensiveCardWarrior::activateEffect(Entity &entity)
 {
-    // Todo
+    return DefensiveCard::activateEffect(entity);
 }
 
 std::string DefensiveCardWarrior::getClassName() const

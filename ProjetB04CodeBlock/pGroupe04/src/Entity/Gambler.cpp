@@ -23,14 +23,14 @@ Gambler &Gambler::operator=(const Gambler &rhs)
 
 std::string Gambler::useCard(DefensiveCard &card)
 {
-    if (throwDie())
+    if (tryUseCard())
         return Player::useCard(card);
 
     // le lancé de dé à échoué
     std::stringstream res;
 
     res << "Oh non ! la malchance du " << getClassName() << "empêche "
-        << (card.getIsHealth() ? "le soin " : "l'augmentation d'armure ") << "de fonctionner [" << getClassName() << "]"
+        << (card.getIsHealth() ? "le soin " : "l'augmentation d'armure ") << "de fonctionner [" << card.getLabel() << "]"
         << std::endl;
 
     return res.str();
@@ -38,19 +38,19 @@ std::string Gambler::useCard(DefensiveCard &card)
 
 std::string Gambler::useCard(OffensiveCard &card, Entity &enemy)
 {
-    if (throwDie())
+    if (tryUseCard())
         return Player::useCard(card, enemy);
 
     // le lancé de dé à échoué
     std::stringstream res;
 
-    res << "Oh non ! la malchance du " << getClassName() << "empêche l'attaque de fonctionner [" << getClassName() << "]"
+    res << "Oh non ! la malchance du " << getClassName() << "empêche l'attaque de fonctionner [" << card.getLabel() << "]"
         << std::endl;
 
     return res.str();
 }
 
-bool Gambler::throwDie() const
+bool Gambler::tryUseCard() const
 {
     return rand() + 100 + 1 > luck;
 }

@@ -23,6 +23,8 @@ public:
 
     void RaiseCharacteristic(int l_index, int l_value);
     void LowerCharacteristic(int l_index, int l_value);
+    void RaiseCharacteristic(Characteristic &l_characteristic, int l_value);
+    void LowerCharacteristic(Characteristic &l_characteristic, int l_value);
 
     std::string getCharacteristics() const; //Permet de sortir les caracteristiques
 };

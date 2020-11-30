@@ -17,7 +17,7 @@ public:
 
     virtual std::string useCard(DefensiveCard &card);
     virtual std::string useCard(OffensiveCard &card, Entity &enemy);
-    bool throwDie() const;
+    bool tryUseCard() const;
     std::string getClassName() const;
 };
 

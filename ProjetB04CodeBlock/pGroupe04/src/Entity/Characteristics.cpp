@@ -79,13 +79,32 @@ int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)
     }
     return -1;
 }
-//Augmente la caracteristique choisi par la valeur passee en argument
+//Augmente la caracteristique choisi par la valeur passee en argument, via index
 void Characteristics::RaiseCharacteristic(int l_index, int l_value)
 {
     m_characteristics[l_index]->RaiseValue(l_value);
 }
-//Diminue la caracteristique choisi par la valeur passe en argument
+
+//Augmente la caracteristique choisi par la valeur passee en argument, via objet
+void Characteristics::RaiseCharacteristic(Characteristic &l_characteristic, int l_value)
+{
+    int indexCharacteristic = SearchCharacteristic(l_characteristic);
+
+    if (indexCharacteristic != -1)
+        m_characteristics[indexCharacteristic]->RaiseValue(l_value);
+}
+
+//Diminue la caracteristique choisi par la valeur passe en argument, via index
 void Characteristics::LowerCharacteristic(int l_index, int l_value)
 {
     m_characteristics[l_index]->LowerValue(l_value);
+}
+
+//Diminue la caracteristique choisi par la valeur passe en argument, via objet
+void Characteristics::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
+{
+    int indexCharacteristic = SearchCharacteristic(l_characteristic);
+
+    if (indexCharacteristic != -1)
+        m_characteristics[indexCharacteristic]->LowerValue(l_value);
 }

@@ -17,7 +17,10 @@ OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
 
 int OffensiveCard::activateEffect(Entity &entity)
 {
-    // Todo
+    Health enemyHealth;
+
+    entity.LowerCharacteristic(enemyHealth, getValue());
+    return getValue();
 }
 
 std::string OffensiveCard::getClassName() const
