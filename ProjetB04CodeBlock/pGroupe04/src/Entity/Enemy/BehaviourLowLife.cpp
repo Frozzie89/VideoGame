@@ -1,4 +1,4 @@
-#include "BehaviourLowLife.h"
+#include "Entity/Enemy/BehaviourLowLife.h"
 
 BehaviourLowLife::BehaviourLowLife()
 {

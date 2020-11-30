@@ -1,4 +1,4 @@
-#include "Behaviour.h"
+#include "Entity/Enemy/Behaviour.h"
 
 Behaviour::Behaviour()
 {

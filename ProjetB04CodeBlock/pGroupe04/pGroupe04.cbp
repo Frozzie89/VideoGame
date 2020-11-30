@@ -1,97 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
-    <FileVersion major="1" minor="6" />
-    <Project>
-        <Option title="pGroupe04" />
-        <Option pch_mode="2" />
-        <Option compiler="gcc" />
-        <Build>
-            <Target title="Debug">
-                <Option output="bin/Debug/pGroupe04" prefix_auto="1" extension_auto="1" />
-                <Option object_output="obj/Debug/" />
-                <Option type="1" />
-                <Option compiler="gcc" />
-                <Compiler>
-                    <Add option="-w" />
-                    <Add option="-g" />
-                    <Add directory="include" />
-                </Compiler>
-                <Linker>
-                    <Add library="sfml-graphics" />
-                    <Add library="sfml-window" />
-                    <Add library="sfml-system" />
-                </Linker>
-            </Target>
-            <Target title="Release">
-                <Option output="bin/Release/pGroupe04" prefix_auto="1" extension_auto="1" />
-                <Option object_output="obj/Release/" />
-                <Option type="0" />
-                <Option compiler="gcc" />
-                <Compiler>
-                    <Add option="-O2" />
-                    <Add directory="include" />
-                </Compiler>
-                <Linker>
-                    <Add option="-s" />
-                    <Add library="sfml-graphics" />
-                    <Add library="sfml-window" />
-                    <Add library="sfml-system" />
-                </Linker>
-            </Target>
-        </Build>
-        <Compiler>
-            <Add option="-Wall" />
-        </Compiler>
-        <Unit filename="assets/cards/blank_shield.png" />
-        <Unit filename="include/Cards/Card.h" />
-        <Unit filename="include/Cards/DefensiveCard.h" />
-        <Unit filename="include/Cards/DefensiveCardGambler.h" />
-        <Unit filename="include/Cards/DefensiveCardWarrior.h" />
-        <Unit filename="include/Cards/OffensiveCard.h" />
-        <Unit filename="include/Cards/OffensiveCardGambler.h" />
-        <Unit filename="include/Cards/OffensiveCardWarrior.h" />
-        <Unit filename="include/Entity/Characteristic.h" />
-        <Unit filename="include/Entity/Characteristics.h" />
-        <Unit filename="include/Entity/Entity.h" />
-        <Unit filename="include/Entity/Health.h" />
-        <Unit filename="include/Entity/Shield.h" />
-        <Unit filename="include/EventManager.h" />
-        <Unit filename="include/Game.h" />
-        <Unit filename="include/SharedContext.h" />
-        <Unit filename="include/State/BaseState.h" />
-        <Unit filename="include/State/StateType.h" />
-        <Unit filename="include/State/State_Game.h" />
-        <Unit filename="include/State/State_Intro.h" />
-        <Unit filename="include/State/State_MainMenu.h" />
-        <Unit filename="include/StateManager.h" />
-        <Unit filename="include/Window.h" />
-        <Unit filename="main.cpp" />
-        <Unit filename="src/Cards/Card.cpp" />
-        <Unit filename="src/Cards/DefensiveCard.cpp" />
-        <Unit filename="src/Cards/DefensiveCardGambler.cpp" />
-        <Unit filename="src/Cards/DefensiveCardWarrior.cpp" />
-        <Unit filename="src/Cards/OffensiveCard.cpp" />
-        <Unit filename="src/Cards/OffensiveCardGambler.cpp" />
-        <Unit filename="src/Cards/OffensiveCardWarrior.cpp" />
-        <Unit filename="src/Entity/Characteristic.cpp" />
-        <Unit filename="src/Entity/Characteristics.cpp" />
-        <Unit filename="src/Entity/Entity.cpp" />
-        <Unit filename="src/Entity/Health.cpp" />
-        <Unit filename="src/Entity/Shield.cpp" />
-        <Unit filename="src/EventManager.cpp" />
-        <Unit filename="src/Game.cpp" />
-        <Unit filename="src/State/BaseState.cpp" />
-        <Unit filename="src/State/StateType.cpp" />
-        <Unit filename="src/State/State_Game.cpp" />
-        <Unit filename="src/State/State_Intro.cpp" />
-        <Unit filename="src/State/State_MainMenu.cpp" />
-        <Unit filename="src/StateManager.cpp" />
-        <Unit filename="src/Window.cpp" />
-        <Unit filename="include/Entity/Player.h" />
-        <Unit filename="src/Entity/Player.cpp" />
-        <Unit filename="include/Entity/Warrior.h" />
-        <Unit filename="src/Entity/Warrior.cpp" />
-        <Extensions>
-            <lib_finder disable_auto="1" />
-        </Extensions>
-    <Unit filename="include/Entity/Gambler.h" /><Unit filename="src/Entity/Gambler.cpp" /><Unit filename="include/Factory/AbstractFactory.h" /><Unit filename="src/Factory/AbstractFactory.cpp" /><Unit filename="include/Factory/WarriorFactory.h" /><Unit filename="src/Factory/WarriorFactory.cpp" /><Unit filename="include/Factory/GamblerFactory.h" /><Unit filename="src/Factory/GamblerFactory.cpp" /></Project>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="pGroupe04" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/pGroupe04" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-w" />
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="C:/libs/SFML-2.5.1/include" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+					<Add directory="C:/libs/SFML-2.5.1/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/pGroupe04" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="assets/cards/blank_shield.png" />
+		<Unit filename="include/Cards/Card.h" />
+		<Unit filename="include/Cards/DefensiveCard.h" />
+		<Unit filename="include/Cards/DefensiveCardGambler.h" />
+		<Unit filename="include/Cards/DefensiveCardWarrior.h" />
+		<Unit filename="include/Cards/OffensiveCard.h" />
+		<Unit filename="include/Cards/OffensiveCardGambler.h" />
+		<Unit filename="include/Cards/OffensiveCardWarrior.h" />
+		<Unit filename="include/Entity/Characteristic.h" />
+		<Unit filename="include/Entity/Characteristics.h" />
+		<Unit filename="include/Entity/Enemy/Behaviour.h" />
+		<Unit filename="include/Entity/Enemy/BehaviourHighLife.h" />
+		<Unit filename="include/Entity/Enemy/BehaviourLowLife.h" />
+		<Unit filename="include/Entity/Enemy/Enemy.h" />
+		<Unit filename="include/Entity/Enemy/EnemyAbility.h" />
+		<Unit filename="include/Entity/Enemy/EnemyAbilityDefensive.h" />
+		<Unit filename="include/Entity/Enemy/EnemyAbilityOffensive.h" />
+		<Unit filename="include/Entity/Entity.h" />
+		<Unit filename="include/Entity/Gambler.h" />
+		<Unit filename="include/Entity/Health.h" />
+		<Unit filename="include/Entity/Player.h" />
+		<Unit filename="include/Entity/Shield.h" />
+		<Unit filename="include/Entity/Warrior.h" />
+		<Unit filename="include/EventManager.h" />
+		<Unit filename="include/Factory/AbstractFactory.h" />
+		<Unit filename="include/Factory/GamblerFactory.h" />
+		<Unit filename="include/Factory/WarriorFactory.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/SharedContext.h" />
+		<Unit filename="include/StateManager.h" />
+		<Unit filename="include/State/BaseState.h" />
+		<Unit filename="include/State/StateType.h" />
+		<Unit filename="include/State/State_Game.h" />
+		<Unit filename="include/State/State_Intro.h" />
+		<Unit filename="include/State/State_MainMenu.h" />
+		<Unit filename="include/Window.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Cards/Card.cpp" />
+		<Unit filename="src/Cards/DefensiveCard.cpp" />
+		<Unit filename="src/Cards/DefensiveCardGambler.cpp" />
+		<Unit filename="src/Cards/DefensiveCardWarrior.cpp" />
+		<Unit filename="src/Cards/OffensiveCard.cpp" />
+		<Unit filename="src/Cards/OffensiveCardGambler.cpp" />
+		<Unit filename="src/Cards/OffensiveCardWarrior.cpp" />
+		<Unit filename="src/Entity/Characteristic.cpp" />
+		<Unit filename="src/Entity/Characteristics.cpp" />
+		<Unit filename="src/Entity/Enemy/Behaviour.cpp" />
+		<Unit filename="src/Entity/Enemy/BehaviourHighLife.cpp" />
+		<Unit filename="src/Entity/Enemy/BehaviourLowLife.cpp" />
+		<Unit filename="src/Entity/Enemy/Enemy.cpp" />
+		<Unit filename="src/Entity/Enemy/EnemyAbility.cpp" />
+		<Unit filename="src/Entity/Enemy/EnemyAbilityDefensive.cpp" />
+		<Unit filename="src/Entity/Enemy/EnemyAbilityOffensive.cpp" />
+		<Unit filename="src/Entity/Entity.cpp" />
+		<Unit filename="src/Entity/Gambler.cpp" />
+		<Unit filename="src/Entity/Health.cpp" />
+		<Unit filename="src/Entity/Player.cpp" />
+		<Unit filename="src/Entity/Shield.cpp" />
+		<Unit filename="src/Entity/Warrior.cpp" />
+		<Unit filename="src/EventManager.cpp" />
+		<Unit filename="src/Factory/AbstractFactory.cpp" />
+		<Unit filename="src/Factory/GamblerFactory.cpp" />
+		<Unit filename="src/Factory/WarriorFactory.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/StateManager.cpp" />
+		<Unit filename="src/State/BaseState.cpp" />
+		<Unit filename="src/State/StateType.cpp" />
+		<Unit filename="src/State/State_Game.cpp" />
+		<Unit filename="src/State/State_Intro.cpp" />
+		<Unit filename="src/State/State_MainMenu.cpp" />
+		<Unit filename="src/Window.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
 </CodeBlocks_project_file>
