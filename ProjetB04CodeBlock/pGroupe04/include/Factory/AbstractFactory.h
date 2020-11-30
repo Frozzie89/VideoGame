@@ -4,6 +4,7 @@
 #include "Entity/Player.h"
 #include "Cards/Card.h"
 
+// Factory abstraite permettant d'instancier des Players et des cartes offensives et défensives
 class AbstractFactory
 {
 private:
@@ -13,8 +14,13 @@ public:
     AbstractFactory(const AbstractFactory &other);
     AbstractFactory &operator=(const AbstractFactory &rhs);
 
+    // crée un joueur
     virtual Player &buildPlayer(int actionsPoints) = 0;
+
+    // crée une carte offensive
     virtual OffensiveCard &buildOffensiveCard(std::string label, std::string path, int costAction, int value) = 0;
+
+    // crée une carte défensive
     virtual DefensiveCard &buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth) = 0;
 };
 

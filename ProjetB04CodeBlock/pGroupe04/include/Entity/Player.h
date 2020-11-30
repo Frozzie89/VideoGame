@@ -6,6 +6,7 @@
 #include "Cards/DefensiveCard.h"
 #include "Entity.h"
 
+// Les classes filles de Player sont des classes que l'utilisateur peut jouer
 class Player : public Entity
 {
 private:

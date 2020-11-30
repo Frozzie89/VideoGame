@@ -76,6 +76,7 @@ std::string Card::str() const
 void Card::HandleInput()
 {
 }
+
 sf::Vector2f Card::GetPosition()
 {
     return positions;

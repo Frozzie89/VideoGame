@@ -13,7 +13,7 @@ public:
     OffensiveCard(const OffensiveCard &other);
     OffensiveCard &operator=(const OffensiveCard &rhs);
 
-    virtual int activateEffect(Entity &entity);
+    virtual int activateEffect(Entity &entity); // effet de la carte : diminuer les points de vie de l'enemi
     virtual OffensiveCard *clone() const = 0;
     virtual std::string getClassName() const;
 };
