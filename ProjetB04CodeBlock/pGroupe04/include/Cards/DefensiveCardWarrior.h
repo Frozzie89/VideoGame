@@ -13,7 +13,7 @@ public:
     DefensiveCardWarrior &operator=(const DefensiveCardWarrior &rhs);
 
     DefensiveCardWarrior *clone() const;
-    int activateEffect();
+    int activateEffect(Entity &entity);
     std::string getClassName() const;
 };
 

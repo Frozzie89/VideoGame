@@ -22,7 +22,7 @@ OffensiveCardGambler *OffensiveCardGambler::clone() const
 
 int OffensiveCardGambler::activateEffect(Entity &entity)
 {
-    // Todo
+    return OffensiveCard::activateEffect(entity);
 }
 
 std::string OffensiveCardGambler::getClassName() const

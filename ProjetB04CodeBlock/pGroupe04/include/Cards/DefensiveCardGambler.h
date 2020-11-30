@@ -13,7 +13,7 @@ public:
     DefensiveCardGambler &operator=(const DefensiveCardGambler &rhs);
 
     DefensiveCardGambler *clone() const;
-    int activateEffect();
+    int activateEffect(Entity &entity);
     std::string getClassName() const;
 };
 

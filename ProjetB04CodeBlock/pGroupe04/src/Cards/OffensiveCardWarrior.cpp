@@ -22,7 +22,7 @@ OffensiveCardWarrior *OffensiveCardWarrior::clone() const
 
 int OffensiveCardWarrior::activateEffect(Entity &entity)
 {
-    // Todo
+    return OffensiveCard::activateEffect(entity);
 }
 
 std::string OffensiveCardWarrior::getClassName() const

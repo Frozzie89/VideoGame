@@ -2,6 +2,7 @@
 #define CARD_PGROUPE04_H
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "Entity/Entity.h"
 
 class Card
 {
@@ -29,6 +30,7 @@ public:
     sf::Vector2f GetPosition();                // Retourne la position de la carte
     void SetPosition(sf::Vector2f l_position); // Modifie la position de la carte
 
+    virtual int activateEffect(Entity &entity) = 0;
     virtual std::string str() const;
     virtual Card *clone() const = 0;
     virtual std::string getClassName() const;

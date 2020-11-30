@@ -34,6 +34,19 @@ void DefensiveCard::setIsHealth(const bool isHealth)
     this->isHealth = isHealth;
 }
 
+int DefensiveCard::activateEffect(Entity &entity)
+{
+    Health playerHealth;
+    Shield playerShield;
+
+    if (getIsHealth())
+        entity.RaiseCharacteristic(playerHealth, getValue());
+    else
+        entity.RaiseCharacteristic(playerShield, getValue());
+
+    return getValue();
+}
+
 std::string DefensiveCard::getClassName() const
 {
     return "DefensiveCard";

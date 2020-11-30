@@ -48,7 +48,7 @@ void Player::setActionPoints(const int actionPoints)
 // For Defensive Cards
 std::string Player::useCard(DefensiveCard &card)
 {
-    int ptEffect = card.activateEffect();
+    int ptEffect = card.activateEffect(*this);
     std::stringstream res;
 
     if (card.getIsHealth())
