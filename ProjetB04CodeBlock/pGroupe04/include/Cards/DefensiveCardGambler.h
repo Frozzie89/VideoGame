@@ -1,7 +1,7 @@
 #ifndef DEFENSIVECARDGAMBLER_PGROUPE04_H
 #define DEFENSIVECARDGAMBLER_PGROUPE04_H
 #include <string>
-#include "DefensiveCard.h"
+#include "Cards/DefensiveCard.h"
 
 class DefensiveCardGambler : public DefensiveCard
 {

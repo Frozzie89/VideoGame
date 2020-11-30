@@ -1,10 +1,9 @@
 #ifndef PLAYER_PGROUPE04_H
 #define PLAYER_PGROUPE04_H
 #include <string>
-#include "Entity.h"
 #include "Cards/OffensiveCard.h"
 #include "Cards/DefensiveCard.h"
-#include "Entity.h"
+#include "Entity/Entity.h"
 
 class Player : public Entity
 {
