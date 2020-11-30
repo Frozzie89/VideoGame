@@ -2,6 +2,9 @@
 #define WARRIORFACTORY_PGROUPE04_H
 #include <string>
 #include "AbstractFactory.h"
+#include "Entity/Warrior.h"
+#include "Cards/OffensiveCardWarrior.h"
+#include "Cards/DefensiveCardWarrior.h"
 
 class WarriorFactory : public AbstractFactory
 {
@@ -12,9 +15,9 @@ public:
     WarriorFactory(const WarriorFactory &other);
     WarriorFactory &operator=(const WarriorFactory &rhs);
 
-    Player &buildPlayer(int actionsPoints);
-    OffensiveCard &buildOffensiveCard(std::string label, std::string path, int costAction, int value);
-    DefensiveCard &buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth);
+    Warrior &buildPlayer(int actionsPoints);
+    OffensiveCardWarrior &buildOffensiveCard(std::string label, std::string path, int costAction, int value);
+    DefensiveCardWarrior &buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth);
 };
 
 #endif // WARRIORFACTORY_PGROUPE04_H

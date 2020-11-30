@@ -1,9 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
-#include "Game.h"
-#include "Cards/DefensiveCardWarrior.h"
-
 #include <iostream>
+#include "Game.h"
+
 using namespace std;
 int main()
 {

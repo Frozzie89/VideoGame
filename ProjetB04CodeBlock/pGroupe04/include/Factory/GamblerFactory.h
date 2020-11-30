@@ -2,6 +2,9 @@
 #define GAMBLERFACTORY_PGROUPE04_H
 #include <string>
 #include "AbstractFactory.h"
+#include "Entity/Gambler.h"
+#include "Cards/OffensiveCardGambler.h"
+#include "Cards/DefensiveCardGambler.h"
 
 class GamblerFactory : public AbstractFactory
 {
@@ -12,10 +15,10 @@ public:
     GamblerFactory(const GamblerFactory &other);
     GamblerFactory &operator=(const GamblerFactory &rhs);
 
-    Player &buildPlayer(int actionsPoints);
-    Player &buildPlayer(int actionsPoints, int luck);
-    OffensiveCard &buildOffensiveCard(std::string label, std::string path, int costAction, int value);
-    DefensiveCard &buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth);
+    Gambler &buildPlayer(int actionsPoints);
+    Gambler &buildPlayer(int actionsPoints, int luck);
+    OffensiveCardGambler &buildOffensiveCard(std::string label, std::string path, int costAction, int value);
+    DefensiveCardGambler &buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth);
 };
 
 #endif // GAMBLERFACTORY_PGROUPE04_H

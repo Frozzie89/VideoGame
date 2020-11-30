@@ -159,7 +159,7 @@ void EventManager::Update()
                 }
             }
         }
-        if (bindin->m_events.size() == bindin->c)
+        if ((int)bindin->m_events.size() == bindin->c)
         {
             //Permet d'obtenir la map de l'etat actuel
             auto stateCallbacks = m_callbacks.find(m_currentState);
