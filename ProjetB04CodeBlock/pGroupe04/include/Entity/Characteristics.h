@@ -4,6 +4,7 @@
 #include "Entity/Characteristic.h"
 #include <vector>
 
+// Cette classe sert à implementer les différentes caractéristiques
 class Characteristics
 {
 

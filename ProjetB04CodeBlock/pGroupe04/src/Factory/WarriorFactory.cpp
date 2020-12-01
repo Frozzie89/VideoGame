@@ -18,18 +18,20 @@ WarriorFactory &WarriorFactory::operator=(const WarriorFactory &rhs)
     return *this;
 }
 
-Player &WarriorFactory::buildPlayer(int actionsPoints)
+Warrior &WarriorFactory::buildPlayer(int actionsPoints)
 {
-    Warrior warrior(actionsPoints);
-    return warrior;
+    Warrior *warrior = new Warrior(actionsPoints);
+    return *warrior;
 }
 
-OffensiveCard &WarriorFactory::buildOffensiveCard(std::string label, std::string path, int costAction, int value)
+OffensiveCardWarrior &WarriorFactory::buildOffensiveCard(std::string label, std::string path, int costAction, int value)
 {
-    OffensiveCardWarrior owc(label, path, costAction, value);
+    OffensiveCardWarrior *owc = new OffensiveCardWarrior(label, path, costAction, value);
+    return *owc;
 }
 
-DefensiveCard &WarriorFactory::buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth)
+DefensiveCardWarrior &WarriorFactory::buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth)
 {
-    DefensiveCardWarrior dcw(label, path, costAction, value, isHealth);
+    DefensiveCardWarrior *dcw = new DefensiveCardWarrior(label, path, costAction, value, isHealth);
+    return *dcw;
 }

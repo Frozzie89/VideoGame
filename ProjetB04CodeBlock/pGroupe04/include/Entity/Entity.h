@@ -5,6 +5,7 @@
 #include "Entity/Health.h"
 #include "Entity/Shield.h"
 
+// Une Entity représente une entité pouvant combattre dans un combat de carte, donc le joueur et l'enemi
 class Entity
 {
 private:

@@ -3,6 +3,7 @@
 
 #include "Entity/Characteristic.h"
 
+// Caractéristique gérant les points de vie
 class Health : public Characteristic
 {
 public:

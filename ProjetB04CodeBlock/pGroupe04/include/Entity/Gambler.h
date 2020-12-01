@@ -3,6 +3,7 @@
 #include <string>
 #include "Player.h"
 
+// Classe jouable Gambler, ses cartes ont un effet plus puissant mais à une chance d'échouer
 class Gambler : public Player
 {
 private:

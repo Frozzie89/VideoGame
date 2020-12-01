@@ -3,6 +3,7 @@
 #include <string>
 #include "Player.h"
 
+// Classe jouable Warrior, ses cartes sont basiques
 class Warrior : public Player
 {
 private:

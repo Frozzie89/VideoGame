@@ -19,26 +19,26 @@ GamblerFactory &GamblerFactory::operator=(const GamblerFactory &rhs)
     return *this;
 }
 
-Player &GamblerFactory::buildPlayer(int actionsPoints)
+Gambler &GamblerFactory::buildPlayer(int actionsPoints)
 {
-    Gambler gambler(actionsPoints);
-    return gambler;
+    Gambler *gambler = new Gambler(actionsPoints);
+    return *gambler;
 }
 
-Player &GamblerFactory::buildPlayer(int actionsPoints, int luck)
+Gambler &GamblerFactory::buildPlayer(int actionsPoints, int luck)
 {
-    Gambler gambler(actionsPoints, luck);
-    return gambler;
+    Gambler *gambler = new Gambler(actionsPoints, luck);
+    return *gambler;
 }
 
-OffensiveCard &GamblerFactory::buildOffensiveCard(std::string label, std::string path, int costAction, int value)
+OffensiveCardGambler &GamblerFactory::buildOffensiveCard(std::string label, std::string path, int costAction, int value)
 {
-    OffensiveCardGambler ocg(label, path, costAction, value);
-    return ocg;
+    OffensiveCardGambler *ocg = new OffensiveCardGambler(label, path, costAction, value);
+    return *ocg;
 }
 
-DefensiveCard &GamblerFactory::buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth)
+DefensiveCardGambler &GamblerFactory::buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth)
 {
-    DefensiveCardGambler dcg(label, path, costAction, value, isHealth);
-    return dcg;
+    DefensiveCardGambler *dcg = new DefensiveCardGambler(label, path, costAction, value, isHealth);
+    return *dcg;
 }

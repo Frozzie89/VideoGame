@@ -19,7 +19,7 @@ public:
     void setIsHealth(const bool isHealth);
 
     std::string str() const;
-    virtual int activateEffect(Entity &entity);
+    virtual int activateEffect(Entity &entity); // effet de la carte : soigner ou se donner de l'armure (dépend de isHealth)
     virtual DefensiveCard *clone() const = 0;
     virtual std::string getClassName() const;
 };

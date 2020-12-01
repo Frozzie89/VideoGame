@@ -3,6 +3,7 @@
 #include <string>
 #include "Cards/OffensiveCard.h"
 
+// cette classe n'existe que pour empêcher le Gambler d'utiliser d'autre cartes que les siennes
 class OffensiveCardGambler : public OffensiveCard
 {
 private:

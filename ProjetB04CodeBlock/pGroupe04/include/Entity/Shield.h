@@ -3,6 +3,7 @@
 
 #include "Entity/Characteristic.h"
 
+// Caractéristique gérant les points d'armure
 class Shield : public Characteristic
 {
 public:

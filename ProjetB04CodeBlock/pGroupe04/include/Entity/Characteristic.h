@@ -3,7 +3,7 @@
 
 #include <string>
 
-// Cette classe sert à implementer les différentes caractéristiques
+// Une Characteristic est une valeur attribuée à l'Entity pouvant être augmentée et diminuée
 class Characteristic
 {
 private:

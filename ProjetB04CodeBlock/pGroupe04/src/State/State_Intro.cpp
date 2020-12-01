@@ -24,14 +24,14 @@ void State_Intro::OnCreate()
 
     m_indication.setFont(m_font);
     m_indication.setString(sf::String("Press SPACE to continue"));
-    m_indication.setColor(sf::Color(239, 195, 46, 255));
+    m_indication.setFillColor(sf::Color(239, 195, 46, 255));
     m_indication.setCharacterSize(50);
     m_indication.setOutlineColor(sf::Color(239, 150, 27, 255));
     m_indication.setOutlineThickness(1.0f);
 
     m_title.setFont(m_font);
     m_title.setString(sf::String("Duck The Issue"));
-    m_title.setColor(sf::Color(239, 195, 46, 255));
+    m_title.setFillColor(sf::Color(239, 195, 46, 255));
     m_title.setCharacterSize(50);
     m_title.setOutlineColor(sf::Color(239, 150, 27, 255));
     m_title.setOutlineThickness(1.0f);
