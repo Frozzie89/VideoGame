@@ -1,27 +1,18 @@
 #include "Entity/Enemy/BehaviourHighLife.h"
+#include <iostream>
 
 BehaviourHighLife::BehaviourHighLife()
 {
-    //ctor
+    m_rate = 25;
 }
 
-BehaviourHighLife::~BehaviourHighLife()
-{
-    //dtor
-}
+BehaviourHighLife::~BehaviourHighLife(){    }
 
-BehaviourHighLife::BehaviourHighLife(const BehaviourHighLife& other)
-{
-    //copy ctor
-}
+BehaviourHighLife::BehaviourHighLife(const BehaviourHighLife& other):Behaviour(other){      }
 
-BehaviourHighLife& BehaviourHighLife::operator=(const BehaviourHighLife& rhs)
-{
-    if (this == &rhs) return *this; // handle self assignment
-    //assignment operator
+BehaviourHighLife& BehaviourHighLife::operator=(const BehaviourHighLife& rhs){
+    if (this != &rhs)
+        Behaviour::operator=(rhs);
     return *this;
 }
-void BehaviourHighLife::useAbility()
-{
-    //Todo
-}
+

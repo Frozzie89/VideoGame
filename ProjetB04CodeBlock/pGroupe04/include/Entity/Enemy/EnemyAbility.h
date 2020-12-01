@@ -1,7 +1,9 @@
 #ifndef ENEMYABILITY_H
 #define ENEMYABILITY_H
 #include <string>
+#include <iostream>
 #include "Entity/Entity.h"
+
 
 
 class EnemyAbility

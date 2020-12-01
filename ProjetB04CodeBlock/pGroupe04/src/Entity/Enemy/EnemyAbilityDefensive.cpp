@@ -2,13 +2,15 @@
 
 EnemyAbilityDefensive::EnemyAbilityDefensive(std::string l_name, int l_value, bool l_isHealth): EnemyAbility(l_name, l_value), m_isHealth(l_isHealth)
 {
+    std::cout<<"m_health\t" << m_isHealth << std::endl;
 }
 
 EnemyAbilityDefensive::~EnemyAbilityDefensive(){    }
 
 EnemyAbilityDefensive::EnemyAbilityDefensive(const EnemyAbilityDefensive& other)
 {
-    //copy ctor
+    EnemyAbility::operator=(other);
+    m_isHealth = other.m_isHealth;
 }
 
 EnemyAbilityDefensive& EnemyAbilityDefensive::operator=(const EnemyAbilityDefensive& rhs)
@@ -25,11 +27,12 @@ EnemyAbilityDefensive& EnemyAbilityDefensive::operator=(const EnemyAbilityDefens
 int EnemyAbilityDefensive::activateEffect(Entity &entity){
     Health enemyHealth;
     Shield enemyShield;
-
-    if (getIsHealth())
+    if (getIsHealth()){
         entity.RaiseCharacteristic(enemyHealth, getValue());
-    else
+    }else{
         entity.RaiseCharacteristic(enemyShield, getValue());
+    }
+
 }
 
 // GET & SET
@@ -40,12 +43,13 @@ bool EnemyAbilityDefensive::getIsHealth() const
 
 void EnemyAbilityDefensive::setIsHealth(const bool l_isHealth)
 {
+
     m_isHealth = l_isHealth;
 }
 // End GET & SET
 
 std::string EnemyAbilityDefensive::toString() const{
-    return "Name:" + getName() + " Value:" + std::to_string(getValue()) + " isHealth:" + std::to_string(m_isHealth);
+    return "Name:" + getName() + "     \tValue:" + std::to_string(getValue()) + " isHealth:" + std::to_string(m_isHealth);
 }
 
 std::string EnemyAbilityDefensive::getClassName() const

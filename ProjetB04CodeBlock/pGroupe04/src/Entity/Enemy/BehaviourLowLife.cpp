@@ -2,26 +2,15 @@
 
 BehaviourLowLife::BehaviourLowLife()
 {
-    //ctor
+    m_rate = 75;
 }
 
-BehaviourLowLife::~BehaviourLowLife()
-{
-    //dtor
-}
+BehaviourLowLife::~BehaviourLowLife(){   }
 
-BehaviourLowLife::BehaviourLowLife(const BehaviourLowLife& other)
-{
-    //copy ctor
-}
+BehaviourLowLife::BehaviourLowLife(const BehaviourLowLife& other):Behaviour(other){     }
 
-BehaviourLowLife& BehaviourLowLife::operator=(const BehaviourLowLife& rhs)
-{
-    if (this == &rhs) return *this; // handle self assignment
-    //assignment operator
+BehaviourLowLife& BehaviourLowLife::operator=(const BehaviourLowLife& rhs){
+    if (this != &rhs)
+        Behaviour::operator=(rhs);
     return *this;
-}
-void BehaviourLowLife::useAbility()
-{
-    //Todo
 }

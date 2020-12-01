@@ -1,4 +1,5 @@
 #include "Entity/Entity.h"
+#include <iostream>
 
 //Constructeur
 Entity::Entity()
@@ -68,3 +69,7 @@ void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
 {
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);
 }
+void Entity::getCharacteristicsValue(){
+    std::cout<< m_entityCaracteristics.getCharacteristics()<<std::endl;
+}
+

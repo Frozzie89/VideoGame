@@ -25,7 +25,7 @@ int EnemyAbilityOffensive::activateEffect(Entity& entity)
 }
 
 std::string EnemyAbilityOffensive::toString() const{
-    return "Name:" + getName() + " Value:" + std::to_string(getValue());
+    return "Name:" + getName() + "     \tValue:" + std::to_string(getValue());
 }
 
 std::string EnemyAbilityOffensive::getClassName() const

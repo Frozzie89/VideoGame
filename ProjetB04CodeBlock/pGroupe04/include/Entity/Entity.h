@@ -32,7 +32,8 @@ public:
     void LowerCharacteristic(int l_index, int l_value);                      // Fait appel à la méthode de Characteristics
     void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
-    void endTurn();                                                          // Met fin au tour de l'entite
+    void endTurn();
+    void getCharacteristicsValue();                                                      // Met fin au tour de l'entite
 };
 
 #endif // ENTITY_H

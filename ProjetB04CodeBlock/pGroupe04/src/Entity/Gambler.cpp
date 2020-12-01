@@ -2,7 +2,7 @@
 #include <sstream>
 #include "Entity/Gambler.h"
 
-Gambler::Gambler() {}
+Gambler::Gambler() {srand((unsigned)time(0));}
 
 Gambler::Gambler(int actionPoints, int luck) : Player(actionPoints), luck(luck) {}
 
@@ -52,7 +52,7 @@ std::string Gambler::useCard(OffensiveCard &card, Entity &enemy)
 
 bool Gambler::tryUseCard() const
 {
-    return rand() + 100 + 1 > luck;
+    return rand() % 100 + 1 > luck;
 }
 
 std::string Gambler::getClassName() const
