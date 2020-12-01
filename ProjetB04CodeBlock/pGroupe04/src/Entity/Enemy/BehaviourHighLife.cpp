@@ -1,5 +1,4 @@
 #include "Entity/Enemy/BehaviourHighLife.h"
-#include <iostream>
 
 BehaviourHighLife::BehaviourHighLife()
 {

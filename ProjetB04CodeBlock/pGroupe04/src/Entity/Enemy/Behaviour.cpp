@@ -47,6 +47,7 @@ int Behaviour::getRandomAbility(std::vector<EnemyAbility*>l_abilities)
 {
 
     int rate = rand()%100+1;
+    std::cout << rate << ">" << m_rate << std::endl;
     // Si notre liste d'ability est vide, on return -1
     if((int)l_abilities.size() == 0)
         return -1;
@@ -61,6 +62,7 @@ int Behaviour::getRandomAbility(std::vector<EnemyAbility*>l_abilities)
 int Behaviour::searchAbilityType(std::vector<EnemyAbility*>l_abilities, std::string lookingForClassAbility){
     bool ok = true;
     int ind;
+    std::cout << lookingForClassAbility << std::endl;
     while(ok){
             ind = rand()% ((int)l_abilities.size());
             if(l_abilities[ind]->getClassName() == lookingForClassAbility)

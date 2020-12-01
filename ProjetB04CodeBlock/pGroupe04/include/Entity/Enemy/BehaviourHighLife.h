@@ -11,9 +11,6 @@ class BehaviourHighLife: public Behaviour
         BehaviourHighLife(const BehaviourHighLife& other);
         BehaviourHighLife& operator=(const BehaviourHighLife& other);
 
-        //void useAbility(Entity &entity, std::vector<EnemyAbility *> m_abilities);
-        //int getRandomAbility(std::vector<EnemyAbility *> m_abilities);
-        //int searchAbilityType(std::vector<EnemyAbility*>m_abilities, std::string lookingForClassAbility);
     protected:
 
     private:
