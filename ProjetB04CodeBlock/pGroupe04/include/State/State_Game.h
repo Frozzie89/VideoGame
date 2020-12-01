@@ -21,6 +21,9 @@ public:
     void Update(const sf::Time &l_time);
     void Draw();
 
+    void MainMenu(EventDetails* l_details);
+    void Pause(EventDetails* l_details);
+
 protected:
 private:
     sf::Texture m_introTexture;

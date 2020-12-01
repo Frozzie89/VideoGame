@@ -12,34 +12,27 @@ State_Game::~State_Game()
 
 void State_Game::OnCreate()
 {
-    //Initialisation du temps a zero
-    m_timePassed = 0.0f;
-    //Recupere la valeur de la fenetre grace a l'heritage de BaseState et m_stateMgr
-    sf::Vector2u windowSize = m_stateMgr->GetContext()->m_wind->GetRenderWindow()->getSize();
-    //Chargement du sprite + parametrage
-    m_introTexture.loadFromFile("Chapitre5.jpg");
-    m_introSprite.setTexture(m_introTexture);
-
-    m_introSprite.setOrigin(m_introTexture.getSize().x / 2.0f, m_introTexture.getSize().y / 2.0f);
-
-    m_introSprite.setPosition(windowSize.x / 2.0f, 0);
-
-    //
-    m_font.loadFromFile("superboom.ttf");
+    m_font.loadFromFile("assets/font/superboom.ttf");
     m_text.setFont(m_font);
-    m_text.setString(" Press SPACE to continue");
+    m_text.setString("Ceci est un jeu je vous l'assure");
     m_text.setCharacterSize(15);
+
+    sf::Vector2u windowSize = m_stateMgr->GetContext()->m_wind->GetRenderWindow()->getSize();
+
     sf::FloatRect textRect = m_text.getLocalBounds();
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
     m_text.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
-    EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
-    //evMgr->AddCallback(StateType::Game,"Intro_Continue",&State_Intro::Continue,this);
+
+    EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
+    evMgr->AddCallback(StateType::Game,"Key_Escape",&State_Game::MainMenu,this);
+    evMgr->AddCallback(StateType::Game,"Key_P",&State_Game::Pause,this);
 }
 
 void State_Game::OnDestroy()
 {
-    EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
-    evMgr->RemoveCallback(StateType::Intro, "Intro_Continue");
+   EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
+    evMgr->RemoveCallback(StateType::Game,"Key_Escape");
+    evMgr->RemoveCallback(StateType::Game,"Key_P");
 }
 
 void State_Game::Activate()
@@ -67,4 +60,14 @@ void State_Game::Draw()
     {
         window->draw(m_text);
     }
+}
+
+void State_Game::MainMenu(EventDetails* l_details)
+{
+    m_stateMgr->SwitchTo(StateType::MainMenu);
+}
+
+void State_Game::Pause(EventDetails* l_details)
+{
+    m_stateMgr->SwitchTo(StateType::Paused);
 }

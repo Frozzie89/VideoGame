@@ -10,8 +10,8 @@ StateManager::StateManager(SharedContext *l_shared)
     cout << "Coucou StateManager Constructeur avec Shared Context" << endl;
     RegisterState<State_Intro>(StateType::Intro);
     RegisterState<State_MainMenu>(StateType::MainMenu);
-    //RegisterState<State_Game>(StateType::Game);
-    //RegisterState<State_Paused>(StateType::Paused);
+    RegisterState<State_Game>(StateType::Game);
+    RegisterState<State_Paused>(StateType::Paused);
 }
 //Destructeur
 //Vu qu'on alloue dynamiquement de la memoire, nous devons la liberer
