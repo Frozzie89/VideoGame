@@ -25,5 +25,5 @@ int OffensiveCard::activateEffect(Entity &entity)
 
 std::string OffensiveCard::getClassName() const
 {
-    return "OffsensiveCard";
+    return "OffensiveCard";
 }

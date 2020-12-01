@@ -1,9 +1,7 @@
 #include "Entity/Enemy/EnemyAbility.h"
-
-EnemyAbility::EnemyAbility(){}
+#include "Entity/Entity.h"
 
 EnemyAbility::EnemyAbility(std::string l_name, int l_value): m_value(l_value), m_name(l_name){
-
 }
 
 EnemyAbility::~EnemyAbility(){  }
@@ -40,3 +38,10 @@ void EnemyAbility::setName(const std::string l_name)
     m_name = l_name;
 }
 // End GET & SET
+
+
+std::string EnemyAbility::getClassName() const
+{
+    return "EnemyAbility";
+}
+

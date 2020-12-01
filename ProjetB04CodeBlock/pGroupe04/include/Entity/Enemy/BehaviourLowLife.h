@@ -1,8 +1,8 @@
 #ifndef BEHAVIOURLOWLIFE_H
 #define BEHAVIOURLOWLIFE_H
+#include "Entity/Enemy/Behaviour.h"
 
-
-class BehaviourLowLife
+class BehaviourLowLife: public Behaviour
 {
     public:
         BehaviourLowLife();
@@ -10,6 +10,7 @@ class BehaviourLowLife
         BehaviourLowLife(const BehaviourLowLife& other);
         BehaviourLowLife& operator=(const BehaviourLowLife& other);
 
+        void useAbility();
     protected:
 
     private:

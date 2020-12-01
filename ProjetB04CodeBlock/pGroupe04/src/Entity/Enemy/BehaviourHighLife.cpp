@@ -21,3 +21,7 @@ BehaviourHighLife& BehaviourHighLife::operator=(const BehaviourHighLife& rhs)
     //assignment operator
     return *this;
 }
+void BehaviourHighLife::useAbility()
+{
+    //Todo
+}

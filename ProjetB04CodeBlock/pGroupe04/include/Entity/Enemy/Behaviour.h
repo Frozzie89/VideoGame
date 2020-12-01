@@ -10,8 +10,8 @@ class Behaviour
         Behaviour(const Behaviour& other);
         Behaviour& operator=(const Behaviour& other);
 
+        virtual void useAbility() = 0;
     protected:
-
     private:
 };
 

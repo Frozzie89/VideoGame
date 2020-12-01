@@ -21,3 +21,7 @@ BehaviourLowLife& BehaviourLowLife::operator=(const BehaviourLowLife& rhs)
     //assignment operator
     return *this;
 }
+void BehaviourLowLife::useAbility()
+{
+    //Todo
+}
