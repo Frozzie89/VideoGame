@@ -141,7 +141,7 @@ void Player::addCard(Card *card, const int cardVector)
 
 int Player::findCard(const Card &card, const int cardVector) const
 {
-    for (int i = 0; i < (int)cardPiles.at(cardVector).size(); i++)
+    for (int i = (int)cardPiles.at(cardVector).size() - 1; i >= 0; i++)
     {
         if (*cardPiles.at(cardVector)[i] == card)
             return i;
