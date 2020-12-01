@@ -178,6 +178,11 @@ void Player::initDeck()
 void Player::drawCards(int nbCards)
 {
     purgeCardPile(Player::hand);
+
+    // s'il n'y plus de cartes dans le deck, on regénère le deck
+    if ((int)cardPiles[Player::deck].size() == 0)
+        initDeck();
+
     // on s'assure de ne pas piocher plus que le nombre de cartes restant dans le deck
     nbCards = (nbCards > (int)cardPiles[Player::deck].size() ? (int)cardPiles[Player::deck].size() : nbCards);
 
