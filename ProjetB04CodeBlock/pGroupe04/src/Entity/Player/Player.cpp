@@ -1,6 +1,6 @@
 #include <sstream>
 #include <iostream>
-#include "Entity/Player.h"
+#include "Entity/Player/Player.h"
 
 Player::Player() : Entity() {}
 Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
@@ -12,7 +12,7 @@ Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
     Entity::AddHealth(healthPlayer);
 }
 
-Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity()
+Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity(), actionPoints(actionPoints)
 {
     Shield shieldPlayer(shieldPt);
     Health healthPlayer(healthPt);

@@ -1,4 +1,4 @@
-#include "Entity/Characteristics.h"
+#include "Entity/Characteristics/Characteristics.h"
 //Constructeur
 Characteristics::Characteristics()
 {

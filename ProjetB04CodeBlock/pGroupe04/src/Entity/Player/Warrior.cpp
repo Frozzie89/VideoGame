@@ -1,4 +1,4 @@
-#include "Entity/Warrior.h"
+#include "Entity/Player/Warrior.h"
 
 Warrior::Warrior() {}
 Warrior::Warrior(int actionPoints) : Player(actionPoints) {}

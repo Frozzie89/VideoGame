@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <random>
-#include "Entity.h"
+#include "Entity/Entity.h"
 #include "Cards/Card.h"
 #include "Cards/OffensiveCard.h"
 #include "Cards/DefensiveCard.h"

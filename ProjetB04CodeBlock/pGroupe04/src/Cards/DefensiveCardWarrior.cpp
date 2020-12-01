@@ -1,6 +1,6 @@
 #include "Cards/DefensiveCardWarrior.h"
 
-DefensiveCardWarrior::DefensiveCardWarrior(std::string label, std::string path, int costAction, int value, bool isHealth) : DefensiveCard(label, path, costAction, value) {}
+DefensiveCardWarrior::DefensiveCardWarrior(std::string label, std::string path, int costAction, int value, bool isHealth) : DefensiveCard(label, path, costAction, value, isHealth) {}
 
 DefensiveCardWarrior::~DefensiveCardWarrior() {}
 

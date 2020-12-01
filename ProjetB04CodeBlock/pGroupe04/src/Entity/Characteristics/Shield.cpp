@@ -1,4 +1,4 @@
-#include "Entity/Shield.h"
+#include "Entity/Characteristics/Shield.h"
 
 Shield::Shield(int l_shield) : Characteristic(l_shield)
 {

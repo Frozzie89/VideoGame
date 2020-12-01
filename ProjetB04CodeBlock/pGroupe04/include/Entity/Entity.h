@@ -1,9 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "Entity/Characteristics.h"
-#include "Entity/Health.h"
-#include "Entity/Shield.h"
+#include "Entity/Characteristics/Characteristics.h"
+#include "Entity/Characteristics/Health.h"
+#include "Entity/Characteristics/Shield.h"
 
 // Une Entity représente une entité pouvant combattre dans un combat de carte, donc le joueur et l'enemi
 class Entity
@@ -33,7 +33,7 @@ public:
     void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void endTurn();
-    void getCharacteristicsValue();                                                      // Met fin au tour de l'entite
+    void getCharacteristicsValue(); // Met fin au tour de l'entite
 };
 
 #endif // ENTITY_H

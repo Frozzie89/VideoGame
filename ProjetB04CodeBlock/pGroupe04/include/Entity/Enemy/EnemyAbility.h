@@ -4,34 +4,32 @@
 #include <iostream>
 #include "Entity/Entity.h"
 
-
-
 class EnemyAbility
 {
-    private:
-        std::string m_name;
-        int m_value;
+private:
+    std::string m_name;
+    int m_value;
 
-    public:
-        EnemyAbility(std::string l_name = "No_name", int l_value = 0);
-        virtual ~EnemyAbility();
-        EnemyAbility(const EnemyAbility& other);
-        EnemyAbility& operator=(const EnemyAbility& other);
+protected:
+public:
+    EnemyAbility(std::string l_name = "No_name", int l_value = 0);
+    virtual ~EnemyAbility();
+    EnemyAbility(const EnemyAbility &other);
+    EnemyAbility &operator=(const EnemyAbility &other);
 
-        // GET & SET
-        int getValue() const;
-        void setValue(const int l_value);
+    // GET & SET
+    int getValue() const;
+    void setValue(const int l_value);
 
-        std::string getName() const;
-        void setName(const std::string l_name);
-        // End GET & SET
+    std::string getName() const;
+    void setName(const std::string l_name);
+    // End GET & SET
 
-        virtual int activateEffect(Entity &entity) = 0;
-        virtual std::string getClassName() const;
-        virtual EnemyAbility *clone() const = 0;
+    virtual int activateEffect(Entity &entity) = 0;
+    virtual std::string getClassName() const;
+    virtual EnemyAbility *clone() const = 0;
 
-        virtual std::string toString() const = 0;
-    protected:
+    virtual std::string toString() const = 0;
 };
 
 #endif // ENEMYABILITY_H

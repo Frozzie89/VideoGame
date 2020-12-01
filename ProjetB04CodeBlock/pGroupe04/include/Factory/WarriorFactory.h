@@ -2,7 +2,7 @@
 #define WARRIORFACTORY_PGROUPE04_H
 #include <string>
 #include "AbstractFactory.h"
-#include "Entity/Warrior.h"
+#include "Entity/Player/Warrior.h"
 #include "Cards/OffensiveCardWarrior.h"
 #include "Cards/DefensiveCardWarrior.h"
 

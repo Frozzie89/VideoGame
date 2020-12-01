@@ -1,8 +1,8 @@
 #include <time.h>
 #include <sstream>
-#include "Entity/Gambler.h"
+#include "Entity/Player/Gambler.h"
 
-Gambler::Gambler() {srand((unsigned)time(0));}
+Gambler::Gambler() { srand((unsigned)time(0)); }
 
 Gambler::Gambler(int actionPoints, int luck) : Player(actionPoints), luck(luck) {}
 

@@ -2,17 +2,15 @@
 #define BEHAVIOURLOWLIFE_H
 #include "Entity/Enemy/Behaviour.h"
 
-class BehaviourLowLife: public Behaviour
+class BehaviourLowLife : public Behaviour
 {
-    public:
-        BehaviourLowLife();
-        virtual ~BehaviourLowLife();
-        BehaviourLowLife(const BehaviourLowLife& other);
-        BehaviourLowLife& operator=(const BehaviourLowLife& other);
-
-    protected:
-
-    private:
+private:
+protected:
+public:
+    BehaviourLowLife();
+    virtual ~BehaviourLowLife();
+    BehaviourLowLife(const BehaviourLowLife &other);
+    BehaviourLowLife &operator=(const BehaviourLowLife &other);
 };
 
 #endif // BEHAVIOURLOWLIFE_H

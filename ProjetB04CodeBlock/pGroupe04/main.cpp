@@ -4,11 +4,6 @@
 #include "Game.h"
 #include "Cards/DefensiveCardWarrior.h"
 
-
-#include "Entity/Enemy/Enemy.h"
-#include "Entity/Enemy/EnemyAbility.h"
-#include "Entity/Enemy/BehaviourHighLife.h"
-
 using namespace std;
 int main()
 {
@@ -22,5 +17,4 @@ int main()
         game.LateUpdate();
     }
     return EXIT_SUCCESS;
-
 }

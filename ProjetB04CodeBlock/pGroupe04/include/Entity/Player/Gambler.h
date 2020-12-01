@@ -1,7 +1,7 @@
 #ifndef GAMBLER_PGROUPE04_H
 #define GAMBLER_PGROUPE04_H
 #include <string>
-#include "Player.h"
+#include "Entity/Player/Player.h"
 
 // Classe jouable Gambler, ses cartes ont un effet plus puissant mais à une chance d'échouer
 class Gambler : public Player

@@ -7,35 +7,34 @@
 #include "Entity/Enemy/Behaviour.h"
 #include <vector>
 
-class Enemy: public Entity
+class Enemy : public Entity
 {
 
-    private:
-        std::vector<EnemyAbility *> m_abilities;
-        Behaviour *behaviour;
+private:
+    std::vector<EnemyAbility *> m_abilities;
+    Behaviour *behaviour;
 
-    public:
-        Enemy();
-        Enemy(int l_healthPt);
-        virtual ~Enemy();
-        Enemy(const Enemy& other);
-        Enemy& operator=(const Enemy& other);
-        virtual std::string getClassName() const;
+protected:
+public:
+    Enemy();
+    Enemy(int l_healthPt);
+    virtual ~Enemy();
+    Enemy(const Enemy &other);
+    Enemy &operator=(const Enemy &other);
+    virtual std::string getClassName() const;
 
-        //GET & SET
-        void setStrategy(Behaviour *behaviour);
-        //Fin GET & SET
+    //GET & SET
+    void setStrategy(Behaviour *behaviour);
+    //Fin GET & SET
 
-        // Méthodes concerant le vector
-        void addAbilities(EnemyAbility *l_enemyAbility);
-        void removeAbilities(EnemyAbility *l_enemyAbility);
-        int SearchAbility(EnemyAbility &l_enemyAbility);
-        // Fin vector
+    // Mï¿½thodes concerant le vector
+    void addAbility(EnemyAbility *l_enemyAbility);
+    void removeAbility(EnemyAbility *l_enemyAbility);
+    int searchAbility(EnemyAbility &l_enemyAbility);
+    // Fin vector
 
-        //Strategy
-        void useAbility(Entity &entity);
-    protected:
-
+    //Strategy
+    void useAbility(Entity &entity);
 };
 
 #endif // ENEMY_H

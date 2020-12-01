@@ -1,4 +1,4 @@
-#include "Entity/Characteristic.h"
+#include "Entity/Characteristics/Characteristic.h"
 //Constructeur
 Characteristic::Characteristic(int l_value) : m_value(l_value)
 {

@@ -1,5 +1,5 @@
 #include "Factory/WarriorFactory.h"
-#include "Entity/Warrior.h"
+#include "Entity/Player/Warrior.h"
 #include "Cards/OffensiveCardWarrior.h"
 #include "Cards/DefensiveCardWarrior.h"
 

@@ -1,7 +1,7 @@
 #ifndef SHIELD_H
 #define SHIELD_H
 
-#include "Entity/Characteristic.h"
+#include "Entity/Characteristics/Characteristic.h"
 
 // Caractéristique gérant les points d'armure
 class Shield : public Characteristic

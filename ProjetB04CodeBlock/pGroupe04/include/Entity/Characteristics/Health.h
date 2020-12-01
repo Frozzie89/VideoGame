@@ -1,7 +1,7 @@
 #ifndef HEALTH_H
 #define HEALTH_H
 
-#include "Entity/Characteristic.h"
+#include "Entity/Characteristics/Characteristic.h"
 
 // Caractéristique gérant les points de vie
 class Health : public Characteristic

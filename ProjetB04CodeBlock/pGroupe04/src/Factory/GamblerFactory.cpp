@@ -1,5 +1,5 @@
 #include "Factory/GamblerFactory.h"
-#include "Entity/Gambler.h"
+#include "Entity/Player/Gambler.h"
 #include "Cards/DefensiveCardGambler.h"
 #include "Cards/OffensiveCardGambler.h"
 

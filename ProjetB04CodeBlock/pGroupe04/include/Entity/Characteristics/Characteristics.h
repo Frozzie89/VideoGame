@@ -1,7 +1,7 @@
 #ifndef CHARACTERISTICS_H
 #define CHARACTERISTICS_H
 
-#include "Entity/Characteristic.h"
+#include "Entity/Characteristics/Characteristic.h"
 #include <vector>
 
 // Cette classe sert à implementer les différentes caractéristiques

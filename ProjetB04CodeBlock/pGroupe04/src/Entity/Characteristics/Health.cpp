@@ -1,4 +1,4 @@
-#include "Entity/Health.h"
+#include "Entity/Characteristics/Health.h"
 //Constructeur
 Health::Health(int l_health) : Characteristic(l_health)
 {
