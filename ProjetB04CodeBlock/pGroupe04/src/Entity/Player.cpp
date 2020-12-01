@@ -1,4 +1,5 @@
 #include <sstream>
+#include <iostream>
 #include "Entity/Player.h"
 
 Player::Player() : Entity() {}
@@ -81,6 +82,9 @@ void Player::setActionPoints(const int actionPoints)
 // For Defensive Cards
 std::string Player::useCard(DefensiveCard &card)
 {
+    if (findCard(card, Player::hand) == -1)
+        return "";
+
     int ptEffect = card.activateEffect(*this);
     std::stringstream res;
 
@@ -94,18 +98,25 @@ std::string Player::useCard(DefensiveCard &card)
     res << "[" << card.getLabel() << "]"
         << std::endl;
 
+    // Todo : supprimer la carte de la main
+
     return res.str();
 }
 
 // For Offensive Cards
 std::string Player::useCard(OffensiveCard &card, Entity &enemy)
 {
+    if (findCard(card, Player::hand) == -1)
+        return "";
+
     int ptEffect = card.activateEffect(enemy);
     std::stringstream res;
 
     res << "Le " << getClassName() << " inflige " << ptEffect << " dégats à l'enemi ["
         << card.getLabel() << "]"
         << std::endl;
+
+    // Todo : supprimer la carte de la main
 
     return res.str();
 }
@@ -130,13 +141,84 @@ void Player::addCard(Card *card, const int cardVector)
 
 int Player::findCard(const Card &card, const int cardVector) const
 {
-    for (int i = 0; i < (int)cardPiles.at(cardVector).size(); i++)
+    for (int i = (int)cardPiles.at(cardVector).size() - 1; i >= 0; i++)
     {
         if (*cardPiles.at(cardVector)[i] == card)
             return i;
     }
 
     return -1;
+}
+
+void Player::purgeCardPile(const int cardVector)
+{
+    for (auto &&card : cardPiles[cardVector])
+    {
+        delete card;
+    }
+    cardPiles[Player::deck].clear();
+}
+
+void Player::initDeck()
+{
+    // On s'assure que Deck n'a aucune cartes
+    purgeCardPile(Player::deck);
+
+    // On copie le vecteur Pool dans le vecteur Deck
+    for (auto &&card : cardPiles[Player::pool])
+    {
+        cardPiles[Player::deck].push_back(card->clone());
+    }
+
+    // On mélange les cartes dans le deck
+    auto rng = std::default_random_engine{};
+    std::shuffle(std::begin(cardPiles[Player::deck]), std::end(cardPiles[Player::deck]), rng);
+}
+
+void Player::drawCards(int nbCards)
+{
+    purgeCardPile(Player::hand);
+
+    // s'il n'y plus de cartes dans le deck, on regénère le deck
+    if ((int)cardPiles[Player::deck].size() == 0)
+        initDeck();
+
+    // on s'assure de ne pas piocher plus que le nombre de cartes restant dans le deck
+    nbCards = (nbCards > (int)cardPiles[Player::deck].size() ? (int)cardPiles[Player::deck].size() : nbCards);
+
+    int deckSize = (int)cardPiles[Player::deck].size();
+
+    for (int i = deckSize - 1; i > deckSize - nbCards - 1; i--)
+    {
+        cardPiles[Player::hand].push_back(cardPiles[Player::deck][i]->clone());
+        removeCard(cardPiles[Player::deck][i], Player::deck);
+    }
+}
+
+std::string Player::printMap()
+{
+    std::stringstream res;
+
+    res << "POOL : ";
+    for (auto &&card : cardPiles[Player::pool])
+    {
+        res << card->getLabel() << " - ";
+    }
+
+    res << std::endl
+        << "DECK : ";
+    for (auto &&card : cardPiles[Player::deck])
+    {
+        res << card->getLabel() << " - ";
+    }
+    res << std::endl
+        << "HAND : ";
+    for (auto &&card : cardPiles[Player::hand])
+    {
+        res << card->getLabel() << " - ";
+    }
+
+    return res.str();
 }
 
 std::string Player::getClassName() const

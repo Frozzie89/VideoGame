@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
+#include <random>
 #include "Entity.h"
 #include "Cards/Card.h"
 #include "Cards/OffensiveCard.h"
@@ -25,14 +27,24 @@ public:
 
     int getActionPoints() const;
     void setActionPoints(const int actionPoints);
-    virtual std::string useCard(DefensiveCard &card);
-    virtual std::string useCard(OffensiveCard &card, Entity &enemy);
     virtual std::string getClassName() const;
 
-    // Todo : implémenter les méthodes CRUD pour les vectors
+    // méthodes pour jouer une carte depuis Player
+    virtual std::string useCard(DefensiveCard &card);
+    virtual std::string useCard(OffensiveCard &card, Entity &enemy);
+
+    // méthodes CRUD pour cardPiles
     virtual void removeCard(Card *card, const int cardVector);
     virtual void addCard(Card *card, const int cardVector);
     virtual int findCard(const Card &card, const int cardVector) const;
+
+    // méthodes pour mélanger le deck et piocher
+    virtual void purgeCardPile(const int cardVector);
+    virtual void initDeck();
+    virtual void drawCards(int nbCards = 5);
+
+    // affiche l'état de cardPiles
+    virtual std::string printMap();
 
     enum cardPilesNames
     {
