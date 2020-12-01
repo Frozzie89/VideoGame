@@ -20,16 +20,49 @@ Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity()
     Entity::AddHealth(healthPlayer);
 }
 
-Player::~Player() {}
+Player::~Player()
+{
+    for (int i = 0; i < (int)cardPiles.size(); i++)
+    {
+        for (int j = 0; j < (int)cardPiles[i].size(); j++)
+        {
+            delete cardPiles[i][j];
+        }
+        cardPiles[i].clear();
+    }
+}
 
-Player::Player(const Player &other) : Entity(other), actionPoints(other.actionPoints) {}
+Player::Player(const Player &other) : Entity(other), actionPoints(other.actionPoints)
+{
+    for (int i = 0; i < (int)other.cardPiles.size(); i++)
+    {
+        for (int j = 0; j < (int)other.cardPiles.at(i).size(); j++)
+        {
+            cardPiles.at(i).push_back(other.cardPiles.at(i)[j]->clone());
+        }
+    }
+}
 
 Player &Player::operator=(const Player &rhs)
 {
     if (this != &rhs)
     {
-        actionPoints = rhs.actionPoints;
-        Entity::operator=(rhs);
+        for (int i = 0; i < (int)cardPiles.size(); i++)
+        {
+            for (int j = 0; j < (int)cardPiles[i].size(); j++)
+            {
+                delete cardPiles[i][j];
+            }
+            cardPiles[i].clear();
+        }
+
+        for (int i = 0; i < (int)rhs.cardPiles.size(); i++)
+        {
+            for (int j = 0; j < (int)rhs.cardPiles.at(i).size(); j++)
+            {
+                cardPiles.at(i).push_back(rhs.cardPiles.at(i)[j]->clone());
+            }
+        }
     }
 
     return *this;
@@ -75,6 +108,35 @@ std::string Player::useCard(OffensiveCard &card, Entity &enemy)
         << std::endl;
 
     return res.str();
+}
+
+void Player::removeCard(Card *card, const int cardVector)
+{
+    int indexCardToRemove = findCard(*card, cardVector);
+
+    if (indexCardToRemove == -1)
+        return;
+
+    Card *cardToDelete = *(cardPiles.at(cardVector).begin() + indexCardToRemove);
+    cardPiles.at(cardVector).erase(cardPiles.at(cardVector).begin() + indexCardToRemove);
+    delete cardToDelete;
+}
+
+void Player::addCard(Card *card, const int cardVector)
+{
+    // on autorise l'ajout de plusieurs cartes identiques
+    cardPiles[cardVector].push_back(card->clone());
+}
+
+int Player::findCard(const Card &card, const int cardVector) const
+{
+    for (int i = 0; i < (int)cardPiles.at(cardVector).size(); i++)
+    {
+        if (*cardPiles.at(cardVector)[i] == card)
+            return i;
+    }
+
+    return -1;
 }
 
 std::string Player::getClassName() const

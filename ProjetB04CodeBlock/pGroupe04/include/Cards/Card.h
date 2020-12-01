@@ -34,6 +34,7 @@ public:
     virtual std::string str() const;
     virtual Card *clone() const = 0;
     virtual std::string getClassName() const;
+    virtual bool operator==(const Card &card) const;
 
     bool checkCollision();
 

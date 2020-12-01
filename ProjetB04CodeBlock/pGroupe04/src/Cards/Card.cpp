@@ -73,6 +73,11 @@ std::string Card::str() const
     return res.str();
 }
 
+bool Card::operator==(const Card &card) const
+{
+    return label == card.getLabel() && value == card.getValue() && costAction == card.getCostAction();
+}
+
 void Card::HandleInput()
 {
 }
