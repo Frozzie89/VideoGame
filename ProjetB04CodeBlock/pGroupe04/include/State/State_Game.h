@@ -6,6 +6,8 @@
 #include "State/BaseState.h"
 #include "StateManager.h"
 
+#include "Cards/DefensiveCardWarrior.h"
+
 class State_Game : public BaseState
 {
 public:
@@ -24,6 +26,8 @@ public:
     void MainMenu(EventDetails* l_details);
     void Pause(EventDetails* l_details);
 
+    void CardClick(EventDetails* l_details);
+
 protected:
 private:
     sf::Texture m_introTexture;
@@ -31,6 +35,16 @@ private:
     sf::Font m_font;
     sf::Text m_text;
     float m_timePassed;
+    sf::Texture m_bgTexture;
+    sf::Sprite m_bgSprite;
+
+
+    //En attendant
+    DefensiveCardWarrior* dcw;
+    DefensiveCardWarrior* dcw1;
+    DefensiveCardWarrior* dcw2;
+    DefensiveCardWarrior* dcw3;
+    DefensiveCardWarrior* dcw4;
 };
 
 #endif // STATE_GAME_H

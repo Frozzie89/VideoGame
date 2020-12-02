@@ -1,10 +1,12 @@
 #include "Cards/Card.h"
 #include <sstream>
 
-Card::Card(std::string label, std::string path, int costAction, int value) : label(label), path(path), costAction(costAction), value(value)
+Card::Card(std::string label, std::string path, int costAction, int value, SharedContext* l_context) : label(label), path(path), costAction(costAction), value(value),m_context(l_context)
 {
 
-    //m_sprite.setScale(0.5,0.5);
+    m_texture.loadFromFile(path);
+    m_sprite.setTexture(m_texture);
+    m_sprite.setScale(0.4,0.4);
 }
 
 Card::~Card() {}
@@ -84,12 +86,12 @@ void Card::HandleInput()
 
 sf::Vector2f Card::GetPosition()
 {
-    return positions;
+    return m_position;
 }
 
 void Card::SetPosition(sf::Vector2f l_position)
 {
-    positions = l_position;
+    m_position = l_position;
 }
 
 bool Card::checkCollision()
@@ -105,3 +107,33 @@ std::string Card::getClassName() const
 void Card::Move(sf::RenderWindow &l_window)
 {
 }
+//Permet de dessiner le sprite dans la fenetre de jeu
+void Card::Draw()
+{
+    sf::RenderWindow* window = m_context->m_wind->GetRenderWindow();
+    window->draw(m_sprite);
+}
+//Permet de modifier l'origine du sprite en passant deux float
+void Card::SetSpriteOrigin(float l_width, float l_height)
+{
+    m_sprite.setOrigin(l_width,l_height);
+}
+//Permet de modifier la position du sprite en passant deux float
+void Card::SetSpritePosition(float l_width, float l_height)
+{
+    m_position.x = l_width;
+    m_position.y = l_height;
+    m_sprite.setPosition(l_width,l_height);
+}
+//Permet de modifier l'origine du sprite en passant un vector de float
+void Card::SetSpriteOrigin(sf::Vector2f l_position)
+{
+    m_sprite.setOrigin(l_position);
+}
+//Permet de modifier la position du sprite en passant un vector de flaot
+void Card::SetSpritePositon(sf::Vector2f l_position)
+{
+    m_position = l_position;
+    m_sprite.setPosition(m_position);
+}
+

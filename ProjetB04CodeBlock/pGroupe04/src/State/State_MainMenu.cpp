@@ -20,15 +20,15 @@ void State_MainMenu::OnCreate()
 
     sf::FloatRect textRect = m_text.getLocalBounds();
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    m_text.setPosition(400, 100);
+    m_text.setPosition(640, 100);
 
     sf::FloatRect textRectHint = m_hint.getLocalBounds();
     m_hint.setOrigin(textRectHint.left + textRectHint.width / 2.0f, textRectHint.top + textRectHint.height / 2.0f);
-    m_hint.setPosition(100, windowSize.y / 2.0f + 150);
+    m_hint.setPosition(400, windowSize.y / 2.0f + 200);
 
     //Gestion des parametres des differents boutons
     m_buttonSize = sf::Vector2f(600.0f, 64.0f);
-    m_buttonPos = sf::Vector2f(400, 200);
+    m_buttonPos = sf::Vector2f(640, 300);
     m_buttonPadding = 4; //4 pour 4px
 
     std::string str[3];

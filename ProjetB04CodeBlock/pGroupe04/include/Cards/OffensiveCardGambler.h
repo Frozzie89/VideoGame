@@ -8,7 +8,7 @@ class OffensiveCardGambler : public OffensiveCard
 {
 private:
 public:
-    OffensiveCardGambler(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0);
+    OffensiveCardGambler(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0,SharedContext* m_context = nullptr);
     virtual ~OffensiveCardGambler();
     OffensiveCardGambler(const OffensiveCardGambler &other);
     OffensiveCardGambler &operator=(const OffensiveCardGambler &rhs);
@@ -16,6 +16,7 @@ public:
     int activateEffect(Entity &entity);
     OffensiveCardGambler *clone() const;
     std::string getClassName() const;
+
 };
 
 #endif // OFFENSIVECARDGAMBLER_PGROUPE04_H

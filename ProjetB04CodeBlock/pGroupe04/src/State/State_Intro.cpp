@@ -16,6 +16,7 @@ void State_Intro::OnCreate()
     sf::Vector2u windowSize = m_stateMgr->GetContext()->m_wind->GetRenderWindow()->getSize();
     //Chargement du sprite + parametrage
     m_introTexture.loadFromFile("assets/title_icon.png");
+    m_introTexture.setSmooth(true);
     m_introSprite.setTexture(m_introTexture);
     m_introSprite.setOrigin(m_introTexture.getSize().x / 2.0f, m_introTexture.getSize().y / 2.0f);
     m_introSprite.setPosition(windowSize.x / 2.0f, 0);
@@ -63,7 +64,7 @@ void State_Intro::Update(const sf::Time &l_time)
     m_timePassed += l_time.asSeconds();
 
     if (m_timePassed < 6.0f)
-        m_introSprite.setPosition(m_introSprite.getPosition().x, m_introSprite.getPosition().y + (48 * l_time.asSeconds()));
+        m_introSprite.setPosition(m_introSprite.getPosition().x, m_introSprite.getPosition().y + (60 * l_time.asSeconds()));
 
     if ((int)m_timePassed % 10 != 0)
         m_indication.setString(sf::String("Press SPACE to continue"));
@@ -85,9 +86,10 @@ void State_Intro::Draw()
 
 void State_Intro::Continue(EventDetails *l_details)
 {
-    if (m_timePassed >= 6.0f)
+    if (m_timePassed >= 0.0f)
     {
         m_stateMgr->SwitchTo(StateType::MainMenu);
         m_stateMgr->Remove(StateType::Intro);
     }
+
 }

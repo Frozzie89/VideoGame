@@ -36,6 +36,8 @@ public:
 
     void LateUpdate();
 
+    SharedContext* GetContext();
+
 protected:
 };
 

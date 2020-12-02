@@ -3,15 +3,19 @@
 
 #include "Entity/Enemy/Behaviour.h"
 
-class BehaviourHighLife : public Behaviour
+class BehaviourHighLife: public Behaviour
 {
-private:
-protected:
-public:
-    BehaviourHighLife();
-    virtual ~BehaviourHighLife();
-    BehaviourHighLife(const BehaviourHighLife &other);
-    BehaviourHighLife &operator=(const BehaviourHighLife &other);
+    public:
+        BehaviourHighLife();
+        virtual ~BehaviourHighLife();
+        BehaviourHighLife(const BehaviourHighLife& other);
+        BehaviourHighLife& operator=(const BehaviourHighLife& other);
+
+    protected:
+
+    private:
+
+
 };
 
 #endif // BEHAVIOURHIGHLIFE_H

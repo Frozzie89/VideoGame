@@ -1,6 +1,6 @@
 #include "Cards/OffensiveCardWarrior.h"
 
-OffensiveCardWarrior::OffensiveCardWarrior(std::string label, std::string path, int costAction, int value) : OffensiveCard(label, path, costAction, value) {}
+OffensiveCardWarrior::OffensiveCardWarrior(std::string label, std::string path, int costAction, int value, SharedContext* l_context) : OffensiveCard(label, path, costAction, value, l_context) {}
 
 OffensiveCardWarrior::~OffensiveCardWarrior() {}
 

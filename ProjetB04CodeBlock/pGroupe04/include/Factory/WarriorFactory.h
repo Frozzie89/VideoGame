@@ -2,7 +2,7 @@
 #define WARRIORFACTORY_PGROUPE04_H
 #include <string>
 #include "AbstractFactory.h"
-#include "Entity/Player/Warrior.h"
+#include "Entity/Warrior.h"
 #include "Cards/OffensiveCardWarrior.h"
 #include "Cards/DefensiveCardWarrior.h"
 
@@ -20,10 +20,10 @@ public:
     Warrior &buildPlayer(int actionsPoints);
 
     // Crée une Carte Offensive pour Warrior
-    OffensiveCardWarrior &buildOffensiveCard(std::string label, std::string path, int costAction, int value);
+    OffensiveCardWarrior &buildOffensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context);
 
     // Crée une Carte Defensive pour Warrior
-    DefensiveCardWarrior &buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth);
+    DefensiveCardWarrior &buildDefensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context, bool isHealth);
 };
 
 #endif // WARRIORFACTORY_PGROUPE04_H
