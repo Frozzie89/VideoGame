@@ -6,7 +6,7 @@ Card::Card(std::string label, std::string path, int costAction, int value, Share
 
     m_texture.loadFromFile(path);
     m_sprite.setTexture(m_texture);
-    m_sprite.setScale(0.4,0.4);
+    m_sprite.setScale(0.5,0.5);
 }
 
 Card::~Card() {}

@@ -83,6 +83,7 @@
 		<Unit filename="include/State/State_Game.h" />
 		<Unit filename="include/State/State_Intro.h" />
 		<Unit filename="include/State/State_MainMenu.h" />
+		<Unit filename="include/State/State_Option.h" />
 		<Unit filename="include/State/State_Paused.h" />
 		<Unit filename="include/StateManager.h" />
 		<Unit filename="include/Window.h" />
@@ -120,6 +121,7 @@
 		<Unit filename="src/State/State_Game.cpp" />
 		<Unit filename="src/State/State_Intro.cpp" />
 		<Unit filename="src/State/State_MainMenu.cpp" />
+		<Unit filename="src/State/State_Option.cpp" />
 		<Unit filename="src/State/State_Paused.cpp" />
 		<Unit filename="src/StateManager.cpp" />
 		<Unit filename="src/Window.cpp" />

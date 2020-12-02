@@ -84,9 +84,6 @@ void State_MainMenu::Deactivate() {}
 void State_MainMenu::Update(const sf::Time &l_time)
 {
     MouseHover();
-
-    if (m_timePassed < 100.0f)
-        m_timePassed += l_time.asSeconds();
 }
 //Permet de dessiner l'ecran
 void State_MainMenu::Draw()

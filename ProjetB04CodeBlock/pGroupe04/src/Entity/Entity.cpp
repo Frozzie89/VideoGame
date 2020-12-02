@@ -81,13 +81,14 @@ sf::Vector2f Entity::getPosition()
 
 void Entity::setPosition(sf::Vector2f l_position)
 {
-    m_position = l_position;
+    m_sprite.setPosition(l_position);
 }
 
 void Entity::setPosition(float l_width, float l_height)
 {
     m_position.x = l_width;
     m_position.y = l_height;
+    m_sprite.setPosition(m_position);
 }
 
 void Entity::endTurn()
@@ -99,6 +100,7 @@ void Entity::setSprite(const std::string l_path)
 {
     m_path = l_path;
     m_texture.loadFromFile(m_path);
+    m_texture.setSmooth(true);
     m_sprite.setTexture(m_texture);
     m_sprite.setScale(0.2,0.2);
 }
@@ -114,3 +116,6 @@ void Entity::setContext(SharedContext* l_context)
    m_context = l_context;
 }
 
+void Entity::setSpriteScale(float l_x,float l_y){
+    m_sprite.setScale(l_x,l_y);
+}

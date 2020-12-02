@@ -3,6 +3,13 @@
 State_Game::State_Game(StateManager *l_stateManager) : BaseState(l_stateManager)
 {
     //ctor
+    m_health.setSize(sf::Vector2f(100,25));
+    m_health.setFillColor(sf::Color::Red);
+    m_lostHealth.setSize(sf::Vector2f(75,25));
+    m_lostHealth.setFillColor(sf::Color::Green);
+
+    m_health.setPosition(900,50);
+    m_lostHealth.setPosition(900,50);
 }
 
 State_Game::~State_Game()
@@ -18,7 +25,8 @@ void State_Game::OnCreate()
 
     m_font.loadFromFile("assets/font/superboom.ttf");
     m_text.setFont(m_font);
-    m_text.setString("Ceci est un jeu je vous l'assure");
+    //m_text.setString("Ceci est un jeu je vous l'assure");
+    m_text.setString("Je pensais qu'on etait frere DONALD !\n C'est l'heure pour toi de gouter a mon foi !");
     m_text.setCharacterSize(15);
 
     sf::Vector2u windowSize = m_stateMgr->GetContext()->m_wind->GetRenderWindow()->getSize();
@@ -28,7 +36,7 @@ void State_Game::OnCreate()
     m_text.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
 
     EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
-    evMgr->AddCallback(StateType::Game,"Key_Escape",&State_Game::MainMenu,this);
+    evMgr->AddCallback(StateType::Game,"Key_Escape",&State_Game::Option,this);
     evMgr->AddCallback(StateType::Game,"Key_P",&State_Game::Pause,this);
     evMgr->AddCallback(StateType::Game,"Click_Left",&State_Game::CardClick,this);
 }
@@ -62,21 +70,31 @@ void State_Game::Draw()
 
     window->draw(m_text);
     int i=1;
-    DefensiveCardWarrior dcw("Coucou", "assets/cards/blank_heal.png", 0, 0,m_stateMgr->GetContext(), true);
+    DefensiveCardWarrior dcw("Coucou", "assets/cards/Warrior/attack/fistOfTheDuck.png", 0, 0,m_stateMgr->GetContext(), true);
     //++i;
-    DefensiveCardWarrior dcw1("Coucou", "assets/cards/blank_attack.png", 0, 0,m_stateMgr->GetContext(), true);
+    DefensiveCardWarrior dcw1("Coucou", "assets/cards/Warrior/shield/block.png", 0, 0,m_stateMgr->GetContext(), true);
     //++i;
-    DefensiveCardWarrior dcw2("Coucou", "assets/cards/blank_heal.png", 0, 0,m_stateMgr->GetContext(), true);
+    DefensiveCardWarrior dcw2("Coucou", "assets/cards/Warrior/attack/thorHammer.png" , 0, 0,m_stateMgr->GetContext(), true);
     //++i;
-    DefensiveCardWarrior dcw3("Coucou", "assets/cards/blank_shield.png", 0, 0,m_stateMgr->GetContext(), true);
+    DefensiveCardWarrior dcw3("Coucou", "assets/cards/Warrior/shield/goldenPlates.png", 0, 0,m_stateMgr->GetContext(), true);
     //++i;
-    DefensiveCardWarrior dcw4("Coucou", "assets/cards/blank_attack.png", 0, 0,m_stateMgr->GetContext(), true);
+    DefensiveCardWarrior dcw4("Coucou", "assets/cards/Warrior/heal/takeNap.png", 0, 0,m_stateMgr->GetContext(), true);
 
     Enemy e;
     e.setContext(m_stateMgr->GetContext());
     e.setSprite("enemy.png");
-    e.setPosition(850.0f,350.0f);
+    e.setPosition(850,100);
     e.Draw();
+
+    Warrior w;
+    w.setContext(m_stateMgr->GetContext());
+    w.setSprite("assets/player.png");
+    w.setPosition(150,150);
+    w.setSpriteScale(0.3,0.3);
+    w.Draw();
+
+    window->draw(m_health);
+    window->draw(m_lostHealth);
 
     int cartHeight = 420;
     int cartWidth = 244;
@@ -91,12 +109,12 @@ void State_Game::Draw()
     dcw2.Draw();
     dcw3.Draw();
     dcw4.Draw();
-
+    e.Draw();
 }
 
-void State_Game::MainMenu(EventDetails* l_details)
+void State_Game::Option(EventDetails* l_details)
 {
-    m_stateMgr->SwitchTo(StateType::MainMenu);
+    m_stateMgr->SwitchTo(StateType::Option);
 }
 
 void State_Game::Pause(EventDetails* l_details)

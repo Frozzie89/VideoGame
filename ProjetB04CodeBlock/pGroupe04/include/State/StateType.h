@@ -8,7 +8,8 @@ enum class StateType
     Game,
     Paused,
     GameOver,
-    Credits
+    Credits,
+    Option
 };
 
 #endif // STATETYPE_H
