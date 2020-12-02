@@ -23,10 +23,10 @@ public:
     Gambler &buildPlayer(int actionsPoints, int luck);
 
     // Crée une Carte Offensive pour Gambler
-    OffensiveCardGambler &buildOffensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context);
+    OffensiveCardGambler &buildOffensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *m_context);
 
     // Crée une Carte Defensive pour Gambler
-    DefensiveCardGambler &buildDefensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context, bool isHealth);
+    DefensiveCardGambler &buildDefensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *m_context, bool isHealth);
 };
 
 #endif // GAMBLERFACTORY_PGROUPE04_H
