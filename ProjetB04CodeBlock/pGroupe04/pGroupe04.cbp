@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
@@ -51,11 +52,14 @@
 		<Unit filename="include/Cards/DefensiveCard.h" />
 		<Unit filename="include/Cards/DefensiveCardGambler.h" />
 		<Unit filename="include/Cards/DefensiveCardWarrior.h" />
+		<Unit filename="include/Cards/DefensiveCards.h" />
 		<Unit filename="include/Cards/OffensiveCard.h" />
 		<Unit filename="include/Cards/OffensiveCardGambler.h" />
 		<Unit filename="include/Cards/OffensiveCardWarrior.h" />
-		<Unit filename="include/Entity/Characteristic.h" />
-		<Unit filename="include/Entity/Characteristics.h" />
+		<Unit filename="include/Entity/Characteristics/Characteristic.h" />
+		<Unit filename="include/Entity/Characteristics/Characteristics.h" />
+		<Unit filename="include/Entity/Characteristics/Health.h" />
+		<Unit filename="include/Entity/Characteristics/Shield.h" />
 		<Unit filename="include/Entity/Enemy/Behaviour.h" />
 		<Unit filename="include/Entity/Enemy/BehaviourHighLife.h" />
 		<Unit filename="include/Entity/Enemy/BehaviourLowLife.h" />
@@ -64,15 +68,14 @@
 		<Unit filename="include/Entity/Enemy/EnemyAbilityDefensive.h" />
 		<Unit filename="include/Entity/Enemy/EnemyAbilityOffensive.h" />
 		<Unit filename="include/Entity/Entity.h" />
-		<Unit filename="include/Entity/Gambler.h" />
-		<Unit filename="include/Entity/Health.h" />
-		<Unit filename="include/Entity/Player.h" />
-		<Unit filename="include/Entity/Shield.h" />
-		<Unit filename="include/Entity/Warrior.h" />
+		<Unit filename="include/Entity/Player/Gambler.h" />
+		<Unit filename="include/Entity/Player/Player.h" />
+		<Unit filename="include/Entity/Player/Warrior.h" />
 		<Unit filename="include/EventManager.h" />
 		<Unit filename="include/Factory/AbstractFactory.h" />
 		<Unit filename="include/Factory/GamblerFactory.h" />
 		<Unit filename="include/Factory/WarriorFactory.h" />
+		<Unit filename="include/Fight.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/SharedContext.h" />
 		<Unit filename="include/State/BaseState.h" />
@@ -91,8 +94,10 @@
 		<Unit filename="src/Cards/OffensiveCard.cpp" />
 		<Unit filename="src/Cards/OffensiveCardGambler.cpp" />
 		<Unit filename="src/Cards/OffensiveCardWarrior.cpp" />
-		<Unit filename="src/Entity/Characteristic.cpp" />
-		<Unit filename="src/Entity/Characteristics.cpp" />
+		<Unit filename="src/Entity/Characteristics/Characteristic.cpp" />
+		<Unit filename="src/Entity/Characteristics/Characteristics.cpp" />
+		<Unit filename="src/Entity/Characteristics/Health.cpp" />
+		<Unit filename="src/Entity/Characteristics/Shield.cpp" />
 		<Unit filename="src/Entity/Enemy/Behaviour.cpp" />
 		<Unit filename="src/Entity/Enemy/BehaviourHighLife.cpp" />
 		<Unit filename="src/Entity/Enemy/BehaviourLowLife.cpp" />
@@ -101,15 +106,14 @@
 		<Unit filename="src/Entity/Enemy/EnemyAbilityDefensive.cpp" />
 		<Unit filename="src/Entity/Enemy/EnemyAbilityOffensive.cpp" />
 		<Unit filename="src/Entity/Entity.cpp" />
-		<Unit filename="src/Entity/Gambler.cpp" />
-		<Unit filename="src/Entity/Health.cpp" />
-		<Unit filename="src/Entity/Player.cpp" />
-		<Unit filename="src/Entity/Shield.cpp" />
-		<Unit filename="src/Entity/Warrior.cpp" />
+		<Unit filename="src/Entity/Player/Gambler.cpp" />
+		<Unit filename="src/Entity/Player/Player.cpp" />
+		<Unit filename="src/Entity/Player/Warrior.cpp" />
 		<Unit filename="src/EventManager.cpp" />
 		<Unit filename="src/Factory/AbstractFactory.cpp" />
 		<Unit filename="src/Factory/GamblerFactory.cpp" />
 		<Unit filename="src/Factory/WarriorFactory.cpp" />
+		<Unit filename="src/Fight.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/State/BaseState.cpp" />
 		<Unit filename="src/State/StateType.cpp" />

@@ -42,6 +42,10 @@ public:
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void endTurn();
     void getCharacteristicsValue(); // Met fin au tour de l'entite
+
+    sf::Vector2f getPosition();
+    void setPosition(sf::Vector2f l_position);
+    void setPosition(float l_width, float l_height);
 };
 
 #endif // ENTITY_H
