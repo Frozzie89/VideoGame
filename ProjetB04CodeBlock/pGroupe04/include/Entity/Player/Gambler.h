@@ -16,8 +16,9 @@ public:
     Gambler(const Gambler &other);
     Gambler &operator=(const Gambler &rhs);
 
-    virtual std::string useCard(DefensiveCard &card);
-    virtual std::string useCard(OffensiveCard &card, Entity &enemy);
+    std::string useCard(DefensiveCard &card);
+    std::string useCard(OffensiveCard &card, Entity &enemy);
+    void addCard(Card *card, const int cardVector);
     bool tryUseCard() const;
     std::string getClassName() const;
 };

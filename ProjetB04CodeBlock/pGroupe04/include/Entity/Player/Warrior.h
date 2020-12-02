@@ -14,8 +14,9 @@ public:
     Warrior(const Warrior &other);
     Warrior &operator=(const Warrior &rhs);
 
-    virtual std::string useCard(DefensiveCard &card);
-    virtual std::string useCard(OffensiveCard &card, Entity &enemy);
+    std::string useCard(DefensiveCard &card);
+    std::string useCard(OffensiveCard &card, Entity &enemy);
+    void addCard(Card *card, const int cardVector);
     std::string getClassName() const;
 };
 

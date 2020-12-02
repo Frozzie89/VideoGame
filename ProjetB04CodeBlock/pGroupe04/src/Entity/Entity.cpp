@@ -2,7 +2,7 @@
 #include <iostream>
 
 //Constructeur
-Entity::Entity()
+Entity::Entity(std::string l_path) : m_path(l_path)
 {
     m_turn = false;
 }
@@ -69,7 +69,23 @@ void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
 {
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);
 }
-void Entity::getCharacteristicsValue(){
-    std::cout<< m_entityCaracteristics.getCharacteristics()<<std::endl;
+void Entity::getCharacteristicsValue()
+{
+    std::cout << m_entityCaracteristics.getCharacteristics() << std::endl;
 }
 
+sf::Vector2f Entity::getPosition()
+{
+    return m_position;
+}
+
+void Entity::setPosition(sf::Vector2f l_position)
+{
+    m_position = l_position;
+}
+
+void Entity::setPosition(float l_width, float l_height)
+{
+    m_position.x = l_width;
+    m_position.y = l_height;
+}
