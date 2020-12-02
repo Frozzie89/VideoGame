@@ -45,21 +45,15 @@ void State_Game::Deactivate()
 
 void State_Game::Update(const sf::Time &l_time)
 {
-    if (m_timePassed < 5.0f)
-    {
-        m_timePassed += l_time.asSeconds();
-        m_introSprite.setPosition(m_introSprite.getPosition().x, m_introSprite.getPosition().y + (48 * l_time.asSeconds()));
-    }
+
 }
 
 void State_Game::Draw()
 {
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
-    window->draw(m_introSprite);
-    if (m_timePassed >= 5.0f)
-    {
-        window->draw(m_text);
-    }
+
+    window->draw(m_text);
+
 }
 
 void State_Game::MainMenu(EventDetails* l_details)
