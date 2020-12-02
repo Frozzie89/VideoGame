@@ -2,7 +2,7 @@
 #define OFFENSIVECARD_PGROUPE04_H
 #include <string>
 #include "Cards/Card.h"
-#include "../Entity/Entity.h"
+#include "Entity/Entity.h"
 
 class OffensiveCard : public Card
 {
