@@ -27,6 +27,7 @@ public:
 
     int getActionPoints() const;
     void setActionPoints(const int actionPoints);
+    std::vector<Card *> getCardPile(const int cardVector);
     virtual std::string getClassName() const;
 
     // méthodes pour jouer une carte depuis Player
@@ -34,17 +35,17 @@ public:
     virtual std::string useCard(OffensiveCard &card, Entity &enemy);
 
     // méthodes CRUD pour cardPiles
-    virtual void removeCard(Card *card, const int cardVector);
-    virtual void addCard(Card *card, const int cardVector);
-    virtual int findCard(const Card &card, const int cardVector) const;
+    void removeCard(Card *card, const int cardVector);
+    void addCard(Card *card, const int cardVector);
+    int findCard(const Card &card, const int cardVector) const;
 
     // méthodes pour mélanger le deck et piocher
-    virtual void purgeCardPile(const int cardVector);
-    virtual void initDeck();
-    virtual void drawCards(int nbCards = 5);
+    void purgeCardPile(const int cardVector); // Vide un paquet de cartes
+    void initDeck();                          // Mélange le deck
+    void drawCards(int nbCards = 5);          // tire des cartes du deck pour les mettres dans la main
 
     // affiche l'état de cardPiles
-    virtual std::string printMap();
+    std::string printMap();
 
     enum cardPilesNames
     {

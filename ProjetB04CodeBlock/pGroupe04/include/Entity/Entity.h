@@ -1,6 +1,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <SFML/Graphics.hpp>
+#include <string>
 #include "Entity/Characteristics/Characteristics.h"
 #include "Entity/Characteristics/Health.h"
 #include "Entity/Characteristics/Shield.h"
@@ -11,9 +13,15 @@ class Entity
 private:
     Characteristics m_entityCaracteristics; // Liste de caracteristiques de l'entite
     bool m_turn;                            // Permet de savoir s'il s'agit du tour de l'entite
+    std::string m_path;
+
+protected:
+    sf::Texture m_texture;
+    sf::Sprite m_sprite;
+    sf::Vector2f m_position;
 
 public:
-    Entity();
+    Entity(std::string l_path = "noPath");
     virtual ~Entity() = 0;
     Entity(const Entity &other);
     Entity &operator=(const Entity &rhs);
@@ -34,6 +42,10 @@ public:
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void endTurn();
     void getCharacteristicsValue(); // Met fin au tour de l'entite
+
+    sf::Vector2f getPosition();
+    void setPosition(sf::Vector2f l_position);
+    void setPosition(float l_width, float l_height);
 };
 
 #endif // ENTITY_H

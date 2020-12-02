@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
     <FileVersion major="1" minor="6" />
     <Project>
@@ -99,7 +98,7 @@
         <Unit filename="src/Entity/Enemy/EnemyAbilityDefensive.cpp" />
         <Unit filename="src/Entity/Enemy/EnemyAbilityOffensive.cpp" />
         <Unit filename="src/Entity/Entity.cpp" />
-        <Unit filename="src/Entity/Gambler.cpp" />
+        <Unit filename="src/Entity/Player/Gambler.cpp" />
         <Unit filename="src/Entity/Characteristics/Health.cpp" />
         <Unit filename="src/Entity/Player/Player.cpp" />
         <Unit filename="src/Entity/Characteristics/Shield.cpp" />
@@ -119,5 +118,7 @@
         <Extensions>
             <lib_finder disable_auto="1" />
         </Extensions>
+        <Unit filename="include/Fight.h" />
+        <Unit filename="src/Fight.cpp" />
     </Project>
 </CodeBlocks_project_file>

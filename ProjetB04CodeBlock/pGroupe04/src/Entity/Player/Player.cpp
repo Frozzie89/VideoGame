@@ -79,6 +79,11 @@ void Player::setActionPoints(const int actionPoints)
     this->actionPoints = actionPoints;
 }
 
+std::vector<Card *> Player::getCardPile(const int cardVector)
+{
+    return cardPiles[cardVector];
+}
+
 // For Defensive Cards
 std::string Player::useCard(DefensiveCard &card)
 {
