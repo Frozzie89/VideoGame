@@ -5,8 +5,6 @@
 #include "EventManager.h"
 #include "Entity/Player/Player.h"
 
-//#include "Entity/Player.h"
-
 #include <iostream>
 using namespace std;
 //Permet d'avoir en un seul element les elements les plus utilisé
