@@ -25,7 +25,7 @@ public:
     Enemy getEnemy();
     Player getPlayer();
     void setEnemy();
-    void setEnemy(Enemy l_enemy);
+    void setEnemy(Enemy l_enemy); // Juste pour la phase développement
 };
 
 #endif // FIGHT_PGROUPE04_H

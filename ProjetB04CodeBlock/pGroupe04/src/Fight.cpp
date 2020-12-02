@@ -60,4 +60,5 @@ void Fight::setEnemy()
 
 void Fight::setEnemy(Enemy l_enemy)
 {
+    // Todo
 }
