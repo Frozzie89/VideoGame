@@ -1,5 +1,5 @@
 #include "Factory/GamblerFactory.h"
-#include "Entity/Player/Gambler.h"
+#include "Entity/Gambler.h"
 #include "Cards/DefensiveCardGambler.h"
 #include "Cards/OffensiveCardGambler.h"
 
@@ -31,14 +31,14 @@ Gambler &GamblerFactory::buildPlayer(int actionsPoints, int luck)
     return *gambler;
 }
 
-OffensiveCardGambler &GamblerFactory::buildOffensiveCard(std::string label, std::string path, int costAction, int value)
+OffensiveCardGambler &GamblerFactory::buildOffensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context)
 {
-    OffensiveCardGambler *ocg = new OffensiveCardGambler(label, path, costAction, value);
+    OffensiveCardGambler *ocg = new OffensiveCardGambler(label, path, costAction, value, m_context);
     return *ocg;
 }
 
-DefensiveCardGambler &GamblerFactory::buildDefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth)
+DefensiveCardGambler &GamblerFactory::buildDefensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context, bool isHealth)
 {
-    DefensiveCardGambler *dcg = new DefensiveCardGambler(label, path, costAction, value, isHealth);
+    DefensiveCardGambler *dcg = new DefensiveCardGambler(label, path, costAction, value,m_context, isHealth);
     return *dcg;
 }

@@ -4,7 +4,7 @@
     On va ensuite instancier notre sprite en passant par le chargement de sa texture
 
 */
-Game::Game() : m_window("Duck the issue !", sf::Vector2u(800, 600)), m_stateManager(&m_context)
+Game::Game() : m_window("Duck the issue !", sf::Vector2u(1280, 720)), m_stateManager(&m_context)
 {
     //ctor
     //m_texturePicture.loadFromFile("chapitre5.jpg");
@@ -72,4 +72,9 @@ void Game::LateUpdate()
 {
     m_stateManager.ProcessRequests();
     RestartClock();
+}
+
+SharedContext* Game::GetContext()
+{
+    return &m_context;
 }

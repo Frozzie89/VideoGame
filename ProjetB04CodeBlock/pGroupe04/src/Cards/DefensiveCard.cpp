@@ -1,6 +1,6 @@
 #include "Cards/DefensiveCard.h"
 
-DefensiveCard::DefensiveCard(std::string label, std::string path, int costAction, int value, bool isHealth) : Card(label, path, costAction, value), isHealth(isHealth) {}
+DefensiveCard::DefensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* l_context, bool isHealth) : Card(label, path, costAction, value,l_context), isHealth(isHealth) {}
 
 DefensiveCard::~DefensiveCard() {}
 

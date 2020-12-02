@@ -1,21 +1,22 @@
 #include "Entity/Enemy/EnemyAbilityOffensive.h"
 
-EnemyAbilityOffensive::EnemyAbilityOffensive(std::string l_name, int l_value) : EnemyAbility(l_name, l_value) {}
+EnemyAbilityOffensive::EnemyAbilityOffensive(std::string l_name, int l_value): EnemyAbility(l_name, l_value){   }
 
-EnemyAbilityOffensive::~EnemyAbilityOffensive() {}
+EnemyAbilityOffensive::~EnemyAbilityOffensive(){}
 
-EnemyAbilityOffensive::EnemyAbilityOffensive(const EnemyAbilityOffensive &other) : EnemyAbility(other) {}
-
-EnemyAbilityOffensive &EnemyAbilityOffensive::operator=(const EnemyAbilityOffensive &rhs)
+EnemyAbilityOffensive::EnemyAbilityOffensive(const EnemyAbilityOffensive& other)
 {
-    if (this != &rhs)
-    {
+    EnemyAbility::operator=(other);
+}
+
+EnemyAbilityOffensive& EnemyAbilityOffensive::operator=(const EnemyAbilityOffensive& rhs){
+    if (this != &rhs){
         EnemyAbility::operator=(rhs);
     }
     return *this;
 }
 
-int EnemyAbilityOffensive::activateEffect(Entity &entity)
+int EnemyAbilityOffensive::activateEffect(Entity& entity)
 {
     Health playerHealth;
 
@@ -23,8 +24,7 @@ int EnemyAbilityOffensive::activateEffect(Entity &entity)
     return getValue();
 }
 
-std::string EnemyAbilityOffensive::toString() const
-{
+std::string EnemyAbilityOffensive::toString() const{
     return "Name:" + getName() + "     \tValue:" + std::to_string(getValue());
 }
 

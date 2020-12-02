@@ -5,23 +5,23 @@
 #include "Entity/Enemy/EnemyAbilityDefensive.h"
 #include "Entity/Enemy/EnemyAbilityOffensive.h"
 
+
 class Behaviour
 {
+    public:
+        Behaviour();
+        virtual ~Behaviour();
+        Behaviour(const Behaviour& other);
+        Behaviour& operator=(const Behaviour& other);
 
-private:
-protected:
-    //Dï¿½fini le taux de carte dï¿½fensive
-    int m_rate;
+        void useAbility(Entity &l_player, Entity &l_enemy, std::vector<EnemyAbility *> m_abilities);
+        int getRandomAbility(std::vector<EnemyAbility *> m_abilities);
+        int searchAbilityType(std::vector<EnemyAbility*>m_abilities, std::string lookingForClassAbility);
+    protected:
 
-public:
-    Behaviour();
-    virtual ~Behaviour() = 0;
-    Behaviour(const Behaviour &other);
-    Behaviour &operator=(const Behaviour &other);
-
-    void useAbility(Entity &l_player, Entity &l_enemy, std::vector<EnemyAbility *> m_abilities);
-    int getRandomAbility(std::vector<EnemyAbility *> m_abilities);
-    int searchAbilityType(std::vector<EnemyAbility *> m_abilities, std::string lookingForClassAbility);
+        //Défini le taux de carte défensive
+        int m_rate;
+    private:
 };
 
 #endif // BEHAVIOUR_H
