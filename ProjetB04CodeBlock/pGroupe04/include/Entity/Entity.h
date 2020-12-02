@@ -7,6 +7,8 @@
 #include "Entity/Characteristics/Health.h"
 #include "Entity/Characteristics/Shield.h"
 
+#include "SharedContext.h"
+struct SharedContext;
 // Une Entity représente une entité pouvant combattre dans un combat de carte, donc le joueur et l'enemi
 class Entity
 {
@@ -19,6 +21,7 @@ protected:
     sf::Texture m_texture;
     sf::Sprite m_sprite;
     sf::Vector2f m_position;
+    SharedContext* m_context;
 
 public:
     Entity(std::string l_path = "noPath");
@@ -46,6 +49,10 @@ public:
     sf::Vector2f getPosition();
     void setPosition(sf::Vector2f l_position);
     void setPosition(float l_width, float l_height);
+
+    void setSprite(const std::string l_path);
+    void Draw();
+    void setContext(SharedContext* l_context);
 };
 
 #endif // ENTITY_H

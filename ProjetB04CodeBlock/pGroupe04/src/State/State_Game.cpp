@@ -71,6 +71,13 @@ void State_Game::Draw()
     DefensiveCardWarrior dcw3("Coucou", "assets/cards/blank_shield.png", 0, 0,m_stateMgr->GetContext(), true);
     //++i;
     DefensiveCardWarrior dcw4("Coucou", "assets/cards/blank_attack.png", 0, 0,m_stateMgr->GetContext(), true);
+
+    Enemy e;
+    e.setContext(m_stateMgr->GetContext());
+    e.setSprite("enemy.png");
+    e.setPosition(850.0f,350.0f);
+    e.Draw();
+
     int cartHeight = 420;
     int cartWidth = 244;
     int cartBorder = 65;

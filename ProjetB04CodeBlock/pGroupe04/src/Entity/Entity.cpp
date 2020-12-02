@@ -89,3 +89,28 @@ void Entity::setPosition(float l_width, float l_height)
     m_position.x = l_width;
     m_position.y = l_height;
 }
+
+void Entity::endTurn()
+{
+
+}
+
+void Entity::setSprite(const std::string l_path)
+{
+    m_path = l_path;
+    m_texture.loadFromFile(m_path);
+    m_sprite.setTexture(m_texture);
+    m_sprite.setScale(0.2,0.2);
+}
+
+void Entity::Draw()
+{
+    sf::RenderWindow* window = m_context->m_wind->GetRenderWindow();
+    window->draw(m_sprite);
+}
+
+void Entity::setContext(SharedContext* l_context)
+{
+   m_context = l_context;
+}
+

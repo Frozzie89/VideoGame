@@ -1,7 +1,7 @@
 #ifndef ABSTRACTFACTORY_PGROUPE04_H
 #define ABSTRACTFACTORY_PGROUPE04_H
 #include <string>
-#include "Entity/Player.h"
+#include "Entity/Player/Player.h"
 #include "Cards/Card.h"
 #include "SharedContext.h"
 

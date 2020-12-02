@@ -7,6 +7,7 @@
 #include "StateManager.h"
 
 #include "Cards/DefensiveCardWarrior.h"
+#include "Entity/Enemy/Enemy.h"
 
 class State_Game : public BaseState
 {
@@ -38,13 +39,6 @@ private:
     sf::Texture m_bgTexture;
     sf::Sprite m_bgSprite;
 
-
-    //En attendant
-    DefensiveCardWarrior* dcw;
-    DefensiveCardWarrior* dcw1;
-    DefensiveCardWarrior* dcw2;
-    DefensiveCardWarrior* dcw3;
-    DefensiveCardWarrior* dcw4;
 };
 
 #endif // STATE_GAME_H

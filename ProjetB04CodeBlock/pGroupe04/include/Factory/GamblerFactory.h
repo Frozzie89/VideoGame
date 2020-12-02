@@ -2,7 +2,7 @@
 #define GAMBLERFACTORY_PGROUPE04_H
 #include <string>
 #include "AbstractFactory.h"
-#include "Entity/Gambler.h"
+#include "Entity/Player/Gambler.h"
 #include "Cards/OffensiveCardGambler.h"
 #include "Cards/DefensiveCardGambler.h"
 
