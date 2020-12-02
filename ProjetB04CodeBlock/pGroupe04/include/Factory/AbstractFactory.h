@@ -19,10 +19,10 @@ public:
     virtual Player &buildPlayer(int actionsPoints) = 0;
 
     // crée une carte offensive
-    virtual OffensiveCard &buildOffensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context) = 0;
+    virtual OffensiveCard &buildOffensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *m_context) = 0;
 
     // crée une carte défensive
-    virtual DefensiveCard &buildDefensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* m_context, bool isHealth) = 0;
+    virtual DefensiveCard &buildDefensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *m_context, bool isHealth) = 0;
 };
 
 #endif // ABSTRACTFACTORY_PGROUPE04_H
