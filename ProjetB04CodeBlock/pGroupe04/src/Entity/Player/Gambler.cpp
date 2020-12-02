@@ -50,6 +50,12 @@ std::string Gambler::useCard(OffensiveCard &card, Entity &enemy)
     return res.str();
 }
 
+void Gambler::addCard(Card *card, const int cardVector)
+{
+    if (card->getClassName() == "OffensiveCardGambler" || card->getClassName() == "DefensiveCardGambler")
+        Player::addCard(card, cardVector);
+}
+
 bool Gambler::tryUseCard() const
 {
     return rand() % 100 + 1 > luck;

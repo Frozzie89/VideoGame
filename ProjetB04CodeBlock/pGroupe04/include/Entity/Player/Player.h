@@ -36,7 +36,7 @@ public:
 
     // méthodes CRUD pour cardPiles
     void removeCard(Card *card, const int cardVector);
-    void addCard(Card *card, const int cardVector);
+    virtual void addCard(Card *card, const int cardVector);
     int findCard(const Card &card, const int cardVector) const;
 
     // méthodes pour mélanger le deck et piocher

@@ -31,3 +31,9 @@ std::string Warrior::useCard(OffensiveCard &card, Entity &enemy)
 {
     return Player::useCard(card, enemy);
 }
+
+void Warrior::addCard(Card *card, const int cardVector)
+{
+    if (card->getClassName() == "OffensiveCardWarrior" || card->getClassName() == "DefensiveCardWarrior")
+        Player::addCard(card, cardVector);
+}
