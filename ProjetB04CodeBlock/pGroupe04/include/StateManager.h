@@ -15,6 +15,7 @@
 #include "State/State_Game.h"
 #include "State/State_Paused.h"
 #include "State/State_Option.h"
+#include "State/State_GameOver.h"
 
 #include <iostream>
 using namespace std;
@@ -42,7 +43,9 @@ public:
     void SwitchTo(const StateType &l_type); //Permet de changer de state si l'etat fait parti de la liste de states
     void Remove(const StateType &l_type); //Ajoute un state de la liste servant a supprimer les state
 
-    void setContext(SharedContext l_context); //Permet de modifier le contexte
+    void SetContext(SharedContext* l_context); //Permet de modifier le contexte
+
+    void CreateIntro(); //Permet de creer l'intro
 
 private:
     // Methods.

@@ -9,11 +9,12 @@ StateManager::StateManager(SharedContext *l_shared)
     : m_shared(l_shared)
 {
     cout << "Coucou StateManager Constructeur avec Shared Context" << endl;
-    RegisterState<State_Intro>(StateType::Intro);
+    CreateIntro();
     RegisterState<State_MainMenu>(StateType::MainMenu);
     RegisterState<State_Game>(StateType::Game);
     RegisterState<State_Paused>(StateType::Paused);
     RegisterState<State_Option>(StateType::Option);
+    RegisterState<State_GameOver>(StateType::GameOver);
 }
 //Destructeur
 //Vu qu'on alloue dynamiquement de la memoire, nous devons la liberer
@@ -171,4 +172,14 @@ void StateManager::RemoveState(const StateType &l_type)
             return;
         }
     }
+}
+//Permet de modifier le contexte
+void StateManager::SetContext(SharedContext* l_context)
+{
+    m_shared = l_context;
+}
+
+void StateManager::CreateIntro()
+{
+    RegisterState<State_Intro>(StateType::Intro);
 }

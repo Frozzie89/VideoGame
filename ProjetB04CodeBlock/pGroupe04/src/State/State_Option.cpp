@@ -154,5 +154,5 @@ void State_Option::MouseClick(EventDetails *l_details)
 //Permet d'acceder a la phase de jeu en changeant le state pour un state Game
 void State_Option::Game(EventDetails *l_details)
 {
-    m_stateMgr->SwitchTo(StateType::Game);
+    m_stateMgr->SwitchTo(StateType::GameOver);
 }

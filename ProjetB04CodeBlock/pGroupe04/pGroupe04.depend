@@ -1,20 +1,14 @@
 # depslib dependency file v1.0
-1606984929 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/main.cpp
+1607036780 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<iostream>
 	<string>
-	<fstream>
-	<vector>
-	<utility>
-	<stdexcept>
-	<sstream>
 	"Game.h"
-	"Cards/DefensiveCardWarrior.h"
-	"Entity/Enemy/Enemy.h"
-	"Entity/Enemy/EnemyAbility.h"
-	"Entity/Enemy/BehaviourHighLife.h"
-	"Cards/OffensiveCardWarrior.h"
+	"Entity/Player/Warrior.h"
+	"Fight.h"
+	"Entity/Characteristics/Characteristic.h"
+	"Entity/Characteristics/Characteristics.h"
 
 1525812020 c:\libs\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -72,7 +66,7 @@
 	<SFML/Graphics/VertexBuffer.hpp>
 	<SFML/Graphics/View.hpp>
 
-1607022125 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Game.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Game.h
 	<SFML/Graphics.hpp>
 	"Window.h"
 	"StateManager.h"
@@ -81,22 +75,17 @@
 
 1606689325 teType.h"
 
-1606849627 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Window.h
-	<string>
-	<SFML/Graphics.hpp>
-	"EventManager.h"
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Window.h
 	<string>
 	<SFML/Graphics.hpp>
 	"EventManager.h"
 
 1606689325 ger.h"
 
-1606849627 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Window.cpp
-	"Window.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Window.cpp
 	"Window.h"
 
-1606922168 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Game.cpp
-	"Game.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Game.cpp
 	"Game.h"
 
 1606849627 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics.cpp
@@ -111,13 +100,13 @@
 	"Entity/Characteristic.h"
 	<vector>
 
-1606944332 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Entity.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Entity.cpp
 	"Entity/Entity.h"
 	<iostream>
 
 1606842560 tity.h"
 
-1606942328 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Entity.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Entity.h
 	<SFML/Graphics.hpp>
 	<string>
 	"Entity/Characteristics/Characteristics.h"
@@ -155,13 +144,11 @@
 	<string>
 	<string>
 
-1606942868 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/Card.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/Card.cpp
 	"Cards/Card.h"
 	<sstream>
 
-1606936122 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/Card.h
-	<string>
-	<SFML/Graphics.hpp>
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/Card.h
 	<string>
 	<SFML/Graphics.hpp>
 	"Entity/Entity.h"
@@ -169,83 +156,60 @@
 
 1606689325 hics.hpp>
 
-1606859722 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCard.cpp
-	"Cards/DefensiveCard.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCard.cpp
 	"Cards/DefensiveCard.h"
 
 1606689244 ensiveCard.h"
 
-1606860224 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCard.h
-	<string>
-	"Card.h"
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCard.h
 	<string>
 	"Cards/Card.h"
 
-1606859746 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCardGambler.cpp
-	"Cards/DefensiveCardGambler.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCardGambler.cpp
 	"Cards/DefensiveCardGambler.h"
 
 1606818646 ensiveCardGambler.h"
 
-1606860145 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCardGambler.h
-	<string>
-	"DefensiveCard.h"
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCardGambler.h
 	<string>
 	"Cards/DefensiveCard.h"
 
 1606575969 Card.h"
 
-1606863154 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCardWarrior.cpp
-	"Cards/DefensiveCardWarrior.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/DefensiveCardWarrior.cpp
 	"Cards/DefensiveCardWarrior.h"
 
 1606818646 ensiveCardWarrior.h"
 
-1606862490 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCardWarrior.h
-	<string>
-	"DefensiveCard.h"
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/DefensiveCardWarrior.h
 	<string>
 	"Cards/DefensiveCard.h"
 
-1606859817 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCard.cpp
-	"Cards/OffensiveCard.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCard.cpp
 	"Cards/OffensiveCard.h"
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCard.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCard.h
 	<string>
 	"Cards/Card.h"
 	"Entity/Entity.h"
 
 1606818646 /Entity.h"
 
-1606859866 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCardGambler.cpp
-	"Cards/OffensiveCardGambler.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCardGambler.cpp
 	"Cards/OffensiveCardGambler.h"
 
-1606860172 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCardGambler.h
-	<string>
-	"OffensiveCard.h"
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCardGambler.h
 	<string>
 	"Cards/OffensiveCard.h"
 
-1606859884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCardWarrior.cpp
-	"Cards/OffensiveCardWarrior.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/OffensiveCardWarrior.cpp
 	"Cards/OffensiveCardWarrior.h"
 
-1606860176 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCardWarrior.h
-	<string>
-	"OffensiveCard.h"
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/OffensiveCardWarrior.h
 	<string>
 	"Cards/OffensiveCard.h"
 
-1606849627 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/EventManager.h
-	<SFML/Graphics.hpp>
-	<functional>
-	<unordered_map>
-	<iostream>
-	<sstream>
-	<fstream>
-	"State/StateType.h"
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/EventManager.h
 	<SFML/Graphics.hpp>
 	<functional>
 	<unordered_map>
@@ -254,11 +218,10 @@
 	<fstream>
 	"State/StateType.h"
 
-1606849627 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/EventManager.cpp
-	"EventManager.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/EventManager.cpp
 	"EventManager.h"
 
-1607018210 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/StateManager.h
+1607036849 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/StateManager.h
 	<SFML/Graphics.hpp>
 	<unordered_map>
 	<functional>
@@ -271,45 +234,45 @@
 	"State/State_Game.h"
 	"State/State_Paused.h"
 	"State/State_Option.h"
+	"State/State_GameOver.h"
 	<iostream>
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/SharedContext.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/SharedContext.h
 	"Window.h"
 	"EventManager.h"
 	"Entity/Entity.h"
 	<iostream>
 
-1607013408 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/BaseState.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/BaseState.h
 	<SFML/Graphics.hpp>
 
-1607011616 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Intro.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Intro.h
 	<SFML/Graphics.hpp>
 	"State/BaseState.h"
 	"StateManager.h"
 
-1607014368 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_MainMenu.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_MainMenu.h
 	<SFML/Graphics.hpp>
 	"State/BaseState.h"
 	"StateManager.h"
 	<iostream>
 
-1607009043 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/BaseState.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/BaseState.cpp
 	"State/BaseState.h"
 
 1606689325 eState.h"
 
-1607010151 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/StateType.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/StateType.h
 
-1606849627 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/StateType.cpp
-	"State/StateType.h"
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/StateType.cpp
 	"State/StateType.h"
 
-1607011697 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Game.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Game.cpp
 	"State/State_Game.h"
 
 1606689325 te_Game.h"
 
-1607011627 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Game.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Game.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	"State/BaseState.h"
@@ -318,17 +281,17 @@
 	"Entity/Enemy/Enemy.h"
 	"Entity/Player/Warrior.h"
 
-1607020971 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Intro.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Intro.cpp
 	"State/State_Intro.h"
 
 1606818646 te_Intro.h"
 
-1607016262 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_MainMenu.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_MainMenu.cpp
 	"State/State_MainMenu.h"
 
 1606689325 te_MainMenu.h"
 
-1607017615 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/StateManager.cpp
+1607036831 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/StateManager.cpp
 	"StateManager.h"
 
 1606689325 source:c:\cours\bloc3_20_21\projetdjv2\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristic.cpp
@@ -1138,61 +1101,62 @@
 1606689244 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\defensivecards.cpp
 	"Cards/DefensiveCard.h"
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/Enemy.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/Enemy.h
+	<vector>
+	<string>
 	"Entity/Entity.h"
 	"Entity/Enemy/EnemyAbility.h"
 	"Entity/Enemy/EnemyAbilityDefensive.h"
 	"Entity/Enemy/EnemyAbilityOffensive.h"
 	"Entity/Enemy/Behaviour.h"
-	<vector>
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/EnemyAbility.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/EnemyAbility.h
 	<string>
 	<iostream>
 	"Entity/Entity.h"
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/EnemyAbilityDefensive.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/EnemyAbilityDefensive.h
 	"Entity/Enemy/EnemyAbility.h"
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/EnemyAbilityOffensive.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/EnemyAbilityOffensive.h
 	"Entity/Enemy/EnemyAbility.h"
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/Behaviour.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/Behaviour.h
 	"Entity/Entity.h"
 	"Entity/Enemy/EnemyAbility.h"
 	"Entity/Enemy/EnemyAbilityDefensive.h"
 	"Entity/Enemy/EnemyAbilityOffensive.h"
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/BehaviourHighLife.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/BehaviourHighLife.h
 	"Entity/Enemy/Behaviour.h"
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/Behaviour.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/Behaviour.cpp
 	"Entity/Enemy/Behaviour.h"
 	<stdlib.h>
 	<iostream>
 	<time.h>
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/BehaviourHighLife.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/BehaviourHighLife.cpp
 	"Entity/Enemy/BehaviourHighLife.h"
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/BehaviourLowLife.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/BehaviourLowLife.cpp
 	"Entity/Enemy/BehaviourLowLife.h"
 
-1606938384 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/BehaviourLowLife.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Enemy/BehaviourLowLife.h
 	"Entity/Enemy/Behaviour.h"
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/Enemy.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/Enemy.cpp
 	"Entity/Enemy/Enemy.h"
 	<iostream>
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/EnemyAbility.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/EnemyAbility.cpp
 	"Entity/Enemy/EnemyAbility.h"
 	"Entity/Entity.h"
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/EnemyAbilityDefensive.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/EnemyAbilityDefensive.cpp
 	"Entity/Enemy/EnemyAbilityDefensive.h"
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/EnemyAbilityOffensive.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Enemy/EnemyAbilityOffensive.cpp
 	"Entity/Enemy/EnemyAbilityOffensive.h"
 
 1606849627 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Gambler.cpp
@@ -1227,46 +1191,46 @@
 	<string>
 	"Player.h"
 
-1606849627 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Factory/AbstractFactory.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Factory/AbstractFactory.cpp
 	"Factory/AbstractFactory.h"
 
-1606984929 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Factory/AbstractFactory.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Factory/AbstractFactory.h
 	<string>
 	"Entity/Player/Player.h"
 	"Cards/Card.h"
 	"SharedContext.h"
 
-1606984929 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Factory/GamblerFactory.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Factory/GamblerFactory.cpp
 	"Factory/GamblerFactory.h"
 	"Entity/Player/Gambler.h"
 	"Cards/DefensiveCardGambler.h"
 	"Cards/OffensiveCardGambler.h"
 
-1606984929 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Factory/GamblerFactory.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Factory/GamblerFactory.h
 	<string>
 	"AbstractFactory.h"
 	"Entity/Player/Gambler.h"
 	"Cards/OffensiveCardGambler.h"
 	"Cards/DefensiveCardGambler.h"
 
-1606938384 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Factory/WarriorFactory.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Factory/WarriorFactory.cpp
 	"Factory/WarriorFactory.h"
 	"Entity/Player/Warrior.h"
 	"Cards/OffensiveCardWarrior.h"
 	"Cards/DefensiveCardWarrior.h"
 
-1606984929 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Factory/WarriorFactory.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Factory/WarriorFactory.h
 	<string>
 	"AbstractFactory.h"
 	"Entity/Player/Warrior.h"
 	"Cards/OffensiveCardWarrior.h"
 	"Cards/DefensiveCardWarrior.h"
 
-1607012234 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Paused.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Paused.h
 	"State/BaseState.h"
 	"StateManager.h"
 
-1607011509 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Paused.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Paused.cpp
 	"State/State_Paused.h"
 
 1606923002 source:/home/skias/Documents/SMFLTest/pGroupe04/main.cpp
@@ -1592,41 +1556,43 @@
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Window.cpp
 	"Window.h"
 
-1606915237 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Characteristics.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Characteristics.h
 	"Entity/Characteristics/Characteristic.h"
 	<vector>
 
-1606915237 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Characteristic.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Characteristic.h
 	<string>
 
-1607021248 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Health.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Health.h
 	"Entity/Characteristics/Characteristic.h"
 
-1607021451 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Shield.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Characteristics/Shield.h
 	"Entity/Characteristics/Characteristic.h"
 
-1606915237 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Characteristic.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Characteristic.cpp
 	"Entity/Characteristics/Characteristic.h"
 
-1606915237 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Characteristics.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Characteristics.cpp
 	"Entity/Characteristics/Characteristics.h"
 
-1606915237 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Health.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Health.cpp
 	"Entity/Characteristics/Health.h"
 
-1606915237 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Shield.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Characteristics/Shield.cpp
 	"Entity/Characteristics/Shield.h"
 
-1606984929 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Player/Gambler.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Player/Gambler.cpp
 	<time.h>
 	<sstream>
 	"Entity/Player/Gambler.h"
+	"Cards/OffensiveCardGambler.h"
+	"Cards/DefensiveCardGambler.h"
 
-1606984929 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Player/Gambler.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Player/Gambler.h
 	<string>
 	"Entity/Player/Player.h"
 
-1606984929 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Player/Player.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Player/Player.h
 	<string>
 	<vector>
 	<unordered_map>
@@ -1637,32 +1603,42 @@
 	"Cards/OffensiveCard.h"
 	"Cards/DefensiveCard.h"
 
-1606984929 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Player/Player.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Player/Player.cpp
 	<sstream>
 	<iostream>
+	<algorithm>
+	<random>
+	<stdlib.h>
+	<time.h>
 	"Entity/Player/Player.h"
 
-1606984929 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Player/Warrior.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Entity/Player/Warrior.cpp
 	"Entity/Player/Warrior.h"
+	"Cards/OffensiveCardWarrior.h"
+	"Cards/DefensiveCardWarrior.h"
+	<iostream>
 
-1606984929 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Player/Warrior.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Entity/Player/Warrior.h
 	<string>
 	"Entity/Player/Player.h"
 
-1606935817 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Fight.cpp
+1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Fight.cpp
+	<iostream>
 	"Fight.h"
 
-1606935817 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Fight.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Fight.h
 	<string>
 	<vector>
 	"Cards/Card.h"
 	"Entity/Player/Player.h"
 	"Entity/Enemy/Enemy.h"
+	"Entity/Entity.h"
+	"Entity/Characteristics/Health.h"
 
-1607016068 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Option.cpp
+1607036748 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Option.cpp
 	"State/State_Option.h"
 
-1607012205 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Option.h
+1607034884 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Option.h
 	<SFML/Graphics.hpp>
 	"State/BaseState.h"
 	"StateManager.h"
@@ -1762,4 +1738,12 @@
 
 1606984253 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_option.cpp
 	"State/State_Option.h"
+
+1607036718 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_GameOver.cpp
+	"State_GameOver.h"
+
+1607036010 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_GameOver.h
+	<SFML/Graphics.hpp>
+	"State/BaseState.h"
+	"StateManager.h"
 
