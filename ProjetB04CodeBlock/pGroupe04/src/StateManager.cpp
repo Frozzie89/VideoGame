@@ -1,9 +1,10 @@
 #include "StateManager.h"
-//Constructeur
+//Constructeur sans argument
 StateManager::StateManager()
 {
     cout << "coucou" << endl;
 }
+//Constructeur avec Argument
 StateManager::StateManager(SharedContext *l_shared)
     : m_shared(l_shared)
 {
@@ -24,6 +25,7 @@ StateManager::~StateManager()
         delete itr.second;
     }
 }
+//Permet de dessiner le premier state de la liste qui n'est pas transparent
 void StateManager::Draw()
 {
     //On verifie si la liste n'est pas vide
@@ -54,7 +56,7 @@ void StateManager::Draw()
     else
         m_states.back().second->Draw();
 }
-
+//Permet de mettre a jour l'ecran
 void StateManager::Update(const sf::Time &l_time)
 {
     if (m_states.empty())
@@ -89,7 +91,7 @@ void StateManager::ProcessRequests()
         m_toRemove.erase(m_toRemove.begin());
     }
 }
-
+//Retourne le contexte
 SharedContext *StateManager::GetContext()
 {
     return m_shared;
@@ -111,9 +113,10 @@ bool StateManager::HasState(const StateType &l_type)
     }
     return false;
 }
-//Permet de changer d'etat
+//Permet de changer de state si l'etat fait parti de la liste de states
 void StateManager::SwitchTo(const StateType &l_type)
 {
+    //Modification du state actuel dans le contexte
     m_shared->m_eventManager->SetCurrentState(l_type);
     for (auto itr = m_states.begin(); itr != m_states.end(); ++itr)
     {
@@ -141,9 +144,10 @@ void StateManager::Remove(const StateType &l_type)
 {
     m_toRemove.push_back(l_type);
 }
-//Cree un etat
+//Cree un etat si il n'est pas deja dans la liste
 void StateManager::CreateState(const StateType &l_type)
 {
+    //on regarde dans le container de Factory si l'element est dans sa liste de state a cree
     auto newState = m_stateFactory.find(l_type);
     //on verifie si on peut creer l'etat
     if (newState == m_stateFactory.end())
@@ -154,7 +158,7 @@ void StateManager::CreateState(const StateType &l_type)
     m_states.emplace_back(l_type, state);
     state->OnCreate();
 }
-//Supprime un etat
+//Supprime l'etat
 void StateManager::RemoveState(const StateType &l_type)
 {
     for (auto itr = m_states.begin(); itr != m_states.end(); ++itr)

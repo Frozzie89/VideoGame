@@ -59,12 +59,12 @@ void Window::Create()
                     m_windowTitle,
                     style);
 }
-
+// Nettoie la fenetre
 void Window::BeginDraw()
 {
     m_window.clear(sf::Color::Black);
 }
-
+// Affiche les changements
 void Window::EndDraw()
 {
     m_window.display();

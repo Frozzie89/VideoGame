@@ -2,14 +2,10 @@
 /* Constructeur de Game
     m_window -> creation de la fenetre contenant le jeu (Window(Title,Size)) ----> Title : Titre de la fenetre || Size : Dimension de la fenetre
     On va ensuite instancier notre sprite en passant par le chargement de sa texture
-
 */
 Game::Game() : m_window("Duck the issue !", sf::Vector2u(1280, 720)), m_stateManager(&m_context)
 {
     //ctor
-    //m_texturePicture.loadFromFile("chapitre5.jpg");
-    //m_picture.setTexture(m_texturePicture);
-    //m_window.GetEventManager()->AddCallback(StateType::Intro,"Move",&Game::MoveSprite,this);
     m_context.m_wind = &m_window;
     m_context.m_eventManager = m_window.GetEventManager();
     m_stateManager.SwitchTo(StateType::Intro);
@@ -59,21 +55,13 @@ void Game::RestartClock()
         m_elapsed -= sf::seconds(frametime);
     }
 }
-void Game::MoveSprite(EventDetails *l_details)
-{
-    //while(sf::Mouse::isButtonPressed)
-    //{
-    sf::Vector2i mousepos = m_window.GetEventManager()->GetMousePos(m_window.GetRenderWindow());
-    m_picture.setPosition(mousepos.x, mousepos.y);
-    std::cout << "Moving sprite to: " << mousepos.x << ":" << mousepos.y << std::endl;
-    //}
-}
+//Permet d'obtenir 60FPS et de supprimer les etats dont on n'a plus besoin
 void Game::LateUpdate()
 {
     m_stateManager.ProcessRequests();
     RestartClock();
 }
-
+//Retourne le contexte
 SharedContext* Game::GetContext()
 {
     return &m_context;

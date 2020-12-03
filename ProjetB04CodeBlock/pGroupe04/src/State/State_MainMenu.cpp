@@ -3,10 +3,11 @@
 State_MainMenu::State_MainMenu(StateManager *l_stateManager) : BaseState(l_stateManager) {}
 //Destructeur
 State_MainMenu::~State_MainMenu() {}
-
+//Permet de creer les differents elements graphiques que l'on va retrouver dans la fenetre
 void State_MainMenu::OnCreate()
 {
     m_timePassed = 0.0f;
+    //Initialisation de la police et le texte servant de titre ainsi que celui des indications des classes
     m_font.loadFromFile("assets/font/superboom.ttf");
     m_text.setFont(m_font);
     m_text.setString(sf::String("Play as a ..."));
@@ -16,8 +17,10 @@ void State_MainMenu::OnCreate()
     m_hint.setString(sf::String(""));
     m_hint.setCharacterSize(18);
 
+    //Recupere la taille de la fenetre
     sf::Vector2u windowSize = m_stateMgr->GetContext()->m_wind->GetRenderWindow()->getSize();
 
+    //Positionnement des textes
     sf::FloatRect textRect = m_text.getLocalBounds();
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
     m_text.setPosition(640, 100);
@@ -31,11 +34,13 @@ void State_MainMenu::OnCreate()
     m_buttonPos = sf::Vector2f(640, 300);
     m_buttonPadding = 4; //4 pour 4px
 
+    //Nomination des boutons
     std::string str[3];
     str[0] = "Warrior";
     str[1] = "Gambler";
     str[2] = "Quit";
 
+    //Parametrage des boutons
     for (int i = 0; i < 3; ++i)
     {
         //Va permettre d'avoir des positions automatiques
@@ -58,6 +63,7 @@ void State_MainMenu::OnCreate()
         m_labels[i].setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
         m_labels[i].setPosition(buttonPosition.x, buttonPosition.y + (i <= 1 ? 0 : 50));
     }
+    //Ajout du callback
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
     evMgr->AddCallback(StateType::MainMenu, "Mouse_Left", &State_MainMenu::MouseClick, this);
 }
@@ -78,9 +84,9 @@ void State_MainMenu::Activate()
         m_labels[0].setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
     }
 }
-
+//Permet de supprimer les modifications si la state n'est plus utilisee
 void State_MainMenu::Deactivate() {}
-
+//Met a jour ce qui est et ce qui se passe a l'ecran
 void State_MainMenu::Update(const sf::Time &l_time)
 {
     MouseHover();
@@ -101,30 +107,37 @@ void State_MainMenu::Draw()
 //Va permettre de gerer les clicks de souris
 void State_MainMenu::MouseClick(EventDetails *l_details)
 {
+    //Recupere la position de souris par rapport a l'eventDetail
     sf::Vector2i mousePos = l_details->m_mouse;
 
+    //Si la position vaut 0 dans les deux axes, on va reprendre la fenetre a partir du statemanager et recuperer la position de la souris a partir de la
     if (mousePos.x == 0 && mousePos.y == 0)
     {
         sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
         mousePos = sf::Mouse::getPosition(*window);
     }
 
+    //Definit le milieu du bouton,ici pour l'abscisse
     float halfX = m_buttonSize.x / 2.0f;
+    //Ici, l'ordonnee
     float halfY = m_buttonSize.y / 2.0f;
     for (int i = 0; i < 3; ++i)
     {
         if (mousePos.x >= m_rects[i].getPosition().x - halfX && mousePos.x <= m_rects[i].getPosition().x + halfX && mousePos.y >= m_rects[i].getPosition().y - halfY && mousePos.y <= m_rects[i].getPosition().y + halfY)
         {
+            //Lance le jeu en tant que Guerrier
             if (i == 0)
             {
                 cout << "PLAY AS WARRIOR" << endl;
                 m_stateMgr->SwitchTo(StateType::Game);
             }
+            //Lance le jeu en tant que Parieur
             else if (i == 1)
             {
                 cout << "PLAY AS GAMBLER" << endl;
                 m_stateMgr->SwitchTo(StateType::Game);
             }
+            //Quitte le jeu et ferme la fenetre
             else if (i == 2)
             {
                 cout << "QUIT THE GAME" << endl;
@@ -133,16 +146,20 @@ void State_MainMenu::MouseClick(EventDetails *l_details)
         }
     }
 }
-
+//Permet de gerer les events lies au survols des elements par la souris
 void State_MainMenu::MouseHover()
 {
+    //Recupere la fenetre de stateManager ainsi que la position de la souris sur la fenetre
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     sf::Vector2i mousePos = sf::Mouse::getPosition(*window);
 
     m_hint.setString(sf::String(""));
 
+    //Definit le milieu du bouton,ici pour l'abscisse
     float halfX = m_buttonSize.x / 2.0f;
+    //Ici, l'ordonnee
     float halfY = m_buttonSize.y / 2.0f;
+    //Si la position de la souris touche celle des boutons relatifs au classe, on affiche un message
     for (int i = 0; i < 3; ++i)
     {
         if (mousePos.x >= m_rects[i].getPosition().x - halfX && mousePos.x <= m_rects[i].getPosition().x + halfX && mousePos.y >= m_rects[i].getPosition().y - halfY && mousePos.y <= m_rects[i].getPosition().y + halfY)
