@@ -11,6 +11,7 @@ Fight::Fight(Player *l_player) : m_player(l_player)
     m_counter = 0;
     m_player->drawCards();
     createEnemies();
+    checkEntityAlive(m_player);
 }
 
 Fight::~Fight()
@@ -92,9 +93,9 @@ void Fight::useCard(Card &l_selectedCard)
 
 bool Fight::checkEntityAlive(Entity *l_entity)
 {
-    // Health h;
+    Health h;
     Health *entityHealth;
-    entityHealth = (Health *)l_entity->getCharacteristic(*entityHealth);
+    entityHealth = (Health *)l_entity->getCharacteristic(h);
     return entityHealth->GetValue() <= 0;
 }
 

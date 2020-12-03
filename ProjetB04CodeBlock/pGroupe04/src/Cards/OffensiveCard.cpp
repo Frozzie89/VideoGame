@@ -18,9 +18,10 @@ OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
 // Attaque les points de vies et points de défenses de l'ennemi
 int OffensiveCard::activateEffect(Entity &entity)
 {
+    Shield s;
     Shield *enemyShield;
     // On récupère les points de défenses de l'enemi
-    enemyShield = (Shield *)entity.getCharacteristic(*enemyShield);
+    enemyShield = (Shield *)entity.getCharacteristic(s);
 
     // points de dégats restant à infliguer dans le cas où l'ennemi à de l'armure mais moindre que
     // les points de dégats à infliguer, le restant attaquera ses points de vies
