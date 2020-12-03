@@ -2,7 +2,7 @@
 
 EnemyAbilityDefensive::EnemyAbilityDefensive(std::string l_name, int l_value, bool l_isHealth): EnemyAbility(l_name, l_value), m_isHealth(l_isHealth)
 {
-    std::cout<<"m_health\t" << m_isHealth << std::endl;
+
 }
 
 EnemyAbilityDefensive::~EnemyAbilityDefensive(){    }

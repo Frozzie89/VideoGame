@@ -90,14 +90,14 @@ std::vector<Card *> Player::getCardPile(const int cardVector)
 }
 
 // For Defensive Cards
-std::string Player::useCard(DefensiveCard &card)
+std::string Player::useCard(Card &card)
 {
     if (findCard(card, Player::hand) == -1)
         return "";
 
     int ptEffect = card.activateEffect(*this);
     std::stringstream res;
-
+/*
     if (card.getIsHealth())
         res << "Le joueur se soigne de "
             << ptEffect << " PV ";
@@ -107,14 +107,14 @@ std::string Player::useCard(DefensiveCard &card)
 
     res << "[" << card.getLabel() << "]"
         << std::endl;
-
+*/
     // Todo : supprimer la carte de la main
 
     return res.str();
 }
 
 // For Offensive Cards
-std::string Player::useCard(OffensiveCard &card, Entity &enemy)
+std::string Player::useCard(Card &card, Entity &enemy)
 {
     if (findCard(card, Player::hand) == -1)
         return "";

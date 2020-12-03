@@ -44,8 +44,6 @@ void Enemy::addAbilities(EnemyAbility *l_enemyAbility)
     {
         m_abilities.push_back(l_enemyAbility->clone());
     }
-
-    std::cout << "Push - " << m_abilities[(int)m_abilities.size() - 1]->toString() << std::endl;
 }
 
 //Retirer une ability du vector d'abilities

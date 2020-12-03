@@ -9,7 +9,7 @@
 
 #include "SharedContext.h"
 struct SharedContext;
-// Une Entity reprÃ©sente une entitÃ© pouvant combattre dans un combat de carte, donc le joueur et l'enemi
+// Une Entity représente une entité pouvant combattre dans un combat de carte, donc le joueur et l'enemi
 class Entity
 {
 private:
@@ -39,12 +39,12 @@ public:
 
     void AddHealth(Health l_health);                                         // Permet d'ajouter de la vie aux caracteristiques de l'entite
     void AddShield(Shield l_shield);                                         // Permet d'ajouter de l'armure aux caracteristiques de l'entite
-    void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel Ã  la mÃ©thode de Characteristics
-    void LowerCharacteristic(int l_index, int l_value);                      // Fait appel Ã  la mÃ©thode de Characteristics
-    void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel Ã  la mÃ©thode de Characteristics
-    void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel Ã  la mÃ©thode de Characteristics
+    void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel à la méthode de Characteristics
+    void LowerCharacteristic(int l_index, int l_value);                      // Fait appel à la méthode de Characteristics
+    void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
+    void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void endTurn();
-    Characteristic *getCharacteristicsValue(Characteristic &l_characteristic);
+    Characteristic* getCharacteristic(Characteristic &l_characteristic);
 
     sf::Vector2f getPosition();
     void setPosition(sf::Vector2f l_position);

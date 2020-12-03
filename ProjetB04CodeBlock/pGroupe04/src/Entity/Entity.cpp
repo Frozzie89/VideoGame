@@ -70,11 +70,14 @@ void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);
 }
 
-Characteristic *Entity::getCharacteristicsValue(Characteristic &l_characteristic)
-{
-    return m_entityCaracteristics.getCharacteristic(l_characteristic);
+Characteristic* Entity::getCharacteristic(Characteristic& c){
+    return m_entityCaracteristics.getCharacteristic(c);
 }
 
+
+
+
+// SFML
 sf::Vector2f Entity::getPosition()
 {
     return m_position;

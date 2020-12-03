@@ -6,6 +6,8 @@
 #include "Entity/Player/Player.h"
 #include "Entity/Enemy/Enemy.h"
 #include "Entity/Entity.h"
+#include "Entity/Characteristics/Health.h"
+
 
 class Fight
 {
@@ -23,13 +25,14 @@ public:
     std::string getClassName();
 
     std::vector<Card *> getPlayerHand(); // récupère les cartes de la main du joueur
-    Enemy getEnemy();
+    Enemy &getEnemy();
     Player &getPlayer();
     void createEnemies(); // crée la liste d'enemis que le joueur va combattre
     void useCard(Card &l_selectedCard);
     void endTurn();                        // termine le tour du joueur, c'est à l'enemi de jouer
     bool checkEntityAlive(Entity *entity); // vérifie si l'entity est toujours en vie
-    void endFight();                       // fin du combat, passage au prochain ennemi
+    void nextFight();                      // fin du combat, passage au prochain ennemi
+    void gameOver();                       // le joueur est mort, fin du combat
 };
 
 #endif // FIGHT_PGROUPE04_H
