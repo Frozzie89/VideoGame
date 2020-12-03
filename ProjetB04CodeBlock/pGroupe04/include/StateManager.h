@@ -21,29 +21,35 @@ using namespace std;
 
 using StateContainer = std::vector<std::pair<StateType, BaseState *>>;                //Pas de map car elle ne garde pas un ordre d'indexation
 using TypeContainer = std::vector<StateType>;                                         //Liste d'etats possible
-using StateFactory = std::unordered_map<StateType, std::function<BaseState *(void)>>; //Perm
-
+using StateFactory = std::unordered_map<StateType, std::function<BaseState *(void)>>; //Permet de creer les etats en passant dans une "factory method"
+/*
+    Cette classe va permettre de gerer les differents states, ou etats, que l'on va avoir dans le jeu
+    Parmi ses arguments, on va retrouver un contexte, une paire d'elements caracterisant le type d'etats et l'affichage correspondant, une liste des etats disponibles ainsi
+    qu'une liste de state a creer.
+    On retrouve une methode template qui permet de mettre en commun un etat avec un affichage
+*/
 class StateManager
 {
 public:
-    StateManager();
-    StateManager(SharedContext *l_shared);
-    ~StateManager();
-    void Update(const sf::Time &l_time);
-    void Draw();
-    void ProcessRequests();
-    SharedContext *GetContext();
-    bool HasState(const StateType &l_type);
-    void SwitchTo(const StateType &l_type);
-    void Remove(const StateType &l_type);
+    StateManager(); //Constructeur sans argument
+    StateManager(SharedContext *l_shared); //Constructeur avec argument
+    ~StateManager(); // Destructeur
+    void Update(const sf::Time &l_time); //Permet de mettre a jour l'ecran
+    void Draw(); //Permet de dessiner le premier state de la liste qui n'est pas transparent
+    void ProcessRequests(); //Permet de supprimer les etats que l'on a conserve dans la liste des etats a supprime
+    SharedContext *GetContext(); //Retourne le contexte de stateManager
+    bool HasState(const StateType &l_type); //Recherche si le state passe en argument est dans la liste de state
+    void SwitchTo(const StateType &l_type); //Permet de changer de state si l'etat fait parti de la liste de states
+    void Remove(const StateType &l_type); //Ajoute un state de la liste servant a supprimer les state
 
-    void setContext(SharedContext l_context);
+    void setContext(SharedContext l_context); //Permet de modifier le contexte
 
 private:
     // Methods.
-    void CreateState(const StateType &l_type);
-    void RemoveState(const StateType &l_type);
+    void CreateState(const StateType &l_type); //Cree un state si il n'est pas deja dans la liste
+    void RemoveState(const StateType &l_type); //Rajoute le state a la liste des elements a supprimer
 
+    //Permet de mettre en commun un type de state et un l'affichage d'un state
     template <class T>
     void RegisterState(const StateType &l_type)
     {
@@ -51,11 +57,11 @@ private:
             return new T(this);
         };
     }
-    // Members.
-    SharedContext *m_shared;
-    StateContainer m_states;
-    TypeContainer m_toRemove;
-    StateFactory m_stateFactory;
+    // Members
+    SharedContext *m_shared; //Contexte du statemanager
+    StateContainer m_states; //Liste des paires Type d'etats/Affichage des etats
+    TypeContainer m_toRemove; //Liste des etats possibles
+    StateFactory m_stateFactory; //Liste des etats a construire
 };
 
 #endif // STATEMANAGER_H

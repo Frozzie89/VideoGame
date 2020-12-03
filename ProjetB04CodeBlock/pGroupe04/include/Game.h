@@ -8,20 +8,21 @@
 #include "SharedContext.h"
 #include "State/StateType.h"
 
+/*
+    Cette classe va permettre de definir le comportement de notre jeu
+    Elle comprend une fenetre personalisee, des arguments permettant de limiter le nombre de fps du jeu (un objet Clock ainsi qu'un objet Time),
+    un type de state, un manager de state ainsi qu'un contexte
+*/
 class Game
 {
 private:
-    Window m_window;              //Fenetre du jeu actuel
-    sf::Texture m_texturePicture; //Texture d'un element
-    sf::Sprite m_picture;         // Sprite d'un element
+    Window m_window; //Fenetre du jeu actuel
     sf::Clock m_clock;
     sf::Time m_elapsed;
 
-    StateType m_state;
-    StateManager m_stateManager;
-    SharedContext m_context;
-    //Ajout suite à l'implementation de EventManager
-    void MoveSprite(EventDetails *l_details);
+    StateType m_state; //Type d'etat
+    StateManager m_stateManager; //Manager de state
+    SharedContext m_context; // Contexte
 
 public:
     Game();          //Constructeur
@@ -34,9 +35,9 @@ public:
     sf::Time GetElapsed(); //Permet de recuperer m_elapsed
     void RestartClock();   //Permet de restart m_eclapsed et d'obtenir 60FPS
 
-    void LateUpdate();
+    void LateUpdate(); //Permet d'obtenir 60FPS et de supprimer les etats dont on n'a plus besoin
 
-    SharedContext* GetContext();
+    SharedContext* GetContext(); //Retourne le contexte
 
 protected:
 };
