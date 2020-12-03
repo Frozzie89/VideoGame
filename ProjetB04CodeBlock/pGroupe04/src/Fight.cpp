@@ -11,7 +11,6 @@ Fight::Fight(Player *l_player) : m_player(l_player)
     m_counter = 0;
     m_player->drawCards();
     createEnemies();
-    checkEntityAlive(m_player);
 }
 
 Fight::~Fight()
@@ -123,7 +122,7 @@ void Fight::createEnemies()
 
     e1->addAbilities(ead1_1);
     e1->addAbilities(ead1_2);
-    e1->addAbilities(eao1_2);
+    e1->addAbilities(eao1_1);
     e1->addAbilities(eao1_2);
 
     /**** 2nd enemy ****/
@@ -135,7 +134,7 @@ void Fight::createEnemies()
 
     e2->addAbilities(ead2_1);
     e2->addAbilities(ead2_2);
-    e2->addAbilities(eao2_2);
+    e2->addAbilities(eao2_1);
     e2->addAbilities(eao2_2);
 
     /**** 3rd enemy ****/
@@ -149,7 +148,7 @@ void Fight::createEnemies()
     e3->addAbilities(ead3_1);
     e3->addAbilities(ead3_1);
     e3->addAbilities(ead3_2);
-    e3->addAbilities(eao3_2);
+    e3->addAbilities(eao3_1);
     e3->addAbilities(eao3_2);
 
     /**** 4th enemy ****/
@@ -162,7 +161,7 @@ void Fight::createEnemies()
     e4->addAbilities(ead4_1);
     e4->addAbilities(ead4_2);
     e4->addAbilities(eao4_2);
-    e4->addAbilities(eao4_2);
+    e4->addAbilities(eao4_1);
     e4->addAbilities(eao4_2);
     e4->addAbilities(eao4_2);
 
@@ -176,8 +175,8 @@ void Fight::createEnemies()
     e5->addAbilities(ead5_1);
     e5->addAbilities(ead5_2);
     e5->addAbilities(ead5_2);
-    e5->addAbilities(eao5_2);
-    e5->addAbilities(eao5_2);
+    e5->addAbilities(eao5_1);
+    e5->addAbilities(eao5_1);
     e5->addAbilities(eao5_2);
     e5->addAbilities(eao5_2);
     e5->addAbilities(eao5_2);
