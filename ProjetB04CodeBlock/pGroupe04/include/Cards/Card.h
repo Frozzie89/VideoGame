@@ -5,6 +5,7 @@
 #include "Entity/Entity.h"
 #include "SharedContext.h"
 
+// Contient le patron d'une carte et défini les effets qu'une carte peut avoir
 class Card
 {
 protected:
@@ -14,10 +15,10 @@ protected:
     sf::Texture m_texture;
     sf::Sprite m_sprite;
 
-    SharedContext* m_context;
+    SharedContext *m_context;
 
 public:
-    Card(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0,SharedContext* m_context=nullptr);
+    Card(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0, SharedContext *m_context = nullptr);
     virtual ~Card() = 0;
     Card(const Card &other);
     Card &operator=(const Card &rhs);
@@ -47,11 +48,11 @@ public:
 
     void Draw(); //Permet de dessiner le sprite dans la fenetre de jeu
 
-    void SetSpriteOrigin (float l_width,float l_height); //Permet de modifier l'origine du sprite en passant deux float
-    void SetSpriteOrigin (sf::Vector2f l_position); //Permet de modifier l'origine du sprite en passant un vecteur de float
+    void SetSpriteOrigin(float l_width, float l_height); //Permet de modifier l'origine du sprite en passant deux float
+    void SetSpriteOrigin(sf::Vector2f l_position);       //Permet de modifier l'origine du sprite en passant un vecteur de float
 
-    void SetSpritePosition (float l_width,float l_height); //Permet de modifier la position du sprite, en passant deux float
-    void SetSpritePositon(sf::Vector2f l_position); //Permet de modifier la position du sprite, en passant un vecteur de float
+    void SetSpritePosition(float l_width, float l_height); //Permet de modifier la position du sprite, en passant deux float
+    void SetSpritePositon(sf::Vector2f l_position);        //Permet de modifier la position du sprite, en passant un vecteur de float
 };
 
 #endif // CARD_PGROUPE04_H

@@ -13,9 +13,13 @@ public:
     Warrior(const Warrior &other);
     Warrior &operator=(const Warrior &rhs);
 
+    // utilise une carte de type défensive
     std::string useCard(DefensiveCard &card);
+    // utilise une carte de type offensive
     std::string useCard(OffensiveCard &card, Entity &enemy);
+    // s'assure que la carte ajoutée est bien une carte the type Warrior
     void addCard(Card *card, const int cardVector);
+    // charge les données des cartes situées dans les fichiers de données
     void loadCardsAssets(SharedContext *sharedContext, bool isOffensive);
     std::string getClassName() const;
     std::string str();

@@ -40,16 +40,20 @@ std::string Entity::getClassName() const
     return "Entity";
 }
 
+// ajoute une caractéristique Health à l'entité
 void Entity::AddHealth(Health l_health)
 {
     m_entityCaracteristics.AddCharacteristic(&l_health);
 }
 
+// ajoute une caractéristique Shield à l'entité
 void Entity::AddShield(Shield l_shield)
 {
     m_entityCaracteristics.AddCharacteristic(&l_shield);
 }
 
+// ces 4 prochaines méthodes utilisent les méthodes de Charateristic pour augmenter et diminuer
+// la valeur d'une caratéristique de l'entité
 void Entity::RaiseCharacteristic(int l_index, int l_value)
 {
     m_entityCaracteristics.RaiseCharacteristic(l_index, l_value);
@@ -70,12 +74,10 @@ void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);
 }
 
-Characteristic* Entity::getCharacteristic(Characteristic& c){
+Characteristic *Entity::getCharacteristic(Characteristic &c)
+{
     return m_entityCaracteristics.getCharacteristic(c);
 }
-
-
-
 
 // SFML
 sf::Vector2f Entity::getPosition()

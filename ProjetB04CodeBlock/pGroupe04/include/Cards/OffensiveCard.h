@@ -4,6 +4,7 @@
 #include "Cards/Card.h"
 #include "Entity/Entity.h"
 
+// Carte offensive infligeant des dégats à la cible ennemie
 class OffensiveCard : public Card
 {
 private:

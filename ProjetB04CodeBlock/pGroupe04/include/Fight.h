@@ -8,7 +8,7 @@
 #include "Entity/Entity.h"
 #include "Entity/Characteristics/Health.h"
 
-
+// Cette classe est responsable du fonctionnement des combats entre le joueur et les différents ennemis
 class Fight
 {
 private:
@@ -25,7 +25,7 @@ public:
     std::string getClassName();
 
     std::vector<Card *> getPlayerHand(); // récupère les cartes de la main du joueur
-    Enemy &getEnemy();
+    Enemy &getEnemy();                   // récupère l'ennemi en jeu
     Player &getPlayer();
     void createEnemies(); // crée la liste d'enemis que le joueur va combattre
     void useCard(Card &l_selectedCard);

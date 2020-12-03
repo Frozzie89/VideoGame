@@ -48,7 +48,6 @@ public:
     // affiche l'état de cardPiles
     std::string printMap();
 
-
     // Enumeration
     enum cardPilesNames
     {

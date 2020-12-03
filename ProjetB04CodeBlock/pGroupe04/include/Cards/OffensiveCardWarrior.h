@@ -13,7 +13,7 @@ public:
     OffensiveCardWarrior(const OffensiveCardWarrior &other);
     OffensiveCardWarrior &operator=(const OffensiveCardWarrior &rhs);
 
-    int activateEffect(Entity &entity);
+    int activateEffect(Entity &entity); // active l'effet de la carte
     OffensiveCardWarrior *clone() const;
     std::string getClassName() const;
 };

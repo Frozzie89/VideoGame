@@ -2,24 +2,25 @@
 #define ENEMYABILITYOFFENSIVE_H
 #include "Entity/Enemy/EnemyAbility.h"
 
-class EnemyAbilityOffensive: public EnemyAbility
+// EnemyAbility de type Offensive, infligera des dégats au joueur
+class EnemyAbilityOffensive : public EnemyAbility
 {
-    public:
-        EnemyAbilityOffensive(std::string l_name = "No_name", int l_value = 1);
-        virtual ~EnemyAbilityOffensive();
-        EnemyAbilityOffensive(const EnemyAbilityOffensive& other);
-        EnemyAbilityOffensive& operator=(const EnemyAbilityOffensive& other);
+public:
+    EnemyAbilityOffensive(std::string l_name = "No_name", int l_value = 1);
+    virtual ~EnemyAbilityOffensive();
+    EnemyAbilityOffensive(const EnemyAbilityOffensive &other);
+    EnemyAbilityOffensive &operator=(const EnemyAbilityOffensive &other);
 
-        int activateEffect(Entity &entity);
-        std::string getClassName() const;
+    int activateEffect(Entity &entity);
+    std::string getClassName() const;
 
-        //Clone
-        EnemyAbilityOffensive *clone() const{return new EnemyAbilityOffensive(*this);}
+    //Clone
+    EnemyAbilityOffensive *clone() const { return new EnemyAbilityOffensive(*this); }
 
-        std::string toString() const;
-    protected:
+    std::string toString() const;
 
-    private:
+protected:
+private:
 };
 
 #endif // ENEMYABILITYOFFENSIVE_H

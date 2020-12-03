@@ -28,6 +28,7 @@ Gambler &Gambler::operator=(const Gambler &rhs)
 
 std::string Gambler::useCard(DefensiveCard &card)
 {
+    // si le lancé de dé fonctionne, activer la méthode useCard()
     if (tryUseCard())
         return Player::useCard(card);
 
@@ -43,6 +44,7 @@ std::string Gambler::useCard(DefensiveCard &card)
 
 std::string Gambler::useCard(OffensiveCard &card, Entity &enemy)
 {
+    // si le lancé de dé fonctionne, activer la méthode useCard()
     if (tryUseCard())
         return Player::useCard(card, enemy);
 
@@ -55,12 +57,14 @@ std::string Gambler::useCard(OffensiveCard &card, Entity &enemy)
     return res.str();
 }
 
+// s'assure que la carte à ajouter est bien une carte pour Gambler
 void Gambler::addCard(Card *card, const int cardVector)
 {
     if (card->getClassName() == "OffensiveCardGambler" || card->getClassName() == "DefensiveCardGambler")
         Player::addCard(card, cardVector);
 }
 
+// Lance un dé 100, renvoie true si le résultat est plus grand que l'attribut "luck"
 bool Gambler::tryUseCard() const
 {
     return rand() % 100 + 1 > luck;
@@ -101,7 +105,7 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
         while (!keystream.eof())
         {
             std::string cardInitializer;
-            keystream >> cardInitializer; //On recupere la dernier chaine de caractere correspondant a notre type d'event et son code
+            keystream >> cardInitializer;
 
             int start = 0;
             int fin = cardInitializer.find(delimiter);
@@ -114,18 +118,22 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
             int value = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
 
+            // si c'est une carte offensive, créer et ajouter une carte Gambler offensive au pool de cartes du joueur
             if (isOffensive)
             {
                 OffensiveCardGambler *gamblerCard = new OffensiveCardGambler(cardName, cardPath, cost, value, sharedContext);
 
                 addCard(gamblerCard, Gambler::pool);
 
+                // On vérifie si la carte y est bien, sinon, supprimer
                 if (getCardPile(Gambler::pool).size() != poolSize + 1)
                 {
                     delete gamblerCard;
                 }
                 gamblerCard = nullptr;
             }
+            // si c'est une carte défensive, créer et ajouter une carte Gambler défensive au pool de cartes du joueur
+
             else
             {
                 int isHealthRaw = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
@@ -134,6 +142,7 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
                 addCard(gamblerCard, Gambler::pool);
 
+                // On vérifie si la carte y est bien, sinon, supprimer
                 if (getCardPile(Gambler::pool).size() != poolSize + 1)
                 {
                     delete gamblerCard;

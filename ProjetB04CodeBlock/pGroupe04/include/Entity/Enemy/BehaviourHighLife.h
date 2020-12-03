@@ -3,19 +3,17 @@
 
 #include "Entity/Enemy/Behaviour.h"
 
-class BehaviourHighLife: public Behaviour
+// Lorsque l'ennemi a ce type de comportement, il préfèrera utiliser des cartes offensives
+class BehaviourHighLife : public Behaviour
 {
-    public:
-        BehaviourHighLife();
-        virtual ~BehaviourHighLife();
-        BehaviourHighLife(const BehaviourHighLife& other);
-        BehaviourHighLife& operator=(const BehaviourHighLife& other);
+public:
+    BehaviourHighLife();
+    virtual ~BehaviourHighLife();
+    BehaviourHighLife(const BehaviourHighLife &other);
+    BehaviourHighLife &operator=(const BehaviourHighLife &other);
 
-    protected:
-
-    private:
-
-
+protected:
+private:
 };
 
 #endif // BEHAVIOURHIGHLIFE_H

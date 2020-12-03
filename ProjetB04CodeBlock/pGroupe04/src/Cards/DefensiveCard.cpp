@@ -1,6 +1,6 @@
 #include "Cards/DefensiveCard.h"
 
-DefensiveCard::DefensiveCard(std::string label, std::string path, int costAction, int value,SharedContext* l_context, bool isHealth) : Card(label, path, costAction, value,l_context), isHealth(isHealth) {}
+DefensiveCard::DefensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *l_context, bool isHealth) : Card(label, path, costAction, value, l_context), isHealth(isHealth) {}
 
 DefensiveCard::~DefensiveCard() {}
 
@@ -34,15 +34,19 @@ void DefensiveCard::setIsHealth(const bool isHealth)
     this->isHealth = isHealth;
 }
 
+// Augmente la caractéristique Health ou Shield de l'entité à l'activation de la carte
 int DefensiveCard::activateEffect(Entity &entity)
 {
-    Health playerHealth;
-    Shield playerShield;
-
     if (getIsHealth())
+    {
+        Health playerHealth;
         entity.RaiseCharacteristic(playerHealth, getValue());
+    }
     else
+    {
+        Shield playerShield;
         entity.RaiseCharacteristic(playerShield, getValue());
+    }
 
     return getValue();
 }

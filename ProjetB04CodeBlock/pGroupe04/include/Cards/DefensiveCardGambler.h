@@ -8,15 +8,14 @@ class DefensiveCardGambler : public DefensiveCard
 {
 private:
 public:
-    DefensiveCardGambler(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0,SharedContext* m_context = nullptr, bool isHealth = true);
+    DefensiveCardGambler(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0, SharedContext *m_context = nullptr, bool isHealth = true);
     virtual ~DefensiveCardGambler();
     DefensiveCardGambler(const DefensiveCardGambler &other);
     DefensiveCardGambler &operator=(const DefensiveCardGambler &rhs);
 
     DefensiveCardGambler *clone() const;
-    int activateEffect(Entity &entity);
+    int activateEffect(Entity &entity); // active l'effet de la carte
     std::string getClassName() const;
-
 };
 
 #endif // DEFENSIVECARDGAMBLER_PGROUPE04_H
