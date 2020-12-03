@@ -17,10 +17,7 @@ public:
     GamblerFactory &operator=(const GamblerFactory &rhs);
 
     // Crée un Gambler
-    Gambler &buildPlayer(int actionsPoints);
-
-    // Crée un Gambler (avec Luck paramétrable)
-    Gambler &buildPlayer(int actionsPoints, int luck);
+    Gambler &buildPlayer(int actionsPoints = 10, int luck = 50);
 
     // Crée une Carte Offensive pour Gambler
     OffensiveCardGambler &buildOffensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *m_context);

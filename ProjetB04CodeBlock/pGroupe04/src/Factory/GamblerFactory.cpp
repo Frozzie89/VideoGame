@@ -19,12 +19,6 @@ GamblerFactory &GamblerFactory::operator=(const GamblerFactory &rhs)
     return *this;
 }
 
-Gambler &GamblerFactory::buildPlayer(int actionsPoints)
-{
-    Gambler *gambler = new Gambler(actionsPoints);
-    return *gambler;
-}
-
 Gambler &GamblerFactory::buildPlayer(int actionsPoints, int luck)
 {
     Gambler *gambler = new Gambler(actionsPoints, luck);

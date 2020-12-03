@@ -1,7 +1,29 @@
 #include "Entity/Player/Warrior.h"
 
-Warrior::Warrior() {}
-Warrior::Warrior(int actionPoints) : Player(actionPoints) {}
+Warrior::Warrior(int actionPoints) : Player(actionPoints)
+{
+    std::string buffer;
+    std::ifstream warriorOffensiveCards("playerConfigurations/WarriorOffensiveCards.csv");
+
+    vector<string> liste;
+    int counter = 0;
+    while (getline(warriorOffensiveCards, buffer, ';'))
+    {
+        liste.push_back(buffer);
+        counter++;
+
+        if (counter == 5)
+        {
+            for (auto &&el : liste)
+            {
+                cout << el << " ";
+            }
+            cout << endl;
+            liste.clear();
+            counter = 0;
+        }
+    }
+}
 
 Warrior::~Warrior() {}
 

@@ -18,8 +18,7 @@ private:
     std::unordered_map<int, std::vector<Card *>> cardPiles;
 
 public:
-    Player();
-    Player(int actionPoints);
+    Player(int actionPoints = 10);
     Player(int actionPoints, int health, int shield);
     virtual ~Player();
     Player(const Player &other);

@@ -2,9 +2,10 @@
 #include <sstream>
 #include "Entity/Player/Gambler.h"
 
-Gambler::Gambler() { srand((unsigned)time(0)); }
-
-Gambler::Gambler(int actionPoints, int luck) : Player(actionPoints), luck(luck) {}
+Gambler::Gambler(int actionPoints, int luck) : Player(actionPoints), luck(luck)
+{
+    srand((unsigned)time(0));
+}
 
 Gambler::~Gambler() {}
 

@@ -2,7 +2,6 @@
 #include <iostream>
 #include "Entity/Player/Player.h"
 
-Player::Player() : Entity() {}
 Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 {
     Shield shieldPlayer;

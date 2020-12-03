@@ -17,7 +17,7 @@ public:
     WarriorFactory &operator=(const WarriorFactory &rhs);
 
     // Créer un Warrior
-    Warrior &buildPlayer(int actionsPoints);
+    Warrior &buildPlayer(int actionsPoints = 10);
 
     // Crée une Carte Offensive pour Warrior
     OffensiveCardWarrior &buildOffensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *m_context);
