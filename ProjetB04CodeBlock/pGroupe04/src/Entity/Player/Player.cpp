@@ -1,9 +1,14 @@
 #include <sstream>
 #include <iostream>
+#include <algorithm>
+#include <random>
+#include <stdlib.h>
+#include <time.h>
 #include "Entity/Player/Player.h"
 
 Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 {
+    srand((unsigned)time(0));
     Shield shieldPlayer;
     Health healthPlayer;
 
@@ -13,6 +18,7 @@ Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 
 Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity(), actionPoints(actionPoints)
 {
+    srand((unsigned)time(0));
     Shield shieldPlayer(shieldPt);
     Health healthPlayer(healthPt);
 
@@ -84,14 +90,14 @@ std::vector<Card *> Player::getCardPile(const int cardVector)
 }
 
 // For Defensive Cards
-std::string Player::useCard(DefensiveCard &card)
+std::string Player::useCard(Card &card)
 {
     if (findCard(card, Player::hand) == -1)
         return "";
 
     int ptEffect = card.activateEffect(*this);
     std::stringstream res;
-
+/*
     if (card.getIsHealth())
         res << "Le joueur se soigne de "
             << ptEffect << " PV ";
@@ -101,14 +107,14 @@ std::string Player::useCard(DefensiveCard &card)
 
     res << "[" << card.getLabel() << "]"
         << std::endl;
-
+*/
     // Todo : supprimer la carte de la main
 
     return res.str();
 }
 
 // For Offensive Cards
-std::string Player::useCard(OffensiveCard &card, Entity &enemy)
+std::string Player::useCard(Card &card, Entity &enemy)
 {
     if (findCard(card, Player::hand) == -1)
         return "";
@@ -175,8 +181,8 @@ void Player::initDeck()
     }
 
     // On mélange les cartes dans le deck
-    auto rng = std::default_random_engine{};
-    std::shuffle(std::begin(cardPiles[Player::deck]), std::end(cardPiles[Player::deck]), rng);
+    std::default_random_engine randomizer = std::default_random_engine(time(0));
+    std::shuffle(std::begin(cardPiles[Player::deck]), std::end(cardPiles[Player::deck]), randomizer);
 }
 
 void Player::drawCards(int nbCards)

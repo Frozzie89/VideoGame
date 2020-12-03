@@ -30,13 +30,15 @@ public:
     virtual std::string getClassName() const;
 
     // méthodes pour jouer une carte depuis Player
-    virtual std::string useCard(DefensiveCard &card);
-    virtual std::string useCard(OffensiveCard &card, Entity &enemy);
+    virtual std::string useCard(Card &card);
+    virtual std::string useCard(Card &card, Entity &enemy);
 
     // méthodes CRUD pour cardPiles
     void removeCard(Card *card, const int cardVector);
     virtual void addCard(Card *card, const int cardVector);
     int findCard(const Card &card, const int cardVector) const;
+
+    virtual std::string str() = 0;
 
     // méthodes pour mélanger le deck et piocher
     void purgeCardPile(const int cardVector); // Vide un paquet de cartes
@@ -46,6 +48,8 @@ public:
     // affiche l'état de cardPiles
     std::string printMap();
 
+
+    // Enumeration
     enum cardPilesNames
     {
         pool = 0, // vector à la clé 0 => correspont à toutes les cartes que le joueur pourra utiliser durant la partie

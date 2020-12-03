@@ -1,6 +1,6 @@
-Bandaid;assets/cards/Warrior/heal/bandaid.png;3;3;true
-Green_slime;assets/cards/Warrior/heal/greenSlime.png;2;2;true
-Take_nap;assets/cards/Warrior/heal/takeNap.png;1;1;true
-Block;assets/cards/Warrior/shield/block.png;1;2;false
-Gear_up;assets/cards/Warrior/shield/gearUp.png;5;4;false
-Golden_plates;assets/cards/Warrior/shield/goldenPlates.png;3;2;false
+Bandaid assets/cards/Warrior/heal/bandaid.png;3;3;1
+Green_slime assets/cards/Warrior/heal/greenSlime.png;2;2;1
+Take_nap assets/cards/Warrior/heal/takeNap.png;1;1;1
+Block assets/cards/Warrior/shield/block.png;1;2;0
+Gear_up assets/cards/Warrior/shield/gearUp.png;5;4;0
+Golden_plates assets/cards/Warrior/shield/goldenPlates.png;3;2;0

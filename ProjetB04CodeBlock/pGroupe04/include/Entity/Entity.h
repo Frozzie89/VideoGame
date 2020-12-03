@@ -9,7 +9,7 @@
 
 #include "SharedContext.h"
 struct SharedContext;
-// Une Entity reprÃ©sente une entitÃ© pouvant combattre dans un combat de carte, donc le joueur et l'enemi
+// Une Entity représente une entité pouvant combattre dans un combat de carte, donc le joueur et l'enemi
 class Entity
 {
 private:
@@ -21,7 +21,7 @@ protected:
     sf::Texture m_texture;
     sf::Sprite m_sprite;
     sf::Vector2f m_position;
-    SharedContext* m_context;
+    SharedContext *m_context;
 
 public:
     Entity(std::string l_path = "noPath");
@@ -39,12 +39,12 @@ public:
 
     void AddHealth(Health l_health);                                         // Permet d'ajouter de la vie aux caracteristiques de l'entite
     void AddShield(Shield l_shield);                                         // Permet d'ajouter de l'armure aux caracteristiques de l'entite
-    void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel Ã  la mÃ©thode de Characteristics
-    void LowerCharacteristic(int l_index, int l_value);                      // Fait appel Ã  la mÃ©thode de Characteristics
-    void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel Ã  la mÃ©thode de Characteristics
-    void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel Ã  la mÃ©thode de Characteristics
+    void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel à la méthode de Characteristics
+    void LowerCharacteristic(int l_index, int l_value);                      // Fait appel à la méthode de Characteristics
+    void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
+    void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void endTurn();
-    void getCharacteristicsValue(); // Met fin au tour de l'entite
+    Characteristic* getCharacteristic(Characteristic &l_characteristic);
 
     sf::Vector2f getPosition();
     void setPosition(sf::Vector2f l_position);
@@ -52,8 +52,8 @@ public:
 
     void setSprite(const std::string l_path);
     void Draw();
-    void setContext(SharedContext* l_context);
-    void setSpriteScale(float l_x,float l_y);
+    void setContext(SharedContext *l_context);
+    void setSpriteScale(float l_x, float l_y);
 };
 
 #endif // ENTITY_H

@@ -27,7 +27,7 @@ public:
     void RaiseCharacteristic(Characteristic &l_characteristic, int l_value);
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value);
 
-    std::string getCharacteristics() const; //Permet de sortir les caracteristiques
+    Characteristic *getCharacteristic(Characteristic &l_characteristic);
 };
 
 #endif // CHARACTERISTICS_H

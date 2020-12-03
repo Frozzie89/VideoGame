@@ -1,6 +1,6 @@
 #include "Cards/OffensiveCardGambler.h"
 
-OffensiveCardGambler::OffensiveCardGambler(std::string label, std::string path, int costAction, int value, SharedContext* l_context) : OffensiveCard(label, path, costAction, value,l_context) {}
+OffensiveCardGambler::OffensiveCardGambler(std::string label, std::string path, int costAction, int value, SharedContext *l_context) : OffensiveCard(label, path, costAction, value, l_context) {}
 
 OffensiveCardGambler::~OffensiveCardGambler() {}
 
@@ -27,5 +27,5 @@ int OffensiveCardGambler::activateEffect(Entity &entity)
 
 std::string OffensiveCardGambler::getClassName() const
 {
-    return "OffsensiveCardGambler";
+    return "OffensiveCardGambler";
 }
