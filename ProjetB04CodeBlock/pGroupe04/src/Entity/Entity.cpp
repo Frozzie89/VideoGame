@@ -69,9 +69,10 @@ void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
 {
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);
 }
-void Entity::getCharacteristicsValue()
+
+Characteristic *Entity::getCharacteristicsValue(Characteristic &l_characteristic)
 {
-    std::cout << m_entityCaracteristics.getCharacteristics() << std::endl;
+    return m_entityCaracteristics.getCharacteristic(l_characteristic);
 }
 
 sf::Vector2f Entity::getPosition()
@@ -93,7 +94,6 @@ void Entity::setPosition(float l_width, float l_height)
 
 void Entity::endTurn()
 {
-
 }
 
 void Entity::setSprite(const std::string l_path)
@@ -102,20 +102,21 @@ void Entity::setSprite(const std::string l_path)
     m_texture.loadFromFile(m_path);
     m_texture.setSmooth(true);
     m_sprite.setTexture(m_texture);
-    m_sprite.setScale(0.2,0.2);
+    m_sprite.setScale(0.2, 0.2);
 }
 
 void Entity::Draw()
 {
-    sf::RenderWindow* window = m_context->m_wind->GetRenderWindow();
+    sf::RenderWindow *window = m_context->m_wind->GetRenderWindow();
     window->draw(m_sprite);
 }
 
-void Entity::setContext(SharedContext* l_context)
+void Entity::setContext(SharedContext *l_context)
 {
-   m_context = l_context;
+    m_context = l_context;
 }
 
-void Entity::setSpriteScale(float l_x,float l_y){
-    m_sprite.setScale(l_x,l_y);
+void Entity::setSpriteScale(float l_x, float l_y)
+{
+    m_sprite.setScale(l_x, l_y);
 }

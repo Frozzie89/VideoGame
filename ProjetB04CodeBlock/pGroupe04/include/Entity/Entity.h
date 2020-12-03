@@ -21,7 +21,7 @@ protected:
     sf::Texture m_texture;
     sf::Sprite m_sprite;
     sf::Vector2f m_position;
-    SharedContext* m_context;
+    SharedContext *m_context;
 
 public:
     Entity(std::string l_path = "noPath");
@@ -44,7 +44,7 @@ public:
     void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel à la méthode de Characteristics
     void endTurn();
-    void getCharacteristicsValue(); // Met fin au tour de l'entite
+    Characteristic *getCharacteristicsValue(Characteristic &l_characteristic);
 
     sf::Vector2f getPosition();
     void setPosition(sf::Vector2f l_position);
@@ -52,8 +52,8 @@ public:
 
     void setSprite(const std::string l_path);
     void Draw();
-    void setContext(SharedContext* l_context);
-    void setSpriteScale(float l_x,float l_y);
+    void setContext(SharedContext *l_context);
+    void setSpriteScale(float l_x, float l_y);
 };
 
 #endif // ENTITY_H

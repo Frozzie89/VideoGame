@@ -16,7 +16,9 @@ public:
     std::string useCard(DefensiveCard &card);
     std::string useCard(OffensiveCard &card, Entity &enemy);
     void addCard(Card *card, const int cardVector);
+    void loadCardsAssets(SharedContext *sharedContext, bool isOffensive);
     std::string getClassName() const;
+    std::string str();
 };
 
 #endif // WARRIOR_PGROUPE04_H

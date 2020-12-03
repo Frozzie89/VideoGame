@@ -1,6 +1,6 @@
-Cute_tofu;assets/cards/Gambler/heal/cuteTofu.png;8;10;true
-Healing_potion;assets/cards/Gambler/heal/healingPotion.png;1;3;true
-Mystic_heart;assets/cards/Gambler/heal/mystic_heart.png;4;6;true
-Card_of_cards;assets/cards/Gambler/shield/cardOfCards.png;7;11;false
-Head_or_tails;assets/cards/Gambler/shield/headOrTails.png;4;6;false
-Vitamin_pills;assets/cards/Gambler/shield/vitaminPills.png;2;4;false
+Cute_tofu assets/cards/Gambler/heal/cuteTofu.png;8;10;1
+Healing_potion assets/cards/Gambler/heal/healingPotion.png;1;3;1
+Mystic_heart assets/cards/Gambler/heal/mystic_heart.png;4;6;1
+Card_of_cards assets/cards/Gambler/shield/cardOfCards.png;7;11;0
+Head_or_tails assets/cards/Gambler/shield/headOrTails.png;4;6;0
+Vitamin_pills assets/cards/Gambler/shield/vitaminPills.png;2;4;0
