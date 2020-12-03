@@ -14,6 +14,7 @@
 #include "State/State_MainMenu.h"
 #include "State/State_Game.h"
 #include "State/State_Paused.h"
+#include "State/State_Option.h"
 
 #include <iostream>
 using namespace std;

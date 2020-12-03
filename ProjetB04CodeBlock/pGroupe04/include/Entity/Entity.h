@@ -53,6 +53,7 @@ public:
     void setSprite(const std::string l_path);
     void Draw();
     void setContext(SharedContext* l_context);
+    void setSpriteScale(float l_x,float l_y);
 };
 
 #endif // ENTITY_H

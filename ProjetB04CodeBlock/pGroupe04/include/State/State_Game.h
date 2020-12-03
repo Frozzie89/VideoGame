@@ -3,11 +3,14 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <iostream>
+using namespace std;
+
 #include "State/BaseState.h"
 #include "StateManager.h"
-
 #include "Cards/DefensiveCardWarrior.h"
 #include "Entity/Enemy/Enemy.h"
+#include "Entity/Player/Warrior.h"
 
 class State_Game : public BaseState
 {
@@ -24,7 +27,7 @@ public:
     void Update(const sf::Time &l_time);
     void Draw();
 
-    void MainMenu(EventDetails* l_details);
+    void Option(EventDetails* l_details);
     void Pause(EventDetails* l_details);
 
     void CardClick(EventDetails* l_details);
@@ -38,6 +41,10 @@ private:
     float m_timePassed;
     sf::Texture m_bgTexture;
     sf::Sprite m_bgSprite;
+
+    sf::RectangleShape m_health;
+    sf::RectangleShape m_lostHealth;
+    sf::CircleShape m_btnEndTurn;
 
 };
 
