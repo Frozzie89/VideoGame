@@ -52,7 +52,6 @@
 		<Unit filename="include/Cards/DefensiveCard.h" />
 		<Unit filename="include/Cards/DefensiveCardGambler.h" />
 		<Unit filename="include/Cards/DefensiveCardWarrior.h" />
-		<Unit filename="include/Cards/DefensiveCards.h" />
 		<Unit filename="include/Cards/OffensiveCard.h" />
 		<Unit filename="include/Cards/OffensiveCardGambler.h" />
 		<Unit filename="include/Cards/OffensiveCardWarrior.h" />

@@ -16,7 +16,6 @@ int main()
     Warrior *w1 = new Warrior();
     Fight f1(w1);
 
-
     // Game game;
 
     // DefensiveCardWarrior dcw("Coucou", "chapitre4.jpg", 0, 0, game.GetContext(), true);

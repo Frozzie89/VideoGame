@@ -114,76 +114,76 @@ void Fight::gameOver()
 void Fight::createEnemies()
 {
     /**** 1st enemy ****/
-    Enemy e1(25, "assets/enemies/fox.png");
-    EnemyAbilityDefensive ead1_1("Sleep", 5, true);
-    EnemyAbilityDefensive ead1_2("Hide", 3, false);
-    EnemyAbilityOffensive eao1_1("Bite", 5);
-    EnemyAbilityOffensive eao1_2("Scratch", 3);
+    Enemy *e1 = new Enemy(25, "assets/enemies/fox.png");
+    EnemyAbilityDefensive *ead1_1 = new EnemyAbilityDefensive("Sleep", 5, true);
+    EnemyAbilityDefensive *ead1_2 = new EnemyAbilityDefensive("Hide", 3, false);
+    EnemyAbilityOffensive *eao1_1 = new EnemyAbilityOffensive("Bite", 5);
+    EnemyAbilityOffensive *eao1_2 = new EnemyAbilityOffensive("Scratch", 3);
 
-    e1.addAbilities(&ead1_1);
-    e1.addAbilities(&ead1_2);
-    e1.addAbilities(&eao1_2);
-    e1.addAbilities(&eao1_2);
+    e1->addAbilities(ead1_1);
+    e1->addAbilities(ead1_2);
+    e1->addAbilities(eao1_2);
+    e1->addAbilities(eao1_2);
 
     /**** 2nd enemy ****/
-    Enemy e2(32, "assets/enemies/hunter.png");
-    EnemyAbilityDefensive ead2_1("Heal_wounds", 6, true);
-    EnemyAbilityDefensive ead2_2("Block", 4, false);
-    EnemyAbilityOffensive eao2_1("Shoot", 7);
-    EnemyAbilityOffensive eao2_2("Throw_pebble", 2);
+    Enemy *e2 = new Enemy(32, "assets/enemies/hunter.png");
+    EnemyAbilityDefensive *ead2_1 = new EnemyAbilityDefensive("Heal_wounds", 6, true);
+    EnemyAbilityDefensive *ead2_2 = new EnemyAbilityDefensive("Block", 4, false);
+    EnemyAbilityOffensive *eao2_1 = new EnemyAbilityOffensive("Shoot", 7);
+    EnemyAbilityOffensive *eao2_2 = new EnemyAbilityOffensive("Throw_pebble", 2);
 
-    e2.addAbilities(&ead2_1);
-    e2.addAbilities(&ead2_2);
-    e2.addAbilities(&eao2_2);
-    e2.addAbilities(&eao2_2);
+    e2->addAbilities(ead2_1);
+    e2->addAbilities(ead2_2);
+    e2->addAbilities(eao2_2);
+    e2->addAbilities(eao2_2);
 
     /**** 3rd enemy ****/
-    Enemy e3(43, "assets/enemies/wolf.png");
-    EnemyAbilityDefensive ead3_1("Eat", 2, true);
-    EnemyAbilityDefensive ead3_2("Howl", 4, false);
-    EnemyAbilityOffensive eao3_1("Bite", 6);
-    EnemyAbilityOffensive eao3_2("Scratch", 3);
+    Enemy *e3 = new Enemy(43, "assets/enemies/wolf.png");
+    EnemyAbilityDefensive *ead3_1 = new EnemyAbilityDefensive("Eat", 2, true);
+    EnemyAbilityDefensive *ead3_2 = new EnemyAbilityDefensive("Howl", 4, false);
+    EnemyAbilityOffensive *eao3_1 = new EnemyAbilityOffensive("Bite", 6);
+    EnemyAbilityOffensive *eao3_2 = new EnemyAbilityOffensive("Scratch", 3);
 
-    e3.addAbilities(&ead3_1);
-    e3.addAbilities(&ead3_1);
-    e3.addAbilities(&ead3_1);
-    e3.addAbilities(&ead3_2);
-    e3.addAbilities(&eao3_2);
-    e3.addAbilities(&eao3_2);
+    e3->addAbilities(ead3_1);
+    e3->addAbilities(ead3_1);
+    e3->addAbilities(ead3_1);
+    e3->addAbilities(ead3_2);
+    e3->addAbilities(eao3_2);
+    e3->addAbilities(eao3_2);
 
     /**** 4th enemy ****/
-    Enemy e4(50, "assets/enemies/pepito.png");
-    EnemyAbilityDefensive ead4_1("Tequila", 5, true);
-    EnemyAbilityDefensive ead4_2("Fly off", 3, false);
-    EnemyAbilityOffensive eao4_1("Shoot rainbow", 8);
-    EnemyAbilityOffensive eao4_2("Tacos attack", 3);
+    Enemy *e4 = new Enemy(50, "assets/enemies/pepito.png");
+    EnemyAbilityDefensive *ead4_1 = new EnemyAbilityDefensive("Tequila", 5, true);
+    EnemyAbilityDefensive *ead4_2 = new EnemyAbilityDefensive("Fly off", 3, false);
+    EnemyAbilityOffensive *eao4_1 = new EnemyAbilityOffensive("Shoot rainbow", 8);
+    EnemyAbilityOffensive *eao4_2 = new EnemyAbilityOffensive("Tacos attack", 3);
 
-    e4.addAbilities(&ead4_1);
-    e4.addAbilities(&ead4_2);
-    e4.addAbilities(&eao4_2);
-    e4.addAbilities(&eao4_2);
-    e4.addAbilities(&eao4_2);
-    e4.addAbilities(&eao4_2);
+    e4->addAbilities(ead4_1);
+    e4->addAbilities(ead4_2);
+    e4->addAbilities(eao4_2);
+    e4->addAbilities(eao4_2);
+    e4->addAbilities(eao4_2);
+    e4->addAbilities(eao4_2);
 
     /**** 5th enemy ****/
-    Enemy e5(50, "assets/enemies/ghostCat.png");
-    EnemyAbilityDefensive ead5_1("Disappear", 3, false);
-    EnemyAbilityDefensive ead5_2("Blush", 3, false);
-    EnemyAbilityOffensive eao5_1("OOOoooOOOooooOoohh", 9);
-    EnemyAbilityOffensive eao5_2("Mweow", 4);
+    Enemy *e5 = new Enemy(50, "assets/enemies/ghostCat.png");
+    EnemyAbilityDefensive *ead5_1 = new EnemyAbilityDefensive("Disappear", 3, false);
+    EnemyAbilityDefensive *ead5_2 = new EnemyAbilityDefensive("Blush", 3, false);
+    EnemyAbilityOffensive *eao5_1 = new EnemyAbilityOffensive("OOOoooOOOooooOoohh", 9);
+    EnemyAbilityOffensive *eao5_2 = new EnemyAbilityOffensive("Mweow", 4);
 
-    e5.addAbilities(&ead5_1);
-    e5.addAbilities(&ead5_2);
-    e5.addAbilities(&ead5_2);
-    e5.addAbilities(&eao5_2);
-    e5.addAbilities(&eao5_2);
-    e5.addAbilities(&eao5_2);
-    e5.addAbilities(&eao5_2);
-    e5.addAbilities(&eao5_2);
+    e5->addAbilities(ead5_1);
+    e5->addAbilities(ead5_2);
+    e5->addAbilities(ead5_2);
+    e5->addAbilities(eao5_2);
+    e5->addAbilities(eao5_2);
+    e5->addAbilities(eao5_2);
+    e5->addAbilities(eao5_2);
+    e5->addAbilities(eao5_2);
 
-    m_enemyList.push_back(&e1);
-    m_enemyList.push_back(&e2);
-    m_enemyList.push_back(&e3);
-    m_enemyList.push_back(&e4);
-    m_enemyList.push_back(&e5);
+    m_enemyList.push_back(e1);
+    m_enemyList.push_back(e2);
+    m_enemyList.push_back(e3);
+    m_enemyList.push_back(e4);
+    m_enemyList.push_back(e5);
 }
