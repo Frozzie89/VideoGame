@@ -60,14 +60,13 @@ void Characteristics::DeleteCharacteristic(Characteristic &l_characteristic)
     }
 }
 //Permet de sortir les informations contenus dans la liste
-std::string Characteristics::getCharacteristics() const
+Characteristic *Characteristics::getCharacteristic(Characteristic &l_characteristic)
 {
-    std::string tmp = "";
-    for (int i = 0; i < (int)m_characteristics.size(); i++)
-    {
-        tmp += m_characteristics[i]->str() + "\n";
-    }
-    return tmp;
+    int indexCharacteristic = SearchCharacteristic(l_characteristic);
+    if (indexCharacteristic == -1)
+        return &l_characteristic;
+
+    return m_characteristics[indexCharacteristic];
 }
 //Permet de chercher une caracteristique dans la liste. Si elle est la, renvoie son indice, sinon, -1
 int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)

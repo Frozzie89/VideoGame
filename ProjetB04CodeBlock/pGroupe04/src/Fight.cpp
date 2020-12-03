@@ -1,5 +1,6 @@
-#include "Fight.h"
 #include <iostream>
+#include "Fight.h"
+#include "Entity/Characteristics/Health.h"
 
 Fight::Fight()
 {
@@ -66,6 +67,31 @@ Enemy Fight::getEnemy()
 Player &Fight::getPlayer()
 {
     return *m_player;
+}
+
+void Fight::endTurn()
+{
+    getEnemy().useAbility(*m_player);
+    m_player->drawCards();
+}
+
+void Fight::useCard(Card &l_selectedCard)
+{
+    // if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
+    //     m_player->useCard(l_selectedCard);
+    // else
+    //     m_player->useCard(l_selectedCard, getEnemy());
+}
+
+bool Fight::checkEntityAlive(Entity *l_entity)
+{
+    // Health entityHealth;
+    // entityHealth = l_entity->getCharacteristicsValue(entityHealth);
+    // return entityHealth.GetValue() <= 0;
+}
+
+void Fight::endFight()
+{
 }
 
 void Fight::createEnemies()
@@ -143,16 +169,4 @@ void Fight::createEnemies()
     m_enemyList.push_back(&e3);
     m_enemyList.push_back(&e4);
     m_enemyList.push_back(&e5);
-}
-
-void Fight::setEnemy()
-{
-    // delete m_enemy;
-
-    // std::string tmp = "enemy" + std::to_string(m_counter) + ".jpeg";
-}
-
-void Fight::setEnemy(Enemy l_enemy)
-{
-    // Todo
 }
