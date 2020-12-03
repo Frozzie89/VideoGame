@@ -20,6 +20,7 @@ public:
     std::string useCard(OffensiveCard &card, Entity &enemy);
     void addCard(Card *card, const int cardVector);
     bool tryUseCard() const;
+    void loadCardsAssets(SharedContext *sharedContext, bool isOffensive);
     std::string getClassName() const;
 };
 

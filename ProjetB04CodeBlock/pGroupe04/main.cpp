@@ -9,13 +9,6 @@
 #include <sstream>   // std::stringstream
 
 #include "Game.h"
-#include "Cards/DefensiveCardWarrior.h"
-
-#include "Entity/Enemy/Enemy.h"
-#include "Entity/Enemy/EnemyAbility.h"
-#include "Entity/Enemy/BehaviourHighLife.h"
-
-#include "Cards/OffensiveCardWarrior.h"
 
 using namespace std;
 
