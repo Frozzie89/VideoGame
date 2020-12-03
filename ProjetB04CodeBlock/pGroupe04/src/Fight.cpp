@@ -93,9 +93,8 @@ void Fight::useCard(Card &l_selectedCard)
 bool Fight::checkEntityAlive(Entity *l_entity)
 {
     Health h;
-    Health *entityHealth;
-    entityHealth = (Health *)l_entity->getCharacteristic(h);
-    return entityHealth->GetValue() <= 0;
+    Health *entityHealth = (Health *)l_entity->getCharacteristic(h);
+    return entityHealth->GetValue() > 0;
 }
 
 void Fight::nextFight()

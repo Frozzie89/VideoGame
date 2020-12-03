@@ -15,14 +15,38 @@ Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Enti
     Entity::AddShield(shieldEnemy);
 }
 
-Enemy::~Enemy() {}
+Enemy::~Enemy()
+{
+    for (auto &&ability : m_abilities)
+    {
+        delete ability;
+    }
+    m_abilities.clear();
+}
 
-Enemy::Enemy(const Enemy &other) : Entity(other) {}
+Enemy::Enemy(const Enemy &other) : Entity(other)
+{
+    for (auto &&ability : other.m_abilities)
+    {
+        m_abilities.push_back(ability);
+    }
+}
 
 Enemy &Enemy::operator=(const Enemy &rhs)
 {
     if (this != &rhs)
     {
+        for (auto &&ability : m_abilities)
+        {
+            delete ability;
+        }
+        m_abilities.clear();
+
+        for (auto &&ability : rhs.m_abilities)
+        {
+            m_abilities.push_back(ability);
+        }
+
         assetPath = rhs.assetPath;
         Entity::operator=(rhs);
     }

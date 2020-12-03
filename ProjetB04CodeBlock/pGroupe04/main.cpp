@@ -16,6 +16,11 @@ int main()
     Warrior *w1 = new Warrior();
     Fight f1(w1);
 
+    if (f1.checkEntityAlive(w1))
+        cout << "OUI" << endl;
+    else
+        cout << "NON" << endl;
+
     // Game game;
 
     // DefensiveCardWarrior dcw("Coucou", "chapitre4.jpg", 0, 0, game.GetContext(), true);
