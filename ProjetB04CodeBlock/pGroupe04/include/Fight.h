@@ -10,7 +10,7 @@ class Fight
 {
 private:
     Player *m_player;
-    Enemy *m_enemy;
+    std::vector<Enemy *> m_enemyList;
     int m_counter;
 
 public:
@@ -26,6 +26,7 @@ public:
     Player &getPlayer();
     void setEnemy();
     void setEnemy(Enemy l_enemy); // Juste pour la phase développement
+    void createEnemies();
 };
 
 #endif // FIGHT_PGROUPE04_H
