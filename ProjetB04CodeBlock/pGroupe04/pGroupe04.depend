@@ -9,7 +9,34 @@
 	"Entity/Enemy/EnemyAbility.h"
 	"Entity/Enemy/BehaviourHighLife.h"
 
-1606823680 
+1525812020 c:\libs\sfml-2.5.1\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/CircleShape.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/ConvexShape.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/VertexBuffer.hpp>
+	<SFML/Graphics/View.hpp>
 
 1606862371 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Game.h
 	<SFML/Graphics.hpp>
@@ -1399,7 +1426,7 @@
 1606860165 /home/skias/Documents/SMFLTest/pGroupe04/include/Cards/OffensiveCard.h
 	<string>
 	"Cards/Card.h"
-	"../Entity/Entity.h"
+	"Entity/Entity.h"
 
 1606859866 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Cards/OffensiveCardGambler.cpp
 	"Cards/OffensiveCardGambler.h"
@@ -1426,6 +1453,7 @@
 	<stdlib.h>
 	<iostream>
 	<time.h>
+	"Entity/Enemy/Behaviour.h"
 
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Entity/Enemy/BehaviourHighLife.cpp
 	"Entity/Enemy/BehaviourHighLife.h"
@@ -1439,8 +1467,16 @@
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Entity/Enemy/Enemy.cpp
 	"Entity/Enemy/Enemy.h"
 	<iostream>
+	"Entity/Enemy/Enemy.h"
 
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Entity/Enemy/EnemyAbility.cpp
+	"Entity/Enemy/EnemyAbility.h"
+	"Entity/Enemy/EnemyAbilityDefensive.h"
+	"Entity/Enemy/EnemyAbilityOffensive.h"
+	"Entity/Enemy/Behaviour.h"
+	<vector>
+
+1606914350 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemyability.cpp
 	"Entity/Enemy/EnemyAbility.h"
 	"Entity/Entity.h"
 
@@ -1457,11 +1493,11 @@
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Entity/Gambler.cpp
 	<time.h>
 	<sstream>
-	"Entity/Gambler.h"
+	"Entity/Player/Gambler.h"
 
 1606849627 /home/skias/Documents/SMFLTest/pGroupe04/include/Entity/Gambler.h
 	<string>
-	"Player.h"
+	"Entity/Player/Player.h"
 
 1606849627 /home/skias/Documents/SMFLTest/pGroupe04/include/Entity/Player.h
 	<string>
@@ -1469,7 +1505,7 @@
 	<unordered_map>
 	<algorithm>
 	<random>
-	"Entity.h"
+	"Entity/Entity.h"
 	"Cards/Card.h"
 	"Cards/OffensiveCard.h"
 	"Cards/DefensiveCard.h"
@@ -1480,7 +1516,7 @@
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Entity/Player.cpp
 	<sstream>
 	<iostream>
-	"Entity/Player.h"
+	"Entity/Player/Player.h"
 
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Entity/Shield.cpp
 	"Entity/Shield.h"
@@ -1490,7 +1526,7 @@
 
 1606849627 /home/skias/Documents/SMFLTest/pGroupe04/include/Entity/Warrior.h
 	<string>
-	"Player.h"
+	"Entity/Player/Player.h"
 
 1606849627 source:/home/skias/Documents/SMFLTest/pGroupe04/src/EventManager.cpp
 	"EventManager.h"
@@ -1500,33 +1536,33 @@
 
 1606860698 /home/skias/Documents/SMFLTest/pGroupe04/include/Factory/AbstractFactory.h
 	<string>
-	"Entity/Player.h"
+	"Entity/Player/Player.h"
 	"Cards/Card.h"
 	"SharedContext.h"
 
 1606860866 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Factory/GamblerFactory.cpp
 	"Factory/GamblerFactory.h"
-	"Entity/Gambler.h"
+	"Entity/Player/Gambler.h"
 	"Cards/DefensiveCardGambler.h"
 	"Cards/OffensiveCardGambler.h"
 
 1606860818 /home/skias/Documents/SMFLTest/pGroupe04/include/Factory/GamblerFactory.h
 	<string>
 	"AbstractFactory.h"
-	"Entity/Gambler.h"
+	"Entity/Player/Gambler.h"
 	"Cards/OffensiveCardGambler.h"
 	"Cards/DefensiveCardGambler.h"
 
 1606860908 source:/home/skias/Documents/SMFLTest/pGroupe04/src/Factory/WarriorFactory.cpp
 	"Factory/WarriorFactory.h"
-	"Entity/Warrior.h"
+	"Entity/Player/Warrior.h"
 	"Cards/OffensiveCardWarrior.h"
 	"Cards/DefensiveCardWarrior.h"
 
 1606860754 /home/skias/Documents/SMFLTest/pGroupe04/include/Factory/WarriorFactory.h
 	<string>
 	"AbstractFactory.h"
-	"Entity/Warrior.h"
+	"Entity/Player/Warrior.h"
 	"Cards/OffensiveCardWarrior.h"
 	"Cards/DefensiveCardWarrior.h"
 
