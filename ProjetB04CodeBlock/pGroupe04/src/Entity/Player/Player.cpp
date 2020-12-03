@@ -1,9 +1,14 @@
 #include <sstream>
 #include <iostream>
+#include <algorithm>
+#include <random>
+#include <stdlib.h>
+#include <time.h>
 #include "Entity/Player/Player.h"
 
 Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 {
+    srand((unsigned)time(0));
     Shield shieldPlayer;
     Health healthPlayer;
 
@@ -13,6 +18,7 @@ Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 
 Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity(), actionPoints(actionPoints)
 {
+    srand((unsigned)time(0));
     Shield shieldPlayer(shieldPt);
     Health healthPlayer(healthPt);
 
@@ -175,8 +181,8 @@ void Player::initDeck()
     }
 
     // On mélange les cartes dans le deck
-    auto rng = std::default_random_engine{};
-    std::shuffle(std::begin(cardPiles[Player::deck]), std::end(cardPiles[Player::deck]), rng);
+    std::default_random_engine randomizer = std::default_random_engine(time(0));
+    std::shuffle(std::begin(cardPiles[Player::deck]), std::end(cardPiles[Player::deck]), randomizer);
 }
 
 void Player::drawCards(int nbCards)

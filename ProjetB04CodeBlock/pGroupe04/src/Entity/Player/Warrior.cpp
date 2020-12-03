@@ -117,3 +117,8 @@ void Warrior::addCard(Card *card, const int cardVector)
     if (card->getClassName() == "OffensiveCardWarrior" || card->getClassName() == "DefensiveCardWarrior")
         Player::addCard(card, cardVector);
 }
+
+std::string Warrior::str()
+{
+    return to_string(getActionPoints());
+}

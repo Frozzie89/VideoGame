@@ -1,18 +1,21 @@
 #include "Fight.h"
+#include <iostream>
 
 Fight::Fight()
 {
     m_counter = 0;
 }
 
-Fight::Fight(Player l_player) : m_player(l_player)
+Fight::Fight(Player *l_player) : m_player(l_player)
 {
     m_counter = 0;
+    m_player->drawCards();
 }
 
 Fight::~Fight()
 {
-    delete m_enemy;
+    delete m_player;
+    // delete m_enemy;
 }
 
 Fight::Fight(const Fight &other) : m_player(other.m_player), m_counter(other.m_counter) {}
@@ -38,7 +41,7 @@ std::string Fight::getClassName()
 
 std::vector<Card *> Fight::getPlayerHand()
 {
-    return m_player.getCardPile(Player::hand);
+    return m_player->getCardPile(Player::hand);
 }
 
 Enemy Fight::getEnemy()
@@ -46,9 +49,9 @@ Enemy Fight::getEnemy()
     return *m_enemy;
 }
 
-Player Fight::getPlayer()
+Player &Fight::getPlayer()
 {
-    return m_player;
+    return *m_player;
 }
 
 void Fight::setEnemy()

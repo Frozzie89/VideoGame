@@ -2,13 +2,10 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <iostream>
 #include <string>
-#include <fstream>
-#include <vector>
-#include <utility>   // std::pair
-#include <stdexcept> // std::runtime_error
-#include <sstream>   // std::stringstream
 
 #include "Game.h"
+#include "Entity/Player/Warrior.h"
+#include "Fight.h"
 
 using namespace std;
 

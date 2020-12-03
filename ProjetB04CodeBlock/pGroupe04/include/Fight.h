@@ -9,13 +9,13 @@
 class Fight
 {
 private:
-    Player m_player;
+    Player *m_player;
     Enemy *m_enemy;
     int m_counter;
 
 public:
     Fight();
-    Fight(Player l_player);
+    Fight(Player *l_player);
     virtual ~Fight();
     Fight(const Fight &other);
     Fight &operator=(const Fight &rhs);
@@ -23,7 +23,7 @@ public:
 
     std::vector<Card *> getPlayerHand();
     Enemy getEnemy();
-    Player getPlayer();
+    Player &getPlayer();
     void setEnemy();
     void setEnemy(Enemy l_enemy); // Juste pour la phase développement
 };

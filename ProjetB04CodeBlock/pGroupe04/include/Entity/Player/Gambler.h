@@ -22,6 +22,7 @@ public:
     bool tryUseCard() const;
     void loadCardsAssets(SharedContext *sharedContext, bool isOffensive);
     std::string getClassName() const;
+    std::string str();
 };
 
 #endif // GAMBLER_PGROUPE04_H

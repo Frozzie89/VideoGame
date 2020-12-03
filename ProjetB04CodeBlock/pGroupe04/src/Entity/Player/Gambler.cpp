@@ -144,3 +144,8 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
     }
     cardAssets.close();
 }
+
+std::string Gambler::str()
+{
+    return to_string(getActionPoints()) + " " + to_string(luck);
+}
