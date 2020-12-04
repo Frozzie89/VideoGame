@@ -124,6 +124,20 @@ bool Fight::isPlayerTurn()
     return m_player->isTurn();
 }
 
+int Fight::getRemainingLifeEnemy()
+{
+    Health h;
+    Health *enemyHealth = (Health *)getEnemy().getCharacteristic(h);
+    return enemyHealth->GetValue();
+}
+
+int Fight::getRemainingShieldEnemy()
+{
+    Shield s;
+    Shield *enemyShield = (Shield *)getEnemy().getCharacteristic(s);
+    return enemyShield->GetValue();
+}
+
 void Fight::createEnemies()
 {
     /**** 1st enemy ****/

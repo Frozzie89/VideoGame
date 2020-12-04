@@ -14,7 +14,13 @@
 using namespace std;
 
 int main()
-{ 
+{
+
+    // Warrior *w1 = new Warrior(15);
+    // Fight f1(w1);
+
+    // cout << f1.getRemainingLifeEnemy() << endl;
+    // cout << f1.getRemainingShieldEnemy() << endl;
 
     Game game;
 
