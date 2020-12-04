@@ -40,7 +40,9 @@ int OffensiveCard::activateEffect(Entity &entity)
 
         // et qu'il à suffisamment d'amure pour encaisser de coup -> prendre l'entièreté des dégats dans l'armure
         else
+        {
             entity.LowerCharacteristic(*enemyShield, value);
+        }
     }
 
     // s'il reste des points de dégats à infliger, le resite ira dans les points de vie de l'enemi

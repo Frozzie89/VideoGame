@@ -1,6 +1,6 @@
 #include "Cards/DefensiveCardGambler.h"
 
-DefensiveCardGambler::DefensiveCardGambler(std::string label, std::string path, int costAction, int value,SharedContext* l_context, bool isHealth) : DefensiveCard(label, path, costAction, value,l_context, isHealth) {}
+DefensiveCardGambler::DefensiveCardGambler(std::string label, std::string path, int costAction, int value, SharedContext *l_context, bool isHealth) : DefensiveCard(label, path, costAction, value, l_context, isHealth) {}
 
 DefensiveCardGambler::~DefensiveCardGambler() {}
 

@@ -15,6 +15,7 @@ class Entity
 private:
     Characteristics m_entityCaracteristics; // Liste de caracteristiques de l'entite
     bool m_turn;                            // Permet de savoir s'il s'agit du tour de l'entite
+    const int maxLife = 20;
     std::string m_path;
 
 protected:
@@ -36,6 +37,7 @@ public:
     bool isTurn() const; // Permet de savoir s'il s'agit du tour de l'entite
     void setTurn();      // Permet de switcher la valeur de m_turn;
     virtual std::string getClassName() const;
+    int getMaxLife();
 
     void AddHealth(Health l_health);                                         // Permet d'ajouter de la vie aux caracteristiques de l'entite
     void AddShield(Shield l_shield);                                         // Permet d'ajouter de l'armure aux caracteristiques de l'entite

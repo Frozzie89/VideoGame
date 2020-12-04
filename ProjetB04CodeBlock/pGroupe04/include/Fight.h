@@ -33,9 +33,11 @@ public:
     bool checkEntityAlive(Entity *entity); // vérifie si l'entity est toujours en vie
     void nextFight();                      // fin du combat, passage au prochain ennemi
     void gameOver();                       // le joueur est mort, fin du combat
+    bool isPlayerTurn();
+    int getRemainingLifeEnemy();
+    int getRemainingShieldEnemy();
 
     void DeletePlayer();
-
 };
 
 #endif // FIGHT_PGROUPE04_H

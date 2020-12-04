@@ -8,20 +8,29 @@
 #include "Fight.h"
 #include "Entity/Characteristics/Characteristic.h"
 #include "Entity/Characteristics/Characteristics.h"
+#include "Cards/DefensiveCardWarrior.h"
+#include "Cards/OffensiveCardWarrior.h"
 
 using namespace std;
 
 int main()
 {
+
+    // Warrior *w1 = new Warrior(15);
+    // Fight f1(w1);
+
+    // cout << f1.getRemainingLifeEnemy() << endl;
+    // cout << f1.getRemainingShieldEnemy() << endl;
+
     Game game;
 
-     // Start the game loop
+    // Start the game loop
     while (!game.GetWindow()->isDone())
     {
         game.Update();
         game.Render();
         game.LateUpdate();
-     }
+    }
 
     return EXIT_SUCCESS;
 }

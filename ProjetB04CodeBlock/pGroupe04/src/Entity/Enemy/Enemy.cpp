@@ -1,5 +1,6 @@
 #include "Entity/Enemy/Enemy.h"
 #include <iostream>
+// Constructeur
 Enemy::Enemy() : Entity()
 {
     Health healthEnemy;
@@ -7,6 +8,8 @@ Enemy::Enemy() : Entity()
     Entity::AddHealth(healthEnemy);
     Entity::AddShield(shieldEnemy);
 }
+
+// Constructeur
 Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Entity()
 {
     Health m_healthEnemy(l_healthPt);
@@ -16,6 +19,7 @@ Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Enti
     Entity::setSprite(assetPath);
 }
 
+// Destructeur
 Enemy::~Enemy()
 {
     for (auto &&ability : m_abilities)
@@ -25,6 +29,7 @@ Enemy::~Enemy()
     m_abilities.clear();
 }
 
+// Constructeur de copie
 Enemy::Enemy(const Enemy &other) : Entity(other)
 {
     for (auto &&ability : other.m_abilities)
@@ -33,6 +38,7 @@ Enemy::Enemy(const Enemy &other) : Entity(other)
     }
 }
 
+// Operateur d'affectation
 Enemy &Enemy::operator=(const Enemy &rhs)
 {
     if (this != &rhs)
@@ -53,6 +59,7 @@ Enemy &Enemy::operator=(const Enemy &rhs)
     }
     return *this;
 }
+
 //GET & SET
 void Enemy::setStrategy(Behaviour *l_behaviour)
 {
@@ -60,9 +67,8 @@ void Enemy::setStrategy(Behaviour *l_behaviour)
 }
 //Fin GET & SET
 
-// M�thodes concernant le vector
-
-//Ajout d'une ability au vector d'abilities
+// Methodes concernant le vector
+// Ajout d'une ability au vector d'abilities
 void Enemy::addAbilities(EnemyAbility *l_enemyAbility)
 {
     if (SearchAbility(*l_enemyAbility) == -1)
@@ -71,10 +77,11 @@ void Enemy::addAbilities(EnemyAbility *l_enemyAbility)
     }
 }
 
-//Retirer une ability du vector d'abilities
+// Retirer une ability precise  du vector d'abilities
 void Enemy::removeAbilities(EnemyAbility *l_enemyAbility)
 {
     int indiceEnemy = SearchAbility(*l_enemyAbility);
+    // Si l'ability n'est pas presente dans le vector, on stoppe la methode
     if (indiceEnemy == -1)
         return;
     EnemyAbility *tmp = *(m_abilities.begin() + indiceEnemy);
@@ -82,7 +89,7 @@ void Enemy::removeAbilities(EnemyAbility *l_enemyAbility)
     delete tmp;
 }
 
-//Permet de retrouver une ability dans notre liste
+//Permet de retrouver une ability dans notre liste grace a un argument de type EnemyAbility
 int Enemy::SearchAbility(EnemyAbility &l_enemyAbility)
 {
     for (int i = 0; i < (int)m_abilities.size(); i++)
@@ -94,7 +101,7 @@ int Enemy::SearchAbility(EnemyAbility &l_enemyAbility)
 }
 // Fin vector
 
-// Strategy
+// Strategy : Permet de definir le comportement de l'enemy en fonction de ses points de vie restant
 void Enemy::useAbility(Entity &entity)
 {
     behaviour->useAbility(entity, *this, m_abilities);

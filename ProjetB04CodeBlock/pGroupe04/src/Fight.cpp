@@ -4,14 +4,17 @@
 Fight::Fight()
 {
     m_counter = 0;
+    createEnemies();
 }
 
+// Constructeur
 Fight::Fight(Player *l_player) : m_player(l_player)
 {
     m_counter = 0;
     m_player->drawCards();
 }
 
+// Destructeur
 Fight::~Fight()
 {
     for (auto &&enemy : m_enemyList)
@@ -23,8 +26,10 @@ Fight::~Fight()
     //delete m_player;
 }
 
+// Constructeur de copie
 Fight::Fight(const Fight &other) : m_player(other.m_player), m_counter(other.m_counter) {}
 
+// Operateur d'affectation
 Fight &Fight::operator=(const Fight &rhs)
 {
     if (this != &rhs)
@@ -79,13 +84,17 @@ void Fight::endTurn()
 void Fight::useCard(Card &l_selectedCard)
 {
     if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
+    {
         m_player->useCard(l_selectedCard);
-
-    else
+    }
+    else if (l_selectedCard.getClassName().find("OffensiveCard") != std::string::npos)
     {
         m_player->useCard(l_selectedCard, getEnemy());
-        if (checkEntityAlive(&getEnemy()))
+
+        if (!checkEntityAlive(&getEnemy()))
+        {
             nextFight();
+        }
     }
 }
 
@@ -107,6 +116,25 @@ void Fight::nextFight()
 void Fight::gameOver()
 {
     std::cout << "EndFight" << std::endl;
+}
+
+bool Fight::isPlayerTurn()
+{
+    return m_player->isTurn();
+}
+
+int Fight::getRemainingLifeEnemy()
+{
+    Health h;
+    Health *enemyHealth = (Health *)getEnemy().getCharacteristic(h);
+    return enemyHealth->GetValue();
+}
+
+int Fight::getRemainingShieldEnemy()
+{
+    Shield s;
+    Shield *enemyShield = (Shield *)getEnemy().getCharacteristic(s);
+    return enemyShield->GetValue();
 }
 
 void Fight::createEnemies()
