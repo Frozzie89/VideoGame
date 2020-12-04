@@ -6,6 +6,7 @@ Fight::Fight()
     m_counter = 0;
 }
 
+// Constructeur
 Fight::Fight(Player *l_player) : m_player(l_player)
 {
     m_counter = 0;
@@ -13,6 +14,7 @@ Fight::Fight(Player *l_player) : m_player(l_player)
     createEnemies();
 }
 
+// Destructeur
 Fight::~Fight()
 {
     for (auto &&enemy : m_enemyList)
@@ -24,8 +26,10 @@ Fight::~Fight()
     //delete m_player;
 }
 
+// Constructeur de copie
 Fight::Fight(const Fight &other) : m_player(other.m_player), m_counter(other.m_counter) {}
 
+// Operateur d'affectation
 Fight &Fight::operator=(const Fight &rhs)
 {
     if (this != &rhs)

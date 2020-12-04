@@ -120,7 +120,7 @@ void State_Game::CardClick(EventDetails *l_details)
     {
         if (mousePos.x >= m_hand[i]->GetPosition().x - halfX && mousePos.x <=  m_hand[i]->GetPosition().x + halfX && mousePos.y >=  m_hand[i]->GetPosition().y - halfY && mousePos.y <=  m_hand[i]->GetPosition().y + halfY)
         {
-            //m_fight.useCard(*card);
+            //m_fight.useCard(*m_hand[i]);
             std::cout<<m_hand[i]->str()<<std::endl;
             std::cout<<"I'LL USE THIS TRAP CARD !"<<std::endl;
              m_hand[i]->SetDraw(false);
