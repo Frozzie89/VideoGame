@@ -53,6 +53,8 @@ public:
 
     void SetSpritePosition(float l_width, float l_height); //Permet de modifier la position du sprite, en passant deux float
     void SetSpritePositon(sf::Vector2f l_position);        //Permet de modifier la position du sprite, en passant un vecteur de float
+
+    void SetContext(SharedContext *l_context);
 };
 
 #endif // CARD_PGROUPE04_H

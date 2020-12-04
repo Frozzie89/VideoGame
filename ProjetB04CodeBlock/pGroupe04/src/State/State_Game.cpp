@@ -152,7 +152,7 @@ void State_Game::LoadHand()
 {
     m_hand = m_fight.getPlayerHand();
 
-    int cartHeight = 420;
+    int cartHeight = 400;
     int cartWidth = 244;
     int cartBorder = 65;
 
@@ -166,7 +166,7 @@ void State_Game::LoadHand()
         std::cout<<"------------------------------"<<std::endl;
         std::cout<<"Apres positionement"<<std::endl;
         std::cout<<m_hand[i]->str()<<std::endl;
-        //m_hand[i]->Draw();
+        m_hand[i]->SetContext(m_stateMgr->GetContext());
     }
 }
 
@@ -183,6 +183,8 @@ void State_Game::DisplayHand()
 {
     for(int i =0; i<m_hand.size();++i)
     {
-        //m_hand[i].Draw();
+        std::cout<<"Boucle OK"<<std::endl;
+        std::cout<<m_hand[i]->str()<<std::endl;
+        m_hand[i]->Draw();
     }
 }

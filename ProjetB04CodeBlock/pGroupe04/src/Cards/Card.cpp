@@ -1,14 +1,11 @@
 #include "Cards/Card.h"
 #include <sstream>
-
+//Constructeur
 Card::Card(std::string label, std::string path, int costAction, int value, SharedContext *l_context) : label(label), path(path), costAction(costAction), value(value), m_context(l_context)
 {
 
-    m_texture.loadFromFile(path);
-    m_sprite.setTexture(m_texture);
-    m_sprite.setScale(0.5, 0.5);
 }
-
+//Destructeur
 Card::~Card() {}
 
 Card::Card(const Card &other)
@@ -113,6 +110,11 @@ void Card::Move(sf::RenderWindow &l_window)
 void Card::Draw()
 {
     sf::RenderWindow *window = m_context->m_wind->GetRenderWindow();
+
+    m_texture.loadFromFile(path);
+    m_sprite.setTexture(m_texture);
+    m_sprite.setScale(0.5, 0.5);
+
     window->draw(m_sprite);
 }
 //Permet de modifier l'origine du sprite en passant deux float
@@ -137,4 +139,8 @@ void Card::SetSpritePositon(sf::Vector2f l_position)
 {
     m_position = l_position;
     m_sprite.setPosition(m_position);
+}
+void Card::SetContext(SharedContext* l_context)
+{
+    m_context = l_context;
 }
