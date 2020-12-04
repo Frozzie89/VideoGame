@@ -21,7 +21,7 @@ Fight::~Fight()
     }
     m_enemyList.clear();
 
-    delete m_player;
+    //delete m_player;
 }
 
 Fight::Fight(const Fight &other) : m_player(other.m_player), m_counter(other.m_counter) {}
@@ -187,4 +187,7 @@ void Fight::createEnemies()
     m_enemyList.push_back(e5);
 }
 
-
+void Fight::DeletePlayer()
+{
+    delete m_player;
+}

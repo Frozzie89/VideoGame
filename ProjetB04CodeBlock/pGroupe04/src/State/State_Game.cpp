@@ -76,15 +76,17 @@ void State_Game::Update(const sf::Time &l_time)
 {
 //    Player* player = m_stateMgr->GetContext()->m_player;
     //LoadHand();
-
 }
 //Permet de dessiner les differents elements graphiques
 void State_Game::Draw()
 {
-    std::cout<<"Debut Draw"<<std::endl;
+    //std::cout<<"Debut Draw"<<std::endl;
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     window->draw(m_bgSprite);
-    std::cout<<"Bg OK"<<std::endl;
+
+    DisplayPlayer();
+    DisplayHand();
+    //std::cout<<"Bg OK"<<std::endl;
     /*
     window->draw(m_text);
     int i=1;
@@ -129,20 +131,6 @@ void State_Game::Draw()
     dcw4.Draw();
     e.Draw();*/
 
-    int cartHeight = 420;
-    int cartWidth = 244;
-    int cartBorder = 65;
-
-    for(int i=0; i<m_hand.size();++i)
-    {
-        std::cout<<"Debut For"<<std::endl;
-        //std::cout<<m_hand[i]->str()<<std::endl;
-
-        m_hand[i]->SetSpritePosition(cartBorder+cartWidth*i,cartHeight);
-
-    //m_hand[i]->Draw();
-    }
-
 }
 //Permet de switcher vers le State option, et donc la "fenetre" d'option
 void State_Game::Option(EventDetails* l_details)
@@ -162,19 +150,39 @@ void State_Game::CardClick(EventDetails* l_details)
 
 void State_Game::LoadHand()
 {
-    /*vector<Card*> tmp = m_fight.getPlayerHand();
-    for(int i =0; i<= tmp.size();++i)
-    {
-        std::cout<<"Auto Hand"<<std::endl;
-        std::cout<<tmp[i]->str()<<std::endl;
-        m_hand[i].push_back(&tmp[i]);
-    }*/
     m_hand = m_fight.getPlayerHand();
+
+    int cartHeight = 420;
+    int cartWidth = 244;
+    int cartBorder = 65;
+
     std::cout<<"Load Card OK"<<std::endl;
     for(int i =0; i<m_hand.size();++i)
     {
         std::cout<<"Carte "<<std::to_string(i)<<std::endl;
         std::cout<<"-------"<<std::endl;
         std::cout<<m_hand[i]->str()<<std::endl;
+        m_hand[i]->SetSpritePosition(cartBorder+cartWidth*i,cartHeight);
+        std::cout<<"------------------------------"<<std::endl;
+        std::cout<<"Apres positionement"<<std::endl;
+        std::cout<<m_hand[i]->str()<<std::endl;
+        //m_hand[i]->Draw();
+    }
+}
+
+void State_Game::DisplayPlayer()
+{
+    m_fight.getPlayer().setContext(m_stateMgr->GetContext());
+    m_fight.getPlayer().setSprite("assets/player.png");
+    m_fight.getPlayer().setPosition(150,150);
+    m_fight.getPlayer().setSpriteScale(0.3,0.3);
+    m_fight.getPlayer().Draw();
+}
+
+void State_Game::DisplayHand()
+{
+    for(int i =0; i<m_hand.size();++i)
+    {
+        //m_hand[i].Draw();
     }
 }

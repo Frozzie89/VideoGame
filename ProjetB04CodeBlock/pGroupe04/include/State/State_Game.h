@@ -56,6 +56,8 @@ private:
     std::vector<Card*> m_hand; // Main du joueur
 
     void LoadHand(); // Permet de charger la main
+    void DisplayPlayer(); //Affiche le joueur
+    void DisplayHand(); //Affiche la main du joueur
 };
 
 #endif // STATE_GAME_H
