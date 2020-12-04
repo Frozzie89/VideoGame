@@ -4,6 +4,7 @@
 Fight::Fight()
 {
     m_counter = 0;
+    createEnemies();
 }
 
 Fight::Fight(Player *l_player) : m_player(l_player)
@@ -80,13 +81,17 @@ void Fight::endTurn()
 void Fight::useCard(Card &l_selectedCard)
 {
     if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
+    {
         m_player->useCard(l_selectedCard);
-
-    else
+    }
+    else if (l_selectedCard.getClassName().find("OffensiveCard") != std::string::npos)
     {
         m_player->useCard(l_selectedCard, getEnemy());
-        if (checkEntityAlive(&getEnemy()))
+
+        if (!checkEntityAlive(&getEnemy()))
+        {
             nextFight();
+        }
     }
 }
 
@@ -108,6 +113,11 @@ void Fight::nextFight()
 void Fight::gameOver()
 {
     std::cout << "EndFight" << std::endl;
+}
+
+bool Fight::isPlayerTurn()
+{
+    return m_player->isTurn();
 }
 
 void Fight::createEnemies()

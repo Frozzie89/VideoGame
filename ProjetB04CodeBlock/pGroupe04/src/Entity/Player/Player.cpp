@@ -90,45 +90,21 @@ std::vector<Card *> Player::getCardPile(const int cardVector)
 }
 
 // For Defensive Cards
-std::string Player::useCard(Card &card)
+void Player::useCard(Card &card)
 {
     if (findCard(card, Player::hand) == -1)
-        return "";
+        return;
 
     int ptEffect = card.activateEffect(*this);
-    std::stringstream res;
-/*
-    if (card.getIsHealth())
-        res << "Le joueur se soigne de "
-            << ptEffect << " PV ";
-    else
-        res << "Le joueur se donne "
-            << ptEffect << " d'armure ";
-
-    res << "[" << card.getLabel() << "]"
-        << std::endl;
-*/
-    // Todo : supprimer la carte de la main
-
-    return res.str();
 }
 
 // For Offensive Cards
-std::string Player::useCard(Card &card, Entity &enemy)
+void Player::useCard(Card &card, Entity &enemy)
 {
     if (findCard(card, Player::hand) == -1)
-        return "";
+        return;
 
     int ptEffect = card.activateEffect(enemy);
-    std::stringstream res;
-
-    res << "Le " << getClassName() << " inflige " << ptEffect << " dégats à l'enemi ["
-        << card.getLabel() << "]"
-        << std::endl;
-
-    // Todo : supprimer la carte de la main
-
-    return res.str();
 }
 
 void Player::removeCard(Card *card, const int cardVector)
@@ -151,12 +127,14 @@ void Player::addCard(Card *card, const int cardVector)
 
 int Player::findCard(const Card &card, const int cardVector) const
 {
-    for (int i = (int)cardPiles.at(cardVector).size() - 1; i >= 0; i++)
+    if ((int)cardPiles.at(cardVector).size() == 0)
+        return -1;
+
+    for (int i = (int)cardPiles.at(cardVector).size() - 1; i >= 0; i--)
     {
         if (*cardPiles.at(cardVector)[i] == card)
             return i;
     }
-
     return -1;
 }
 

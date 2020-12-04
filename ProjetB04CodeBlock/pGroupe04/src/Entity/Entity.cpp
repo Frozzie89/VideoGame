@@ -4,7 +4,7 @@
 //Constructeur
 Entity::Entity(std::string l_path) : m_path(l_path)
 {
-    m_turn = false;
+    m_turn = true;
 }
 //Destructeur
 Entity::~Entity()
@@ -95,6 +95,10 @@ void Entity::setPosition(float l_width, float l_height)
     m_position.x = l_width;
     m_position.y = l_height;
     m_sprite.setPosition(m_position);
+}
+int Entity::getMaxLife()
+{
+    return maxLife;
 }
 
 void Entity::endTurn()

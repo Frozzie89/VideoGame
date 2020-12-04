@@ -16,8 +16,8 @@ public:
     Gambler(const Gambler &other);
     Gambler &operator=(const Gambler &rhs);
 
-    std::string useCard(DefensiveCard &card);                // Utilise une carte de type défensive
-    std::string useCard(OffensiveCard &card, Entity &enemy); // Utilise une carte de type offensive
+    void useCard(DefensiveCard &card);                // Utilise une carte de type défensive
+    void useCard(OffensiveCard &card, Entity &enemy); // Utilise une carte de type offensive
     // S'assure que la carte ajoutée est bien de type Gambler
     void addCard(Card *card, const int cardVector);
     // lance un dé 100 pour savoir si le joueur pourra utiliser sa carte ou non

@@ -40,7 +40,17 @@ int DefensiveCard::activateEffect(Entity &entity)
     if (getIsHealth())
     {
         Health playerHealth;
-        entity.RaiseCharacteristic(playerHealth, getValue());
+        Health *playerHealthPtr = (Health *)entity.getCharacteristic(playerHealth);
+
+        if (playerHealthPtr->GetValue() + getValue() > entity.getMaxLife())
+        {
+            int remainingHealth = entity.getMaxLife() - playerHealthPtr->GetValue();
+            entity.RaiseCharacteristic(playerHealth, remainingHealth);
+        }
+        else
+        {
+            entity.RaiseCharacteristic(playerHealth, getValue());
+        }
     }
     else
     {

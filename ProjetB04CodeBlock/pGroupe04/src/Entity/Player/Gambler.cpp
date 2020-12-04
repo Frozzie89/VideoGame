@@ -26,35 +26,18 @@ Gambler &Gambler::operator=(const Gambler &rhs)
     return *this;
 }
 
-std::string Gambler::useCard(DefensiveCard &card)
+void Gambler::useCard(DefensiveCard &card)
 {
     // si le lancé de dé fonctionne, activer la méthode useCard()
     if (tryUseCard())
-        return Player::useCard(card);
-
-    // le lancé de dé à échoué
-    std::stringstream res;
-
-    res << "Oh non ! la malchance du " << getClassName() << "empêche "
-        << (card.getIsHealth() ? "le soin " : "l'augmentation d'armure ") << "de fonctionner [" << card.getLabel() << "]"
-        << std::endl;
-
-    return res.str();
+        Player::useCard(card);
 }
 
-std::string Gambler::useCard(OffensiveCard &card, Entity &enemy)
+void Gambler::useCard(OffensiveCard &card, Entity &enemy)
 {
     // si le lancé de dé fonctionne, activer la méthode useCard()
     if (tryUseCard())
-        return Player::useCard(card, enemy);
-
-    // le lancé de dé à échoué
-    std::stringstream res;
-
-    res << "Oh non ! la malchance du " << getClassName() << "empêche l'attaque de fonctionner [" << card.getLabel() << "]"
-        << std::endl;
-
-    return res.str();
+        Player::useCard(card, enemy);
 }
 
 // s'assure que la carte à ajouter est bien une carte pour Gambler

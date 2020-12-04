@@ -28,14 +28,14 @@ std::string Warrior::getClassName() const
     return "Warrior";
 }
 
-std::string Warrior::useCard(DefensiveCard &card)
+void Warrior::useCard(DefensiveCard &card)
 {
-    return Player::useCard(card);
+    Player::useCard(card);
 }
 
-std::string Warrior::useCard(OffensiveCard &card, Entity &enemy)
+void Warrior::useCard(OffensiveCard &card, Entity &enemy)
 {
-    return Player::useCard(card, enemy);
+    Player::useCard(card, enemy);
 }
 
 void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)

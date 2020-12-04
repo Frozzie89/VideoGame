@@ -1,6 +1,6 @@
 #include "Cards/DefensiveCardWarrior.h"
 
-DefensiveCardWarrior::DefensiveCardWarrior(std::string label, std::string path, int costAction, int value,SharedContext* l_context, bool isHealth) : DefensiveCard(label, path, costAction, value,l_context, isHealth) {}
+DefensiveCardWarrior::DefensiveCardWarrior(std::string label, std::string path, int costAction, int value, SharedContext *l_context, bool isHealth) : DefensiveCard(label, path, costAction, value, l_context, isHealth) {}
 
 DefensiveCardWarrior::~DefensiveCardWarrior() {}
 
@@ -35,6 +35,5 @@ string DefensiveCardWarrior::str() const
 {
     int tmpX = (int)m_position.x;
     int tmpY = (int)m_position.y;
-    return getClassName()+": Label- "+label+" || Path- "+path+" || CostAction- "+std::to_string(costAction)+" || Value- "+std::to_string(value)+" || Position X - "+std::to_string(tmpX)+" || Position Y - "+std::to_string(tmpY);
+    return getClassName() + ": Label- " + label + " || Path- " + path + " || CostAction- " + std::to_string(costAction) + " || Value- " + std::to_string(value) + " || Position X - " + std::to_string(tmpX) + " || Position Y - " + std::to_string(tmpY);
 }
-

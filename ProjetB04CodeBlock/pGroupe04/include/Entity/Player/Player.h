@@ -30,8 +30,8 @@ public:
     virtual std::string getClassName() const;
 
     // méthodes pour jouer une carte depuis Player
-    virtual std::string useCard(Card &card);
-    virtual std::string useCard(Card &card, Entity &enemy);
+    virtual void useCard(Card &card);
+    virtual void useCard(Card &card, Entity &enemy);
 
     // méthodes CRUD pour cardPiles
     void removeCard(Card *card, const int cardVector);
