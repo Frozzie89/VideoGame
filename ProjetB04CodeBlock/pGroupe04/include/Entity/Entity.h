@@ -39,10 +39,10 @@ public:
 
     void AddHealth(Health l_health);                                         // Permet d'ajouter de la vie aux caracteristiques de l'entite
     void AddShield(Shield l_shield);                                         // Permet d'ajouter de l'armure aux caracteristiques de l'entite
-    void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel � la m�thode de Characteristics
-    void LowerCharacteristic(int l_index, int l_value);                      // Fait appel � la m�thode de Characteristics
-    void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel � la m�thode de Characteristics
-    void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel � la m�thode de Characteristics
+    void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel a la methode de Characteristics
+    void LowerCharacteristic(int l_index, int l_value);                      // Fait appel a la methode de Characteristics
+    void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
+    void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
     void endTurn();
     Characteristic *getCharacteristic(Characteristic &l_characteristic); // Renvoie une caractéristique de l'entité
 

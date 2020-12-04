@@ -3,6 +3,12 @@
 State_Game::State_Game(StateManager *l_stateManager) : BaseState(l_stateManager)
 {
     //ctor
+    Fight fight((Player*)m_stateMgr->GetContext()->m_entity);
+    m_fight = fight;
+
+    std::cout<<m_fight.getPlayer().getClassName()<<std::endl;
+    LoadHand();
+
 }
 //Destructeur
 State_Game::~State_Game()
@@ -59,6 +65,7 @@ void State_Game::OnDestroy()
 //Methode qui d'activer certaines modifications si la state a deja ete utilisee
 void State_Game::Activate()
 {
+
 }
 //Permet de supprimer les modifications si la state n'est plus utilisee
 void State_Game::Deactivate()
@@ -68,14 +75,17 @@ void State_Game::Deactivate()
 void State_Game::Update(const sf::Time &l_time)
 {
 //    Player* player = m_stateMgr->GetContext()->m_player;
+    //LoadHand();
 
 }
 //Permet de dessiner les differents elements graphiques
 void State_Game::Draw()
 {
+    std::cout<<"Debut Draw"<<std::endl;
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     window->draw(m_bgSprite);
-
+    std::cout<<"Bg OK"<<std::endl;
+    /*
     window->draw(m_text);
     int i=1;
     DefensiveCardWarrior dcw("Coucou", "assets/cards/Warrior/attack/fistOfTheDuck.png", 0, 0,m_stateMgr->GetContext(), true);
@@ -117,7 +127,22 @@ void State_Game::Draw()
     dcw2.Draw();
     dcw3.Draw();
     dcw4.Draw();
-    e.Draw();
+    e.Draw();*/
+
+    int cartHeight = 420;
+    int cartWidth = 244;
+    int cartBorder = 65;
+
+    for(int i=0; i<m_hand.size();++i)
+    {
+        std::cout<<"Debut For"<<std::endl;
+        //std::cout<<m_hand[i]->str()<<std::endl;
+
+        m_hand[i]->SetSpritePosition(cartBorder+cartWidth*i,cartHeight);
+
+    //m_hand[i]->Draw();
+    }
+
 }
 //Permet de switcher vers le State option, et donc la "fenetre" d'option
 void State_Game::Option(EventDetails* l_details)
@@ -133,4 +158,23 @@ void State_Game::Pause(EventDetails* l_details)
 void State_Game::CardClick(EventDetails* l_details)
 {
 
+}
+
+void State_Game::LoadHand()
+{
+    /*vector<Card*> tmp = m_fight.getPlayerHand();
+    for(int i =0; i<= tmp.size();++i)
+    {
+        std::cout<<"Auto Hand"<<std::endl;
+        std::cout<<tmp[i]->str()<<std::endl;
+        m_hand[i].push_back(&tmp[i]);
+    }*/
+    m_hand = m_fight.getPlayerHand();
+    std::cout<<"Load Card OK"<<std::endl;
+    for(int i =0; i<m_hand.size();++i)
+    {
+        std::cout<<"Carte "<<std::to_string(i)<<std::endl;
+        std::cout<<"-------"<<std::endl;
+        std::cout<<m_hand[i]->str()<<std::endl;
+    }
 }

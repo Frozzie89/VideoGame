@@ -38,7 +38,7 @@ public:
     virtual void addCard(Card *card, const int cardVector);
     int findCard(const Card &card, const int cardVector) const;
 
-    virtual std::string str() = 0;
+    //virtual std::string str() = 0;
 
     // méthodes pour mélanger le deck et piocher
     void purgeCardPile(const int cardVector); // Vide un paquet de cartes

@@ -11,6 +11,9 @@ using namespace std;
 #include "Cards/DefensiveCardWarrior.h"
 #include "Entity/Enemy/Enemy.h"
 #include "Entity/Player/Warrior.h"
+
+#include "Fight.h"
+
 /*
     Cette classe va definir ce que l'on va retrouve sur la fenetre lorsque l'on jouera au jeu.
     Elle herite de la classe BaseState.
@@ -49,6 +52,10 @@ private:
     sf::RectangleShape m_lostHealth; //Rectangle defissant la vie restante de l'ennemie
     sf::CircleShape m_btnEndTurn; //Bouton servant a mettre fin au tour du joueur
 
+    Fight m_fight; //
+    std::vector<Card*> m_hand; // Main du joueur
+
+    void LoadHand(); // Permet de charger la main
 };
 
 #endif // STATE_GAME_H

@@ -186,3 +186,5 @@ void Fight::createEnemies()
     m_enemyList.push_back(e4);
     m_enemyList.push_back(e5);
 }
+
+

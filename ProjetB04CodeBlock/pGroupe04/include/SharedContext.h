@@ -4,7 +4,6 @@
 #include "Window.h"
 #include "EventManager.h"
 #include "Entity/Entity.h"
-
 class Entity;
 #include <iostream>
 using namespace std;

@@ -5,6 +5,10 @@
 
 #include "State/BaseState.h"
 #include "StateManager.h"
+
+#include "Entity/Player/Gambler.h"
+#include "Entity/Player/Warrior.h"
+
 #include <iostream>
 
 using namespace std;
