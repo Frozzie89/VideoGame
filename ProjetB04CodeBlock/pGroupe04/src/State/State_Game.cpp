@@ -52,7 +52,8 @@ void State_Game::OnCreate()
     EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
     evMgr->AddCallback(StateType::Game,"Key_Escape",&State_Game::Option,this);
     evMgr->AddCallback(StateType::Game,"Key_P",&State_Game::Pause,this);
-    evMgr->AddCallback(StateType::Game,"Click_Left",&State_Game::CardClick,this);
+    evMgr->AddCallback(StateType::Game,"Mouse_Left",&State_Game::CardClick,this);
+
 }
 //Permet de supprimer les callbacks afin de liberer la memoire allouee a cet effet
 void State_Game::OnDestroy()
@@ -60,7 +61,7 @@ void State_Game::OnDestroy()
     EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
     evMgr->RemoveCallback(StateType::Game,"Key_Escape");
     evMgr->RemoveCallback(StateType::Game,"Key_P");
-    evMgr->RemoveCallback(StateType::Game,"Click_Left");
+    evMgr->RemoveCallback(StateType::Game,"Mouse_Left");
 }
 //Methode qui d'activer certaines modifications si la state a deja ete utilisee
 void State_Game::Activate()
@@ -86,50 +87,6 @@ void State_Game::Draw()
 
     DisplayPlayer();
     DisplayHand();
-    //std::cout<<"Bg OK"<<std::endl;
-    /*
-    window->draw(m_text);
-    int i=1;
-    DefensiveCardWarrior dcw("Coucou", "assets/cards/Warrior/attack/fistOfTheDuck.png", 0, 0,m_stateMgr->GetContext(), true);
-    //++i;
-    DefensiveCardWarrior dcw1("Coucou", "assets/cards/Warrior/shield/block.png", 0, 0,m_stateMgr->GetContext(), true);
-    //++i;
-    DefensiveCardWarrior dcw2("Coucou", "assets/cards/Warrior/attack/thorHammer.png" , 0, 0,m_stateMgr->GetContext(), true);
-    //++i;
-    DefensiveCardWarrior dcw3("Coucou", "assets/cards/Warrior/shield/goldenPlates.png", 0, 0,m_stateMgr->GetContext(), true);
-    //++i;
-    DefensiveCardWarrior dcw4("Coucou", "assets/cards/Warrior/heal/takeNap.png", 0, 0,m_stateMgr->GetContext(), true);
-
-    Enemy e;
-    e.setContext(m_stateMgr->GetContext());
-    e.setSprite("enemy.png");
-    e.setPosition(850,100);
-    e.Draw();
-
-    Warrior w;
-    w.setContext(m_stateMgr->GetContext());
-    w.setSprite("assets/player.png");
-    w.setPosition(150,150);
-    w.setSpriteScale(0.3,0.3);
-    w.Draw();
-
-    window->draw(m_health);
-    window->draw(m_lostHealth);
-
-    int cartHeight = 420;
-    int cartWidth = 244;
-    int cartBorder = 65;
-    dcw.SetSpritePosition(cartBorder,cartHeight);
-    dcw1.SetSpritePosition(cartBorder+cartWidth,cartHeight);
-    dcw2.SetSpritePosition(cartBorder+cartWidth*2,cartHeight);
-    dcw3.SetSpritePosition(cartBorder+cartWidth*3,cartHeight);
-    dcw4.SetSpritePosition(cartBorder+cartWidth*4,cartHeight);
-    dcw.Draw();
-    dcw1.Draw();
-    dcw2.Draw();
-    dcw3.Draw();
-    dcw4.Draw();
-    e.Draw();*/
 
 }
 //Permet de switcher vers le State option, et donc la "fenetre" d'option
@@ -143,29 +100,49 @@ void State_Game::Pause(EventDetails* l_details)
     m_stateMgr->SwitchTo(StateType::Paused);
 }
 //Permet de cliquer sur les cartes et effectuer l'action qui en decoule
-void State_Game::CardClick(EventDetails* l_details)
+void State_Game::CardClick(EventDetails *l_details)
 {
 
+    //Recupere la position de souris par rapport a l'eventDetail
+    sf::Vector2i mousePos = l_details->m_mouse;
+
+    //Si la position vaut 0 dans les deux axes, on va reprendre la fenetre a partir du statemanager et recuperer la position de la souris a partir de la
+    if (mousePos.x == 0 && mousePos.y == 0)
+    {
+        sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
+        mousePos = sf::Mouse::getPosition(*window);
+    }
+
+    int halfX = 122;
+    int halfY = 180;
+    std::cout<<std::to_string(mousePos.x)<<std::endl;
+    for (int i = 0; i<m_hand.size();++i)
+    {
+        if (mousePos.x >= m_hand[i]->GetPosition().x - halfX && mousePos.x <=  m_hand[i]->GetPosition().x + halfX && mousePos.y >=  m_hand[i]->GetPosition().y - halfY && mousePos.y <=  m_hand[i]->GetPosition().y + halfY)
+        {
+            //m_fight.useCard(*card);
+            std::cout<<m_hand[i]->str()<<std::endl;
+            std::cout<<"I'LL USE THIS TRAP CARD !"<<std::endl;
+             m_hand[i]->SetDraw(false);
+             m_hand[i]->SetPosition(1500,1500);
+        }
+        else{
+            //std::cout<<"Tu es une merde"<<std::endl;
+        }
+    }
 }
 
 void State_Game::LoadHand()
 {
     m_hand = m_fight.getPlayerHand();
 
-    int cartHeight = 400;
+    int cartHeight = 540;
     int cartWidth = 244;
-    int cartBorder = 65;
+    int cartBorder = 150;
 
-    std::cout<<"Load Card OK"<<std::endl;
     for(int i =0; i<m_hand.size();++i)
     {
-        std::cout<<"Carte "<<std::to_string(i)<<std::endl;
-        std::cout<<"-------"<<std::endl;
-        std::cout<<m_hand[i]->str()<<std::endl;
         m_hand[i]->SetSpritePosition(cartBorder+cartWidth*i,cartHeight);
-        std::cout<<"------------------------------"<<std::endl;
-        std::cout<<"Apres positionement"<<std::endl;
-        std::cout<<m_hand[i]->str()<<std::endl;
         m_hand[i]->SetContext(m_stateMgr->GetContext());
     }
 }
@@ -183,8 +160,6 @@ void State_Game::DisplayHand()
 {
     for(int i =0; i<m_hand.size();++i)
     {
-        std::cout<<"Boucle OK"<<std::endl;
-        std::cout<<m_hand[i]->str()<<std::endl;
         m_hand[i]->Draw();
     }
 }

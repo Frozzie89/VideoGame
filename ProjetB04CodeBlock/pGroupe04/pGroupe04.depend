@@ -82,7 +82,7 @@
 
 1606689325 ger.h"
 
-1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Window.cpp
+1607095458 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Window.cpp
 	"Window.h"
 
 1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Game.cpp
@@ -144,11 +144,11 @@
 	<string>
 	<string>
 
-1607091248 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/Card.cpp
+1607097130 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/Cards/Card.cpp
 	"Cards/Card.h"
 	<sstream>
 
-1607089935 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/Card.h
+1607093976 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/Cards/Card.h
 	<string>
 	<SFML/Graphics.hpp>
 	"Entity/Entity.h"
@@ -251,13 +251,14 @@
 	"State/BaseState.h"
 	"StateManager.h"
 
-1607080068 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_MainMenu.h
+1607094287 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_MainMenu.h
 	<SFML/Graphics.hpp>
 	"State/BaseState.h"
 	"StateManager.h"
 	"Entity/Player/Gambler.h"
 	"Entity/Player/Warrior.h"
 	<iostream>
+	<unistd.h>
 
 1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/BaseState.cpp
 	"State/BaseState.h"
@@ -269,12 +270,12 @@
 1607034884 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/StateType.cpp
 	"State/StateType.h"
 
-1607091373 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Game.cpp
+1607097288 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Game.cpp
 	"State/State_Game.h"
 
 1606689325 te_Game.h"
 
-1607089272 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Game.h
+1607093090 /home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/include/State/State_Game.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	"State/BaseState.h"
@@ -289,7 +290,7 @@
 
 1606818646 te_Intro.h"
 
-1607080079 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_MainMenu.cpp
+1607094406 source:/home/skias/Documents/Projet/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_MainMenu.cpp
 	"State/State_MainMenu.h"
 
 1606689325 te_MainMenu.h"

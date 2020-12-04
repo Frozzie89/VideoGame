@@ -58,6 +58,7 @@ void Window::Create()
                      32},
                     m_windowTitle,
                     style);
+
 }
 // Nettoie la fenetre
 void Window::BeginDraw()
@@ -91,6 +92,10 @@ void Window::Update()
         else if (event.type == sf::Event::Closed)
         {
             Close();
+        }
+        else if(event.type == event.MouseButtonReleased && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            m_window.setKeyRepeatEnabled(false);
         }
         m_eventManager.HandleEvent(event);
     }

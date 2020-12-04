@@ -17,6 +17,8 @@ protected:
 
     SharedContext *m_context;
 
+    bool m_draw;
+
 public:
     Card(std::string label = "No_Label", std::string path = "No_path", int costAction = 0, int value = 0, SharedContext *m_context = nullptr);
     virtual ~Card() = 0;
@@ -55,6 +57,10 @@ public:
     void SetSpritePositon(sf::Vector2f l_position);        //Permet de modifier la position du sprite, en passant un vecteur de float
 
     void SetContext(SharedContext *l_context);
+
+    void SetPosition(float posX, float posY);
+
+    void SetDraw(bool m_bool);
 };
 
 #endif // CARD_PGROUPE04_H
