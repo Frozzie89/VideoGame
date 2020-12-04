@@ -13,6 +13,7 @@ Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Enti
     Shield shieldEnemy(0);
     Entity::AddHealth(m_healthEnemy);
     Entity::AddShield(shieldEnemy);
+    Entity::setSprite(assetPath);
 }
 
 Enemy::~Enemy()
@@ -98,8 +99,19 @@ void Enemy::useAbility(Entity &entity)
 {
     behaviour->useAbility(entity, *this, m_abilities);
 }
-
+//Retourne le nom de la classe
 std::string Enemy::getClassName() const
 {
     return "Enemy";
 }
+//Retourne les caracteristiques d'ennemies
+std::string Enemy::str() const
+{
+    return getClassName()+" : Path : "+assetPath+ " || ";
+}
+//Retourne le chemin d'accès defini ici
+string Enemy::GetPath() const
+{
+    return assetPath;
+}
+

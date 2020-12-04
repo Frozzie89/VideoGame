@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <stdlib.h>
 #include <iostream>
 using namespace std;
 
@@ -55,9 +56,13 @@ private:
     Fight m_fight; //
     std::vector<Card*> m_hand; // Main du joueur
 
-    void LoadHand(); // Permet de charger la main
-    void DisplayPlayer(); //Affiche le joueur
-    void DisplayHand(); //Affiche la main du joueur
+    void LoadHand(); //Permet de recuperer les cartes en mains et de configurer leur affichage
+    void DisplayPlayer(); //Permet de configurer et d'afficher le joueur
+    void DisplayHand(); //Permet d'afficher les cartes que l'on a en main
+    void DisplayEnemy(); //Permet d'afficher l'ennemie
+
+    int m_egg;
+
 };
 
 #endif // STATE_GAME_H

@@ -8,7 +8,9 @@ State_Game::State_Game(StateManager *l_stateManager) : BaseState(l_stateManager)
 
     std::cout<<m_fight.getPlayer().getClassName()<<std::endl;
     LoadHand();
-
+    m_fight.createEnemies();
+    srand((unsigned)time(0));
+    m_egg = rand() %100 +1;
 }
 //Destructeur
 State_Game::~State_Game()
@@ -36,17 +38,7 @@ void State_Game::OnCreate()
     //Permet de centrer et de positionner le texte
     sf::FloatRect textRect = m_text.getLocalBounds();
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    m_text.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
-
-    //Permet de catagoriser les rectangles servant d'indications quant a la vie de l'ennemie
-    m_health.setSize(sf::Vector2f(100,25));
-    m_health.setFillColor(sf::Color::Red);
-    m_lostHealth.setSize(sf::Vector2f(75,25));
-    m_lostHealth.setFillColor(sf::Color::Green);
-
-    //Positionnement des rectangles de la vie de l'ennemie
-    m_health.setPosition(900,50);
-    m_lostHealth.setPosition(900,50);
+    m_text.setPosition(windowSize.x / 2.0f -200, windowSize.y / 2.0f - 200);
 
     //Permet de creer les callbacks servant a gerer les events
     EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
@@ -84,9 +76,10 @@ void State_Game::Draw()
     //std::cout<<"Debut Draw"<<std::endl;
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     window->draw(m_bgSprite);
-
+    window->draw(m_text);
     DisplayPlayer();
     DisplayHand();
+    DisplayEnemy();
 
 }
 //Permet de switcher vers le State option, et donc la "fenetre" d'option
@@ -126,12 +119,9 @@ void State_Game::CardClick(EventDetails *l_details)
              m_hand[i]->SetDraw(false);
              m_hand[i]->SetPosition(1500,1500);
         }
-        else{
-            //std::cout<<"Tu es une merde"<<std::endl;
-        }
     }
 }
-
+//Permet de recuperer les cartes en mains et de configurer leur affichage
 void State_Game::LoadHand()
 {
     m_hand = m_fight.getPlayerHand();
@@ -146,20 +136,52 @@ void State_Game::LoadHand()
         m_hand[i]->SetContext(m_stateMgr->GetContext());
     }
 }
-
+//Permet de configurer et d'afficher le joueur
 void State_Game::DisplayPlayer()
 {
     m_fight.getPlayer().setContext(m_stateMgr->GetContext());
-    m_fight.getPlayer().setSprite("assets/player.png");
-    m_fight.getPlayer().setPosition(150,150);
-    m_fight.getPlayer().setSpriteScale(0.3,0.3);
+
+    if(m_egg > 5)
+    {
+        m_fight.getPlayer().setSprite("assets/player.png");
+    }
+    else{
+        m_fight.getPlayer().setSprite("assets/player2.png");
+        m_text.setString("J'espere que tu aimes mon lifting !");
+    }
+    m_fight.getPlayer().setPosition(150,200);
+    m_fight.getPlayer().setSpriteScale(0.2,0.2);
     m_fight.getPlayer().Draw();
 }
-
+//Permet d'afficher les cartes que l'on a en main
 void State_Game::DisplayHand()
 {
     for(int i =0; i<m_hand.size();++i)
     {
         m_hand[i]->Draw();
     }
+}
+
+void State_Game::DisplayEnemy()
+{
+    m_fight.getEnemy().setContext(m_stateMgr->GetContext());
+    m_fight.getEnemy().setPosition(850,125);
+    //m_fight.getEnemy().setSprite("assets/enemies/hunter.png");
+    m_fight.getEnemy().setSpriteScale(0.4,0.4);
+    m_fight.getEnemy().Draw();
+
+    //Permet de catagoriser les rectangles servant d'indications quant a la vie de l'ennemie
+    m_health.setSize(sf::Vector2f(100,25));
+    m_health.setFillColor(sf::Color::Red);
+    m_lostHealth.setSize(sf::Vector2f(75,25));
+    m_lostHealth.setFillColor(sf::Color::Green);
+
+    //Positionnement des rectangles de la vie de l'ennemie
+    m_health.setPosition(950,50);
+    m_lostHealth.setPosition(950,50);
+
+    sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
+    window->draw(m_health);
+    window->draw(m_lostHealth);
+
 }
