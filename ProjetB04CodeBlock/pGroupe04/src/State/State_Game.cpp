@@ -176,6 +176,11 @@ void State_Game::MouseClick(EventDetails *l_details)
         m_btnEndTurn.setFillColor(sf::Color::Red);
         m_text.setString("Vie :" + std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
         LoadHand();
+
+        if (m_fight.gameOver())
+        {
+            m_stateMgr->SwitchTo(StateType::GameOver);
+        }
     }
 
     for (int i = 0; i < (int)m_hand.size(); ++i)

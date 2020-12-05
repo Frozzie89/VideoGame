@@ -86,11 +86,8 @@ void Fight::endTurn()
     // std::cout << "FIN DU TOUR" << std::endl;
     enemyAttack();
 
-    if (!checkEntityAlive(m_player))
-    {
-        std::cout << "gameOver" << std::endl;
-        gameOver();
-    }
+    // if (!checkEntityAlive(m_player))
+    //     gameOver();
     // std::cout<<"On continue"<<std::endl;
 
     m_player->drawCards();
@@ -129,9 +126,9 @@ void Fight::nextFight()
     m_player->drawCards();
 }
 
-void Fight::gameOver()
+bool Fight::gameOver()
 {
-    std::cout << "EndFight" << std::endl;
+    return !checkEntityAlive(m_player);
 }
 
 bool Fight::isPlayerTurn()
