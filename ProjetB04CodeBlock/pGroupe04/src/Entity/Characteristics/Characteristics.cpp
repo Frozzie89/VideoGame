@@ -113,3 +113,12 @@ void Characteristics::LowerCharacteristic(Characteristic &l_characteristic, int 
     if (indexCharacteristic != -1)
         m_characteristics[indexCharacteristic]->LowerValue(l_value);
 }
+Characteristic* Characteristics::getCharacteristic(std::string l_nom)
+{
+    for (int i = 0; i < (int)m_characteristics.size(); i++)
+    {
+        if (m_characteristics[i]->getClassName() == l_nom)
+            return m_characteristics[i];
+    }
+    return nullptr;
+}

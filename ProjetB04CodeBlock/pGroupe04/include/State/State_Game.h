@@ -32,7 +32,8 @@ private:
 
     sf::RectangleShape m_health; //Rectangle defissant le total de vie de l'ennemie
     sf::RectangleShape m_lostHealth; //Rectangle defissant la vie restante de l'ennemie
-    sf::CircleShape m_btnEndTurn; //Bouton servant a mettre fin au tour du joueur
+    sf::ConvexShape m_btnEndTurn; //Bouton servant a mettre fin au tour du joueur
+    sf::Text m_btnText; // Texte du bouton
 
     Fight m_fight; //
     std::vector<Card*> m_hand; // Main du joueur
@@ -44,8 +45,7 @@ private:
 
     int m_egg;
 
-
-    void CardClick(EventDetails* l_details); //Permet de cliquer sur les cartes et effectuer l'action qui en decoule
+    void MouseClick(EventDetails* l_details); //Permet de cliquer sur les cartes et effectuer l'action qui en decoule
     void MouseHover(); //Permet de gerer les events lies au survols des elements par la souris
 
 public:

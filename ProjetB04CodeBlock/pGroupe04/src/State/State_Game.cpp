@@ -39,12 +39,30 @@ void State_Game::OnCreate()
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
     m_text.setPosition(windowSize.x / 2.0f -200, windowSize.y / 2.0f - 200);
 
+    //Parametrage du bouton de fin de tour
+    m_btnEndTurn.setPointCount(4); //Definition du nombre de points
+    m_btnEndTurn.setPoint(0,sf::Vector2f(0,0));
+    m_btnEndTurn.setPoint(1,sf::Vector2f(150,0));
+    m_btnEndTurn.setPoint(2,sf::Vector2f(120,50));
+    m_btnEndTurn.setPoint(3,sf::Vector2f(30,50));
+    float btnX = 200;
+    float btnY = 100;
+    m_btnEndTurn.setPosition(btnX, btnY);
+    m_btnEndTurn.setOrigin(btnX/2,btnY/2);
+    m_btnEndTurn.setFillColor(sf::Color::Green);
+
+    m_btnText.setFont(m_font);
+    m_btnText.setString("Fin du tour");
+    m_btnText.setCharacterSize(12);
+    sf::FloatRect btnRect = m_btnText.getLocalBounds();
+    m_btnText.setOrigin(btnRect.left + btnRect.width / 2.0f, btnRect.top + btnRect.height / 2.0f);
+    m_btnText.setPosition(btnX,btnY);
+
     //Permet de creer les callbacks servant a gerer les events
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
     evMgr->AddCallback(StateType::Game, "Key_Escape", &State_Game::Option, this);
     evMgr->AddCallback(StateType::Game, "Key_P", &State_Game::Pause, this);
-    evMgr->AddCallback(StateType::Game, "Mouse_Left", &State_Game::CardClick, this);
-    evMgr->AddCallback(StateType::Game, "Mouse_Left", &State_Game::CardClick, this);
+    evMgr->AddCallback(StateType::Game, "Mouse_Left", &State_Game::MouseClick, this);
 }
 //Permet de supprimer les callbacks afin de liberer la memoire allouee a cet effet
 void State_Game::OnDestroy()
@@ -66,8 +84,6 @@ void State_Game::Deactivate()
 void State_Game::Update(const sf::Time &l_time)
 {
     MouseHover();
-    //    Player* player = m_stateMgr->GetContext()->m_player;
-    //LoadHand();
 }
 //Permet de dessiner les differents elements graphiques
 void State_Game::Draw()
@@ -76,9 +92,11 @@ void State_Game::Draw()
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     window->draw(m_bgSprite);
     window->draw(m_text);
+    window->draw(m_btnEndTurn);
+    window->draw(m_btnText);
     DisplayPlayer();
-    DisplayHand();
     DisplayEnemy();
+    DisplayHand();
 
 }
 //Permet de switcher vers le State option, et donc la "fenetre" d'option
@@ -92,7 +110,7 @@ void State_Game::Pause(EventDetails *l_details)
     m_stateMgr->SwitchTo(StateType::Paused);
 }
 //Permet de cliquer sur les cartes et effectuer l'action qui en decoule
-void State_Game::CardClick(EventDetails *l_details)
+void State_Game::MouseClick(EventDetails *l_details)
 {
     if (!m_fight.isPlayerTurn())
         return;
@@ -109,12 +127,22 @@ void State_Game::CardClick(EventDetails *l_details)
 
     int halfX = 122;
     int halfY = 180;
-    std::cout << std::to_string(mousePos.x) << std::endl;
+
+    m_btnEndTurn.setFillColor(sf::Color::Green);
+
+    if(mousePos.x >= m_btnEndTurn.getPosition().x - 75 && mousePos.x <= m_btnEndTurn.getPosition().x+75
+       && mousePos.y >= m_btnEndTurn.getPosition().y - 50 && mousePos.y <= m_btnEndTurn.getPosition().y+50)
+    {
+        m_btnEndTurn.setFillColor(sf::Color::Red);
+        m_text.setString("Vie :"+std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
+    }
+
     for (int i = 0; i < m_hand.size(); ++i)
     {
         if (mousePos.x >= m_hand[i]->GetPosition().x - halfX && mousePos.x <= m_hand[i]->GetPosition().x + halfX && mousePos.y >= m_hand[i]->GetPosition().y - halfY && mousePos.y <= m_hand[i]->GetPosition().y + halfY)
         {
             m_fight.useCard(*m_hand[i]);
+            std::cout << m_fight.getEnemy().str() << std::endl;
             m_hand[i]->SetDraw(false);
             m_hand[i]->SetPosition(1500, 1500);
         }
@@ -200,9 +228,11 @@ void State_Game::DisplayEnemy()
     m_fight.getEnemy().Draw();
 
     //Permet de catagoriser les rectangles servant d'indications quant a la vie de l'ennemie
-    m_health.setSize(sf::Vector2f(100,25));
+    int lifeMaxEnemy = m_fight.getEnemy().getMaxLife();
+    int lifeEnemy = m_fight.getRemainingLifeEnemy();
+    m_health.setSize(sf::Vector2f(lifeMaxEnemy,25));
     m_health.setFillColor(sf::Color::Red);
-    m_lostHealth.setSize(sf::Vector2f(75,25));
+    m_lostHealth.setSize(sf::Vector2f(lifeEnemy,25));
     m_lostHealth.setFillColor(sf::Color::Green);
 
     //Positionnement des rectangles de la vie de l'ennemie

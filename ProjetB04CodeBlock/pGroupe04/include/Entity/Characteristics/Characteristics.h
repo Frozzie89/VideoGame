@@ -32,6 +32,7 @@ public:
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value);
 
     Characteristic *getCharacteristic(Characteristic &l_characteristic);
+    Characteristic *getCharacteristic(std::string l_nom);
 };
 
 #endif // CHARACTERISTICS_H

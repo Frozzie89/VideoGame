@@ -142,3 +142,12 @@ void Entity::setSpriteScale(float l_x, float l_y)
 {
     m_sprite.setScale(l_x, l_y);
 }
+int Entity::getHealth()
+{
+    return m_entityCaracteristics.getCharacteristic("Health")->GetValue();
+}
+
+int Entity::getShield()
+{
+    return m_entityCaracteristics.getCharacteristic("Shield")->GetValue();
+}
