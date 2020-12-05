@@ -74,8 +74,6 @@ int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)
 {
     for (int i = 0; i < (int)m_characteristics.size(); i++)
     {
-        std::cout << i << std::endl;
-
         if (m_characteristics[i]->getClassName() == l_characteristic.getClassName())
             return i;
     }

@@ -109,10 +109,8 @@ void Player::useCard(Card &card, Entity &enemy)
         return;
 
     Health h;
-    std::cout << "AVANT " << enemy.getCharacteristic(h)->GetValue() << std::endl;
 
     int ptEffect = card.activateEffect(enemy);
-    std::cout << "APRES " << enemy.getCharacteristic(h)->GetValue() << std::endl;
 }
 
 void Player::removeCard(Card *card, const int cardVector)
