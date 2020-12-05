@@ -168,8 +168,8 @@ void State_Game::MouseClick(EventDetails *l_details)
 
     m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
 
-    if(mousePos.x >= m_btnEndTurn.getPosition().x && mousePos.x <= m_btnEndTurn.getPosition().x
-       && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y)
+    if(mousePos.x >= m_btnEndTurn.getPosition().x  && mousePos.x <= m_btnEndTurn.getPosition().x+150
+       && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y+50)
     {
         m_fight.endTurn();
         m_btnEndTurn.setFillColor(sf::Color::Red);

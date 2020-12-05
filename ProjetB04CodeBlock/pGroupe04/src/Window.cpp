@@ -52,7 +52,7 @@ void Window::Destroy()
 */
 void Window::Create()
 {
-    auto style = (m_isFullscreen ? sf::Style::Fullscreen : sf::Style::Default); //----> LE DEMON !!!!
+    auto style = (m_isFullscreen ? sf::Style::Fullscreen : sf::Style::Close); //----> LE DEMON !!!!
     m_window.create({m_windowSize.x,
                      m_windowSize.y,
                      32},
