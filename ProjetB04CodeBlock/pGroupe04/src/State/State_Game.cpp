@@ -172,6 +172,7 @@ void State_Game::MouseClick(EventDetails *l_details)
         m_fight.endTurn();
         m_btnEndTurn.setFillColor(sf::Color::Red);
         m_text.setString("Vie :" + std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
+        LoadHand();
     }
 
     for (int i = 0; i < (int)m_hand.size(); ++i)
@@ -227,18 +228,28 @@ void State_Game::MouseHover()
 //Permet de recuperer les cartes en mains et de configurer leur affichage
 void State_Game::LoadHand()
 {
+    std::cout << "\n=====================================================\nLOADING HAND .....\n=====================================================\n" << std::endl;
+    if(m_hand.size() > 0){
+        for(int i=0; i<m_hand.size() ; i++){
+            std::cout<<m_hand[i]->str()<<std::endl;
+        }
+    }
+    std::cout << "\n=====================================================\DELETE HAND .....\n=====================================================\n" << std::endl;
+    /*
     for (auto &&card : m_hand)
     {
         delete card;
     }
+    */
+
     m_hand.clear();
 
     for (auto &&card : m_fight.getPlayerHand())
     {
-        m_hand.push_back(card);
+        m_hand.push_back(card->clone());
     }
 
-    // m_hand = m_fight.getPlayerHand();
+    //m_hand = m_fight.getPlayerHand();
 
     int cartHeight = 540;
     int cartWidth = 244;

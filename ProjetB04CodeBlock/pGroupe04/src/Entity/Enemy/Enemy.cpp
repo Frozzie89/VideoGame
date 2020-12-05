@@ -81,6 +81,7 @@ void Enemy::addAbilities(EnemyAbility *l_enemyAbility)
 {
     if (SearchAbility(*l_enemyAbility) == -1)
     {
+
         m_abilities.push_back(l_enemyAbility->clone());
     }
 }
