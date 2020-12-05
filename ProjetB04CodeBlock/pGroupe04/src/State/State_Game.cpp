@@ -9,7 +9,7 @@ State_Game::State_Game(StateManager *l_stateManager) : BaseState(l_stateManager)
     LoadHand();
     m_fight.createEnemies();
     srand((unsigned)time(0));
-    m_egg = rand() %100 +1;
+    m_egg = rand() % 100 + 1;
 }
 //Destructeur
 State_Game::~State_Game()
@@ -37,18 +37,18 @@ void State_Game::OnCreate()
     //Permet de centrer et de positionner le texte
     sf::FloatRect textRect = m_text.getLocalBounds();
     m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    m_text.setPosition(windowSize.x / 2.0f -200, windowSize.y / 2.0f - 200);
+    m_text.setPosition(windowSize.x / 2.0f - 200, windowSize.y / 2.0f - 200);
 
     //Parametrage du bouton de fin de tour
     m_btnEndTurn.setPointCount(4); //Definition du nombre de points
-    m_btnEndTurn.setPoint(0,sf::Vector2f(0,0));
-    m_btnEndTurn.setPoint(1,sf::Vector2f(150,0));
-    m_btnEndTurn.setPoint(2,sf::Vector2f(120,50));
-    m_btnEndTurn.setPoint(3,sf::Vector2f(30,50));
+    m_btnEndTurn.setPoint(0, sf::Vector2f(0, 0));
+    m_btnEndTurn.setPoint(1, sf::Vector2f(150, 0));
+    m_btnEndTurn.setPoint(2, sf::Vector2f(120, 50));
+    m_btnEndTurn.setPoint(3, sf::Vector2f(30, 50));
     float btnX = 200;
     float btnY = 100;
     m_btnEndTurn.setPosition(btnX, btnY);
-    m_btnEndTurn.setOrigin(btnX/2,btnY/2);
+    m_btnEndTurn.setOrigin(btnX / 2, btnY / 2);
     m_btnEndTurn.setFillColor(sf::Color::Green);
 
     m_btnText.setFont(m_font);
@@ -56,7 +56,7 @@ void State_Game::OnCreate()
     m_btnText.setCharacterSize(12);
     sf::FloatRect btnRect = m_btnText.getLocalBounds();
     m_btnText.setOrigin(btnRect.left + btnRect.width / 2.0f, btnRect.top + btnRect.height / 2.0f);
-    m_btnText.setPosition(btnX,btnY);
+    m_btnText.setPosition(btnX, btnY);
 
     //Permet de creer les callbacks servant a gerer les events
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
@@ -97,7 +97,6 @@ void State_Game::Draw()
     DisplayPlayer();
     DisplayEnemy();
     DisplayHand();
-
 }
 //Permet de switcher vers le State option, et donc la "fenetre" d'option
 void State_Game::Option(EventDetails *l_details)
@@ -130,11 +129,11 @@ void State_Game::MouseClick(EventDetails *l_details)
 
     m_btnEndTurn.setFillColor(sf::Color::Green);
 
-    if(mousePos.x >= m_btnEndTurn.getPosition().x - 75 && mousePos.x <= m_btnEndTurn.getPosition().x+75
-       && mousePos.y >= m_btnEndTurn.getPosition().y - 50 && mousePos.y <= m_btnEndTurn.getPosition().y+50)
+    if (mousePos.x >= m_btnEndTurn.getPosition().x - 75 && mousePos.x <= m_btnEndTurn.getPosition().x + 75 && mousePos.y >= m_btnEndTurn.getPosition().y - 50 && mousePos.y <= m_btnEndTurn.getPosition().y + 50)
     {
+        m_fight.endTurn();
         m_btnEndTurn.setFillColor(sf::Color::Red);
-        m_text.setString("Vie :"+std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
+        m_text.setString("Vie :" + std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
     }
 
     for (int i = 0; i < m_hand.size(); ++i)
@@ -198,16 +197,17 @@ void State_Game::DisplayPlayer()
 {
     m_fight.getPlayer().setContext(m_stateMgr->GetContext());
 
-    if(m_egg > 5)
+    if (m_egg > 5)
     {
         m_fight.getPlayer().setSprite("assets/player.png");
     }
-    else{
+    else
+    {
         m_fight.getPlayer().setSprite("assets/player2.png");
         m_text.setString("J'espere que tu aimes mon lifting !");
     }
-    m_fight.getPlayer().setPosition(150,200);
-    m_fight.getPlayer().setSpriteScale(0.2,0.2);
+    m_fight.getPlayer().setPosition(150, 200);
+    m_fight.getPlayer().setSpriteScale(0.2, 0.2);
     m_fight.getPlayer().Draw();
 }
 //Permet d'afficher les cartes que l'on a en main
@@ -222,25 +222,24 @@ void State_Game::DisplayHand()
 void State_Game::DisplayEnemy()
 {
     m_fight.getEnemy().setContext(m_stateMgr->GetContext());
-    m_fight.getEnemy().setPosition(850,125);
+    m_fight.getEnemy().setPosition(850, 125);
     //m_fight.getEnemy().setSprite("assets/enemies/hunter.png");
-    m_fight.getEnemy().setSpriteScale(0.4,0.4);
+    m_fight.getEnemy().setSpriteScale(0.4, 0.4);
     m_fight.getEnemy().Draw();
 
     //Permet de catagoriser les rectangles servant d'indications quant a la vie de l'ennemie
     int lifeMaxEnemy = m_fight.getEnemy().getMaxLife();
     int lifeEnemy = m_fight.getRemainingLifeEnemy();
-    m_health.setSize(sf::Vector2f(lifeMaxEnemy,25));
+    m_health.setSize(sf::Vector2f(lifeMaxEnemy, 25));
     m_health.setFillColor(sf::Color::Red);
-    m_lostHealth.setSize(sf::Vector2f(lifeEnemy,25));
+    m_lostHealth.setSize(sf::Vector2f(lifeEnemy, 25));
     m_lostHealth.setFillColor(sf::Color::Green);
 
     //Positionnement des rectangles de la vie de l'ennemie
-    m_health.setPosition(950,50);
-    m_lostHealth.setPosition(950,50);
+    m_health.setPosition(950, 50);
+    m_lostHealth.setPosition(950, 50);
 
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     window->draw(m_health);
     window->draw(m_lostHealth);
-
 }

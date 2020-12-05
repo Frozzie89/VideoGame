@@ -200,15 +200,16 @@ std::string Player::printMap()
     {
         res << card->getLabel() << " - ";
     }
-
     res << std::endl
         << "DECK : ";
+
     for (auto &&card : cardPiles[Player::deck])
     {
         res << card->getLabel() << " - ";
     }
     res << std::endl
         << "HAND : ";
+
     for (auto &&card : cardPiles[Player::hand])
     {
         res << card->getLabel() << " - ";

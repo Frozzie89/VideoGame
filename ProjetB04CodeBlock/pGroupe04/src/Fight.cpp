@@ -10,8 +10,12 @@ Fight::Fight()
 // Constructeur
 Fight::Fight(Player *l_player) : m_player(l_player)
 {
+    std::cout << "CONSTRUCTEUR FIGHT" << std::endl;
     m_counter = 0;
     m_player->drawCards();
+    std::cout << m_player->printMap() << std::endl;
+
+    // createEnemies();
 }
 
 // Destructeur
@@ -67,6 +71,11 @@ Enemy &Fight::getEnemy()
     return *m_enemyList[m_counter];
 }
 
+void Fight::enemyAttack()
+{
+    getEnemy().useAbility(*m_player);
+}
+
 Player &Fight::getPlayer()
 {
     return *m_player;
@@ -74,7 +83,9 @@ Player &Fight::getPlayer()
 
 void Fight::endTurn()
 {
-    getEnemy().useAbility(*m_player);
+    std::cout << "FIN DU TOUR" << std::endl;
+    enemyAttack();
+
     if (checkEntityAlive(m_player))
         gameOver();
 
@@ -137,8 +148,6 @@ int Fight::getRemainingShieldEnemy()
     Shield *enemyShield = (Shield *)getEnemy().getCharacteristic(s);
     return enemyShield->GetValue();
 }
-
-
 
 void Fight::createEnemies()
 {

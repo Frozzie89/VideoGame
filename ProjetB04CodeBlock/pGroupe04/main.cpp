@@ -15,16 +15,6 @@ using namespace std;
 
 int main()
 {
-
-    // Warrior *w1 = new Warrior(15);
-    // // DefensiveCardWarrior dcw1("HEAL", "NOPATH", 2, 5, nullptr, true);
-    // DefensiveCardWarrior dcw1("SHIELD", "NOPATH", 2, 5, nullptr, false);
-    // w1->addCard(&dcw1, Warrior::hand);
-    // Fight f1(w1);
-
-    // f1.getEnemy().useAbility(*w1);
-    // cout << f1.getPlayer().str() << endl;
-
     Game game;
 
     // Start the game loop

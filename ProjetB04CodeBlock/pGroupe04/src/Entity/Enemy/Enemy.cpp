@@ -1,4 +1,5 @@
 #include "Entity/Enemy/Enemy.h"
+#include "Entity/Enemy/BehaviourHighLife.h"
 #include <iostream>
 // Constructeur
 Enemy::Enemy() : Entity()
@@ -14,10 +15,15 @@ Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Enti
 {
     Health m_healthEnemy(l_healthPt);
     Shield shieldEnemy(0);
+
     Entity::AddHealth(m_healthEnemy);
     Entity::AddShield(shieldEnemy);
     Entity::setSprite(assetPath);
     setMaxLife(l_healthPt);
+
+    // TEMPORAIRE
+    BehaviourHighLife *b = new BehaviourHighLife();
+    setStrategy(b);
 }
 
 // Destructeur
@@ -85,6 +91,7 @@ void Enemy::removeAbilities(EnemyAbility *l_enemyAbility)
     // Si l'ability n'est pas presente dans le vector, on stoppe la methode
     if (indiceEnemy == -1)
         return;
+
     EnemyAbility *tmp = *(m_abilities.begin() + indiceEnemy);
     m_abilities.erase(m_abilities.begin() + indiceEnemy);
     delete tmp;
@@ -107,6 +114,12 @@ void Enemy::useAbility(Entity &entity)
 {
     behaviour->useAbility(entity, *this, m_abilities);
 }
+
+std::vector<EnemyAbility *> Enemy::getAbilitiesList()
+{
+    return m_abilities;
+}
+
 //Retourne le nom de la classe
 std::string Enemy::getClassName() const
 {
