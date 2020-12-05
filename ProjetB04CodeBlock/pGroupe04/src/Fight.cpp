@@ -138,10 +138,12 @@ int Fight::getRemainingShieldEnemy()
     return enemyShield->GetValue();
 }
 
+
+
 void Fight::createEnemies()
 {
     /**** 1st enemy ****/
-    Enemy *e1 = new Enemy(25, "assets/enemies/fox.png");
+    Enemy *e1 = new Enemy(4, "assets/enemies/fox.png");
     EnemyAbilityDefensive *ead1_1 = new EnemyAbilityDefensive("Sleep", 5, true);
     EnemyAbilityDefensive *ead1_2 = new EnemyAbilityDefensive("Hide", 3, false);
     EnemyAbilityOffensive *eao1_1 = new EnemyAbilityOffensive("Bite", 5);
@@ -153,7 +155,7 @@ void Fight::createEnemies()
     e1->addAbilities(eao1_2);
 
     /**** 2nd enemy ****/
-    Enemy *e2 = new Enemy(32, "assets/enemies/hunter.png");
+    Enemy *e2 = new Enemy(32, "assets/enemies/wolf.png");
     EnemyAbilityDefensive *ead2_1 = new EnemyAbilityDefensive("Heal_wounds", 6, true);
     EnemyAbilityDefensive *ead2_2 = new EnemyAbilityDefensive("Block", 4, false);
     EnemyAbilityOffensive *eao2_1 = new EnemyAbilityOffensive("Shoot", 7);
@@ -165,7 +167,7 @@ void Fight::createEnemies()
     e2->addAbilities(eao2_2);
 
     /**** 3rd enemy ****/
-    Enemy *e3 = new Enemy(43, "assets/enemies/wolf.png");
+    Enemy *e3 = new Enemy(43, "assets/enemies/pepito.png");
     EnemyAbilityDefensive *ead3_1 = new EnemyAbilityDefensive("Eat", 2, true);
     EnemyAbilityDefensive *ead3_2 = new EnemyAbilityDefensive("Howl", 4, false);
     EnemyAbilityOffensive *eao3_1 = new EnemyAbilityOffensive("Bite", 6);

@@ -39,6 +39,9 @@ public:
     virtual std::string getClassName() const;
     int getMaxLife();
 
+    int getHealth(); //Renvoie le nombre de points de vie
+    int getShield(); //Renvoie le nombre de points d'armure
+
     void AddHealth(Health l_health);                                         // Permet d'ajouter de la vie aux caracteristiques de l'entite
     void AddShield(Shield l_shield);                                         // Permet d'ajouter de l'armure aux caracteristiques de l'entite
     void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel a la methode de Characteristics
