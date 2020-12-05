@@ -41,22 +41,46 @@ void State_Game::OnCreate()
 
     //Parametrage du bouton de fin de tour
     m_btnEndTurn.setPointCount(4); //Definition du nombre de points
-    m_btnEndTurn.setPoint(0, sf::Vector2f(0, 0));
-    m_btnEndTurn.setPoint(1, sf::Vector2f(150, 0));
-    m_btnEndTurn.setPoint(2, sf::Vector2f(120, 50));
-    m_btnEndTurn.setPoint(3, sf::Vector2f(30, 50));
-    float btnX = 200;
-    float btnY = 100;
+    m_btnEndTurn.setPoint(0,sf::Vector2f(0,0));
+    m_btnEndTurn.setPoint(1,sf::Vector2f(150,0));
+    m_btnEndTurn.setPoint(2,sf::Vector2f(120,50));
+    m_btnEndTurn.setPoint(3,sf::Vector2f(30,50));
+    float btnX = 600;
+    float btnY = 50;
     m_btnEndTurn.setPosition(btnX, btnY);
-    m_btnEndTurn.setOrigin(btnX / 2, btnY / 2);
-    m_btnEndTurn.setFillColor(sf::Color::Green);
+    //m_btnEndTurn.setOrigin(btnX/2.0f,btnY/2.0f);
+    m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
 
+    std::cout<<m_btnEndTurn.getOrigin().x<<" "<<m_btnEndTurn.getOrigin().y<<std::endl;
     m_btnText.setFont(m_font);
     m_btnText.setString("Fin du tour");
     m_btnText.setCharacterSize(12);
     sf::FloatRect btnRect = m_btnText.getLocalBounds();
     m_btnText.setOrigin(btnRect.left + btnRect.width / 2.0f, btnRect.top + btnRect.height / 2.0f);
-    m_btnText.setPosition(btnX, btnY);
+    m_btnText.setPosition(btnX+75,btnY+25);
+
+
+    //Permet d'afficher les indications liees aux points de vie
+    m_healthTexture.loadFromFile("assets/indicator/heart.png");
+    m_healthDisplay.setTexture(m_healthTexture);
+    m_healthDisplay.setPosition(175,75);
+    m_healthDisplay.setScale(0.1,0.1);
+
+    m_healthValue.setFont(m_font);
+    m_healthValue.setString(std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
+    m_healthValue.setCharacterSize(14);
+    m_healthValue.setPosition(197.5,95);//22.5 et 20
+
+    //Permet d'afficher les indications liees aux points d'armure
+    m_shieldTexture.loadFromFile("assets/indicator/shield.png");
+    m_shieldDisplay.setTexture(m_shieldTexture);
+    m_shieldDisplay.setPosition(225,85);
+    m_shieldDisplay.setScale(0.1,0.1);
+
+    m_shieldValue.setFont(m_font);
+    m_shieldValue.setString(std::to_string(m_stateMgr->GetContext()->m_entity->getShield()));
+    m_shieldValue.setCharacterSize(14);
+    m_shieldValue.setPosition(240 ,95);
 
     //Permet de creer les callbacks servant a gerer les events
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
@@ -94,6 +118,21 @@ void State_Game::Draw()
     window->draw(m_text);
     window->draw(m_btnEndTurn);
     window->draw(m_btnText);
+
+
+    m_healthDisplay.setPosition(175,75);
+    m_healthValue.setPosition(197.5,95);
+
+    if(m_stateMgr->GetContext()->m_entity->getShield() > 0)
+    {
+        m_healthDisplay.setPosition(150,75);
+        m_healthValue.setPosition(172.5,95);
+        window->draw(m_shieldDisplay);
+        window->draw(m_shieldValue);
+    }
+    window->draw(m_healthDisplay);
+    window->draw(m_healthValue);
+
     DisplayPlayer();
     DisplayEnemy();
     DisplayHand();
@@ -127,9 +166,10 @@ void State_Game::MouseClick(EventDetails *l_details)
     int halfX = 122;
     int halfY = 180;
 
-    m_btnEndTurn.setFillColor(sf::Color::Green);
+    m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
 
-    if (mousePos.x >= m_btnEndTurn.getPosition().x - 75 && mousePos.x <= m_btnEndTurn.getPosition().x + 75 && mousePos.y >= m_btnEndTurn.getPosition().y - 50 && mousePos.y <= m_btnEndTurn.getPosition().y + 50)
+    if(mousePos.x >= m_btnEndTurn.getPosition().x && mousePos.x <= m_btnEndTurn.getPosition().x
+       && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y)
     {
         m_fight.endTurn();
         m_btnEndTurn.setFillColor(sf::Color::Red);
@@ -164,9 +204,19 @@ void State_Game::MouseHover()
     float halfX = 122;
     float halfY = 180;
 
+    m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
+
     for (int i = 0; i < m_hand.size(); ++i)
     {
         m_hand[i]->SetSpritePosition(cartBorder + cartWidth * i, cartHeight);
+    }
+
+    /*if(mousePos.x >= m_btnEndTurn.getPosition().x - 75 && mousePos.x <= m_btnEndTurn.getPosition().x+75
+       && mousePos.y >= m_btnEndTurn.getPosition().y - 25 && mousePos.y <= m_btnEndTurn.getPosition().y+25)*/
+    if(mousePos.x >= m_btnEndTurn.getPosition().x  && mousePos.x <= m_btnEndTurn.getPosition().x+150
+       && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y+50)
+    {
+        m_btnEndTurn.setFillColor(sf::Color(184, 213, 205));
     }
 
     for (int i = 0; i < m_hand.size(); ++i)
