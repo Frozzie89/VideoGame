@@ -74,9 +74,14 @@ Player &Fight::getPlayer()
 
 void Fight::endTurn()
 {
+    std::cout<<"Fin de tour"<<std::endl;
     getEnemy().useAbility(*m_player);
     if (checkEntityAlive(m_player))
+    {
+        std::cout<<"gameOver"<<std::endl;
         gameOver();
+    }
+    std::cout<<"On continue"<<std::endl;
 
     m_player->drawCards();
 }
@@ -143,7 +148,7 @@ int Fight::getRemainingShieldEnemy()
 void Fight::createEnemies()
 {
     /**** 1st enemy ****/
-    Enemy *e1 = new Enemy(4, "assets/enemies/fox.png");
+    Enemy *e1 = new Enemy(25, "assets/enemies/fox.png");
     EnemyAbilityDefensive *ead1_1 = new EnemyAbilityDefensive("Sleep", 5, true);
     EnemyAbilityDefensive *ead1_2 = new EnemyAbilityDefensive("Hide", 3, false);
     EnemyAbilityOffensive *eao1_1 = new EnemyAbilityOffensive("Bite", 5);

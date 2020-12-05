@@ -150,7 +150,7 @@ void Player::purgeCardPile(const int cardVector)
     {
         delete card;
     }
-    cardPiles[Player::deck].clear();
+    cardPiles[cardVector].clear();
 }
 
 void Player::initDeck()

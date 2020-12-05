@@ -134,6 +134,7 @@ void State_Game::MouseClick(EventDetails *l_details)
        && mousePos.y >= m_btnEndTurn.getPosition().y - 50 && mousePos.y <= m_btnEndTurn.getPosition().y+50)
     {
         m_btnEndTurn.setFillColor(sf::Color::Red);
+        m_fight.endTurn();
         m_text.setString("Vie :"+std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
     }
 

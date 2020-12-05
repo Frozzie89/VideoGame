@@ -7,6 +7,7 @@ Enemy::Enemy() : Entity()
     Shield shieldEnemy(0);
     Entity::AddHealth(healthEnemy);
     Entity::AddShield(shieldEnemy);
+    setMaxLife(healthEnemy.GetValue());
 }
 
 // Constructeur
@@ -17,6 +18,7 @@ Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Enti
     Entity::AddHealth(m_healthEnemy);
     Entity::AddShield(shieldEnemy);
     Entity::setSprite(assetPath);
+    setMaxLife(l_healthPt);
 }
 
 // Destructeur
