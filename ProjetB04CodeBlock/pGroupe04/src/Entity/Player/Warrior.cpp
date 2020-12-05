@@ -73,7 +73,7 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
             int start = 0;
             int fin = cardInitializer.find(delimiter);
-            int fin2 = cardInitializer.find(delimiter2);
+            // int fin2 = cardInitializer.find(delimiter2);
             int poolSize = getCardPile(Warrior::pool).size();
 
             std::string cardPath = cardInitializer.substr(start - 1 + delimiter.length(), cardInitializer.find(delimiter, start - 1 + delimiter.length()));
@@ -99,7 +99,7 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
                 addCard(warriorCard, Warrior::pool);
 
-                if (getCardPile(Warrior::pool).size() != poolSize + 1)
+                if ((int)getCardPile(Warrior::pool).size() != poolSize + 1)
                 {
                     delete warriorCard;
                 }
