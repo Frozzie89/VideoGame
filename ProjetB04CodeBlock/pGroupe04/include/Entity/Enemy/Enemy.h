@@ -38,7 +38,8 @@ public:
     //Strategy
     void useAbility(Entity &entity);
 
-    std::string str();
+    std::string str() const;
+    std::string GetPath() const;
 
 protected:
 };

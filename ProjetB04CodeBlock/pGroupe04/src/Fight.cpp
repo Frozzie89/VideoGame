@@ -12,7 +12,6 @@ Fight::Fight(Player *l_player) : m_player(l_player)
 {
     m_counter = 0;
     m_player->drawCards();
-    createEnemies();
 }
 
 // Destructeur

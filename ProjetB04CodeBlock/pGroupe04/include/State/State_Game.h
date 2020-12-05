@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <stdlib.h>
 #include <iostream>
 using namespace std;
 
@@ -23,22 +24,29 @@ using namespace std;
 class State_Game : public BaseState
 {
 private:
-    sf::Font m_font;         //Police du texte affiche
-    sf::Text m_text;         //Texte que l'on va afficher
-    float m_timePassed;      //Temps passe sur le state
+    sf::Font m_font; //Police du texte affiche
+    sf::Text m_text; //Texte que l'on va afficher
+    float m_timePassed; //Temps passe sur le state
     sf::Texture m_bgTexture; // Texture du background
-    sf::Sprite m_bgSprite;   // Sprite du background
+    sf::Sprite m_bgSprite; // Sprite du background
 
-    sf::RectangleShape m_health;     //Rectangle defissant le total de vie de l'ennemie
+    sf::RectangleShape m_health; //Rectangle defissant le total de vie de l'ennemie
     sf::RectangleShape m_lostHealth; //Rectangle defissant la vie restante de l'ennemie
-    sf::CircleShape m_btnEndTurn;    //Bouton servant a mettre fin au tour du joueur
+    sf::CircleShape m_btnEndTurn; //Bouton servant a mettre fin au tour du joueur
 
-    Fight m_fight;              //
-    std::vector<Card *> m_hand; // Main du joueur
+    Fight m_fight; //
+    std::vector<Card*> m_hand; // Main du joueur
 
-    void LoadHand();      // Permet de charger la main
-    void DisplayPlayer(); //Affiche le joueur
-    void DisplayHand();   //Affiche la main du joueur
+    void LoadHand(); //Permet de recuperer les cartes en mains et de configurer leur affichage
+    void DisplayPlayer(); //Permet de configurer et d'afficher le joueur
+    void DisplayHand(); //Permet d'afficher les cartes que l'on a en main
+    void DisplayEnemy(); //Permet d'afficher l'ennemie
+
+    int m_egg;
+
+
+    void CardClick(EventDetails* l_details); //Permet de cliquer sur les cartes et effectuer l'action qui en decoule
+    void MouseHover(); //Permet de gerer les events lies au survols des elements par la souris
 
 public:
     State_Game(StateManager *l_stateManager); //Constructeur
@@ -56,8 +64,7 @@ public:
     void Option(EventDetails *l_details); //Permet de switcher vers le State option, et donc la "fenetre" d'option
     void Pause(EventDetails *l_details);  //Permet de switcher vers le State Pause, et donc la "fenetre" de pause
 
-    void CardClick(EventDetails *l_details); //Permet de cliquer sur les cartes et effectuer l'action qui en decoule
-    void MouseHover();                       //Permet de gerer les events lies au survols des elements par la souris
+
 };
 
 #endif // STATE_GAME_H
