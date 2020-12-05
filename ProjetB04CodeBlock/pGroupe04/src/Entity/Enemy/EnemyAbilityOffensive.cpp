@@ -1,54 +1,72 @@
 #include "Entity/Enemy/EnemyAbilityOffensive.h"
 
 // Constructeur
-EnemyAbilityOffensive::EnemyAbilityOffensive(std::string l_name, int l_value): EnemyAbility(l_name, l_value){   }
+EnemyAbilityOffensive::EnemyAbilityOffensive(std::string l_name, int l_value) : EnemyAbility(l_name, l_value) {}
 
 // Destructeur
-EnemyAbilityOffensive::~EnemyAbilityOffensive(){}
+EnemyAbilityOffensive::~EnemyAbilityOffensive() {}
 
 // Constructeur de copie
-EnemyAbilityOffensive::EnemyAbilityOffensive(const EnemyAbilityOffensive& other)
+EnemyAbilityOffensive::EnemyAbilityOffensive(const EnemyAbilityOffensive &other)
 {
     EnemyAbility::operator=(other);
 }
 
 // Operateur d'affectation
-EnemyAbilityOffensive& EnemyAbilityOffensive::operator=(const EnemyAbilityOffensive& rhs){
-    if (this != &rhs){
+EnemyAbilityOffensive &EnemyAbilityOffensive::operator=(const EnemyAbilityOffensive &rhs)
+{
+    if (this != &rhs)
+    {
         EnemyAbility::operator=(rhs);
     }
     return *this;
 }
 
 // Active l'effet d'une ability offensive
-//      R�duit la vie de l'entity recuperee en argument
+//      R�duit la vie de l'entity recuperee en argument
 //      Si l'entity a du shield, il sera reduit en priorite
-int EnemyAbilityOffensive::activateEffect(Entity& entity)
+int EnemyAbilityOffensive::activateEffect(Entity &entity)
 {
-    // Attributs permettant d'avoir le type de characteristic
-    Health entityHealth;
-    Shield entityShield;
+    Shield s;
+    Shield *playerShield;
+    // On récupère les points de défenses du joueur
+    playerShield = (Shield *)entity.getCharacteristic(s);
 
-    // On recupere la valeur de shield de l'entity
-    int shield = entity.getCharacteristic(entityShield)->GetValue();
+    // points de dégats restant à infliguer dans le cas où le joueur à de l'armure mais moindre que
+    // les points de dégats à infliguer, le restant attaquera ses points de vies
+    int remainingDmg = getValue();
 
-    if(shield > 0){     // Si l'ennemy a du shield alors
-        if (shield < getValue()){   // Si il a moins de shield que le nombre de degats qui devrai etre subit, on set le shield a 0
-            entity.LowerCharacteristic(entityShield, shield);
-            entity.LowerCharacteristic(entityHealth, getValue()-shield);
-
-        }else{  // Si il a assez de shield pour encaisser tous les degats, on reduit son shield
-            entity.LowerCharacteristic(entityShield, getValue());
+    // Si le joueur à des points d'armure ...
+    if (playerShield->GetValue() > 0)
+    {
+        // mais qu'il à moins d'armure que les points de dégats qu'il s'apprête à reçevoir ..
+        if (playerShield->GetValue() < getValue())
+        {
+            // rectifier les points de dégats restant à influger et mettre les points de défense à 0
+            remainingDmg -= playerShield->GetValue();
+            entity.LowerCharacteristic(*playerShield, playerShield->GetValue());
         }
 
-    }else{      // Si il n'a pas de shield, on reduit les pv des degats subit
-        entity.LowerCharacteristic(entityHealth, getValue());
+        // et qu'il à suffisamment d'amure pour encaisser de coup -> prendre l'entièreté des dégats dans l'armure
+        else
+        {
+            entity.LowerCharacteristic(*playerShield, getValue());
+        }
     }
+
+    // s'il reste des points de dégats à infliger, le resite ira dans les points de vie du joueur
+    if (remainingDmg > 0)
+    {
+        Health playerHealth;
+        entity.LowerCharacteristic(playerHealth, remainingDmg);
+    }
+
     return getValue();
 }
 
 // Return les informations de l'objet
-std::string EnemyAbilityOffensive::toString() const{
+std::string EnemyAbilityOffensive::toString() const
+{
     return "Name:" + getName() + "     \tValue:" + std::to_string(getValue());
 }
 

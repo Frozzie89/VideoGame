@@ -27,15 +27,29 @@ EnemyAbilityDefensive &EnemyAbilityDefensive::operator=(const EnemyAbilityDefens
 // activateEffect va augmenter les characteristics d�finie sur la carte (Health, Shield)
 int EnemyAbilityDefensive::activateEffect(Entity &entity)
 {
-    // Attributs permettant d'avoir le type de characteristic
-    Health enemyHealth;
-    Shield enemyShield;
 
-    // Test, si l'ability est de type vie alors on augment la vie de la value. Sinon pareil avec le shield
+    // si ability soin
     if (getIsHealth())
-        entity.RaiseCharacteristic(enemyHealth, getValue());
+    {
+        Health enemyHealth;
+        Health *enemyHealthPtr = (Health *)entity.getCharacteristic(enemyHealth);
+
+        // si on tente de soigner plus que l'entité a
+        if (enemyHealthPtr->GetValue() + getValue() > entity.getMaxLife())
+        {
+            int remainingHealth = entity.getMaxLife() - enemyHealthPtr->GetValue();
+            entity.RaiseCharacteristic(enemyHealth, remainingHealth);
+        }
+        else
+        {
+            entity.RaiseCharacteristic(enemyHealth, getValue());
+        }
+    }
     else
+    {
+        Shield enemyShield;
         entity.RaiseCharacteristic(enemyShield, getValue());
+    }
 
     return getValue();
 }

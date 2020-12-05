@@ -218,6 +218,17 @@ std::string Player::printMap()
     return res.str();
 }
 
+std::string Player::printPathCardPile(const int cardVector)
+{
+    std::stringstream res;
+    for (auto &&card : cardPiles[cardVector])
+    {
+        res << card->getPath() << std::endl;
+        ;
+    }
+    return res.str();
+}
+
 std::string Player::str()
 {
     Health h, *playerhealth;

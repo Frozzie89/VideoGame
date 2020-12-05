@@ -180,7 +180,18 @@ void State_Game::MouseHover()
 //Permet de recuperer les cartes en mains et de configurer leur affichage
 void State_Game::LoadHand()
 {
-    m_hand = m_fight.getPlayerHand();
+    for (auto &&card : m_hand)
+    {
+        delete card;
+    }
+    m_hand.clear();
+
+    for (auto &&card : m_fight.getPlayerHand())
+    {
+        m_hand.push_back(card);
+    }
+
+    // m_hand = m_fight.getPlayerHand();
 
     int cartHeight = 540;
     int cartWidth = 244;

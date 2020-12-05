@@ -83,15 +83,15 @@ Player &Fight::getPlayer()
 
 void Fight::endTurn()
 {
-    std::cout << "FIN DU TOUR" << std::endl;
+    // std::cout << "FIN DU TOUR" << std::endl;
     enemyAttack();
 
-    if (checkEntityAlive(m_player))
+    if (!checkEntityAlive(m_player))
     {
-        std::cout<<"gameOver"<<std::endl;
+        std::cout << "gameOver" << std::endl;
         gameOver();
     }
-    std::cout<<"On continue"<<std::endl;
+    // std::cout<<"On continue"<<std::endl;
 
     m_player->drawCards();
 }

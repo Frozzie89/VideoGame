@@ -30,32 +30,19 @@ Behaviour &Behaviour::operator=(const Behaviour &rhs)
 // Pour ensuite activer l'effet de cette ability dependant de si elle est offensive ou defensive
 void Behaviour::useAbility(Entity &l_player, Entity &l_enemy, std::vector<EnemyAbility *> l_abilities)
 {
-    std::cout << "USE ABILITY0" << std::endl;
-
     // Retourne l'indice d'une ability aléatoire
     int i = getRandomAbility(l_abilities);
     // Si on a récupérer -1 alors on stoppe la méthode
-    std::cout << "USE ABILITY1" << std::endl;
-
     if (i == -1)
         return;
 
     // On enregistre l'ability recuperee
-    std::cout << "USE ABILITY2" << std::endl;
 
     EnemyAbility *m_e = l_abilities[i];
     if (m_e->getClassName() == "EnemyAbilityOffensive")
-    {
-        std::cout << "USE OFFENSIVE ABILITY" << std::endl;
         m_e->activateEffect(l_player); // On utilise une ability offensive
-        std::cout << "USE OFFENSIVE ABILITY WORKED" << std::endl;
-    }
     else
-    {
-        std::cout << "USE DEFENSIVE ABILITY" << std::endl;
         m_e->activateEffect(l_enemy); // On utilise une ability defensive
-        std::cout << "USE DEFENSIVE ABILITY WORKED" << std::endl;
-    }
 }
 
 // Permet de recuperer une ability de maniere aleatoire
@@ -66,8 +53,6 @@ int Behaviour::getRandomAbility(std::vector<EnemyAbility *> l_abilities)
     // Si notre liste d'ability est vide, on return -1
     if ((int)l_abilities.size() == 0)
         return -1;
-
-    std::cout << "RANDOM ABILITY TIME0" << std::endl;
 
     // Test si on recupere une ability defensive ou offensive a partir du nombre aleatoire
 
