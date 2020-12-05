@@ -31,6 +31,8 @@ void Gambler::useCard(DefensiveCard &card)
     // si le lancé de dé fonctionne, activer la méthode useCard()
     if (tryUseCard())
         Player::useCard(card);
+    else
+        removeCard(&card, Player::hand);
 }
 
 void Gambler::useCard(OffensiveCard &card, Entity &enemy)
@@ -38,6 +40,8 @@ void Gambler::useCard(OffensiveCard &card, Entity &enemy)
     // si le lancé de dé fonctionne, activer la méthode useCard()
     if (tryUseCard())
         Player::useCard(card, enemy);
+    else
+        removeCard(&card, Player::hand);
 }
 
 // s'assure que la carte à ajouter est bien une carte pour Gambler

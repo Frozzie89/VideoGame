@@ -33,6 +33,7 @@ public:
     void addAbilities(EnemyAbility *l_enemyAbility);
     void removeAbilities(EnemyAbility *l_enemyAbility);
     int SearchAbility(EnemyAbility &l_enemyAbility);
+    std::vector<EnemyAbility *> getAbilitiesList();
     // Fin vector
 
     //Strategy

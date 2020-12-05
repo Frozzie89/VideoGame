@@ -100,6 +100,7 @@ void Player::useCard(Card &card)
         return;
 
     int ptEffect = card.activateEffect(*this);
+    removeCard(&card, Player::hand);
 }
 
 // For Offensive Cards
@@ -111,6 +112,7 @@ void Player::useCard(Card &card, Entity &enemy)
     Health h;
 
     int ptEffect = card.activateEffect(enemy);
+    removeCard(&card, Player::hand);
 }
 
 void Player::removeCard(Card *card, const int cardVector)
@@ -198,15 +200,16 @@ std::string Player::printMap()
     {
         res << card->getLabel() << " - ";
     }
-
     res << std::endl
         << "DECK : ";
+
     for (auto &&card : cardPiles[Player::deck])
     {
         res << card->getLabel() << " - ";
     }
     res << std::endl
         << "HAND : ";
+
     for (auto &&card : cardPiles[Player::hand])
     {
         res << card->getLabel() << " - ";

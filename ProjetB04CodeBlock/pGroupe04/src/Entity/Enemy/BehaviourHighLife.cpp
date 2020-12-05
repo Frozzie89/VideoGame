@@ -7,15 +7,15 @@ BehaviourHighLife::BehaviourHighLife()
 }
 
 // Destructeur
-BehaviourHighLife::~BehaviourHighLife(){    }
+BehaviourHighLife::~BehaviourHighLife() {}
 
 // Constructeur de copie
-BehaviourHighLife::BehaviourHighLife(const BehaviourHighLife& other):Behaviour(other){      }
+BehaviourHighLife::BehaviourHighLife(const BehaviourHighLife &other) : Behaviour(other) {}
 
 // Operateur d'affectation
-BehaviourHighLife& BehaviourHighLife::operator=(const BehaviourHighLife& rhs){
+BehaviourHighLife &BehaviourHighLife::operator=(const BehaviourHighLife &rhs)
+{
     if (this != &rhs)
         Behaviour::operator=(rhs);
     return *this;
 }
-
