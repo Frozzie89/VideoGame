@@ -10,10 +10,10 @@ Fight::Fight()
 // Constructeur
 Fight::Fight(Player *l_player) : m_player(l_player)
 {
-    std::cout << "CONSTRUCTEUR FIGHT" << std::endl;
+    // std::cout << "CONSTRUCTEUR FIGHT" << std::endl;
     m_counter = 0;
     m_player->drawCards();
-    std::cout << m_player->printMap() << std::endl;
+    // std::cout << m_player->printMap() << std::endl;
 
     // createEnemies();
 }

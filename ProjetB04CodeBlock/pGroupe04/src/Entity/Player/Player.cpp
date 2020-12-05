@@ -152,6 +152,7 @@ void Player::purgeCardPile(const int cardVector)
     {
         delete card;
     }
+
     cardPiles[cardVector].clear();
 }
 
