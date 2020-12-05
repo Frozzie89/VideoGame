@@ -4,7 +4,9 @@
 #include <random>
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
 #include "Entity/Player/Player.h"
+#include "Entity/Enemy/Enemy.h"
 
 Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 {
@@ -24,6 +26,8 @@ Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity(), actionP
 
     Entity::AddShield(shieldPlayer);
     Entity::AddHealth(healthPlayer);
+
+    setMaxLife(healthPt);
 }
 
 Player::~Player()
@@ -104,7 +108,11 @@ void Player::useCard(Card &card, Entity &enemy)
     if (findCard(card, Player::hand) == -1)
         return;
 
+    Health h;
+    std::cout << "AVANT " << enemy.getCharacteristic(h)->GetValue() << std::endl;
+
     int ptEffect = card.activateEffect(enemy);
+    std::cout << "APRES " << enemy.getCharacteristic(h)->GetValue() << std::endl;
 }
 
 void Player::removeCard(Card *card, const int cardVector)
@@ -207,6 +215,17 @@ std::string Player::printMap()
     }
 
     return res.str();
+}
+
+std::string Player::str()
+{
+    Health h, *playerhealth;
+    Shield s, *playerShield;
+
+    playerhealth = (Health *)Entity::getCharacteristic(h);
+    playerShield = (Shield *)Entity::getCharacteristic(s);
+
+    return "LIFE : " + to_string(playerhealth->GetValue()) + " - SHIELD : " + to_string(playerShield->GetValue());
 }
 
 std::string Player::getClassName() const

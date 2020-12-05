@@ -15,7 +15,7 @@ class Entity
 private:
     Characteristics m_entityCaracteristics; // Liste de caracteristiques de l'entite
     bool m_turn;                            // Permet de savoir s'il s'agit du tour de l'entite
-    const int maxLife = 20;
+    int maxLife;
     std::string m_path;
 
 protected:
@@ -46,6 +46,7 @@ public:
     void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
     void endTurn();
+    void setMaxLife(int maxLife);
     Characteristic *getCharacteristic(Characteristic &l_characteristic); // Renvoie une caractéristique de l'entité
 
     sf::Vector2f getPosition();

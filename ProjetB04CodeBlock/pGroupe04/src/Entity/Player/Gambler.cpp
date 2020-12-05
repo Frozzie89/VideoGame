@@ -4,7 +4,7 @@
 #include "Cards/OffensiveCardGambler.h"
 #include "Cards/DefensiveCardGambler.h"
 
-Gambler::Gambler(int actionPoints, int luck) : Player(actionPoints), luck(luck)
+Gambler::Gambler(int actionPoints, int health, int shield, int luck) : Player(actionPoints, health, shield), luck(luck)
 {
     srand((unsigned)time(0));
     loadCardsAssets(nullptr, true);
@@ -67,6 +67,7 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
         filecardInitializer = "playerConfigurations/GamblerDefensiveCards.csv";
 
     std::string delimiter = ";";
+    std::string delimiter2 = ":";
 
     std::ifstream cardAssets;
     cardAssets.open(filecardInitializer);
@@ -88,44 +89,50 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
         while (!keystream.eof())
         {
             std::string cardInitializer;
-            keystream >> cardInitializer;
+            keystream >> cardInitializer; //On recupere la dernier chaine de caractere correspondant a notre type d'event et son code
 
             int start = 0;
             int fin = cardInitializer.find(delimiter);
+            int fin2 = cardInitializer.find(delimiter2);
             int poolSize = getCardPile(Gambler::pool).size();
 
             std::string cardPath = cardInitializer.substr(start - 1 + delimiter.length(), cardInitializer.find(delimiter, start - 1 + delimiter.length()));
 
-            //Pour la suite, on aura besoin du delimiter qu'on a defini un peu plus haut afin de bien faire la separation
-            int cost = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
+            std::string costString = cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length()));
 
-            int value = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
+            int cost = stoi(costString);
 
-            // si c'est une carte offensive, créer et ajouter une carte Gambler offensive au pool de cartes du joueur
+            std::string valueString = cardInitializer.substr(cardPath.size() + delimiter.length(), cardPath.size());
+            valueString = valueString.substr(valueString.find(delimiter) + 1);
+
+            if (valueString.find(delimiter2) != std::string::npos)
+            {
+                valueString.erase(valueString.end() - 2, valueString.end());
+            }
+
+            int value = stoi(valueString);
+
             if (isOffensive)
             {
                 OffensiveCardGambler *gamblerCard = new OffensiveCardGambler(cardName, cardPath, cost, value, sharedContext);
 
                 addCard(gamblerCard, Gambler::pool);
 
-                // On vérifie si la carte y est bien, sinon, supprimer
                 if (getCardPile(Gambler::pool).size() != poolSize + 1)
                 {
                     delete gamblerCard;
                 }
                 gamblerCard = nullptr;
             }
-            // si c'est une carte défensive, créer et ajouter une carte Gambler défensive au pool de cartes du joueur
-
             else
             {
-                int isHealthRaw = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
+                int isHealthRaw = stoi(cardInitializer.substr(cardInitializer.size() - 1, cardInitializer.size()));
                 bool isHealth = (isHealthRaw != 0);
+
                 DefensiveCardGambler *gamblerCard = new DefensiveCardGambler(cardName, cardPath, cost, value, sharedContext, isHealth);
 
                 addCard(gamblerCard, Gambler::pool);
 
-                // On vérifie si la carte y est bien, sinon, supprimer
                 if (getCardPile(Gambler::pool).size() != poolSize + 1)
                 {
                     delete gamblerCard;

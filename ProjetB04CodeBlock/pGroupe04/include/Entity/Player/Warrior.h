@@ -8,7 +8,7 @@ class Warrior : public Player
 {
 private:
 public:
-    Warrior(int actionPoints = 10);
+    Warrior(int actionPoints = 10, int health = 20, int shield = 0);
     virtual ~Warrior();
     Warrior(const Warrior &other);
     Warrior &operator=(const Warrior &rhs);

@@ -106,6 +106,17 @@ void Enemy::useAbility(Entity &entity)
     behaviour->useAbility(entity, *this, m_abilities);
 }
 
+std::string Enemy::str()
+{
+    Health h, *enemyHealth;
+    Shield s, *enemyShield;
+
+    enemyHealth = (Health *)Entity::getCharacteristic(h);
+    enemyShield = (Shield *)Entity::getCharacteristic(s);
+
+    return "LIFE : " + to_string(enemyHealth->GetValue()) + " - SHIELD : " + to_string(enemyShield->GetValue());
+}
+
 // Return le nom de la classe
 std::string Enemy::getClassName() const
 {

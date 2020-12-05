@@ -38,6 +38,8 @@ public:
     //Strategy
     void useAbility(Entity &entity);
 
+    std::string str();
+
 protected:
 };
 

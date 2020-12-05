@@ -39,9 +39,9 @@ void Behaviour::useAbility(Entity &l_player, Entity &l_enemy, std::vector<EnemyA
     // On enregistre l'ability recuperee
     EnemyAbility *m_e = l_abilities[i];
     if (m_e->getClassName() == "EnemyAbilityOffensive")
-        m_e->activateEffect(l_player);  // On utilise une ability offensive
+        m_e->activateEffect(l_player); // On utilise une ability offensive
     else
-        m_e->activateEffect(l_enemy);   // On utilise une ability defensive
+        m_e->activateEffect(l_enemy); // On utilise une ability defensive
 }
 
 // Permet de recuperer une ability de maniere aleatoire
@@ -56,9 +56,9 @@ int Behaviour::getRandomAbility(std::vector<EnemyAbility *> l_abilities)
 
     // Test si on recupere une ability defensive ou offensive a partir du nombre aleatoire
     if (rate > m_rate)
-        return searchAbilityType(l_abilities, "EnemyAbilityOffensive");     // On return une ability offensive
+        return searchAbilityType(l_abilities, "EnemyAbilityOffensive"); // On return une ability offensive
     else
-        return searchAbilityType(l_abilities, "EnemyAbilityDefensive");     // On return une ability defensive
+        return searchAbilityType(l_abilities, "EnemyAbilityDefensive"); // On return une ability defensive
 }
 // Recherche une ability d'un type precis dans la liste et retourne son indice
 int Behaviour::searchAbilityType(std::vector<EnemyAbility *> l_abilities, std::string lookingForClassAbility)
@@ -66,10 +66,12 @@ int Behaviour::searchAbilityType(std::vector<EnemyAbility *> l_abilities, std::s
     bool ok = true;
     int ind;
     // Boucle infinie jusqu'a trouver une ability correspondant au type demande
-    while (ok){
+    while (ok)
+    {
         ind = rand() % ((int)l_abilities.size());
         if (l_abilities[ind]->getClassName() == lookingForClassAbility)
             ok = false;
-            return ind;
+        return ind;
     }
+    return -1;
 }

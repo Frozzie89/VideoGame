@@ -87,6 +87,7 @@ void Fight::useCard(Card &l_selectedCard)
     if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
     {
         m_player->useCard(l_selectedCard);
+        std::cout << m_player->str() << std::endl;
     }
     else if (l_selectedCard.getClassName().find("OffensiveCard") != std::string::npos)
     {
@@ -109,7 +110,7 @@ bool Fight::checkEntityAlive(Entity *l_entity)
 void Fight::nextFight()
 {
     m_counter++;
-    m_player->purgeCardPile(Player::hand);
+    // m_player->purgeCardPile(Player::hand);       --> inutile car on purge la main à chaque draw
     m_player->initDeck();
     m_player->drawCards();
 }

@@ -1,4 +1,5 @@
 #include "Entity/Characteristics/Characteristic.h"
+#include <iostream>
 //Constructeur
 Characteristic::Characteristic(int l_value) : m_value(l_value)
 {
@@ -27,7 +28,10 @@ Characteristic &Characteristic::operator=(const Characteristic &rhs)
 //Augmente de la valeur interne d'une valeur passée en argument
 void Characteristic::RaiseValue(int l_value)
 {
+    // std::cout << "m_value : " << m_value << std::endl;
+    // std::cout << "l_value: " << l_value << std::endl;
     m_value += l_value;
+    // std::cout << "m_value : " << m_value << std::endl;
 }
 //Diminue la valeur interne d'une valeur passée en argument
 void Characteristic::LowerValue(int l_value)

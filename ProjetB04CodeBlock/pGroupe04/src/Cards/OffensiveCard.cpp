@@ -18,6 +18,8 @@ OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
 // Attaque les points de vies et points de défenses de l'ennemi
 int OffensiveCard::activateEffect(Entity &entity)
 {
+
+    std::cout << "OFFENSIVE CARD TIME" << std::endl;
     Shield s;
     Shield *enemyShield;
     // On récupère les points de défenses de l'enemi
@@ -30,6 +32,8 @@ int OffensiveCard::activateEffect(Entity &entity)
     // Si l'ennemi à des points d'armure ...
     if (enemyShield->GetValue() > 0)
     {
+        std::cout << "ENEMY GOT SOME SHIELD POINTS" << std::endl;
+
         // mais qu'il à moins d'armure que les points de dégats qu'il s'apprête à reçevoir ..
         if (enemyShield->GetValue() < value)
         {
@@ -48,6 +52,8 @@ int OffensiveCard::activateEffect(Entity &entity)
     // s'il reste des points de dégats à infliger, le resite ira dans les points de vie de l'enemi
     if (remainingDmg > 0)
     {
+        std::cout << "LETS HURT THE ENEMY'S HP" << std::endl;
+
         Health enemyHealth;
         entity.LowerCharacteristic(enemyHealth, remainingDmg);
     }

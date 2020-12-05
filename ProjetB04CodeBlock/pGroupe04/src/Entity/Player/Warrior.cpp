@@ -3,7 +3,7 @@
 #include "Cards/DefensiveCardWarrior.h"
 #include <iostream>
 
-Warrior::Warrior(int actionPoints) : Player(actionPoints)
+Warrior::Warrior(int actionPoints, int health, int shield) : Player(actionPoints, health, shield)
 {
     loadCardsAssets(nullptr, true);
     loadCardsAssets(nullptr, false);
@@ -47,6 +47,7 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
         filecardInitializer = "playerConfigurations/WarriorDefensiveCards.csv";
 
     std::string delimiter = ";";
+    std::string delimiter2 = ":";
 
     std::ifstream cardAssets;
     cardAssets.open(filecardInitializer);
@@ -72,17 +73,28 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
             int start = 0;
             int fin = cardInitializer.find(delimiter);
+            int fin2 = cardInitializer.find(delimiter2);
             int poolSize = getCardPile(Warrior::pool).size();
 
             std::string cardPath = cardInitializer.substr(start - 1 + delimiter.length(), cardInitializer.find(delimiter, start - 1 + delimiter.length()));
 
-            //Pour la suite, on aura besoin du delimiter qu'on a defini un peu plus haut afin de bien faire la separation
-            int cost = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
+            std::string costString = cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length()));
 
-            int value = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
+            int cost = stoi(costString);
+
+            std::string valueString = cardInitializer.substr(cardPath.size() + delimiter.length(), cardPath.size());
+            valueString = valueString.substr(valueString.find(delimiter) + 1);
+
+            if (valueString.find(delimiter2) != std::string::npos)
+            {
+                valueString.erase(valueString.end() - 2, valueString.end());
+            }
+
+            int value = stoi(valueString);
 
             if (isOffensive)
             {
+
                 OffensiveCardWarrior *warriorCard = new OffensiveCardWarrior(cardName, cardPath, cost, value, sharedContext);
 
                 addCard(warriorCard, Warrior::pool);
@@ -95,7 +107,7 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
             }
             else
             {
-                int isHealthRaw = stoi(cardInitializer.substr(fin + delimiter.length(), cardInitializer.find(delimiter, fin + delimiter.length())));
+                int isHealthRaw = stoi(cardInitializer.substr(cardInitializer.size() - 1, cardInitializer.size()));
                 bool isHealth = (isHealthRaw != 0);
                 DefensiveCardWarrior *warriorCard = new DefensiveCardWarrior(cardName, cardPath, cost, value, sharedContext, isHealth);
 

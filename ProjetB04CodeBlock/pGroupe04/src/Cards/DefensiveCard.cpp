@@ -37,11 +37,15 @@ void DefensiveCard::setIsHealth(const bool isHealth)
 // Augmente la caractéristique Health ou Shield de l'entité à l'activation de la carte
 int DefensiveCard::activateEffect(Entity &entity)
 {
+    // si carte soin
     if (getIsHealth())
     {
+        std::cout << str() << std::endl;
+
         Health playerHealth;
         Health *playerHealthPtr = (Health *)entity.getCharacteristic(playerHealth);
 
+        // si on tente de soigner plus que l'entité a
         if (playerHealthPtr->GetValue() + getValue() > entity.getMaxLife())
         {
             int remainingHealth = entity.getMaxLife() - playerHealthPtr->GetValue();
@@ -54,6 +58,8 @@ int DefensiveCard::activateEffect(Entity &entity)
     }
     else
     {
+        std::cout << str() << std::endl;
+
         Shield playerShield;
         entity.RaiseCharacteristic(playerShield, getValue());
     }

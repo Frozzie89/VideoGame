@@ -6,7 +6,6 @@ State_Game::State_Game(StateManager *l_stateManager) : BaseState(l_stateManager)
     Fight fight((Player *)m_stateMgr->GetContext()->m_entity);
     m_fight = fight;
 
-    std::cout << m_fight.getPlayer().getClassName() << std::endl;
     LoadHand();
 }
 //Destructeur

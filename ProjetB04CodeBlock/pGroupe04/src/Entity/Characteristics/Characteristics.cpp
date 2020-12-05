@@ -1,4 +1,5 @@
 #include "Entity/Characteristics/Characteristics.h"
+#include <iostream>
 //Constructeur
 Characteristics::Characteristics()
 {
@@ -73,6 +74,8 @@ int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)
 {
     for (int i = 0; i < (int)m_characteristics.size(); i++)
     {
+        std::cout << i << std::endl;
+
         if (m_characteristics[i]->getClassName() == l_characteristic.getClassName())
             return i;
     }
@@ -81,12 +84,15 @@ int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)
 //Augmente la caracteristique choisi par la valeur passee en argument, via index
 void Characteristics::RaiseCharacteristic(int l_index, int l_value)
 {
+    std::cout << l_value << std::endl;
     m_characteristics[l_index]->RaiseValue(l_value);
 }
 
 //Augmente la caracteristique choisi par la valeur passee en argument, via objet
 void Characteristics::RaiseCharacteristic(Characteristic &l_characteristic, int l_value)
 {
+    // std::cout << l_value << std::endl;
+
     int indexCharacteristic = SearchCharacteristic(l_characteristic);
 
     if (indexCharacteristic != -1)
@@ -96,6 +102,8 @@ void Characteristics::RaiseCharacteristic(Characteristic &l_characteristic, int 
 //Diminue la caracteristique choisi par la valeur passe en argument, via index
 void Characteristics::LowerCharacteristic(int l_index, int l_value)
 {
+    // std::cout << l_value << std::endl;
+
     m_characteristics[l_index]->LowerValue(l_value);
 }
 
