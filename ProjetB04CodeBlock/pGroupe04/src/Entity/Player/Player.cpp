@@ -100,6 +100,7 @@ void Player::useCard(Card &card)
         return;
 
     int ptEffect = card.activateEffect(*this);
+    removeCard(&card, Player::hand);
 }
 
 // For Offensive Cards
@@ -111,6 +112,7 @@ void Player::useCard(Card &card, Entity &enemy)
     Health h;
 
     int ptEffect = card.activateEffect(enemy);
+    removeCard(&card, Player::hand);
 }
 
 void Player::removeCard(Card *card, const int cardVector)
@@ -150,7 +152,7 @@ void Player::purgeCardPile(const int cardVector)
     {
         delete card;
     }
-    cardPiles[Player::deck].clear();
+    cardPiles[cardVector].clear();
 }
 
 void Player::initDeck()

@@ -17,6 +17,7 @@ Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Enti
     Entity::AddHealth(m_healthEnemy);
     Entity::AddShield(shieldEnemy);
     Entity::setSprite(assetPath);
+    setMaxLife(l_healthPt);
 }
 
 // Destructeur
@@ -114,11 +115,10 @@ std::string Enemy::getClassName() const
 //Retourne les caracteristiques d'ennemies
 std::string Enemy::str() const
 {
-    return getClassName()+" : Path : "+assetPath+ " || ";
+    return getClassName() + " : Path : " + assetPath + " || ";
 }
 //Retourne le chemin d'accès defini ici
 string Enemy::GetPath() const
 {
     return assetPath;
 }
-
