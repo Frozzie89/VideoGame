@@ -7,10 +7,7 @@ EnemyAbilityOffensive::EnemyAbilityOffensive(std::string l_name, int l_value) : 
 EnemyAbilityOffensive::~EnemyAbilityOffensive() {}
 
 // Constructeur de copie
-EnemyAbilityOffensive::EnemyAbilityOffensive(const EnemyAbilityOffensive &other)
-{
-    EnemyAbility::operator=(other);
-}
+EnemyAbilityOffensive::EnemyAbilityOffensive(const EnemyAbilityOffensive &other) : EnemyAbility(other) {}
 
 // Operateur d'affectation
 EnemyAbilityOffensive &EnemyAbilityOffensive::operator=(const EnemyAbilityOffensive &rhs)

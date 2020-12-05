@@ -99,7 +99,7 @@ void Player::useCard(Card &card)
     if (findCard(card, Player::hand) == -1)
         return;
 
-    int ptEffect = card.activateEffect(*this);
+    card.activateEffect(*this);
     removeCard(&card, Player::hand);
 }
 
@@ -111,7 +111,7 @@ void Player::useCard(Card &card, Entity &enemy)
 
     Health h;
 
-    int ptEffect = card.activateEffect(enemy);
+    card.activateEffect(enemy);
     removeCard(&card, Player::hand);
 }
 

@@ -97,7 +97,7 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
             int start = 0;
             int fin = cardInitializer.find(delimiter);
-            int fin2 = cardInitializer.find(delimiter2);
+            // int fin2 = cardInitializer.find(delimiter2);
             int poolSize = getCardPile(Gambler::pool).size();
 
             std::string cardPath = cardInitializer.substr(start - 1 + delimiter.length(), cardInitializer.find(delimiter, start - 1 + delimiter.length()));
@@ -122,7 +122,7 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
                 addCard(gamblerCard, Gambler::pool);
 
-                if (getCardPile(Gambler::pool).size() != poolSize + 1)
+                if ((int)getCardPile(Gambler::pool).size() != poolSize + 1)
                 {
                     delete gamblerCard;
                 }

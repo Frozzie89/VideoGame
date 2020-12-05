@@ -6,9 +6,8 @@ EnemyAbilityDefensive::EnemyAbilityDefensive(std::string l_name, int l_value, bo
 EnemyAbilityDefensive::~EnemyAbilityDefensive() {}
 
 // Constructeur de copie
-EnemyAbilityDefensive::EnemyAbilityDefensive(const EnemyAbilityDefensive &other)
+EnemyAbilityDefensive::EnemyAbilityDefensive(const EnemyAbilityDefensive &other) : EnemyAbility(other)
 {
-    EnemyAbility::operator=(other);
     m_isHealth = other.m_isHealth;
 }
 

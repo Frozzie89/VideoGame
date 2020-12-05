@@ -12,7 +12,7 @@ Enemy::Enemy() : Entity()
 }
 
 // Constructeur
-Enemy::Enemy(int l_healthPt, std::string assetPath) : assetPath(assetPath), Entity()
+Enemy::Enemy(int l_healthPt, std::string assetPath) : Entity(), assetPath(assetPath)
 {
     Health m_healthEnemy(l_healthPt);
     Shield shieldEnemy(0);

@@ -99,5 +99,4 @@ void State_Intro::Continue(EventDetails *l_details)
         m_stateMgr->SwitchTo(StateType::MainMenu);
         m_stateMgr->Remove(StateType::Intro);
     }
-
 }
