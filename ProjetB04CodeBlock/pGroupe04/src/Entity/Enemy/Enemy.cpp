@@ -8,6 +8,7 @@ Enemy::Enemy() : Entity()
     Shield shieldEnemy(0);
     Entity::AddHealth(healthEnemy);
     Entity::AddShield(shieldEnemy);
+    setMaxLife(healthEnemy.GetValue());
 }
 
 // Constructeur
