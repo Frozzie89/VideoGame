@@ -119,6 +119,7 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
                 }
                 warriorCard = nullptr;
             }
+
         }
     }
     cardAssets.close();
