@@ -86,6 +86,7 @@ void Fight::enemyAttack()
     }
 }
 
+// utilise une carte
 void Fight::useCard(Card &l_selectedCard)
 {
     if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
@@ -96,6 +97,7 @@ void Fight::useCard(Card &l_selectedCard)
     {
         m_player->useCard(l_selectedCard, getEnemy());
 
+        // si l'enemi n'est plus en vie, on passe au suivant
         if (!checkEntityAlive(&getEnemy()))
         {
             nextFight();
@@ -131,12 +133,13 @@ bool Fight::checkEntityAlive(Entity *l_entity)
     return entityHealth->GetValue() > 0;
 }
 
-// GET & SET
+// retourne l'enemi en cours
 Enemy &Fight::getEnemy()
 {
     return *m_enemyList[m_counter];
 }
 
+// retourne le joueur
 Player &Fight::getPlayer()
 {
     return *m_player;
@@ -147,16 +150,19 @@ std::string Fight::getClassName()
     return "Fight";
 }
 
+// retourne la main du joueur
 std::vector<Card *> Fight::getPlayerHand()
 {
     return m_player->getCardPile(Player::hand);
 }
 
+// indique si c'est le tour du joueur ou non
 bool Fight::isPlayerTurn()
 {
     return m_player->isTurn();
 }
 
+// renvoie les points de vie de l'enemi
 int Fight::getRemainingLifeEnemy()
 {
     Health h;
@@ -164,13 +170,13 @@ int Fight::getRemainingLifeEnemy()
     return enemyHealth->GetValue();
 }
 
+// renvoie les points de défenses de l'enemi
 int Fight::getRemainingShieldEnemy()
 {
     Shield s;
     Shield *enemyShield = (Shield *)getEnemy().getCharacteristic(s);
     return enemyShield->GetValue();
 }
-// End GET & SET
 
 // Creation de nos enemies avec leurs abilities respective
 void Fight::createEnemies()

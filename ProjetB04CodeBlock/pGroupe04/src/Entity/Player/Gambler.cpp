@@ -26,25 +26,29 @@ Gambler &Gambler::operator=(const Gambler &rhs)
     return *this;
 }
 
+// Utilisation d'une carte défensive
 void Gambler::useCard(Card &card)
 {
-    // si le lance de de fonctionne, activer la methode useCard()
+    // si le lance de de fonctionne, activer la methode useCard(), sinon, quand même retirer les points d'action
     if (tryUseCard())
         Player::useCard(card);
     else
         setActionPoints(getActionPoints() - card.getCostAction());
 
+    // on retire la carte de la main
     removeCard(&card, Player::hand);
 }
 
+// Utilisation d'une carte offensive
 void Gambler::useCard(Card &card, Entity &enemy)
 {
-    // si le lance de de fonctionne, activer la methode useCard()
+    // si le lance de de fonctionne, activer la methode useCard(), sinon, quand même retirer les points d'action
     if (tryUseCard())
         Player::useCard(card, enemy);
     else
         setActionPoints(getActionPoints() - card.getCostAction());
 
+    // on retire la carte de la main
     removeCard(&card, Player::hand);
 }
 
@@ -66,6 +70,7 @@ std::string Gambler::getClassName() const
     return "Gambler";
 }
 
+// chargement des donnees des cartes du Gambler
 void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 {
     std::string filecardInitializer;

@@ -57,28 +57,31 @@ void Entity::AddShield(Shield l_shield)
     m_entityCaracteristics.AddCharacteristic(&l_shield);
 }
 
-// ces 4 prochaines méthodes utilisent les méthodes de Charateristic pour augmenter et diminuer
-// la valeur d'une caratéristique de l'entité
+// Augmente une Characteristic, par index
 void Entity::RaiseCharacteristic(int l_index, int l_value)
 {
     m_entityCaracteristics.RaiseCharacteristic(l_index, l_value);
 }
 
+// Diminue une Characteristic, par index
 void Entity::LowerCharacteristic(int l_index, int l_value)
 {
     m_entityCaracteristics.LowerCharacteristic(l_index, l_value);
 }
 
+// Renvoie une Characteristic, par Characteristic
 void Entity::RaiseCharacteristic(Characteristic &l_characteristic, int l_value)
 {
     m_entityCaracteristics.RaiseCharacteristic(l_characteristic, l_value);
 }
 
+// Diminue une Characteristic, par Characteristic
 void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
 {
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);
 }
 
+// Renvoie une Characteristic
 Characteristic *Entity::getCharacteristic(Characteristic &c)
 {
     return m_entityCaracteristics.getCharacteristic(c);
@@ -101,6 +104,8 @@ void Entity::setPosition(float l_width, float l_height)
     m_position.y = l_height;
     m_sprite.setPosition(m_position);
 }
+
+// renvoie le max de vie que l'Entity peut avoir
 int Entity::getMaxLife()
 {
     return maxLife;
@@ -134,11 +139,14 @@ void Entity::setSpriteScale(float l_x, float l_y)
 {
     m_sprite.setScale(l_x, l_y);
 }
+
+// renvoie la characteristic Health de l'Entity
 int Entity::getHealth()
 {
     return m_entityCaracteristics.getCharacteristic("Health")->GetValue();
 }
 
+// renvoie la characteristic Shield de l'Entity
 int Entity::getShield()
 {
     return m_entityCaracteristics.getCharacteristic("Shield")->GetValue();
