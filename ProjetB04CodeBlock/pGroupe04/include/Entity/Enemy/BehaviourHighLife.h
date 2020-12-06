@@ -7,10 +7,12 @@
 class BehaviourHighLife : public Behaviour
 {
 public:
-    BehaviourHighLife();
+    BehaviourHighLife(int l_rate = 25);
     virtual ~BehaviourHighLife();
     BehaviourHighLife(const BehaviourHighLife &other);
     BehaviourHighLife &operator=(const BehaviourHighLife &other);
+
+    string getClassName();
 
 protected:
 private:

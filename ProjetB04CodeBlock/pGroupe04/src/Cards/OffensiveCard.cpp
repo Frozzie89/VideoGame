@@ -1,11 +1,15 @@
 #include "Cards/OffensiveCard.h"
 
+// Constructeur
 OffensiveCard::OffensiveCard(std::string label, std::string path, int costAction, int value, SharedContext *l_context) : Card(label, path, costAction, value, l_context) {}
 
+// Destructeur
 OffensiveCard::~OffensiveCard() {}
 
+// Constructeur de copie
 OffensiveCard::OffensiveCard(const OffensiveCard &other) : Card(other) {}
 
+// Operateur d'affectation
 OffensiveCard &OffensiveCard::operator=(const OffensiveCard &rhs)
 {
     if (this != &rhs)
@@ -55,11 +59,13 @@ int OffensiveCard::activateEffect(Entity &entity)
     return getValue();
 }
 
+// Affiche les informations de l'objet
 std::string OffensiveCard::str() const
 {
     return Card::str();
 }
 
+// Return le nom de la classe
 std::string OffensiveCard::getClassName() const
 {
     return "OffensiveCard";

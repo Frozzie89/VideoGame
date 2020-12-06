@@ -54,7 +54,6 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
     //On tente d'ouvrir le fichier, si on n'y arrive pas, on ecrit en console
     if (!cardAssets.is_open())
     {
-        std::cout << "!Failed loading " << filecardInitializer << std::endl;
         return;
     }
     std::string line;
@@ -113,13 +112,12 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
                 addCard(warriorCard, Warrior::pool);
 
-                if (getCardPile(Warrior::pool).size() != poolSize + 1)
+                if ((int)getCardPile(Warrior::pool).size() != poolSize + 1)
                 {
                     delete warriorCard;
                 }
                 warriorCard = nullptr;
             }
-
         }
     }
     cardAssets.close();

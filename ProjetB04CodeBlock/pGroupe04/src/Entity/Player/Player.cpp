@@ -182,7 +182,7 @@ int Player::findCard(const Card &card, const int cardVector) const
 
 void Player::purgeCardPile(const int cardVector)
 {
-    for (int i = 0; i < cardPiles[cardVector].size(); i++)
+    for (int i = 0; i < (int)cardPiles[cardVector].size(); i++)
     {
         delete cardPiles.at(cardVector)[i];
     }

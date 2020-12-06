@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Fight.h"
 
+// Constructeur
 Fight::Fight()
 {
     m_counter = 0;
@@ -10,11 +11,9 @@ Fight::Fight()
 // Constructeur
 Fight::Fight(Player *l_player) : m_player(l_player)
 {
-    // std::cout << "CONSTRUCTEUR FIGHT" << std::endl;
     m_counter = 0;
     m_player->drawCards();
     m_player->resetStats();
-    // std::cout << m_player->printMap() << std::endl;
 
     // createEnemies();
 }
@@ -27,8 +26,6 @@ Fight::~Fight()
         delete enemy;
     }
     m_enemyList.clear();
-
-    //delete m_player;
 }
 
 // Constructeur de copie
@@ -53,27 +50,26 @@ Fight &Fight::operator=(const Fight &rhs)
             m_enemyList.push_back(enemy);
         }
     }
-
     return *this;
 }
+// Le joueur met fin a son tour.
+// On fait attaquer l'enemy
+// On fait appel a drawCards qui va supprimer notre main actuelle et en piocher une nouvelle
+// On remet nos points d'actions a leur maximum (10)
 
-std::string Fight::getClassName()
-{
-    return "Fight";
-}
-
-std::vector<Card *> Fight::getPlayerHand()
-{
-    return m_player->getCardPile(Player::hand);
-}
-
-Enemy &Fight::getEnemy()
-{
-    return *m_enemyList[m_counter];
-}
-
+// Le comportement de l'enemy va etre set en fonction de ses points de vie.
+// Si il a plus de 50% de ses pv il sera set en HighLife sinon en LowLife
+// Puis on fera appel a useAbility
 void Fight::enemyAttack()
 {
+    if (getEnemy().getHealth() > (int)getEnemy().getMaxLife() / 2)
+    {
+        getEnemy().setStrategy(&bhl);
+    }
+    else
+    {
+        getEnemy().setStrategy(&bll);
+    }
     getEnemy().useAbility(*m_player);
 }
 
@@ -107,13 +103,9 @@ void Fight::useCard(Card &l_selectedCard)
     }
 }
 
-bool Fight::checkEntityAlive(Entity *l_entity)
-{
-    Health h;
-    Health *entityHealth = (Health *)l_entity->getCharacteristic(h);
-    return entityHealth->GetValue() > 0;
-}
-
+// On incremente le compteur d'enemy (m_counter) de 1
+// On remet le deck du joueur a 0
+// On fait piocher une nouvelle main au joueur
 void Fight::nextFight()
 {
     m_counter++;
@@ -124,6 +116,30 @@ void Fight::nextFight()
 bool Fight::gameOver()
 {
     return !checkEntityAlive(m_player);
+}
+
+// On verifie si l'entity est en vie (si sa vie est superieure a 0). Si c'est le cas on return true
+bool Fight::checkEntityAlive(Entity *l_entity)
+{
+    Health h;
+    Health *entityHealth = (Health *)l_entity->getCharacteristic(h);
+    return entityHealth->GetValue() > 0;
+}
+
+// GET & SET
+Enemy &Fight::getEnemy()
+{
+    return *m_enemyList[m_counter];
+}
+
+std::string Fight::getClassName()
+{
+    return "Fight";
+}
+
+std::vector<Card *> Fight::getPlayerHand()
+{
+    return m_player->getCardPile(Player::hand);
 }
 
 bool Fight::isPlayerTurn()
@@ -144,7 +160,9 @@ int Fight::getRemainingShieldEnemy()
     Shield *enemyShield = (Shield *)getEnemy().getCharacteristic(s);
     return enemyShield->GetValue();
 }
+// End GET & SET
 
+// Creation de nos enemies avec leurs abilities respective
 void Fight::createEnemies()
 {
     /**** 1st enemy ****/

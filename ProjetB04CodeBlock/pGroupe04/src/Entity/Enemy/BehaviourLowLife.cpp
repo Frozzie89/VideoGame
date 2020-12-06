@@ -1,9 +1,9 @@
 #include "Entity/Enemy/BehaviourLowLife.h"
 
 // Constructeur
-BehaviourLowLife::BehaviourLowLife()
+BehaviourLowLife::BehaviourLowLife(int l_rate)
 {
-    m_rate = 75; // Defini le taux de chance d'utiliser une ability offensive
+    m_rate = l_rate; // Defini le taux de chance d'utiliser une ability offensive
 }
 
 // Destructeur
@@ -18,4 +18,10 @@ BehaviourLowLife &BehaviourLowLife::operator=(const BehaviourLowLife &rhs)
     if (this != &rhs)
         Behaviour::operator=(rhs);
     return *this;
+}
+
+// Return le nom de la classe
+string BehaviourLowLife::getClassName()
+{
+    return "BehaviourHighLife";
 }

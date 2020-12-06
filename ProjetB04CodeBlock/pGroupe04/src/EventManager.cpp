@@ -140,7 +140,6 @@ void EventManager::Update()
             {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(e_itr.second.m_code)))
                 {
-                    std::cout << "Touche Ok" << std::endl;
                     if (bindin->m_details.m_keyCode != -1)
                         bindin->m_details.m_keyCode = e_itr.second.m_code;
 
@@ -151,7 +150,6 @@ void EventManager::Update()
             {
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Button(e_itr.second.m_code)))
                 {
-                    // std::cout<<"Click OK"<<std::endl;
                     if (bindin->m_details.m_keyCode != -1)
                         bindin->m_details.m_keyCode = e_itr.second.m_code;
 
@@ -199,7 +197,6 @@ void EventManager::LoadBindings()
     //On tente d'ouvrir le fichier, si on n'y arrive pas, on ecrit en console
     if (!bindings.is_open())
     {
-        std::cout << "!Failed loading key.cfg" << std::endl;
         return;
     }
     std::string line;

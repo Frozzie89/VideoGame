@@ -61,29 +61,21 @@ void Entity::AddShield(Shield l_shield)
 // la valeur d'une caratéristique de l'entité
 void Entity::RaiseCharacteristic(int l_index, int l_value)
 {
-    // std::cout << l_value << std::endl;
-
     m_entityCaracteristics.RaiseCharacteristic(l_index, l_value);
 }
 
 void Entity::LowerCharacteristic(int l_index, int l_value)
 {
-    // std::cout << l_value << std::endl;
-
     m_entityCaracteristics.LowerCharacteristic(l_index, l_value);
 }
 
 void Entity::RaiseCharacteristic(Characteristic &l_characteristic, int l_value)
 {
-    // std::cout << l_value << std::endl;
-
     m_entityCaracteristics.RaiseCharacteristic(l_characteristic, l_value);
 }
 
 void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
 {
-    // std::cout << l_value << std::endl;
-
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);
 }
 
