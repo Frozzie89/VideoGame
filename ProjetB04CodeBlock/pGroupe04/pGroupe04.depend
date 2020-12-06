@@ -750,7 +750,7 @@
 	"Cards/OffensiveCardGambler.h"
 	"Cards/DefensiveCardGambler.h"
 
-1607214800 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\player.cpp
+1607259911 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\player.cpp
 	<sstream>
 	<iostream>
 	<algorithm>
@@ -767,7 +767,7 @@
 	"Cards/DefensiveCardWarrior.h"
 	<iostream>
 
-1607219103 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\fight.cpp
+1607219245 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\fight.cpp
 	<iostream>
 	"Fight.h"
 
