@@ -46,6 +46,7 @@ int OffensiveCard::activateEffect(Entity &entity)
         else
         {
             entity.LowerCharacteristic(*enemyShield, value);
+            remainingDmg = 0;
         }
     }
 
@@ -54,6 +55,7 @@ int OffensiveCard::activateEffect(Entity &entity)
     {
         Health enemyHealth;
         entity.LowerCharacteristic(enemyHealth, remainingDmg);
+        remainingDmg=0;
     }
 
     return getValue();

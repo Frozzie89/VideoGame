@@ -148,6 +148,7 @@ void State_Game::Draw()
     DisplayPlayer();
     DisplayEnemy();
     DisplayHand();
+    // LoadHand();
 }
 //Permet de switcher vers le State option, et donc la "fenetre" d'option
 void State_Game::Option(EventDetails *l_details)
@@ -180,6 +181,7 @@ void State_Game::MouseClick(EventDetails *l_details)
 
     m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
 
+    // Si on clique sur le bouton "End Turn"
     if (mousePos.x >= m_btnEndTurn.getPosition().x && mousePos.x <= m_btnEndTurn.getPosition().x + 150 && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y + 50)
     {
         m_fight.endTurn();
@@ -200,15 +202,18 @@ void State_Game::MouseClick(EventDetails *l_details)
         }
     }
 
+    // Si on clique sur une carte
     for (int i = 0; i < (int)m_hand.size(); ++i)
     {
         if (mousePos.x >= m_hand[i]->GetPosition().x - halfX && mousePos.x <= m_hand[i]->GetPosition().x + halfX && mousePos.y >= m_hand[i]->GetPosition().y - halfY && mousePos.y <= m_hand[i]->GetPosition().y + halfY)
         {
-            if (m_fight.getPlayer().getActionPoints() > m_hand[i]->getCostAction())
+            // Si le joueur a assez de points d'actions
+            if (m_fight.getPlayer().getActionPoints() >= m_hand[i]->getCostAction())
             {
                 m_fight.useCard(*m_hand[i]);
                 m_hand[i]->SetDraw(false);
                 m_hand[i]->SetPosition(1500, 1500);
+                LoadHand();
             }
         }
     }
@@ -237,8 +242,6 @@ void State_Game::MouseHover()
         m_hand[i]->SetSpritePosition(cartBorder + cartWidth * i, cartHeight);
     }
 
-    /*if(mousePos.x >= m_btnEndTurn.getPosition().x - 75 && mousePos.x <= m_btnEndTurn.getPosition().x+75
-       && mousePos.y >= m_btnEndTurn.getPosition().y - 25 && mousePos.y <= m_btnEndTurn.getPosition().y+25)*/
     if (mousePos.x >= m_btnEndTurn.getPosition().x && mousePos.x <= m_btnEndTurn.getPosition().x + 150 && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y + 50)
     {
         m_btnEndTurn.setFillColor(sf::Color(184, 213, 205));

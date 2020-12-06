@@ -136,7 +136,7 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
                 addCard(gamblerCard, Gambler::pool);
 
-                if (getCardPile(Gambler::pool).size() != poolSize + 1)
+                if ((int)getCardPile(Gambler::pool).size() != poolSize + 1)
                 {
                     delete gamblerCard;
                 }

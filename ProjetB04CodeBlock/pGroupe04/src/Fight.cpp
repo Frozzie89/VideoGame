@@ -78,11 +78,28 @@ void Fight::enemyAttack()
     {
         getEnemy().setStrategy(&bll);
     }
+    else
+    {
+        getEnemy().setStrategy(&bll);
+    }
     getEnemy().useAbility(*m_player);
     if(!checkEntityAlive(m_player))
     {
         gameOver();
     }
+}
+
+Player &Fight::getPlayer()
+{
+    return *m_player;
+}
+
+void Fight::endTurn()
+{
+    enemyAttack();
+
+    m_player->drawCards();
+    m_player->setActionPoints(m_player->getMaxActionPoints());
 }
 
 void Fight::useCard(Card &l_selectedCard)
@@ -121,6 +138,11 @@ void Fight::nextFight()
     m_player->drawCards();
 }
 
+bool Fight::gameOver()
+{
+    return !checkEntityAlive(m_player);
+}
+
 // On verifie si l'entity est en vie (si sa vie est superieure a 0). Si c'est le cas on return true
 bool Fight::checkEntityAlive(Entity *l_entity)
 {
@@ -133,11 +155,6 @@ bool Fight::checkEntityAlive(Entity *l_entity)
 Enemy &Fight::getEnemy()
 {
     return *m_enemyList[m_counter];
-}
-
-Player &Fight::getPlayer()
-{
-    return *m_player;
 }
 
 std::string Fight::getClassName()

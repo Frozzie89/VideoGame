@@ -16,6 +16,8 @@ Player::Player(int actionPoints) : Entity(), actionPoints(actionPoints)
 
     Entity::AddShield(shieldPlayer);
     Entity::AddHealth(healthPlayer);
+
+    maxActionPoints = actionPoints;
 }
 
 Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity(), actionPoints(actionPoints)
@@ -28,6 +30,7 @@ Player::Player(int actionPoints, int healthPt, int shieldPt) : Entity(), actionP
     Entity::AddHealth(healthPlayer);
 
     setMaxLife(healthPt);
+    maxActionPoints = actionPoints;
 }
 
 Player::~Player()
@@ -88,9 +91,34 @@ void Player::setActionPoints(const int actionPoints)
     this->actionPoints = actionPoints;
 }
 
+int Player::getMaxActionPoints() const
+{
+    return maxActionPoints;
+}
+
 std::vector<Card *> Player::getCardPile(const int cardVector)
 {
     return cardPiles[cardVector];
+}
+
+void Player::resetStats()
+{
+    setActionPoints(getMaxActionPoints());
+
+    int currentShield = getShield();
+    int currentHealth = getHealth();
+
+    if (currentHealth < getMaxLife())
+    {
+        Health playerHealth;
+        RaiseCharacteristic(playerHealth, getMaxLife() - currentHealth);
+    }
+
+    if (currentShield > 0)
+    {
+        Shield playerShield;
+        LowerCharacteristic(playerShield, currentShield);
+    }
 }
 
 // For Defensive Cards
@@ -99,11 +127,14 @@ void Player::useCard(Card &card)
     if (findCard(card, Player::hand) == -1)
         return;
 
+    std::cout<<"BEFORE IF Actionpoints: "<<actionPoints<< "\t Cost: "<< card.getCostAction() << std::endl;
     if (actionPoints >= card.getCostAction())
     {
+        std::cout<<"\tBEFORE Actionpoints: "<<actionPoints<<std::endl;
         card.activateEffect(*this);
         removeCard(&card, Player::hand);
         actionPoints -= card.getCostAction();
+        std::cout<<"\tAFTER Actionpoints: "<<actionPoints<<std::endl;
     }
 }
 
@@ -113,13 +144,13 @@ void Player::useCard(Card &card, Entity &enemy)
     if (findCard(card, Player::hand) == -1)
         return;
 
-    Health h;
-
     if (actionPoints >= card.getCostAction())
     {
+        std::cout<<"\tBEFORE Actionpoints: "<<actionPoints<<std::endl;
         card.activateEffect(enemy);
         removeCard(&card, Player::hand);
         actionPoints -= card.getCostAction();
+        std::cout<<"\tAFTER Actionpoints: "<<actionPoints<<std::endl;
     }
 }
 
@@ -156,14 +187,7 @@ int Player::findCard(const Card &card, const int cardVector) const
 
 void Player::purgeCardPile(const int cardVector)
 {
-    /*
-    for (auto &&card : cardPiles[cardVector])
-    {
-        delete card;
-    }
-    */
-
-    for (int i = 0; i < cardPiles[cardVector].size(); i++)
+    for (int i = 0; i < (int)cardPiles[cardVector].size(); i++)
     {
         delete cardPiles.at(cardVector)[i];
     }

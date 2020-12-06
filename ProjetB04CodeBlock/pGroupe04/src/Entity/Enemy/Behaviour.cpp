@@ -67,9 +67,22 @@ int Behaviour::getRandomAbility(std::vector<EnemyAbility *> l_abilities)
 int Behaviour::searchAbilityType(std::vector<EnemyAbility *> l_abilities, std::string lookingForClassAbility)
 {
     bool ok = true;
+    bool offensive = false;
+    bool defensive = false;
     int ind;
+
+    for(int i = 0; i < l_abilities.size(); i++){
+        if(l_abilities[i]->getClassName() == "EnemyAbilityOffensive"){
+            offensive = true;
+        }else{
+            defensive = true;
+        }
+        if(offensive == true && defensive == true){
+            i = l_abilities.size();
+        }
+    }
     // Boucle infinie jusqu'a trouver une ability correspondant au type demande
-    while (ok)
+    while (ok && offensive && defensive)
     {
         ind = rand() % ((int)l_abilities.size());
         if (l_abilities[ind]->getClassName() == lookingForClassAbility)

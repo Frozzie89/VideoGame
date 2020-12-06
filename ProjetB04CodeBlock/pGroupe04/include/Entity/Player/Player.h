@@ -15,6 +15,7 @@ class Player : public Entity
 {
 private:
     int actionPoints; // le joueur paye le coût des cartes qu'il souhaite utiliser avec cette "monnaie"
+    int maxActionPoints;
     std::unordered_map<int, std::vector<Card *>> cardPiles;
 
 public:
@@ -26,7 +27,9 @@ public:
 
     int getActionPoints() const;
     void setActionPoints(const int actionPoints);
+    int getMaxActionPoints() const;
     std::vector<Card *> getCardPile(const int cardVector);
+    void resetStats();
     virtual std::string getClassName() const;
 
     // méthodes pour jouer une carte depuis Player
@@ -37,6 +40,7 @@ public:
     void removeCard(Card *card, const int cardVector);
     virtual void addCard(Card *card, const int cardVector);
     int findCard(const Card &card, const int cardVector) const;
+    virtual void loadCardsAssets(SharedContext *sharedContext, bool isOffensive) = 0;
 
     std::string str();
 

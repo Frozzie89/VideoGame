@@ -112,13 +112,12 @@ void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 
                 addCard(warriorCard, Warrior::pool);
 
-                if (getCardPile(Warrior::pool).size() != poolSize + 1)
+                if ((int)getCardPile(Warrior::pool).size() != poolSize + 1)
                 {
                     delete warriorCard;
                 }
                 warriorCard = nullptr;
             }
-
         }
     }
     cardAssets.close();
