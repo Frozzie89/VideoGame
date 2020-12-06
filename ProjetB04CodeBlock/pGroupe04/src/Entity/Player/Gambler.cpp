@@ -31,6 +31,8 @@ void Gambler::useCard(Card &card)
     // si le lance de de fonctionne, activer la methode useCard()
     if (tryUseCard())
         Player::useCard(card);
+    else
+        setActionPoints(getActionPoints() - card.getCostAction());
 
     removeCard(&card, Player::hand);
 }
@@ -40,6 +42,8 @@ void Gambler::useCard(Card &card, Entity &enemy)
     // si le lance de de fonctionne, activer la methode useCard()
     if (tryUseCard())
         Player::useCard(card, enemy);
+    else
+        setActionPoints(getActionPoints() - card.getCostAction());
 
     removeCard(&card, Player::hand);
 }

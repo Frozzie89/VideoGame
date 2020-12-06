@@ -6,8 +6,8 @@ Fight::Fight()
 {
     m_counter = 0;
     createEnemies();
-    m_isGameOver =false;
-    m_isWon=false;
+    m_isGameOver = false;
+    m_isWon = false;
 }
 
 // Constructeur
@@ -15,8 +15,8 @@ Fight::Fight(Player *l_player) : m_player(l_player)
 {
     m_counter = 0;
     m_player->drawCards();
-    m_isGameOver =false;
-    m_isWon=false;
+    m_isGameOver = false;
+    m_isWon = false;
 
     // createEnemies();
 }
@@ -71,7 +71,7 @@ void Fight::endTurn()
 // Puis on fera appel a useAbility
 void Fight::enemyAttack()
 {
-    if(getEnemy().getHealth() > (int)getEnemy().getMaxLife()/2)
+    if (getEnemy().getHealth() > (int)getEnemy().getMaxLife() / 2)
     {
         getEnemy().setStrategy(&bhl);
     }
@@ -80,7 +80,7 @@ void Fight::enemyAttack()
         getEnemy().setStrategy(&bll);
     }
     getEnemy().useAbility(*m_player);
-    if(!checkEntityAlive(m_player))
+    if (!checkEntityAlive(m_player))
     {
         gameOver();
     }
@@ -109,15 +109,16 @@ void Fight::useCard(Card &l_selectedCard)
 void Fight::nextFight()
 {
     m_counter++;
-    if(m_counter == 5)
+    if (m_counter == 5)
     {
         SetWon();
         m_player->Restart();
-        m_counter =0;
+        m_counter = 0;
         DeleteEnemy();
         createEnemies();
         return;
     }
+    m_player->setActionPoints(m_player->getMaxActionPoints());
     m_player->initDeck();
     m_player->drawCards();
 }
@@ -258,7 +259,7 @@ void Fight::gameOver()
 {
     m_isGameOver = true;
     m_player->Restart();
-    m_counter =0;
+    m_counter = 0;
     DeleteEnemy();
     createEnemies();
 }
@@ -275,7 +276,7 @@ bool Fight::isWon()
 //Permet de supprimer la liste des ennemies
 void Fight::DeleteEnemy()
 {
-     for (auto &&enemy : m_enemyList)
+    for (auto &&enemy : m_enemyList)
     {
         delete enemy;
     }
