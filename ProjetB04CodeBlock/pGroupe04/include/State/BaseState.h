@@ -17,19 +17,19 @@ class BaseState
 
 public:
     BaseState(StateManager *l_stateManager); //Cosntructeur
-    virtual ~BaseState(); //Destructeur
+    virtual ~BaseState();                    //Destructeur
 
-    virtual void OnCreate() = 0; //Permet de creer les differents elements graphiques que l'on va retrouver dans la fenetre
+    virtual void OnCreate() = 0;  //Permet de creer les differents elements graphiques que l'on va retrouver dans la fenetre
     virtual void OnDestroy() = 0; //Permet de supprimer les callbacks afin de liberer la memoire allouee a cet effet
 
-    virtual void Activate() = 0; //Methode qui d'activer certaines modifications si la state a deja ete utilisee
+    virtual void Activate() = 0;   //Methode qui d'activer certaines modifications si la state a deja ete utilisee
     virtual void Deactivate() = 0; //Permet de supprimer les modifications si la state n'est plus utilisee
 
     virtual void Update(const sf::Time &l_time) = 0; //Met a jour ce qui est a l'ecran
-    virtual void Draw() = 0;  //Permet de dessiner les differents elements graphiques
+    virtual void Draw() = 0;                         //Permet de dessiner les differents elements graphiques
 
     void SetTransparent(const bool &l_transparent) { m_transparent = l_transparent; } //Permet de modifier la transparence de l'ecran
-    bool IsTransparent() const { return m_transparent; } //Permet de retrouver
+    bool IsTransparent() const { return m_transparent; }                              //Permet de retrouver
 
     void SetTranscendent(const bool &l_transcendent) { m_transcendent = l_transcendent; }
     bool IsTranscendent() const { return m_transcendent; }
@@ -38,7 +38,7 @@ public:
 
 protected:
     StateManager *m_stateMgr; //le statemanager
-    bool m_transparent; //Permet de definir ce qui est
+    bool m_transparent;       //Permet de definir ce qui est
     bool m_transcendent;
 };
 #endif // BASESTATE_H

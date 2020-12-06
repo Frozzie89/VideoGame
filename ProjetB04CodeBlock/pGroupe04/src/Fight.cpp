@@ -10,10 +10,10 @@ Fight::Fight()
 // Constructeur
 Fight::Fight(Player *l_player) : m_player(l_player)
 {
-    std::cout << "CONSTRUCTEUR FIGHT" << std::endl;
+    // std::cout << "CONSTRUCTEUR FIGHT" << std::endl;
     m_counter = 0;
     m_player->drawCards();
-    std::cout << m_player->printMap() << std::endl;
+    // std::cout << m_player->printMap() << std::endl;
 
     // createEnemies();
 }
@@ -86,14 +86,12 @@ void Fight::endTurn()
     // std::cout << "FIN DU TOUR" << std::endl;
     enemyAttack();
 
-    if (!checkEntityAlive(m_player))
-    {
-        std::cout << "gameOver" << std::endl;
-        gameOver();
-    }
+    // if (!checkEntityAlive(m_player))
+    //     gameOver();
     // std::cout<<"On continue"<<std::endl;
 
     m_player->drawCards();
+    m_player->setActionPoints(10);
 }
 
 void Fight::useCard(Card &l_selectedCard)
@@ -101,7 +99,6 @@ void Fight::useCard(Card &l_selectedCard)
     if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
     {
         m_player->useCard(l_selectedCard);
-        std::cout << m_player->str() << std::endl;
     }
     else if (l_selectedCard.getClassName().find("OffensiveCard") != std::string::npos)
     {
@@ -129,9 +126,9 @@ void Fight::nextFight()
     m_player->drawCards();
 }
 
-void Fight::gameOver()
+bool Fight::gameOver()
 {
-    std::cout << "EndFight" << std::endl;
+    return !checkEntityAlive(m_player);
 }
 
 bool Fight::isPlayerTurn()

@@ -72,7 +72,8 @@ int Behaviour::searchAbilityType(std::vector<EnemyAbility *> l_abilities, std::s
     while (ok)
     {
         ind = rand() % ((int)l_abilities.size());
-        if (l_abilities[ind]->getClassName() == lookingForClassAbility){
+        if (l_abilities[ind]->getClassName() == lookingForClassAbility)
+        {
             ok = false;
             return ind;
         }

@@ -120,9 +120,11 @@ void State_Game::Draw()
 
     m_healthDisplay.setPosition(175, 75);
     m_healthValue.setPosition(197.5, 95);
+    m_healthValue.setString(std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
 
     if (m_stateMgr->GetContext()->m_entity->getShield() > 0)
     {
+        m_shieldValue.setString(std::to_string(m_stateMgr->GetContext()->m_entity->getShield()));
         m_healthDisplay.setPosition(150, 75);
         m_healthValue.setPosition(172.5, 95);
         window->draw(m_shieldDisplay);
@@ -151,6 +153,8 @@ void State_Game::MouseClick(EventDetails *l_details)
     if (!m_fight.isPlayerTurn())
         return;
 
+    // if (m_fight.getPlayer().getActionPoints())
+
     //Recupere la position de souris par rapport a l'eventDetail
     sf::Vector2i mousePos = l_details->m_mouse;
 
@@ -166,23 +170,30 @@ void State_Game::MouseClick(EventDetails *l_details)
 
     m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
 
-    if(mousePos.x >= m_btnEndTurn.getPosition().x  && mousePos.x <= m_btnEndTurn.getPosition().x+150
-       && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y+50)
+    if (mousePos.x >= m_btnEndTurn.getPosition().x && mousePos.x <= m_btnEndTurn.getPosition().x + 150 && mousePos.y >= m_btnEndTurn.getPosition().y && mousePos.y <= m_btnEndTurn.getPosition().y + 50)
     {
         m_fight.endTurn();
         m_btnEndTurn.setFillColor(sf::Color::Red);
         m_text.setString("Vie :" + std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
         LoadHand();
+
+        if (m_fight.gameOver())
+        {
+            m_stateMgr->SwitchTo(StateType::GameOver);
+        }
     }
 
     for (int i = 0; i < (int)m_hand.size(); ++i)
     {
         if (mousePos.x >= m_hand[i]->GetPosition().x - halfX && mousePos.x <= m_hand[i]->GetPosition().x + halfX && mousePos.y >= m_hand[i]->GetPosition().y - halfY && mousePos.y <= m_hand[i]->GetPosition().y + halfY)
         {
-            m_fight.useCard(*m_hand[i]);
-            std::cout << m_fight.getEnemy().str() << std::endl;
-            m_hand[i]->SetDraw(false);
-            m_hand[i]->SetPosition(1500, 1500);
+            if (m_fight.getPlayer().getActionPoints() > m_hand[i]->getCostAction())
+            {
+                m_fight.useCard(*m_hand[i]);
+                std::cout << m_fight.getEnemy().str() << std::endl;
+                m_hand[i]->SetDraw(false);
+                m_hand[i]->SetPosition(1500, 1500);
+            }
         }
     }
 }
@@ -228,20 +239,6 @@ void State_Game::MouseHover()
 //Permet de recuperer les cartes en mains et de configurer leur affichage
 void State_Game::LoadHand()
 {
-    std::cout << "\n=====================================================\nLOADING HAND .....\n=====================================================\n" << std::endl;
-    if(m_hand.size() > 0){
-        for(int i=0; i<m_hand.size() ; i++){
-            std::cout<<m_hand[i]->str()<<std::endl;
-        }
-    }
-    std::cout << "\n=====================================================\DELETE HAND .....\n=====================================================\n" << std::endl;
-    /*
-    for (auto &&card : m_hand)
-    {
-        delete card;
-    }
-    */
-
     m_hand.clear();
 
     for (auto &&card : m_fight.getPlayerHand())
@@ -264,6 +261,7 @@ void State_Game::LoadHand()
 //Permet de configurer et d'afficher le joueur
 void State_Game::DisplayPlayer()
 {
+
     m_fight.getPlayer().setContext(m_stateMgr->GetContext());
 
     if (m_egg > 5)
