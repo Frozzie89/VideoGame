@@ -79,10 +79,6 @@ void Fight::enemyAttack()
     {
         getEnemy().setStrategy(&bll);
     }
-    else
-    {
-        getEnemy().setStrategy(&bll);
-    }
     getEnemy().useAbility(*m_player);
     if(!checkEntityAlive(m_player))
     {
@@ -124,11 +120,6 @@ void Fight::nextFight()
     }
     m_player->initDeck();
     m_player->drawCards();
-}
-
-bool Fight::gameOver()
-{
-    return !checkEntityAlive(m_player);
 }
 
 // On verifie si l'entity est en vie (si sa vie est superieure a 0). Si c'est le cas on return true

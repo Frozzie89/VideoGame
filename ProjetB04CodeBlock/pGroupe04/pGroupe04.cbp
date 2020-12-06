@@ -71,9 +71,6 @@
 		<Unit filename="include/Entity/Player/Player.h" />
 		<Unit filename="include/Entity/Player/Warrior.h" />
 		<Unit filename="include/EventManager.h" />
-		<Unit filename="include/Factory/AbstractFactory.h" />
-		<Unit filename="include/Factory/GamblerFactory.h" />
-		<Unit filename="include/Factory/WarriorFactory.h" />
 		<Unit filename="include/Fight.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/SharedContext.h" />
@@ -112,9 +109,6 @@
 		<Unit filename="src/Entity/Player/Player.cpp" />
 		<Unit filename="src/Entity/Player/Warrior.cpp" />
 		<Unit filename="src/EventManager.cpp" />
-		<Unit filename="src/Factory/AbstractFactory.cpp" />
-		<Unit filename="src/Factory/GamblerFactory.cpp" />
-		<Unit filename="src/Factory/WarriorFactory.cpp" />
 		<Unit filename="src/Fight.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/State/BaseState.cpp" />
