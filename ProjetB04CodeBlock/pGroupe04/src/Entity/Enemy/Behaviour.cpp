@@ -33,24 +33,17 @@ void Behaviour::useAbility(Entity &l_player, Entity &l_enemy, std::vector<EnemyA
 
     // Retourne l'indice d'une ability aléatoire
     int i = getRandomAbility(l_abilities);
-    cout<<i<<endl;
     // Si on a récupérer -1 alors on stoppe la méthode
     if (i == -1)
         return;
 
     // On enregistre l'ability recuperee
     EnemyAbility *m_e = l_abilities[i];
-    cout<<"Ability used : " << m_e->getName()<<endl;
     if (m_e->getClassName() == "EnemyAbilityOffensive"){
-        cout<<"Offensive"<<endl;
         m_e->activateEffect(l_player); // On utilise une ability offensive
     }else{
-        cout<<"Defensive"<<endl;
         m_e->activateEffect(l_enemy); // On utilise une ability defensive
     }
-    cout<<"AAAA"<<endl;
-
-
 }
 
 // Permet de recuperer une ability de maniere aleatoire
@@ -83,7 +76,6 @@ int Behaviour::searchAbilityType(std::vector<EnemyAbility *> l_abilities, std::s
             ok = false;
             return ind;
         }
-
     }
     return -1;
 }

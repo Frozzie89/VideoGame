@@ -20,13 +20,13 @@ EnemyAbilityOffensive &EnemyAbilityOffensive::operator=(const EnemyAbilityOffens
 }
 
 // Active l'effet d'une ability offensive
-//      R�duit la vie de l'entity recuperee en argument
+//      Reduit la vie de l'entity recuperee en argument
 //      Si l'entity a du shield, il sera reduit en priorite
 int EnemyAbilityOffensive::activateEffect(Entity &entity)
 {
     Shield s;
     Shield *playerShield;
-    // On récupère les points de défenses du joueur
+    // On recupere les points de défenses du joueur
     playerShield = (Shield *)entity.getCharacteristic(s);
 
     // points de dégats restant à infliguer dans le cas où le joueur à de l'armure mais moindre que

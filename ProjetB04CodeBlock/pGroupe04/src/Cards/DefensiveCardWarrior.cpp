@@ -33,8 +33,5 @@ std::string DefensiveCardWarrior::getClassName() const
 //Permet d'afficher les elements presents dans la classe
 string DefensiveCardWarrior::str() const
 {
-    // int tmpX = (int)m_position.x;
-    // int tmpY = (int)m_position.y;
-    // return getClassName() + ": Label- " + label + " || Path- " + path + " || CostAction- " + std::to_string(costAction) + " || Value- " + std::to_string(value) + " || Position X - " + std::to_string(tmpX) + " || Position Y - " + std::to_string(tmpY);
     return DefensiveCard::str();
 }

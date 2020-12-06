@@ -19,7 +19,6 @@ EnemyAbilityDefensive &EnemyAbilityDefensive::operator=(const EnemyAbilityDefens
         EnemyAbility::operator=(rhs);
         m_isHealth = rhs.m_isHealth;
     }
-
     return *this;
 }
 

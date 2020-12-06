@@ -561,7 +561,7 @@
 	<string>
 	"Cards/DefensiveCard.h"
 
-1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\game.cpp
+1607213967 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\game.cpp
 	"Game.h"
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\game.h
@@ -677,7 +677,7 @@
 1607098839 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\statemanager.cpp
 	"StateManager.h"
 
-1607207984 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\main.cpp
+1607213905 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<iostream>
@@ -704,7 +704,7 @@
 	"Entity/Characteristics/Characteristics.h"
 	<iostream>
 
-1607206668 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviour.cpp
+1607211754 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviour.cpp
 	"Entity/Enemy/Behaviour.h"
 	<stdlib.h>
 	<iostream>
@@ -769,7 +769,7 @@
 	<iostream>
 	"Fight.h"
 
-1607210652 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_game.cpp
+1607211019 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_game.cpp
 	"State/State_Game.h"
 
 1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_gameover.cpp

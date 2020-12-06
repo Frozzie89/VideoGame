@@ -41,7 +41,6 @@ int main()
 
 
     Game game;
-
     // Start the game loop
     while (!game.GetWindow()->isDone())
     {

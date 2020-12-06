@@ -40,8 +40,6 @@ int DefensiveCard::activateEffect(Entity &entity)
     // si carte soin
     if (getIsHealth())
     {
-        std::cout << str() << std::endl;
-
         Health playerHealth;
         Health *playerHealthPtr = (Health *)entity.getCharacteristic(playerHealth);
 
@@ -58,8 +56,6 @@ int DefensiveCard::activateEffect(Entity &entity)
     }
     else
     {
-        std::cout << str() << std::endl;
-
         Shield playerShield;
         entity.RaiseCharacteristic(playerShield, getValue());
     }

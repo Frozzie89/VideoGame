@@ -20,7 +20,7 @@ Shield &Shield::operator=(const Shield &rhs)
     if (this != &rhs)
     {
         Characteristic::operator=(rhs);
-    };
+    }
     //assignment operator
     return *this;
 }
