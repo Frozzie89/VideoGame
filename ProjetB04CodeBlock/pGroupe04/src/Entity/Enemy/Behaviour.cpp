@@ -71,6 +71,8 @@ int Behaviour::searchAbilityType(std::vector<EnemyAbility *> l_abilities, std::s
     bool defensive = false;
     int ind;
 
+
+    // On check si l'on a bien au moins une ability offensive et une defensive dans la liste
     for(int i = 0; i < l_abilities.size(); i++){
         if(l_abilities[i]->getClassName() == "EnemyAbilityOffensive"){
             offensive = true;

@@ -57,12 +57,13 @@ Fight &Fight::operator=(const Fight &rhs)
 // On fait attaquer l'enemy
 // On fait appel a drawCards qui va supprimer notre main actuelle et en piocher une nouvelle
 // On remet nos points d'actions a leur maximum (10)
+
 void Fight::endTurn()
 {
     enemyAttack();
-    std::cout<<m_player->getHealth()<<std::endl;
+
     m_player->drawCards();
-    m_player->setActionPoints(10);
+    m_player->setActionPoints(m_player->getMaxActionPoints());
 }
 
 // Le comportement de l'enemy va etre set en fonction de ses points de vie.
@@ -87,19 +88,6 @@ void Fight::enemyAttack()
     {
         gameOver();
     }
-}
-
-Player &Fight::getPlayer()
-{
-    return *m_player;
-}
-
-void Fight::endTurn()
-{
-    enemyAttack();
-
-    m_player->drawCards();
-    m_player->setActionPoints(m_player->getMaxActionPoints());
 }
 
 void Fight::useCard(Card &l_selectedCard)
@@ -155,6 +143,11 @@ bool Fight::checkEntityAlive(Entity *l_entity)
 Enemy &Fight::getEnemy()
 {
     return *m_enemyList[m_counter];
+}
+
+Player &Fight::getPlayer()
+{
+    return *m_player;
 }
 
 std::string Fight::getClassName()
