@@ -45,6 +45,7 @@ int EnemyAbilityOffensive::activateEffect(Entity &entity)
         else    // et qu'il a suffisamment d'armure pour encaisser de coup -> prendre l'entierete des degats dans l'armure
         {
             entity.LowerCharacteristic(*entityShield, getValue());
+            remainingDmg = 0;
         }
     }
     // s'il reste des points de dégats à infliger, le resite ira dans les points de vie du joueur
@@ -52,6 +53,7 @@ int EnemyAbilityOffensive::activateEffect(Entity &entity)
     {
         Health playerHealth;
         entity.LowerCharacteristic(playerHealth, remainingDmg);
+        remainingDmg = 0;
     }
 
     return getValue();
