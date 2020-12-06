@@ -6,7 +6,7 @@
 
 Gambler::Gambler(int actionPoints, int health, int shield, int luck) : Player(actionPoints, health, shield), luck(luck)
 {
-    srand((unsigned)time(0));
+    srand(time(NULL));
     loadCardsAssets(nullptr, true);
     loadCardsAssets(nullptr, false);
 }
@@ -26,22 +26,28 @@ Gambler &Gambler::operator=(const Gambler &rhs)
     return *this;
 }
 
-void Gambler::useCard(DefensiveCard &card)
+void Gambler::useCard(Card &card)
 {
     // si le lance de de fonctionne, activer la methode useCard()
-    if (tryUseCard())
+    if (tryUseCard()){
         Player::useCard(card);
+    }
     else
+    {
         removeCard(&card, Player::hand);
+    }
 }
 
-void Gambler::useCard(OffensiveCard &card, Entity &enemy)
+void Gambler::useCard(Card &card, Entity &enemy)
 {
     // si le lance de de fonctionne, activer la methode useCard()
-    if (tryUseCard())
+    if (tryUseCard()){
         Player::useCard(card, enemy);
-    else
+    }
+    else{
         removeCard(&card, Player::hand);
+    }
+
 }
 
 // s'assure que la carte a ajouter est bien une carte pour Gambler

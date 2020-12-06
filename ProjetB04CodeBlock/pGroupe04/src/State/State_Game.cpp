@@ -195,11 +195,7 @@ void State_Game::MouseClick(EventDetails *l_details)
             m_fight.SetGameOver();
         }
 
-        if(m_fight.isWon())
-        {
-            m_stateMgr->SwitchTo(StateType::Credits);
-            m_fight.SetWon();
-        }
+
     }
 
     // Si on clique sur une carte
@@ -214,6 +210,12 @@ void State_Game::MouseClick(EventDetails *l_details)
                 m_hand[i]->SetDraw(false);
                 m_hand[i]->SetPosition(1500, 1500);
                 LoadHand();
+            }
+
+            if(m_fight.isWon())
+            {
+                m_stateMgr->SwitchTo(StateType::Credits);
+                m_fight.SetWon();
             }
         }
     }

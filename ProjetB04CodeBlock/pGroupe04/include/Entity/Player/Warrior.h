@@ -14,9 +14,9 @@ public:
     Warrior &operator=(const Warrior &rhs);
 
     // utilise une carte de type défensive
-    void useCard(DefensiveCard &card);
+    void useCard(Card &card);
     // utilise une carte de type offensive
-    void useCard(OffensiveCard &card, Entity &enemy);
+    void useCard(Card &card, Entity &enemy);
     // s'assure que la carte ajoutée est bien une carte the type Warrior
     void addCard(Card *card, const int cardVector);
     // charge les données des cartes situées dans les fichiers de données

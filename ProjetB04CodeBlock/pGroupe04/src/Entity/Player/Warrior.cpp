@@ -28,12 +28,12 @@ std::string Warrior::getClassName() const
     return "Warrior";
 }
 
-void Warrior::useCard(DefensiveCard &card)
+void Warrior::useCard(Card &card)
 {
     Player::useCard(card);
 }
 
-void Warrior::useCard(OffensiveCard &card, Entity &enemy)
+void Warrior::useCard(Card &card, Entity &enemy)
 {
     Player::useCard(card, enemy);
 }

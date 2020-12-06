@@ -476,7 +476,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1607198528 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\entity.h
+1607277705 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\entity.h
 	<SFML/Graphics.hpp>
 	<string>
 	"Entity/Characteristics/Characteristics.h"
@@ -488,7 +488,7 @@
 	"Entity/Characteristics/Characteristic.h"
 	<vector>
 
-1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\characteristics\characteristic.h
+1607277705 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\characteristics\characteristic.h
 	<string>
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\characteristics\health.h
@@ -542,7 +542,7 @@
 
 1607034335 d.h"
 
-1607216849 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecard.cpp
+1607275467 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecard.cpp
 	"Cards/OffensiveCard.h"
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\cards\offensivecard.h
@@ -592,7 +592,7 @@
 	"Cards/Card.h"
 	"SharedContext.h"
 
-1607198528 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\player\player.h
+1607280498 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\player\player.h
 	<string>
 	<vector>
 	<unordered_map>
@@ -616,7 +616,7 @@
 	"Cards/OffensiveCardGambler.h"
 	"Cards/DefensiveCardGambler.h"
 
-1607198528 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\player\gambler.h
+1607281153 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\player\gambler.h
 	<string>
 	"Entity/Player/Player.h"
 
@@ -635,7 +635,7 @@
 	"Cards/OffensiveCardWarrior.h"
 	"Cards/DefensiveCardWarrior.h"
 
-1607198528 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\player\warrior.h
+1607281160 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\player\warrior.h
 	<string>
 	"Entity/Player/Player.h"
 
@@ -653,7 +653,7 @@
 	"SharedContext.h"
 	"State/StateType.h"
 
-1607098839 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\statemanager.h
+1607277705 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\statemanager.h
 	<SFML/Graphics.hpp>
 	<unordered_map>
 	<functional>
@@ -667,6 +667,7 @@
 	"State/State_Paused.h"
 	"State/State_Option.h"
 	"State/State_GameOver.h"
+	"State/State_Credits.h"
 	<iostream>
 
 1607214800 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\basestate.h
@@ -688,7 +689,7 @@
 	<iostream>
 	<unistd.h>
 
-1607198528 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\state_game.h
+1607277705 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\state_game.h
 	<SFML/Graphics.hpp>
 	<stdlib.h>
 	<iostream>
@@ -731,7 +732,7 @@
 
 1607216167 emy/EnemyAbilityOffensive.h"
 
-1607218669 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\fight.h
+1607277705 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\fight.h
 	<string>
 	<vector>
 	"Cards/Card.h"
@@ -754,7 +755,7 @@
 	"StateManager.h"
 	<iostream>
 
-1607098839 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\state_gameover.h
+1607272817 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\state_gameover.h
 	<SFML/Graphics.hpp>
 	"State/BaseState.h"
 	"StateManager.h"
@@ -772,7 +773,7 @@
 1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\statetype.cpp
 	"State/StateType.h"
 
-1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\statemanager.cpp
+1607277705 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\statemanager.cpp
 	"StateManager.h"
 
 1607215612 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\main.cpp
@@ -794,7 +795,7 @@
 1607216752 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\defensivecardwarrior.cpp
 	"Cards/DefensiveCardWarrior.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\characteristic.cpp
+1607277705 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\characteristic.cpp
 	"Entity/Characteristics/Characteristic.h"
 	<iostream>
 
@@ -802,7 +803,7 @@
 	"Entity/Characteristics/Characteristics.h"
 	<iostream>
 
-1607218779 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviour.cpp
+1607276123 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviour.cpp
 	"Entity/Enemy/Behaviour.h"
 	<stdlib.h>
 	<iostream>
@@ -836,21 +837,21 @@
 
 1607215966 emy/EnemyAbilityDefensive.h"
 
-1607216167 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemyabilityoffensive.cpp
+1607275059 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemyabilityoffensive.cpp
 	"Entity/Enemy/EnemyAbilityOffensive.h"
 
-1607216267 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\entity.cpp
+1607277705 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\entity.cpp
 	"Entity/Entity.h"
 	<iostream>
 
-1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\gambler.cpp
+1607281325 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\gambler.cpp
 	<time.h>
 	<sstream>
 	"Entity/Player/Gambler.h"
 	"Cards/OffensiveCardGambler.h"
 	"Cards/DefensiveCardGambler.h"
 
-1607214800 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\player.cpp
+1607281306 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\player.cpp
 	<sstream>
 	<iostream>
 	<algorithm>
@@ -863,22 +864,22 @@
 
 1607214800 emy/Enemy.h"
 
-1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\warrior.cpp
+1607281298 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\warrior.cpp
 	"Entity/Player/Warrior.h"
 	"Cards/OffensiveCardWarrior.h"
 	"Cards/DefensiveCardWarrior.h"
 	<iostream>
 
-1607219103 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\fight.cpp
+1607277705 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\fight.cpp
 	<iostream>
 	"Fight.h"
 
-1607216455 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_game.cpp
+1607278213 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_game.cpp
 	"State/State_Game.h"
 
 1607216455 te_Game.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_gameover.cpp
+1607277705 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_gameover.cpp
 	"State/State_GameOver.h"
 
 1607198528 te_GameOver.h"
@@ -888,7 +889,7 @@
 
 1607198528 te_Intro.h"
 
-1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_mainmenu.cpp
+1607277705 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_mainmenu.cpp
 	"State/State_MainMenu.h"
 
 1607216353 te_MainMenu.h"
@@ -1289,5 +1290,13 @@
 	"StateManager.h"
 
 1607270571 source:/home/skias/Documents/DevC++/ProjetB04/ProjetB04CodeBlock/pGroupe04/src/State/State_Credits.cpp
+	"State/State_Credits.h"
+
+1607277705 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\state_credits.h
+	<SFML/Graphics.hpp>
+	"State/BaseState.h"
+	"StateManager.h"
+
+1607277705 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_credits.cpp
 	"State/State_Credits.h"
 

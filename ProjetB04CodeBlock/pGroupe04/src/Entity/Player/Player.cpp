@@ -127,14 +127,11 @@ void Player::useCard(Card &card)
     if (findCard(card, Player::hand) == -1)
         return;
 
-    std::cout<<"BEFORE IF Actionpoints: "<<actionPoints<< "\t Cost: "<< card.getCostAction() << std::endl;
     if (actionPoints >= card.getCostAction())
     {
-        std::cout<<"\tBEFORE Actionpoints: "<<actionPoints<<std::endl;
         card.activateEffect(*this);
         removeCard(&card, Player::hand);
         actionPoints -= card.getCostAction();
-        std::cout<<"\tAFTER Actionpoints: "<<actionPoints<<std::endl;
     }
 }
 
@@ -146,11 +143,9 @@ void Player::useCard(Card &card, Entity &enemy)
 
     if (actionPoints >= card.getCostAction())
     {
-        std::cout<<"\tBEFORE Actionpoints: "<<actionPoints<<std::endl;
         card.activateEffect(enemy);
         removeCard(&card, Player::hand);
         actionPoints -= card.getCostAction();
-        std::cout<<"\tAFTER Actionpoints: "<<actionPoints<<std::endl;
     }
 }
 
