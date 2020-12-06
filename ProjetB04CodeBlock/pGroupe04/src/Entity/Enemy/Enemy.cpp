@@ -22,9 +22,6 @@ Enemy::Enemy(int l_healthPt, std::string assetPath) : Entity(), assetPath(assetP
     Entity::setSprite(assetPath);
     setMaxLife(l_healthPt);
 
-    // TEMPORAIRE
-    BehaviourHighLife *b = new BehaviourHighLife();
-    setStrategy(b);
 }
 
 // Destructeur
@@ -73,6 +70,7 @@ void Enemy::setStrategy(Behaviour *l_behaviour)
 {
     behaviour = l_behaviour;
 }
+
 //Fin GET & SET
 
 // Methodes concernant le vector
@@ -104,10 +102,10 @@ int Enemy::SearchAbility(EnemyAbility &l_enemyAbility)
 {
     for (int i = 0; i < (int)m_abilities.size(); i++)
     {
-        if (m_abilities[i]->getName() == l_enemyAbility.getName())
+        if (m_abilities[i]->getName() == l_enemyAbility.getName())  // Si on trouve l'ability dans la liste alors on return son indice
             return i;
     }
-    return -1;
+    return -1; // Si l'ability n'a pas été trouvée dans la liste on return -1
 }
 // Fin vector
 

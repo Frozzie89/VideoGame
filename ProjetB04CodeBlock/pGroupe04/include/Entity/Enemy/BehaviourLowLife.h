@@ -6,10 +6,12 @@
 class BehaviourLowLife : public Behaviour
 {
 public:
-    BehaviourLowLife();
+    BehaviourLowLife(int l_rate = 75);
     virtual ~BehaviourLowLife();
     BehaviourLowLife(const BehaviourLowLife &other);
     BehaviourLowLife &operator=(const BehaviourLowLife &other);
+
+    string getClassName();
 
 protected:
 private:

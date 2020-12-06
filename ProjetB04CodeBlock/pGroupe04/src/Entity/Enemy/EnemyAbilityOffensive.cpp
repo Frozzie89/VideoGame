@@ -25,32 +25,28 @@ EnemyAbilityOffensive &EnemyAbilityOffensive::operator=(const EnemyAbilityOffens
 int EnemyAbilityOffensive::activateEffect(Entity &entity)
 {
     Shield s;
-    Shield *playerShield;
-    // On recupere les points de défenses du joueur
-    playerShield = (Shield *)entity.getCharacteristic(s);
+    Shield *entityShield;
+    // On recupere les points de defenses du joueur
+    entityShield = (Shield *)entity.getCharacteristic(s);
 
-    // points de dégats restant à infliguer dans le cas où le joueur à de l'armure mais moindre que
-    // les points de dégats à infliguer, le restant attaquera ses points de vies
+    // points de degats restant a infliguer dans le cas où le joueur a de l'armure mais moindre que
+    // les points de degats à infliger, le restant attaquera ses points de vies
     int remainingDmg = getValue();
 
-    // Si le joueur à des points d'armure ...
-    if (playerShield->GetValue() > 0)
+    if (entityShield->GetValue() > 0)   // Si le joueur a des points d'armure ...
     {
-        // mais qu'il à moins d'armure que les points de dégats qu'il s'apprête à reçevoir ..
-        if (playerShield->GetValue() < getValue())
-        {
-            // rectifier les points de dégats restant à influger et mettre les points de défense à 0
-            remainingDmg -= playerShield->GetValue();
-            entity.LowerCharacteristic(*playerShield, playerShield->GetValue());
-        }
 
-        // et qu'il à suffisamment d'amure pour encaisser de coup -> prendre l'entièreté des dégats dans l'armure
-        else
+        if (entityShield->GetValue() < getValue())  // mais qu'il a moins d'armure que les points de degats qu'il s'apprete a reçevoir ..
         {
-            entity.LowerCharacteristic(*playerShield, getValue());
+            // rectifier les points de degats restant à infliger et mettre les points de défense à 0
+            remainingDmg -= entityShield->GetValue();
+            entity.LowerCharacteristic(*entityShield, entityShield->GetValue());
+        }
+        else    // et qu'il a suffisamment d'armure pour encaisser de coup -> prendre l'entierete des degats dans l'armure
+        {
+            entity.LowerCharacteristic(*entityShield, getValue());
         }
     }
-
     // s'il reste des points de dégats à infliger, le resite ira dans les points de vie du joueur
     if (remainingDmg > 0)
     {

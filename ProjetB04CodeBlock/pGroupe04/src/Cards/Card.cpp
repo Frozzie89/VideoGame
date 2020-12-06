@@ -8,6 +8,7 @@ Card::Card(std::string label, std::string path, int costAction, int value, Share
 //Destructeur
 Card::~Card() {}
 
+// Constructeur de copie
 Card::Card(const Card &other)
 {
     this->label = other.label;
@@ -17,6 +18,7 @@ Card::Card(const Card &other)
     m_draw =true;
 }
 
+// Operateur d'affectation
 Card &Card::operator=(const Card &rhs)
 {
     if (this != &rhs)
@@ -30,6 +32,7 @@ Card &Card::operator=(const Card &rhs)
     return *this;
 }
 
+// GET & SET
 std::string Card::getLabel() const
 {
     return label;
@@ -64,7 +67,9 @@ void Card::setValue(const int value)
 {
     this->value = value;
 }
+// Fin GET & SET
 
+// Affiche les informations de l'objet
 std::string Card::str() const
 {
     std::stringstream res;

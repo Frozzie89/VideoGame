@@ -139,13 +139,11 @@ void State_Option::MouseClick(EventDetails *l_details)
             //Si le clique touche le premier bouton
             if (i == 0)
             {
-                cout << "Return to Game" << endl;
                 m_stateMgr->SwitchTo(StateType::Game);
             }
             //Si le clique touche le second bouton
             else if (i == 1)
             {
-                cout << "QUIT THE GAME" << endl;
                 m_stateMgr->GetContext()->m_wind->Close();
             }
         }

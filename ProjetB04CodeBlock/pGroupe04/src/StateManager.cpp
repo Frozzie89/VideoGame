@@ -2,13 +2,11 @@
 //Constructeur sans argument
 StateManager::StateManager()
 {
-    cout << "coucou" << endl;
 }
 //Constructeur avec Argument
 StateManager::StateManager(SharedContext *l_shared)
     : m_shared(l_shared)
 {
-    cout << "Coucou StateManager Constructeur avec Shared Context" << endl;
     CreateIntro();
     RegisterState<State_MainMenu>(StateType::MainMenu);
     RegisterState<State_Game>(StateType::Game);

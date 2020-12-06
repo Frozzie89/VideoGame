@@ -27,6 +27,7 @@ public:
 
     //GET & SET
     void setStrategy(Behaviour *behaviour);
+    void getStrategy();
     //Fin GET & SET
 
     // M�thodes concerant le vector

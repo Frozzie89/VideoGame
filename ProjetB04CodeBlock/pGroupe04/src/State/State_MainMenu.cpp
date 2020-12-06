@@ -129,7 +129,6 @@ void State_MainMenu::MouseClick(EventDetails *l_details)
             if (i == 0)
             {
                 // usleep(1);
-                cout << "PLAY AS WARRIOR" << endl;
                 Warrior *warrior = new Warrior();
                 m_stateMgr->GetContext()->m_entity = warrior;
                 m_stateMgr->SwitchTo(StateType::Game);
@@ -138,7 +137,6 @@ void State_MainMenu::MouseClick(EventDetails *l_details)
             else if (i == 1)
             {
                 // usleep(1);
-                cout << "PLAY AS GAMBLER" << endl;
                 Gambler *gambler = new Gambler(25);
                 m_stateMgr->GetContext()->m_entity = gambler;
 
@@ -147,7 +145,6 @@ void State_MainMenu::MouseClick(EventDetails *l_details)
             //Quitte le jeu et ferme la fenetre
             else if (i == 2)
             {
-                cout << "QUIT THE GAME" << endl;
                 m_stateMgr->GetContext()->m_wind->Close();
             }
         }

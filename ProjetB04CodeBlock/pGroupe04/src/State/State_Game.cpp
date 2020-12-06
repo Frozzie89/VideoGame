@@ -51,7 +51,6 @@ void State_Game::OnCreate()
     //m_btnEndTurn.setOrigin(btnX/2.0f,btnY/2.0f);
     m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
 
-    std::cout << m_btnEndTurn.getOrigin().x << " " << m_btnEndTurn.getOrigin().y << std::endl;
     m_btnText.setFont(m_font);
     m_btnText.setString("Fin du tour");
     m_btnText.setCharacterSize(12);
@@ -111,7 +110,6 @@ void State_Game::Update(const sf::Time &l_time)
 //Permet de dessiner les differents elements graphiques
 void State_Game::Draw()
 {
-    //std::cout<<"Debut Draw"<<std::endl;
     sf::RenderWindow *window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
     window->draw(m_bgSprite);
     window->draw(m_text);
@@ -153,8 +151,6 @@ void State_Game::MouseClick(EventDetails *l_details)
     if (!m_fight.isPlayerTurn())
         return;
 
-    // if (m_fight.getPlayer().getActionPoints())
-
     //Recupere la position de souris par rapport a l'eventDetail
     sf::Vector2i mousePos = l_details->m_mouse;
 
@@ -190,7 +186,6 @@ void State_Game::MouseClick(EventDetails *l_details)
             if (m_fight.getPlayer().getActionPoints() > m_hand[i]->getCostAction())
             {
                 m_fight.useCard(*m_hand[i]);
-                std::cout << m_fight.getEnemy().str() << std::endl;
                 m_hand[i]->SetDraw(false);
                 m_hand[i]->SetPosition(1500, 1500);
             }

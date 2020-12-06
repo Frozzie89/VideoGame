@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1607098839 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\card.cpp
+1607216552 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\card.cpp
 	"Cards/Card.h"
 	<sstream>
 
@@ -461,7 +461,7 @@
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\statetype.h
 
-1607198445 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\defensivecardgambler.cpp
+1607216669 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\defensivecardgambler.cpp
 	"Cards/DefensiveCardGambler.h"
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\cards\defensivecardgambler.h
@@ -472,7 +472,7 @@
 	<string>
 	"Cards/Card.h"
 
-1607198445 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecard.cpp
+1607216849 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecard.cpp
 	"Cards/OffensiveCard.h"
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\cards\offensivecard.h
@@ -480,14 +480,14 @@
 	"Cards/Card.h"
 	"Entity/Entity.h"
 
-1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecardgambler.cpp
+1607216929 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecardgambler.cpp
 	"Cards/OffensiveCardGambler.h"
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\cards\offensivecardgambler.h
 	<string>
 	"Cards/OffensiveCard.h"
 
-1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecardwarrior.cpp
+1607216988 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\offensivecardwarrior.cpp
 	"Cards/OffensiveCardWarrior.h"
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\cards\offensivecardwarrior.h
@@ -497,10 +497,10 @@
 1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\health.cpp
 	"Entity/Characteristics/Health.h"
 
-1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\shield.cpp
+1607214565 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\shield.cpp
 	"Entity/Characteristics/Shield.h"
 
-1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\eventmanager.cpp
+1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\eventmanager.cpp
 	"EventManager.h"
 
 1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\factory\abstractfactory.cpp
@@ -587,7 +587,7 @@
 	"State/State_GameOver.h"
 	<iostream>
 
-1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\basestate.h
+1607214800 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\basestate.h
 	<SFML/Graphics.hpp>
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\state_intro.h
@@ -615,7 +615,7 @@
 	"Entity/Player/Warrior.h"
 	"Fight.h"
 
-1607198528 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\enemy.h
+1607217947 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\enemy.h
 	<vector>
 	<string>
 	"Entity/Entity.h"
@@ -635,13 +635,13 @@
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\enemyabilityoffensive.h
 	"Entity/Enemy/EnemyAbility.h"
 
-1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\behaviour.h
+1607218006 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\behaviour.h
 	"Entity/Entity.h"
 	"Entity/Enemy/EnemyAbility.h"
 	"Entity/Enemy/EnemyAbilityDefensive.h"
 	"Entity/Enemy/EnemyAbilityOffensive.h"
 
-1607198528 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\fight.h
+1607218669 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\fight.h
 	<string>
 	<vector>
 	"Cards/Card.h"
@@ -649,6 +649,8 @@
 	"Entity/Enemy/Enemy.h"
 	"Entity/Entity.h"
 	"Entity/Characteristics/Health.h"
+	"Entity/Enemy/BehaviourHighLife.h"
+	"Entity/Enemy/BehaviourLowLife.h"
 
 1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\state\state_paused.h
 	"State/BaseState.h"
@@ -674,10 +676,10 @@
 1607034335 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\statetype.cpp
 	"State/StateType.h"
 
-1607098839 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\statemanager.cpp
+1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\statemanager.cpp
 	"StateManager.h"
 
-1607213905 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\main.cpp
+1607215612 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<iostream>
@@ -690,39 +692,39 @@
 	"Cards/DefensiveCardWarrior.h"
 	"Cards/OffensiveCardWarrior.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\defensivecard.cpp
+1607216622 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\defensivecard.cpp
 	"Cards/DefensiveCard.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\defensivecardwarrior.cpp
+1607216752 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\cards\defensivecardwarrior.cpp
 	"Cards/DefensiveCardWarrior.h"
 
 1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\characteristic.cpp
 	"Entity/Characteristics/Characteristic.h"
 	<iostream>
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\characteristics.cpp
+1607216255 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\characteristics\characteristics.cpp
 	"Entity/Characteristics/Characteristics.h"
 	<iostream>
 
-1607211754 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviour.cpp
+1607218779 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviour.cpp
 	"Entity/Enemy/Behaviour.h"
 	<stdlib.h>
 	<iostream>
 	<time.h>
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviourhighlife.cpp
+1607218057 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviourhighlife.cpp
 	"Entity/Enemy/BehaviourHighLife.h"
 
-1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\behaviourhighlife.h
+1607218105 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\behaviourhighlife.h
 	"Entity/Enemy/Behaviour.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviourlowlife.cpp
+1607218100 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\behaviourlowlife.cpp
 	"Entity/Enemy/BehaviourLowLife.h"
 
-1607034335 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\behaviourlowlife.h
+1607218089 c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\include\entity\enemy\behaviourlowlife.h
 	"Entity/Enemy/Behaviour.h"
 
-1607209538 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemy.cpp
+1607218804 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemy.cpp
 	"Entity/Enemy/Enemy.h"
 	"Entity/Enemy/BehaviourHighLife.h"
 	<iostream>
@@ -731,24 +733,24 @@
 	"Entity/Enemy/EnemyAbility.h"
 	"Entity/Entity.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemyabilitydefensive.cpp
+1607215966 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemyabilitydefensive.cpp
 	"Entity/Enemy/EnemyAbilityDefensive.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemyabilityoffensive.cpp
+1607216167 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\enemy\enemyabilityoffensive.cpp
 	"Entity/Enemy/EnemyAbilityOffensive.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\entity.cpp
+1607216267 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\entity.cpp
 	"Entity/Entity.h"
 	<iostream>
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\gambler.cpp
+1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\gambler.cpp
 	<time.h>
 	<sstream>
 	"Entity/Player/Gambler.h"
 	"Cards/OffensiveCardGambler.h"
 	"Cards/DefensiveCardGambler.h"
 
-1607210055 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\player.cpp
+1607214800 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\player.cpp
 	<sstream>
 	<iostream>
 	<algorithm>
@@ -759,17 +761,17 @@
 	"Entity/Player/Player.h"
 	"Entity/Enemy/Enemy.h"
 
-1607209812 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\warrior.cpp
+1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\entity\player\warrior.cpp
 	"Entity/Player/Warrior.h"
 	"Cards/OffensiveCardWarrior.h"
 	"Cards/DefensiveCardWarrior.h"
 	<iostream>
 
-1607210900 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\fight.cpp
+1607219103 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\fight.cpp
 	<iostream>
 	"Fight.h"
 
-1607211019 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_game.cpp
+1607216455 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_game.cpp
 	"State/State_Game.h"
 
 1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_gameover.cpp
@@ -778,10 +780,10 @@
 1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_intro.cpp
 	"State/State_Intro.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_mainmenu.cpp
+1607216353 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_mainmenu.cpp
 	"State/State_MainMenu.h"
 
-1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_option.cpp
+1607216351 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\state\state_option.cpp
 	"State/State_Option.h"
 
 1607198528 source:c:\cours\bloc3_20_21\projetdjv\projetb04\projetb04codeblock\pgroupe04\src\window.cpp

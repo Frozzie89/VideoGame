@@ -7,6 +7,8 @@
 #include "Entity/Enemy/Enemy.h"
 #include "Entity/Entity.h"
 #include "Entity/Characteristics/Health.h"
+#include "Entity/Enemy/BehaviourHighLife.h"
+#include "Entity/Enemy/BehaviourLowLife.h"
 
 // Cette classe est responsable du fonctionnement des combats entre le joueur et les différents ennemis
 class Fight
@@ -15,6 +17,8 @@ private:
     Player *m_player;
     std::vector<Enemy *> m_enemyList;
     int m_counter;
+    BehaviourHighLife bhl;
+    BehaviourLowLife bll;
 
 public:
     Fight();

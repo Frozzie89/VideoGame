@@ -28,7 +28,7 @@ Gambler &Gambler::operator=(const Gambler &rhs)
 
 void Gambler::useCard(DefensiveCard &card)
 {
-    // si le lancé de dé fonctionne, activer la méthode useCard()
+    // si le lance de de fonctionne, activer la methode useCard()
     if (tryUseCard())
         Player::useCard(card);
     else
@@ -37,14 +37,14 @@ void Gambler::useCard(DefensiveCard &card)
 
 void Gambler::useCard(OffensiveCard &card, Entity &enemy)
 {
-    // si le lancé de dé fonctionne, activer la méthode useCard()
+    // si le lance de de fonctionne, activer la methode useCard()
     if (tryUseCard())
         Player::useCard(card, enemy);
     else
         removeCard(&card, Player::hand);
 }
 
-// s'assure que la carte à ajouter est bien une carte pour Gambler
+// s'assure que la carte a ajouter est bien une carte pour Gambler
 void Gambler::addCard(Card *card, const int cardVector)
 {
     if (card->getClassName() == "OffensiveCardGambler" || card->getClassName() == "DefensiveCardGambler")
@@ -78,7 +78,6 @@ void Gambler::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
     //On tente d'ouvrir le fichier, si on n'y arrive pas, on ecrit en console
     if (!cardAssets.is_open())
     {
-        std::cout << "!Failed loading " << filecardInitializer << std::endl;
         return;
     }
     std::string line;

@@ -4,9 +4,10 @@
 #include <time.h>
 
 // Constructeur
-Behaviour::Behaviour()
+Behaviour::Behaviour(int l_rate)
 {
-    srand((unsigned)time(0));
+    srand(time(NULL));
+    m_rate = l_rate;
 }
 
 // Destructeur
@@ -56,7 +57,6 @@ int Behaviour::getRandomAbility(std::vector<EnemyAbility *> l_abilities)
     if ((int)l_abilities.size() == 0){
         return -1;
     }
-
     // Test si on recupere une ability defensive ou offensive a partir du nombre aleatoires
     if (rate > m_rate)
         return searchAbilityType(l_abilities, "EnemyAbilityOffensive"); // On return une ability offensive
@@ -80,3 +80,6 @@ int Behaviour::searchAbilityType(std::vector<EnemyAbility *> l_abilities, std::s
     }
     return -1;
 }
+
+
+

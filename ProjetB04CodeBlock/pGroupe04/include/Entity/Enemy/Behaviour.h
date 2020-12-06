@@ -9,17 +9,19 @@
 class Behaviour
 {
 public:
-    Behaviour();
+    Behaviour(int l_rate = 0);
     virtual ~Behaviour();
     Behaviour(const Behaviour &other);
     Behaviour &operator=(const Behaviour &other);
+
+    virtual string getClassName() = 0;
 
     void useAbility(Entity &l_player, Entity &l_enemy, std::vector<EnemyAbility *> m_abilities);
     int getRandomAbility(std::vector<EnemyAbility *> m_abilities);
     int searchAbilityType(std::vector<EnemyAbility *> m_abilities, std::string lookingForClassAbility);
 
 protected:
-    //D�fini le taux de carte d�fensive
+    //Defini le taux de carte defensive
     int m_rate;
 
 private:
