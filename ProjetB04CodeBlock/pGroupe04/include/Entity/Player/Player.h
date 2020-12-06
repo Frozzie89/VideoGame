@@ -40,6 +40,7 @@ public:
     void removeCard(Card *card, const int cardVector);
     virtual void addCard(Card *card, const int cardVector);
     int findCard(const Card &card, const int cardVector) const;
+    virtual void loadCardsAssets(SharedContext *sharedContext, bool isOffensive) = 0;
 
     std::string str();
 
