@@ -56,10 +56,12 @@ public:
     void setPosition(sf::Vector2f l_position);
     void setPosition(float l_width, float l_height);
 
-    void setSprite(const std::string l_path);
-    void Draw();
-    void setContext(SharedContext *l_context);
-    void setSpriteScale(float l_x, float l_y);
+    void setSprite(const std::string l_path); //Modifie le sprite
+    void Draw();                               //Permet de dessiner le sprite
+    void setContext(SharedContext *l_context); //Modifie le contexte
+    void setSpriteScale(float l_x, float l_y); //Permet de modifier l'echelle du sprite
+
+    void Restart();
 };
 
 #endif // ENTITY_H

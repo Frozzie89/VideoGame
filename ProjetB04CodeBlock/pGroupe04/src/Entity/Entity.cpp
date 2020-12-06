@@ -143,3 +143,9 @@ int Entity::getShield()
 {
     return m_entityCaracteristics.getCharacteristic("Shield")->GetValue();
 }
+//Remet a zero les donnees du player
+void Entity::Restart()
+{
+    m_entityCaracteristics.getCharacteristic("Health")->SetValue(20);
+    m_entityCaracteristics.getCharacteristic("Shield")->SetValue(0);
+}

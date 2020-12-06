@@ -6,6 +6,8 @@ Fight::Fight()
 {
     m_counter = 0;
     createEnemies();
+    m_isGameOver =false;
+    m_isWon=false;
 }
 
 // Constructeur
@@ -13,6 +15,8 @@ Fight::Fight(Player *l_player) : m_player(l_player)
 {
     m_counter = 0;
     m_player->drawCards();
+    m_isGameOver =false;
+    m_isWon=false;
 
     // createEnemies();
 }
@@ -20,11 +24,7 @@ Fight::Fight(Player *l_player) : m_player(l_player)
 // Destructeur
 Fight::~Fight()
 {
-    for (auto &&enemy : m_enemyList)
-    {
-        delete enemy;
-    }
-    m_enemyList.clear();
+    DeleteEnemy();
 
     //delete m_player;
 }
@@ -60,7 +60,7 @@ Fight &Fight::operator=(const Fight &rhs)
 void Fight::endTurn()
 {
     enemyAttack();
-
+    std::cout<<m_player->getHealth()<<std::endl;
     m_player->drawCards();
     m_player->setActionPoints(10);
 }
@@ -70,12 +70,19 @@ void Fight::endTurn()
 // Puis on fera appel a useAbility
 void Fight::enemyAttack()
 {
-    if(getEnemy().getHealth() > (int)getEnemy().getMaxLife()/2){
+    if(getEnemy().getHealth() > (int)getEnemy().getMaxLife()/2)
+    {
         getEnemy().setStrategy(&bhl);
-    }else{
+    }
+    else
+    {
         getEnemy().setStrategy(&bll);
     }
     getEnemy().useAbility(*m_player);
+    if(!checkEntityAlive(m_player))
+    {
+        gameOver();
+    }
 }
 
 void Fight::useCard(Card &l_selectedCard)
@@ -101,13 +108,17 @@ void Fight::useCard(Card &l_selectedCard)
 void Fight::nextFight()
 {
     m_counter++;
+    if(m_counter == 5)
+    {
+        SetWon();
+        m_player->Restart();
+        m_counter =0;
+        DeleteEnemy();
+        createEnemies();
+        return;
+    }
     m_player->initDeck();
     m_player->drawCards();
-}
-
-bool Fight::gameOver()
-{
-    return !checkEntityAlive(m_player);
 }
 
 // On verifie si l'entity est en vie (si sa vie est superieure a 0). Si c'est le cas on return true
@@ -240,4 +251,42 @@ void Fight::createEnemies()
 void Fight::DeletePlayer()
 {
     delete m_player;
+}
+//Indique qu'on a perdu la partie
+void Fight::gameOver()
+{
+    m_isGameOver = true;
+    m_player->Restart();
+    m_counter =0;
+    DeleteEnemy();
+    createEnemies();
+}
+//Permet de savoir si on a perdu ou non
+bool Fight::isGameOver()
+{
+    return m_isGameOver;
+}
+//Permet de savoir si on a gagne ou non
+bool Fight::isWon()
+{
+    return m_isWon;
+}
+//Permet de supprimer la liste des ennemies
+void Fight::DeleteEnemy()
+{
+     for (auto &&enemy : m_enemyList)
+    {
+        delete enemy;
+    }
+    m_enemyList.clear();
+}
+//Permet de modifier la valeur permettant de savoir si on a gagne
+void Fight::SetWon()
+{
+    m_isWon = !m_isWon;
+}
+//Permet de modifier la valeur permettant de savoir si on a perdu
+void Fight::SetGameOver()
+{
+    m_isGameOver = !m_isGameOver;
 }

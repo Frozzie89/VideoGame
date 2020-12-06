@@ -19,6 +19,7 @@ public:
     void RaiseValue(int l_value); //Augmente de la valeur interne d'une valeur passée en argument
     void LowerValue(int l_value); //Diminue la valeur interne d'une valeur passée en argument
     int GetValue() const;         //Recupere la valeur interne
+    void SetValue(int l_value); //Permet de modifier la valeur
 
     virtual std::string str() const = 0;
     virtual std::string getClassName() const = 0;

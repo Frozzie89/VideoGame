@@ -16,6 +16,7 @@
 #include "State/State_Paused.h"
 #include "State/State_Option.h"
 #include "State/State_GameOver.h"
+#include "State/State_Credits.h"
 
 #include <iostream>
 using namespace std;
@@ -46,6 +47,7 @@ public:
     void SetContext(SharedContext* l_context); //Permet de modifier le contexte
 
     void CreateIntro(); //Permet de creer l'intro
+    void Restart(); //Remets a zero le jeu
 
 private:
     // Methods.

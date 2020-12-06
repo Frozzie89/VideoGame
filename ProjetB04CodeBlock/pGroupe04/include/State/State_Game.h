@@ -40,6 +40,7 @@ private:
     sf::Texture m_healthTexture; //Permet de charger la texture de l'indicateur de vie du joueur
     sf::Sprite m_healthDisplay; // Permet de créer un element pour contenir le nombre de points de vie du joueur
     sf::Text m_healthValue; //Affiche le nombre de points d'armure du joueur
+    sf::Text m_textCostPoints; //Affiche le nombre de points d'action restant du joueur
 
     Fight m_fight; //
     std::vector<Card*> m_hand; // Main du joueur

@@ -40,3 +40,8 @@ int Characteristic::GetValue() const
 {
     return m_value;
 }
+//Modifie la valeur
+void Characteristic::SetValue(int l_value)
+{
+    m_value = l_value;
+}

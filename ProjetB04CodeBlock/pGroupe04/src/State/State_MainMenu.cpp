@@ -76,16 +76,11 @@ void State_MainMenu::OnDestroy()
 //Methode qui permet de savoir si le jeu a deja ete lance
 void State_MainMenu::Activate()
 {
-    //Si l'etat Game existe, alors on va afficher RESUME, ce qui gache totalement MA PHRASE
-    if (m_stateMgr->HasState(StateType::Game) && m_labels[0].getString() == "I")
-    {
-        m_labels[0].setString(sf::String("RESUME"));
-        sf::FloatRect rect = m_labels[0].getLocalBounds();
-        m_labels[0].setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
-    }
 }
 //Permet de supprimer les modifications si la state n'est plus utilisee
-void State_MainMenu::Deactivate() {}
+void State_MainMenu::Deactivate()
+{
+}
 //Met a jour ce qui est et ce qui se passe a l'ecran
 void State_MainMenu::Update(const sf::Time &l_time)
 {

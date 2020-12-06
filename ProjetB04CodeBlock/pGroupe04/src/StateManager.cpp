@@ -13,6 +13,7 @@ StateManager::StateManager(SharedContext *l_shared)
     RegisterState<State_Paused>(StateType::Paused);
     RegisterState<State_Option>(StateType::Option);
     RegisterState<State_GameOver>(StateType::GameOver);
+    RegisterState<State_Credits>(StateType::Credits);
 }
 //Destructeur
 //Vu qu'on alloue dynamiquement de la memoire, nous devons la liberer
@@ -180,4 +181,21 @@ void StateManager::SetContext(SharedContext* l_context)
 void StateManager::CreateIntro()
 {
     RegisterState<State_Intro>(StateType::Intro);
+}
+//Permet de remettre a zero le jeu
+void StateManager::Restart()
+{
+    Remove(StateType::MainMenu);
+    Remove(StateType::Game);
+    Remove(StateType::Paused);
+    Remove(StateType::Option);
+    Remove(StateType::GameOver);
+    Remove(StateType::Credits);
+
+    RegisterState<State_MainMenu>(StateType::MainMenu);
+    RegisterState<State_Game>(StateType::Game);
+    RegisterState<State_Paused>(StateType::Paused);
+    RegisterState<State_Option>(StateType::Option);
+    RegisterState<State_GameOver>(StateType::GameOver);
+    RegisterState<State_Credits>(StateType::Credits);
 }

@@ -79,6 +79,7 @@
 		<Unit filename="include/SharedContext.h" />
 		<Unit filename="include/State/BaseState.h" />
 		<Unit filename="include/State/StateType.h" />
+		<Unit filename="include/State/State_Credits.h" />
 		<Unit filename="include/State/State_Game.h" />
 		<Unit filename="include/State/State_GameOver.h" />
 		<Unit filename="include/State/State_Intro.h" />
@@ -118,6 +119,7 @@
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/State/BaseState.cpp" />
 		<Unit filename="src/State/StateType.cpp" />
+		<Unit filename="src/State/State_Credits.cpp" />
 		<Unit filename="src/State/State_Game.cpp" />
 		<Unit filename="src/State/State_GameOver.cpp" />
 		<Unit filename="src/State/State_Intro.cpp" />

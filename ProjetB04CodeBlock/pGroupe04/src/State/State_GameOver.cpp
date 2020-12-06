@@ -111,7 +111,7 @@ void State_GameOver::MouseClick(EventDetails* l_details)
     float halfY = m_buttonSize.y / 2.0f;
     if (mousePos.x >= m_rect.getPosition().x - halfX && mousePos.x <= m_rect.getPosition().x + halfX && mousePos.y >= m_rect.getPosition().y - halfY && mousePos.y <= m_rect.getPosition().y + halfY)
     {
-        m_stateMgr->GetContext()->m_entity = nullptr;
+
         m_stateMgr->CreateIntro();
         m_stateMgr->SwitchTo(StateType::Intro);
     }

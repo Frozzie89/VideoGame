@@ -80,6 +80,13 @@ void State_Game::OnCreate()
     m_shieldValue.setCharacterSize(14);
     m_shieldValue.setPosition(240, 95);
 
+    //Permet d'afficher les points d'action restant
+    m_textCostPoints.setFont(m_font);
+    Player* p = (Player *)m_stateMgr->GetContext()->m_entity;
+    m_textCostPoints.setString(std::to_string(p->getActionPoints()));
+    m_textCostPoints.setCharacterSize(18);
+    m_textCostPoints.setPosition(175, 45);
+
     //Permet de creer les callbacks servant a gerer les events
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
     evMgr->AddCallback(StateType::Game, "Key_Escape", &State_Game::Option, this);
@@ -93,6 +100,9 @@ void State_Game::OnDestroy()
     evMgr->RemoveCallback(StateType::Game, "Key_Escape");
     evMgr->RemoveCallback(StateType::Game, "Key_P");
     evMgr->RemoveCallback(StateType::Game, "Mouse_Left");
+
+    delete m_stateMgr->GetContext()->m_entity;
+    m_stateMgr->GetContext()->m_entity = nullptr;
 }
 //Methode qui d'activer certaines modifications si la state a deja ete utilisee
 void State_Game::Activate()
@@ -130,6 +140,10 @@ void State_Game::Draw()
     }
     window->draw(m_healthDisplay);
     window->draw(m_healthValue);
+
+    Player* p = (Player *)m_stateMgr->GetContext()->m_entity;
+    m_textCostPoints.setString(std::to_string(p->getActionPoints()));
+    window->draw(m_textCostPoints);
 
     DisplayPlayer();
     DisplayEnemy();
@@ -173,9 +187,16 @@ void State_Game::MouseClick(EventDetails *l_details)
         m_text.setString("Vie :" + std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
         LoadHand();
 
-        if (m_fight.gameOver())
+        if (m_fight.isGameOver())
         {
             m_stateMgr->SwitchTo(StateType::GameOver);
+            m_fight.SetGameOver();
+        }
+
+        if(m_fight.isWon())
+        {
+            m_stateMgr->SwitchTo(StateType::Credits);
+            m_fight.SetWon();
         }
     }
 
