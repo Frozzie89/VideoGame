@@ -10,7 +10,6 @@ private:
     int luck;
 
 public:
-    Gambler();
     Gambler(int actionPoints = 10, int health = 20, int shield = 0, int luck = 50);
     virtual ~Gambler();
     Gambler(const Gambler &other);

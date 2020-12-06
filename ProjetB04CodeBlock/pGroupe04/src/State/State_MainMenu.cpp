@@ -139,7 +139,7 @@ void State_MainMenu::MouseClick(EventDetails *l_details)
             {
                 // usleep(1);
                 cout << "PLAY AS GAMBLER" << endl;
-                Gambler *gambler = new Gambler(25);
+                Gambler *gambler = new Gambler();
                 m_stateMgr->GetContext()->m_entity = gambler;
 
                 m_stateMgr->SwitchTo(StateType::Game);

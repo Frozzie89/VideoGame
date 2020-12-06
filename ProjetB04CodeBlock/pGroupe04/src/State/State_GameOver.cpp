@@ -1,18 +1,16 @@
 #include "State/State_GameOver.h"
 //Constructeur
-State_GameOver::State_GameOver(StateManager* l_stateManager):BaseState(l_stateManager)
+State_GameOver::State_GameOver(StateManager *l_stateManager) : BaseState(l_stateManager)
 {
-
 }
 //Destructeur
 State_GameOver::~State_GameOver()
 {
-
 }
 //Permet de creer les differents elements graphiques que l'on va retrouver dans la fenetre
 void State_GameOver::OnCreate()
 {
-     //Initialise la police de caractere et le titre
+    //Initialise la police de caractere et le titre
     m_timePassed = 0.0f;
     m_font.loadFromFile("assets/font/superboom.ttf");
     m_title.setFont(m_font);
@@ -64,20 +62,18 @@ void State_GameOver::OnCreate()
 void State_GameOver::OnDestroy()
 {
     EventManager *evMgr = m_stateMgr->GetContext()->m_eventManager;
-    evMgr->RemoveCallback(StateType::GameOver,"Mouse_Left");
+    evMgr->RemoveCallback(StateType::GameOver, "Mouse_Left");
 }
 //Methode qui d'activer certaines modifications si la state a deja ete utilisee
 void State_GameOver::Activate()
 {
-
 }
 //Permet de supprimer les modifications si la state n'est plus utilisee
 void State_GameOver::Deactivate()
 {
-
 }
 //Met a jour ce qui est a l'ecran
-void State_GameOver::Update(const sf::Time& l_time)
+void State_GameOver::Update(const sf::Time &l_time)
 {
     void MouseClick();
 }
@@ -94,7 +90,7 @@ void State_GameOver::Draw()
     window->draw(m_label);
 }
 //Permet de gerer les clicks de la souris
-void State_GameOver::MouseClick(EventDetails* l_details)
+void State_GameOver::MouseClick(EventDetails *l_details)
 {
 
     //On recupere la valeur de la position de la souris grace a l'argument

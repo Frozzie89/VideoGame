@@ -13,6 +13,7 @@ Fight::Fight(Player *l_player) : m_player(l_player)
     // std::cout << "CONSTRUCTEUR FIGHT" << std::endl;
     m_counter = 0;
     m_player->drawCards();
+    m_player->resetStats();
     // std::cout << m_player->printMap() << std::endl;
 
     // createEnemies();
@@ -83,15 +84,10 @@ Player &Fight::getPlayer()
 
 void Fight::endTurn()
 {
-    // std::cout << "FIN DU TOUR" << std::endl;
     enemyAttack();
 
-    // if (!checkEntityAlive(m_player))
-    //     gameOver();
-    // std::cout<<"On continue"<<std::endl;
-
     m_player->drawCards();
-    m_player->setActionPoints(10);
+    m_player->setActionPoints(m_player->getMaxActionPoints());
 }
 
 void Fight::useCard(Card &l_selectedCard)
@@ -121,7 +117,6 @@ bool Fight::checkEntityAlive(Entity *l_entity)
 void Fight::nextFight()
 {
     m_counter++;
-    // m_player->purgeCardPile(Player::hand);       --> inutile car on purge la main à chaque draw
     m_player->initDeck();
     m_player->drawCards();
 }
