@@ -91,6 +91,7 @@ void Fight::endTurn()
     // std::cout<<"On continue"<<std::endl;
 
     m_player->drawCards();
+    m_player->setActionPoints(10);
 }
 
 void Fight::useCard(Card &l_selectedCard)
@@ -98,7 +99,6 @@ void Fight::useCard(Card &l_selectedCard)
     if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
     {
         m_player->useCard(l_selectedCard);
-        std::cout << m_player->str() << std::endl;
     }
     else if (l_selectedCard.getClassName().find("OffensiveCard") != std::string::npos)
     {

@@ -58,8 +58,6 @@ int DefensiveCard::activateEffect(Entity &entity)
     }
     else
     {
-        std::cout << str() << std::endl;
-
         Shield playerShield;
         entity.RaiseCharacteristic(playerShield, getValue());
     }

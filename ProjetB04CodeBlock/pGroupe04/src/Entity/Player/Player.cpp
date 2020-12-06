@@ -99,8 +99,12 @@ void Player::useCard(Card &card)
     if (findCard(card, Player::hand) == -1)
         return;
 
-    card.activateEffect(*this);
-    removeCard(&card, Player::hand);
+    if (actionPoints >= card.getCostAction())
+    {
+        card.activateEffect(*this);
+        removeCard(&card, Player::hand);
+        actionPoints -= card.getCostAction();
+    }
 }
 
 // For Offensive Cards
@@ -111,8 +115,12 @@ void Player::useCard(Card &card, Entity &enemy)
 
     Health h;
 
-    card.activateEffect(enemy);
-    removeCard(&card, Player::hand);
+    if (actionPoints >= card.getCostAction())
+    {
+        card.activateEffect(enemy);
+        removeCard(&card, Player::hand);
+        actionPoints -= card.getCostAction();
+    }
 }
 
 void Player::removeCard(Card *card, const int cardVector)
@@ -155,7 +163,8 @@ void Player::purgeCardPile(const int cardVector)
     }
     */
 
-    for (int i = 0; i < cardPiles[cardVector].size(); i++){
+    for (int i = 0; i < cardPiles[cardVector].size(); i++)
+    {
         delete cardPiles.at(cardVector)[i];
     }
 
