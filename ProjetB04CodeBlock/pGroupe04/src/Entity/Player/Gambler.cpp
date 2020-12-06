@@ -29,25 +29,19 @@ Gambler &Gambler::operator=(const Gambler &rhs)
 void Gambler::useCard(Card &card)
 {
     // si le lance de de fonctionne, activer la methode useCard()
-    if (tryUseCard()){
+    if (tryUseCard())
         Player::useCard(card);
-    }
-    else
-    {
-        removeCard(&card, Player::hand);
-    }
+
+    removeCard(&card, Player::hand);
 }
 
 void Gambler::useCard(Card &card, Entity &enemy)
 {
     // si le lance de de fonctionne, activer la methode useCard()
-    if (tryUseCard()){
+    if (tryUseCard())
         Player::useCard(card, enemy);
-    }
-    else{
-        removeCard(&card, Player::hand);
-    }
 
+    removeCard(&card, Player::hand);
 }
 
 // s'assure que la carte a ajouter est bien une carte pour Gambler
