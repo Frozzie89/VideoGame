@@ -36,8 +36,8 @@ public:
     // Get/Setter
     bool isTurn() const; // Permet de savoir s'il s'agit du tour de l'entite
     void setTurn();      // Permet de switcher la valeur de m_turn;
-    virtual std::string getClassName() const;
-    int getMaxLife();
+    virtual std::string getClassName() const; //Retourne le nom de la classe
+    int getMaxLife(); //retourne le nombre de points de vie maximal
 
     int getHealth(); //Renvoie le nombre de points de vie
     int getShield(); //Renvoie le nombre de points d'armure
@@ -48,15 +48,14 @@ public:
     void LowerCharacteristic(int l_index, int l_value);                      // Fait appel a la methode de Characteristics
     void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
-    void endTurn();
-    void setMaxLife(int maxLife);
+    void setMaxLife(int maxLife); //Modifie le nombre de points de vie max
     Characteristic *getCharacteristic(Characteristic &l_characteristic); // Renvoie une caractéristique de l'entité
 
-    sf::Vector2f getPosition();
-    void setPosition(sf::Vector2f l_position);
-    void setPosition(float l_width, float l_height);
+    sf::Vector2f getPosition(); //Permet de recuperer la position de l'entite
+    void setPosition(sf::Vector2f l_position); //Permet de modifier la position de l'entite par un vecteur compose de deux float
+    void setPosition(float l_width, float l_height); //Permet de modifier la position de l'entite par de deux float
 
-    void setSprite(const std::string l_path); //Modifie le sprite
+    void setSprite(const std::string l_path);  //Modifie le sprite
     void Draw();                               //Permet de dessiner le sprite
     void setContext(SharedContext *l_context); //Modifie le contexte
     void setSpriteScale(float l_x, float l_y); //Permet de modifier l'echelle du sprite

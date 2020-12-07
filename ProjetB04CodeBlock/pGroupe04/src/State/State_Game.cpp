@@ -28,7 +28,7 @@ void State_Game::OnCreate()
     m_font.loadFromFile("assets/font/superboom.ttf");
     m_text.setFont(m_font);
     //m_text.setString("Ceci est un jeu je vous l'assure");
-    m_text.setString("Je pensais qu'on etait frere DONALD !\n C'est l'heure pour toi de gouter a mon foi !");
+    m_text.setString("C'est l'heure pour toi de gouter a mon foi !");
     m_text.setCharacterSize(15);
 
     //Permet de recuperer la taille de la fenetre par rapport au contexte
@@ -186,7 +186,6 @@ void State_Game::MouseClick(EventDetails *l_details)
     {
         m_fight.endTurn();
         m_btnEndTurn.setFillColor(sf::Color::Red);
-        m_text.setString("Vie :" + std::to_string(m_stateMgr->GetContext()->m_entity->getHealth()));
         LoadHand();
 
         if (m_fight.isGameOver())
