@@ -38,7 +38,7 @@ int EnemyAbilityOffensive::activateEffect(Entity &entity)
 
         if (entityShield->GetValue() < getValue())  // mais qu'il a moins d'armure que les points de degats qu'il s'apprete a reçevoir ..
         {
-            // rectifier les points de degats restant à infliger et mettre les points de défense à 0
+            // rectifier les points de degats restant à infliger et mettre les points de defense à 0
             remainingDmg -= entityShield->GetValue();
             entity.LowerCharacteristic(*entityShield, entityShield->GetValue());
         }
@@ -48,7 +48,7 @@ int EnemyAbilityOffensive::activateEffect(Entity &entity)
             remainingDmg = 0;
         }
     }
-    // s'il reste des points de dégats à infliger, le resite ira dans les points de vie du joueur
+    // s'il reste des points de degats à infliger, le reste ira dans les points de vie du joueur
     if (remainingDmg > 0)
     {
         Health playerHealth;

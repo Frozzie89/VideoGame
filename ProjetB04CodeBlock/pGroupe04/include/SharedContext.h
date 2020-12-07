@@ -12,7 +12,6 @@ struct SharedContext
 {
     SharedContext() : m_wind(nullptr), m_eventManager(nullptr), m_entity(nullptr)
     {
-        cout << "SharedContext" << endl;
     }
     Window *m_wind;
     EventManager *m_eventManager;

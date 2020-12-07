@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Entity/Entity.h"
 
-// Les EnemyAbility correspondent au compétences que l'ennemi pourra utiliser durant la partie, comme des Cards bien plus simplifiées
+// Les EnemyAbility correspondent au competences que l'ennemi pourra utiliser durant la partie, comme des Cards bien plus simplifiees
 class EnemyAbility
 {
 private:

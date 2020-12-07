@@ -66,11 +66,11 @@ Enemy &Enemy::operator=(const Enemy &rhs)
 }
 
 //GET & SET
+    // Permet de set la strategy d'un enemy
 void Enemy::setStrategy(Behaviour *l_behaviour)
 {
     behaviour = l_behaviour;
 }
-
 //Fin GET & SET
 
 // Methodes concernant le vector
@@ -105,7 +105,7 @@ int Enemy::SearchAbility(EnemyAbility &l_enemyAbility)
         if (m_abilities[i]->getName() == l_enemyAbility.getName())  // Si on trouve l'ability dans la liste alors on return son indice
             return i;
     }
-    return -1; // Si l'ability n'a pas été trouvée dans la liste on return -1
+    return -1; // Si l'ability n'a pas ete trouvee dans la liste on return -1
 }
 // Fin vector
 
@@ -130,7 +130,7 @@ std::string Enemy::str() const
 {
     return getClassName() + " : Path : " + assetPath + " || ";
 }
-//Retourne le chemin d'accès defini ici
+//Retourne le chemin d'acces defini ici
 string Enemy::GetPath() const
 {
     return assetPath;

@@ -5,7 +5,7 @@
 #include "Entity/Entity.h"
 #include "SharedContext.h"
 
-// Contient le patron d'une carte et défini les effets qu'une carte peut avoir
+// Contient le patron d'une carte et defini les effets qu'une carte peut avoir
 class Card
 {
 protected:
@@ -44,7 +44,7 @@ public:
 
     bool checkCollision();
 
-    void Move(sf::RenderWindow &l_window); // permet de déplacer la carte dans la fenêtre
+    void Move(sf::RenderWindow &l_window); // permet de deplacer la carte dans la fenêtre
 
     void HandleInput();
 

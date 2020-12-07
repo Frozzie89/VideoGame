@@ -2,7 +2,7 @@
 #define ENEMYABILITYDEFENSIVE_H
 #include "Entity/Enemy/EnemyAbility.h"
 
-// EnemyAbility de type défensive, rendra de l'armure ou de la vie à l'ennemi
+// EnemyAbility de type defensive, rendra de l'armure ou de la vie à l'ennemi
 class EnemyAbilityDefensive : public EnemyAbility
 {
 private:

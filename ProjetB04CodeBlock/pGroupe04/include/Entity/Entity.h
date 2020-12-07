@@ -50,7 +50,7 @@ public:
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
     void endTurn();
     void setMaxLife(int maxLife);
-    Characteristic *getCharacteristic(Characteristic &l_characteristic); // Renvoie une caractéristique de l'entité
+    Characteristic *getCharacteristic(Characteristic &l_characteristic); // Renvoie une caracteristique de l'entité
 
     sf::Vector2f getPosition();
     void setPosition(sf::Vector2f l_position);

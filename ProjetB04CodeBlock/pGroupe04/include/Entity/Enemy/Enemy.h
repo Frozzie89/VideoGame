@@ -8,7 +8,7 @@
 #include "Entity/Enemy/EnemyAbilityOffensive.h"
 #include "Entity/Enemy/Behaviour.h"
 
-// défini un ennemi
+// Défini un ennemi
 class Enemy : public Entity
 {
 

@@ -2,7 +2,7 @@
 #define ENEMYABILITYOFFENSIVE_H
 #include "Entity/Enemy/EnemyAbility.h"
 
-// EnemyAbility de type Offensive, infligera des dégats au joueur
+// EnemyAbility de type Offensive, infligera des degats au joueur
 class EnemyAbilityOffensive : public EnemyAbility
 {
 public:

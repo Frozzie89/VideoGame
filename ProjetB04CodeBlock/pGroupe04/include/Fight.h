@@ -10,7 +10,7 @@
 #include "Entity/Enemy/BehaviourHighLife.h"
 #include "Entity/Enemy/BehaviourLowLife.h"
 
-// Cette classe est responsable du fonctionnement des combats entre le joueur et les différents ennemis
+// Cette classe est responsable du fonctionnement des combats entre le joueur et les differents ennemis
 class Fight
 {
 private:
