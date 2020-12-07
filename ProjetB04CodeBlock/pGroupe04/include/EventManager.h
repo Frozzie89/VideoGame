@@ -149,8 +149,8 @@ public:
         return true;
     }
 
-    void HandleEvent(sf::Event &l_event);
-    void Update();
+    void HandleEvent(sf::Event &l_event); //Permet de gerer la gestion des evenements
+    void Update(); //Permet d'update la classe
 
     //Permet d'obtenir la position de la souris. On place une fenetre en argument
     // Pour etre sur qu'on puisse faire des traitements peu importe la fenetre utilisee
@@ -159,17 +159,17 @@ public:
         return (l_wind ? sf::Mouse::getPosition(*l_wind) : sf::Mouse::getPosition());
     }
 
-    void SetCurrentState(const StateType &l_type);
-    StateType GetCurrentState() const;
+    void SetCurrentState(const StateType &l_type); //Permet de modifier l'etat actuel
+    StateType GetCurrentState() const; //Permet de retourner l'etat actuel
 
 protected:
 private:
-    void LoadBindings();
+    void LoadBindings(); //Permet de charger les liaisons depuis un fichier de donnees
 
-    Bindings m_bindings;
-    Callbacks m_callbacks;
-    bool m_hasFocus;
-    StateType m_currentState;
+    Bindings m_bindings; //Map servant à stocker les liaisons
+    Callbacks m_callbacks; //Map contenant les callbacks
+    bool m_hasFocus; //Permet de focus ou non la fenetre
+    StateType m_currentState; //Etat actuel
 };
 
 #endif // EVENTMANAGER_H

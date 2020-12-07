@@ -37,7 +37,7 @@ bool EventManager::RemoveBinding(std::string l_name)
     m_bindings.erase(itr);
     return true;
 }
-
+//Sert à modifier le focus de la fenetre
 void EventManager::SetFocus(const bool &l_focus)
 {
     m_hasFocus = l_focus;

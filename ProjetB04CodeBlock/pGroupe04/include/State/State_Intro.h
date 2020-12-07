@@ -5,9 +5,9 @@
 #include "State/BaseState.h"
 #include "StateManager.h" //vu que la classe est declaree dans BaseState, nous devons l'implementer
 /*
-    Cette classe va definir ce que l'on va retrouve sur la fenetre lorsque l'on jouera au jeu.
+    Cette classe va definir ce que l'on va retrouve sur la fenetre lorsque l'on lancera au jeu.
     Elle herite de la classe BaseState.
-    Parmi ses attributs, on retrouve une police de caracteres, deux elements Texte nous permettant d'afficher du texte a l'ecran, le temps passe sur le dit state,
+    Parmi ses attributs, on retrouve une police de caracteres, deux elements Texte nous permettant d'afficher du texte a l'ecran, le temps passe sur ladite state,
     une texture pour le logo du jeu ainsi qu'un sprite pour celui-ci
 */
 class State_Intro : public BaseState

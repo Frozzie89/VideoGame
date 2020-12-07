@@ -28,7 +28,7 @@ public:
     int getActionPoints() const;
     void setActionPoints(const int actionPoints);
     int getMaxActionPoints() const;
-    std::vector<Card *> getCardPile(const int cardVector);
+    std::vector<Card *> getCardPile(const int cardVector); // renvoie un vector de Card, venant de la unordered_map
     void resetStats();
     virtual std::string getClassName() const;
 

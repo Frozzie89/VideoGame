@@ -29,16 +29,15 @@ public:
     virtual void Draw() = 0;                         //Permet de dessiner les differents elements graphiques
 
     void SetTransparent(const bool &l_transparent) { m_transparent = l_transparent; } //Permet de modifier la transparence de l'ecran
-    bool IsTransparent() const { return m_transparent; }                              //Permet de retrouver
-
-    void SetTranscendent(const bool &l_transcendent) { m_transcendent = l_transcendent; }
-    bool IsTranscendent() const { return m_transcendent; }
+    bool IsTransparent() const { return m_transparent; }                              //Permet de savoir si l'ecran est transparent ou non
+    void SetTranscendent(const bool &l_transcendent) { m_transcendent = l_transcendent; } //Permet de modifier le fait que l'ecran puisse transmettre des informations a un autre ecran ou non
+    bool IsTranscendent() const { return m_transcendent; } // Permet de savoir si on peut transmettre des informations a un autre ecran
 
     StateManager *GetStateManager() { return m_stateMgr; } //Permet de retourner le statemanager
 
 protected:
     StateManager *m_stateMgr; //le statemanager
     bool m_transparent;       //Permet de definir ce qui est
-    bool m_transcendent;
+    bool m_transcendent; //Autorise le transfere d'information sur d'autres ecrans
 };
 #endif // BASESTATE_H
