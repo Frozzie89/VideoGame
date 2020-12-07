@@ -5,7 +5,6 @@
 #include "Cards/Card.h"
 #include "Entity/Player/Player.h"
 #include "Entity/Enemy/Enemy.h"
-#include "Entity/Entity.h"
 #include "Entity/Characteristics/Health.h"
 #include "Entity/Enemy/BehaviourHighLife.h"
 #include "Entity/Enemy/BehaviourLowLife.h"
@@ -29,7 +28,7 @@ public:
     virtual ~Fight();
     Fight(const Fight &other);
     Fight &operator=(const Fight &rhs);
-    std::string getClassName();
+    std::string getClassName();         // Retourne le nom de la classe
 
     std::vector<Card *> getPlayerHand(); // récupère les cartes de la main du joueur
     Enemy &getEnemy();                   // récupère l'ennemi en jeu
@@ -40,12 +39,12 @@ public:
     bool checkEntityAlive(Entity *entity); // vérifie si l'entity est toujours en vie
     void nextFight();                      // fin du combat, passage au prochain ennemi
     void gameOver();                       // le joueur est mort, fin du combat
-    void enemyAttack();
-    bool isPlayerTurn();
-    int getRemainingLifeEnemy();
-    int getRemainingShieldEnemy();
+    void enemyAttack();                    // Set le comportement de l'ennemie et le fait attaquer
+    bool isPlayerTurn();                   // Retourne si c'est le tour du joueur
+    int getRemainingLifeEnemy();           // Retourne la vie restante de l'ennemie
+    int getRemainingShieldEnemy();         // Retourne le shield restant de l'ennemie
 
-    void DeletePlayer();
+    void DeletePlayer();                   // Supprime le joueur
 
     bool isGameOver(); //Permet de savoir on a perdu la partie
     bool isWon(); //Permet de savoir si on a gagne la partie

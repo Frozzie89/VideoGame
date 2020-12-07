@@ -5,7 +5,7 @@
 #include "EventManager.h"
 #include "Entity/Entity.h"
 class Entity;
-#include <iostream>
+
 using namespace std;
 //Permet d'avoir en un seul element les elements les plus utilisé
 struct SharedContext

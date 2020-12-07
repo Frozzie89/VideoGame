@@ -1,5 +1,5 @@
 #include "Entity/Characteristics/Characteristics.h"
-#include <iostream>
+
 //Constructeur
 Characteristics::Characteristics()
 {
@@ -79,11 +79,6 @@ int Characteristics::SearchCharacteristic(Characteristic &l_characteristic)
     }
     return -1;
 }
-//Augmente la caracteristique choisi par la valeur passee en argument, via index
-void Characteristics::RaiseCharacteristic(int l_index, int l_value)
-{
-    m_characteristics[l_index]->RaiseValue(l_value);
-}
 
 //Augmente la caracteristique choisi par la valeur passee en argument, via objet
 void Characteristics::RaiseCharacteristic(Characteristic &l_characteristic, int l_value)
@@ -92,12 +87,6 @@ void Characteristics::RaiseCharacteristic(Characteristic &l_characteristic, int 
 
     if (indexCharacteristic != -1)
         m_characteristics[indexCharacteristic]->RaiseValue(l_value);
-}
-
-//Diminue la caracteristique choisi par la valeur passe en argument, via index
-void Characteristics::LowerCharacteristic(int l_index, int l_value)
-{
-    m_characteristics[l_index]->LowerValue(l_value);
 }
 
 //Diminue la caracteristique choisi par la valeur passe en argument, via objet

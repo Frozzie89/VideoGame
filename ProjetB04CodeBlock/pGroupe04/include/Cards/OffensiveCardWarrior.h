@@ -1,5 +1,6 @@
 #ifndef OFFENSIVECARDWARRIOR_PGROUPE04_H
 #define OFFENSIVECARDWARRIOR_PGROUPE04_H
+
 #include <string>
 #include "Cards/OffensiveCard.h"
 

@@ -1,5 +1,6 @@
 #ifndef WINDOWS_H
 #define WINDOWS_H
+
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "EventManager.h"

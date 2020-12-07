@@ -1,5 +1,6 @@
 #ifndef OFFENSIVECARDGAMBLER_PGROUPE04_H
 #define OFFENSIVECARDGAMBLER_PGROUPE04_H
+
 #include <string>
 #include "Cards/OffensiveCard.h"
 

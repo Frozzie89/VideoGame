@@ -2,9 +2,8 @@
 #define STATE_GAME_H
 
 #include <SFML/Graphics.hpp>
-
 #include <stdlib.h>
-#include <iostream>
+
 using namespace std;
 
 #include "State/BaseState.h"

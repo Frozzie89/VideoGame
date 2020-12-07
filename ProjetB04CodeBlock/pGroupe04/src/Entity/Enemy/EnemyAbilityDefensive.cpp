@@ -25,8 +25,6 @@ EnemyAbilityDefensive &EnemyAbilityDefensive::operator=(const EnemyAbilityDefens
 // activateEffect va augmenter les characteristics definie sur la carte (Health, Shield)
 int EnemyAbilityDefensive::activateEffect(Entity &entity)
 {
-
-
     if (getIsHealth())  // Si l'ability est de type Health
     {
         Health enemyHealth;
@@ -52,20 +50,15 @@ int EnemyAbilityDefensive::activateEffect(Entity &entity)
 }
 
 // GET & SET
+    // Retourne la valeur de isHealth
 bool EnemyAbilityDefensive::getIsHealth() const
 {
     return m_isHealth;
 }
-
-void EnemyAbilityDefensive::setIsHealth(const bool l_isHealth)
-{
-
-    m_isHealth = l_isHealth;
-}
 // End GET & SET
 
 // Return les informations de l'objet
-std::string EnemyAbilityDefensive::toString() const
+std::string EnemyAbilityDefensive::str() const
 {
     return "Name:" + getName() + "     \tValue:" + std::to_string(getValue()) + " isHealth:" + std::to_string(m_isHealth);
 }

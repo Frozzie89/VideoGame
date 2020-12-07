@@ -1,5 +1,5 @@
 #include "Entity/Characteristics/Characteristic.h"
-#include <iostream>
+
 //Constructeur
 Characteristic::Characteristic(int l_value) : m_value(l_value)
 {

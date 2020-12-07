@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Fight.h"
 
 // Constructeur
@@ -133,36 +132,38 @@ bool Fight::checkEntityAlive(Entity *l_entity)
     return entityHealth->GetValue() > 0;
 }
 
-// retourne l'enemi en cours
+// GET & SET
+    // retourne l'enemi en cours
 Enemy &Fight::getEnemy()
 {
     return *m_enemyList[m_counter];
 }
 
-// retourne le joueur
+    // retourne le joueur
 Player &Fight::getPlayer()
 {
     return *m_player;
 }
 
+    // Retourne le nom de la classe
 std::string Fight::getClassName()
 {
     return "Fight";
 }
 
-// retourne la main du joueur
+    // retourne la main du joueur
 std::vector<Card *> Fight::getPlayerHand()
 {
     return m_player->getCardPile(Player::hand);
 }
 
-// indique si c'est le tour du joueur ou non
+    // indique si c'est le tour du joueur ou non
 bool Fight::isPlayerTurn()
 {
     return m_player->isTurn();
 }
 
-// renvoie les points de vie de l'enemi
+    // renvoie les points de vie de l'enemi
 int Fight::getRemainingLifeEnemy()
 {
     Health h;
@@ -170,13 +171,14 @@ int Fight::getRemainingLifeEnemy()
     return enemyHealth->GetValue();
 }
 
-// renvoie les points de défenses de l'enemi
+    // renvoie les points de défenses de l'enemi
 int Fight::getRemainingShieldEnemy()
 {
     Shield s;
     Shield *enemyShield = (Shield *)getEnemy().getCharacteristic(s);
     return enemyShield->GetValue();
 }
+// Fin GET & SET
 
 // Creation de nos enemies avec leurs abilities respective
 void Fight::createEnemies()

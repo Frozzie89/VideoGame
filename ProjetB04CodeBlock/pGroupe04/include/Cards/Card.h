@@ -1,5 +1,6 @@
 #ifndef CARD_PGROUPE04_H
 #define CARD_PGROUPE04_H
+
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "Entity/Entity.h"

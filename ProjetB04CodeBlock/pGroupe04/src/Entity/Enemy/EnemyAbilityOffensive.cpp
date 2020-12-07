@@ -60,7 +60,7 @@ int EnemyAbilityOffensive::activateEffect(Entity &entity)
 }
 
 // Return les informations de l'objet
-std::string EnemyAbilityOffensive::toString() const
+std::string EnemyAbilityOffensive::str() const
 {
     return "Name:" + getName() + "     \tValue:" + std::to_string(getValue());
 }

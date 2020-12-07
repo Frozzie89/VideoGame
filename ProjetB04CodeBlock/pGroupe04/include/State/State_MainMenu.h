@@ -9,7 +9,6 @@
 #include "Entity/Player/Gambler.h"
 #include "Entity/Player/Warrior.h"
 
-#include <iostream>
 #include <unistd.h> //Nous donne acces a usleep
 using namespace std;
 

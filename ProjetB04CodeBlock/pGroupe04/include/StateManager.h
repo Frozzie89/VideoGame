@@ -18,7 +18,6 @@
 #include "State/State_GameOver.h"
 #include "State/State_Credits.h"
 
-#include <iostream>
 using namespace std;
 
 using StateContainer = std::vector<std::pair<StateType, BaseState *>>;                //Pas de map car elle ne garde pas un ordre d'indexation

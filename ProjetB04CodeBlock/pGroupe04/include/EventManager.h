@@ -5,7 +5,6 @@
 
 #include <functional> // Permet d'avoir std::function et std::bind
 #include <unordered_map>
-#include <iostream>
 #include <sstream> //Permet d'avoir stringstream
 #include <fstream> //Permet de couper stringstream
 
@@ -87,19 +86,6 @@ struct Binding
     EventDetails m_details;
     int c; //Sert à compter le nombre d'events qui "arrive" --> Va nous servir pour savoir combien d'events sont effectuees et savoir si tous les events sont actifs ou non
 };
-//Afin de lier les methodes aux events, on a besoin d'un callback
-//Un callback, c'est un bout de code qui peut être passé en argument d'un autre bout de code qui sera execute en temps voulu
-//Typiquement, un callback est une fonction passé en argument d'une autre
-/*template<class T>
-struct Callback{
-    std::string m_name;
-    T* CallbackInstance; // Pointeur vers l'instance
-    void(T::*_callback)();
-    void Call(){
-        CallbackInstance->*_callback();
-    }
-};
-*/
 
 //Sert à stocker les liaisons --> Utilisation de unordered_map pour etre sur qu'il n'y aura qu'une liaison par action
 using Bindings = std::unordered_map<std::string, Binding *>;

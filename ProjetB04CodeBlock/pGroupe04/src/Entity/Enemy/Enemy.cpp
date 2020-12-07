@@ -1,6 +1,5 @@
 #include "Entity/Enemy/Enemy.h"
-#include "Entity/Enemy/BehaviourHighLife.h"
-#include <iostream>
+
 // Constructeur
 Enemy::Enemy() : Entity()
 {
@@ -71,16 +70,26 @@ void Enemy::setStrategy(Behaviour *l_behaviour)
 {
     behaviour = l_behaviour;
 }
+    // Retourne le chemin d'acces defini ici
+string Enemy::GetPath() const
+{
+    return assetPath;
+}
+
+    // Retourne la liste d'ability de l'enemy
+std::vector<EnemyAbility *> Enemy::getAbilitiesList()
+{
+    return m_abilities;
+}
 //Fin GET & SET
 
 // Methodes concernant le vector
 // Ajout d'une ability au vector d'abilities
 void Enemy::addAbilities(EnemyAbility *l_enemyAbility)
 {
-    if (SearchAbility(*l_enemyAbility) == -1)
+    if (SearchAbility(*l_enemyAbility) == -1) // Si l'ability n'est pas deja dans la liste
     {
-
-        m_abilities.push_back(l_enemyAbility->clone());
+        m_abilities.push_back(l_enemyAbility->clone()); // On l'ajoute en utilisant un clone
     }
 }
 
@@ -115,23 +124,14 @@ void Enemy::useAbility(Entity &entity)
     behaviour->useAbility(entity, *this, m_abilities);
 }
 
-std::vector<EnemyAbility *> Enemy::getAbilitiesList()
-{
-    return m_abilities;
-}
-
 //Retourne le nom de la classe
 std::string Enemy::getClassName() const
 {
     return "Enemy";
 }
+
 //Retourne les caracteristiques d'ennemies
 std::string Enemy::str() const
 {
     return getClassName() + " : Path : " + assetPath + " || ";
-}
-//Retourne le chemin d'acces defini ici
-string Enemy::GetPath() const
-{
-    return assetPath;
 }

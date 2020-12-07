@@ -9,7 +9,7 @@
 
 #include "SharedContext.h"
 struct SharedContext;
-// Une Entity repr�sente une entit� pouvant combattre dans un combat de carte, donc le joueur et l'enemi
+// Une Entity represente une entite pouvant combattre dans un combat de carte, donc le joueur et l'enemi
 class Entity
 {
 private:
@@ -44,8 +44,6 @@ public:
 
     void AddHealth(Health l_health);                                         // Permet d'ajouter de la vie aux caracteristiques de l'entite
     void AddShield(Shield l_shield);                                         // Permet d'ajouter de l'armure aux caracteristiques de l'entite
-    void RaiseCharacteristic(int l_index, int l_value);                      // Fait appel a la methode de Characteristics
-    void LowerCharacteristic(int l_index, int l_value);                      // Fait appel a la methode de Characteristics
     void RaiseCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
     void LowerCharacteristic(Characteristic &l_characteristic, int l_value); // Fait appel a la methode de Characteristics
     void setMaxLife(int maxLife); //Modifie le nombre de points de vie max

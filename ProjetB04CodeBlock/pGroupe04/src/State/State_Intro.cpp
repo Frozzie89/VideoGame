@@ -71,13 +71,6 @@ void State_Intro::Update(const sf::Time &l_time)
     //On va faire descendre le logo jusqu'a ce que l'on ait passe six secondes sur l'ecran
     if (m_timePassed < 6.0f)
         m_introSprite.setPosition(m_introSprite.getPosition().x, m_introSprite.getPosition().y + (60 * l_time.asSeconds()));
-    /*
-    if ((int)m_timePassed % 10 != 0)
-        m_indication.setString(sf::String("Press SPACE to continue"));
-
-    if ((int)m_timePassed % 10 == 0)
-        m_indication.setString(sf::String(""));
-    */
 }
 //Permet de dessiner les differents elements graphiques
 void State_Intro::Draw()
