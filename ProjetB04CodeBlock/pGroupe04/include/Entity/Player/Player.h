@@ -1,12 +1,16 @@
 #ifndef PLAYER_PGROUPE04_H
 #define PLAYER_PGROUPE04_H
+
 #include <string>
 #include <vector>
 #include <unordered_map>
+
 #include <algorithm>
 #include <random>
+#include <time.h>
+#include <stdlib.h>
+
 #include "Entity/Entity.h"
-#include "Cards/Card.h"
 #include "Cards/OffensiveCard.h"
 #include "Cards/DefensiveCard.h"
 

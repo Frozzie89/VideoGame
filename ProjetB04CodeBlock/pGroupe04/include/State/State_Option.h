@@ -5,7 +5,6 @@
 
 #include "State/BaseState.h"
 #include "StateManager.h"
-#include <iostream>
 /*
     Cette classe va definir ce que l'on va retrouve sur la fenetre lorsque l'on sera dans les options du jeu.
     Elle herite de la classe BaseState.

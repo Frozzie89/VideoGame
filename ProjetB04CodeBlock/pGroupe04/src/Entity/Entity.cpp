@@ -1,5 +1,4 @@
 #include "Entity/Entity.h"
-#include <iostream>
 
 //Constructeur
 Entity::Entity(std::string l_path) : m_path(l_path)
@@ -55,18 +54,6 @@ void Entity::AddHealth(Health l_health)
 void Entity::AddShield(Shield l_shield)
 {
     m_entityCaracteristics.AddCharacteristic(&l_shield);
-}
-
-// Augmente une Characteristic, par index
-void Entity::RaiseCharacteristic(int l_index, int l_value)
-{
-    m_entityCaracteristics.RaiseCharacteristic(l_index, l_value);
-}
-
-// Diminue une Characteristic, par index
-void Entity::LowerCharacteristic(int l_index, int l_value)
-{
-    m_entityCaracteristics.LowerCharacteristic(l_index, l_value);
 }
 
 // Renvoie une Characteristic, par Characteristic

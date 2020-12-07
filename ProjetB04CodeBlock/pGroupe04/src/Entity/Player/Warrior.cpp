@@ -1,7 +1,4 @@
 #include "Entity/Player/Warrior.h"
-#include "Cards/OffensiveCardWarrior.h"
-#include "Cards/DefensiveCardWarrior.h"
-#include <iostream>
 
 Warrior::Warrior(int actionPoints, int health, int shield) : Player(actionPoints, health, shield)
 {

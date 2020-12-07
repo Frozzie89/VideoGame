@@ -1,5 +1,6 @@
 #ifndef DEFENSIVECARDGAMBLER_PGROUPE04_H
 #define DEFENSIVECARDGAMBLER_PGROUPE04_H
+
 #include <string>
 #include "Cards/DefensiveCard.h"
 

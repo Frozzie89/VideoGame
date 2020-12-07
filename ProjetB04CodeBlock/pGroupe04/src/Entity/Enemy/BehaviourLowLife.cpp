@@ -23,5 +23,5 @@ BehaviourLowLife &BehaviourLowLife::operator=(const BehaviourLowLife &rhs)
 // Return le nom de la classe
 string BehaviourLowLife::getClassName()
 {
-    return "BehaviourHighLife";
+    return "BehaviourLowLife";
 }

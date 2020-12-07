@@ -1,5 +1,6 @@
 #ifndef OFFENSIVECARD_PGROUPE04_H
 #define OFFENSIVECARD_PGROUPE04_H
+
 #include <string>
 #include "Cards/Card.h"
 #include "Entity/Entity.h"

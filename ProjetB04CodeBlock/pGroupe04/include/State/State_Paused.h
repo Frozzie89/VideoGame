@@ -1,7 +1,6 @@
 #ifndef STATE_PAUSED_H
 #define STATE_PAUSED_H
 
-
 #include "State/BaseState.h"
 #include "StateManager.h"
 /*

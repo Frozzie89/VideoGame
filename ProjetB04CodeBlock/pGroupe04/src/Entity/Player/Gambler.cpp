@@ -1,8 +1,4 @@
-#include <time.h>
-#include <sstream>
 #include "Entity/Player/Gambler.h"
-#include "Cards/OffensiveCardGambler.h"
-#include "Cards/DefensiveCardGambler.h"
 
 Gambler::Gambler(int actionPoints, int health, int shield, int luck) : Player(actionPoints, health, shield), luck(luck)
 {

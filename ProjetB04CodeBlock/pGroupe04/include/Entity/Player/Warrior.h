@@ -1,8 +1,11 @@
 #ifndef WARRIOR_PGROUPE04_H
 #define WARRIOR_PGROUPE04_H
-#include <string>
-#include "Entity/Player/Player.h"
 
+#include <string>
+
+#include "Entity/Player/Player.h"
+#include "Cards/OffensiveCardWarrior.h"
+#include "Cards/DefensiveCardWarrior.h"
 // Classe jouable Warrior, ses cartes sont basiques
 class Warrior : public Player
 {

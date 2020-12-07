@@ -1,5 +1,4 @@
 #include "Entity/Enemy/EnemyAbility.h"
-#include "Entity/Entity.h"
 
 // Constructeur
 EnemyAbility::EnemyAbility(std::string l_name, int l_value) : m_name(l_name), m_value(l_value) {}
@@ -22,24 +21,15 @@ EnemyAbility &EnemyAbility::operator=(const EnemyAbility &rhs)
 }
 
 // GET & SET
+    // Retourne la valeur de l'ability
 int EnemyAbility::getValue() const
 {
     return m_value;
 }
-
-void EnemyAbility::setValue(const int l_value)
-{
-    m_value = l_value;
-}
-
+    // Retourne le nom de l'ability
 std::string EnemyAbility::getName() const
 {
     return m_name;
-}
-
-void EnemyAbility::setName(const std::string l_name)
-{
-    m_name = l_name;
 }
 // End GET & SET
 

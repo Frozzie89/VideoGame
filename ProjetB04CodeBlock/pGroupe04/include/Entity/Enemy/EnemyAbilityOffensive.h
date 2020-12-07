@@ -1,8 +1,9 @@
 #ifndef ENEMYABILITYOFFENSIVE_H
 #define ENEMYABILITYOFFENSIVE_H
+
 #include "Entity/Enemy/EnemyAbility.h"
 
-// EnemyAbility de type Offensive, infligera des dégats au joueur
+// EnemyAbility de type Offensive, infligera des degats au joueur
 class EnemyAbilityOffensive : public EnemyAbility
 {
 public:
@@ -11,13 +12,14 @@ public:
     EnemyAbilityOffensive(const EnemyAbilityOffensive &other);
     EnemyAbilityOffensive &operator=(const EnemyAbilityOffensive &other);
 
-    int activateEffect(Entity &entity);
+    int activateEffect(Entity &entity);     // Active l'effet d'une ability offensive
+    // GET & SET
     std::string getClassName() const;
-
+    // Fin GET & SET
     //Clone
-    EnemyAbilityOffensive *clone() const { return new EnemyAbilityOffensive(*this); }
+    EnemyAbilityOffensive *clone() const { return new EnemyAbilityOffensive(*this); }   // Clone l'objet
 
-    std::string toString() const;
+    std::string str() const;    // Affiche l'objet
 
 protected:
 private:

@@ -3,7 +3,7 @@
 #include <string>
 #include "Cards/Card.h"
 
-// Carte défensive rendant des points d'armure ou des points de vie au Player qui l'utilise
+// Carte defensive rendant des points d'armure ou des points de vie au Player qui l'utilise
 class DefensiveCard : public Card
 {
 private:

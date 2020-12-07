@@ -28,7 +28,7 @@ void State_Game::OnCreate()
     m_font.loadFromFile("assets/font/superboom.ttf");
     m_text.setFont(m_font);
     //m_text.setString("Ceci est un jeu je vous l'assure");
-    m_text.setString("C'est l'heure pour toi de gouter a mon foi !");
+    m_text.setString("It's time for you to taste my foie gras !");
     m_text.setCharacterSize(15);
 
     //Permet de recuperer la taille de la fenetre par rapport au contexte
@@ -52,7 +52,7 @@ void State_Game::OnCreate()
     m_btnEndTurn.setFillColor(sf::Color(46, 132, 110));
 
     m_btnText.setFont(m_font);
-    m_btnText.setString("Fin du tour");
+    m_btnText.setString("End turn");
     m_btnText.setCharacterSize(12);
     sf::FloatRect btnRect = m_btnText.getLocalBounds();
     m_btnText.setOrigin(btnRect.left + btnRect.width / 2.0f, btnRect.top + btnRect.height / 2.0f);
@@ -291,7 +291,7 @@ void State_Game::DisplayPlayer()
     else
     {
         m_fight.getPlayer().setSprite("assets/player2.png");
-        m_text.setString("J'espere que tu aimes mon lifting !");
+        m_text.setString("I hope you like my facelift");
     }
     m_fight.getPlayer().setPosition(150, 200);
     m_fight.getPlayer().setSpriteScale(0.2, 0.2);
