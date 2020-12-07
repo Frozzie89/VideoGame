@@ -149,6 +149,7 @@ void Player::useCard(Card &card, Entity &enemy)
     }
 }
 
+// retire une carte d'un paquet
 void Player::removeCard(Card *card, const int cardVector)
 {
     int indexCardToRemove = findCard(*card, cardVector);
@@ -161,12 +162,14 @@ void Player::removeCard(Card *card, const int cardVector)
     delete cardToDelete;
 }
 
+// ajoute une carte dans un paquet
 void Player::addCard(Card *card, const int cardVector)
 {
     // on autorise l'ajout de plusieurs cartes identiques
     cardPiles[cardVector].push_back(card->clone());
 }
 
+// retourne l'index d'une carte d'un paquet
 int Player::findCard(const Card &card, const int cardVector) const
 {
     if ((int)cardPiles.at(cardVector).size() == 0)
@@ -180,6 +183,7 @@ int Player::findCard(const Card &card, const int cardVector) const
     return -1;
 }
 
+// vide un paquet de carte
 void Player::purgeCardPile(const int cardVector)
 {
     for (int i = 0; i < (int)cardPiles[cardVector].size(); i++)
@@ -190,6 +194,7 @@ void Player::purgeCardPile(const int cardVector)
     cardPiles[cardVector].clear();
 }
 
+// intialise le deck
 void Player::initDeck()
 {
     // On s'assure que Deck n'a aucune cartes
@@ -206,6 +211,7 @@ void Player::initDeck()
     std::shuffle(std::begin(cardPiles[Player::deck]), std::end(cardPiles[Player::deck]), randomizer);
 }
 
+// pioche des cartes
 void Player::drawCards(int nbCards)
 {
     purgeCardPile(Player::hand);
@@ -226,6 +232,7 @@ void Player::drawCards(int nbCards)
     }
 }
 
+// affiche le contenu de la unordered_map
 std::string Player::printMap()
 {
     std::stringstream res;
@@ -253,6 +260,7 @@ std::string Player::printMap()
     return res.str();
 }
 
+// affiche le path d'un paquet de carte
 std::string Player::printPathCardPile(const int cardVector)
 {
     std::stringstream res;

@@ -23,12 +23,13 @@ DefensiveCard &DefensiveCard::operator=(const DefensiveCard &rhs)
     return *this;
 }
 
-// GET & SET
+// retourne isHealth
 bool DefensiveCard::getIsHealth() const
 {
     return isHealth;
 }
 
+// affecte isHealth
 void DefensiveCard::setIsHealth(const bool isHealth)
 {
     this->isHealth = isHealth;
@@ -50,11 +51,13 @@ int DefensiveCard::activateEffect(Entity &entity)
             int remainingHealth = entity.getMaxLife() - playerHealthPtr->GetValue();
             entity.RaiseCharacteristic(playerHealth, remainingHealth);
         }
+        // sinon
         else
         {
             entity.RaiseCharacteristic(playerHealth, getValue());
         }
     }
+    // si carte shield
     else
     {
         Shield playerShield;

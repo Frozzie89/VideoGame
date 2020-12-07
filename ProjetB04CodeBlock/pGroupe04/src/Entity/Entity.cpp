@@ -57,23 +57,25 @@ void Entity::AddShield(Shield l_shield)
     m_entityCaracteristics.AddCharacteristic(&l_shield);
 }
 
-// ces 4 prochaines méthodes utilisent les méthodes de Charateristic pour augmenter et diminuer
-// la valeur d'une caratéristique de l'entité
+// Augmente une Characteristic, par index
 void Entity::RaiseCharacteristic(int l_index, int l_value)
 {
     m_entityCaracteristics.RaiseCharacteristic(l_index, l_value);
 }
 
+// Diminue une Characteristic, par index
 void Entity::LowerCharacteristic(int l_index, int l_value)
 {
     m_entityCaracteristics.LowerCharacteristic(l_index, l_value);
 }
 
+// Renvoie une Characteristic, par Characteristic
 void Entity::RaiseCharacteristic(Characteristic &l_characteristic, int l_value)
 {
     m_entityCaracteristics.RaiseCharacteristic(l_characteristic, l_value);
 }
 
+// Diminue une Characteristic, par Characteristic
 void Entity::LowerCharacteristic(Characteristic &l_characteristic, int l_value)
 {
     m_entityCaracteristics.LowerCharacteristic(l_characteristic, l_value);

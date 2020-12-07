@@ -6,8 +6,8 @@ Fight::Fight()
 {
     m_counter = 0;
     createEnemies();
-    m_isGameOver =false;
-    m_isWon=false;
+    m_isGameOver = false;
+    m_isWon = false;
 }
 
 // Constructeur
@@ -15,8 +15,8 @@ Fight::Fight(Player *l_player) : m_player(l_player)
 {
     m_counter = 0;
     m_player->drawCards();
-    m_isGameOver =false;
-    m_isWon=false;
+    m_isGameOver = false;
+    m_isWon = false;
 
     // createEnemies();
 }
@@ -71,7 +71,7 @@ void Fight::endTurn()
 // Puis on fera appel a useAbility
 void Fight::enemyAttack()
 {
-    if(getEnemy().getHealth() > (int)getEnemy().getMaxLife()/2)
+    if (getEnemy().getHealth() > (int)getEnemy().getMaxLife() / 2)
     {
         getEnemy().setStrategy(&bhl);
     }
@@ -80,12 +80,13 @@ void Fight::enemyAttack()
         getEnemy().setStrategy(&bll);
     }
     getEnemy().useAbility(*m_player);
-    if(!checkEntityAlive(m_player))
+    if (!checkEntityAlive(m_player))
     {
         gameOver();
     }
 }
 
+// utilise une carte
 void Fight::useCard(Card &l_selectedCard)
 {
     if (l_selectedCard.getClassName().find("DefensiveCard") != std::string::npos)
@@ -96,6 +97,7 @@ void Fight::useCard(Card &l_selectedCard)
     {
         m_player->useCard(l_selectedCard, getEnemy());
 
+        // si l'enemi n'est plus en vie, on passe au suivant
         if (!checkEntityAlive(&getEnemy()))
         {
             nextFight();
@@ -109,15 +111,16 @@ void Fight::useCard(Card &l_selectedCard)
 void Fight::nextFight()
 {
     m_counter++;
-    if(m_counter == 5)
+    if (m_counter == 5)
     {
         SetWon();
         m_player->Restart();
-        m_counter =0;
+        m_counter = 0;
         DeleteEnemy();
         createEnemies();
         return;
     }
+    m_player->setActionPoints(m_player->getMaxActionPoints());
     m_player->initDeck();
     m_player->drawCards();
 }
@@ -130,12 +133,13 @@ bool Fight::checkEntityAlive(Entity *l_entity)
     return entityHealth->GetValue() > 0;
 }
 
-// GET & SET
+// retourne l'enemi en cours
 Enemy &Fight::getEnemy()
 {
     return *m_enemyList[m_counter];
 }
 
+// retourne le joueur
 Player &Fight::getPlayer()
 {
     return *m_player;
@@ -146,16 +150,19 @@ std::string Fight::getClassName()
     return "Fight";
 }
 
+// retourne la main du joueur
 std::vector<Card *> Fight::getPlayerHand()
 {
     return m_player->getCardPile(Player::hand);
 }
 
+// indique si c'est le tour du joueur ou non
 bool Fight::isPlayerTurn()
 {
     return m_player->isTurn();
 }
 
+// renvoie les points de vie de l'enemi
 int Fight::getRemainingLifeEnemy()
 {
     Health h;
@@ -163,13 +170,13 @@ int Fight::getRemainingLifeEnemy()
     return enemyHealth->GetValue();
 }
 
+// renvoie les points de défenses de l'enemi
 int Fight::getRemainingShieldEnemy()
 {
     Shield s;
     Shield *enemyShield = (Shield *)getEnemy().getCharacteristic(s);
     return enemyShield->GetValue();
 }
-// End GET & SET
 
 // Creation de nos enemies avec leurs abilities respective
 void Fight::createEnemies()
@@ -258,7 +265,7 @@ void Fight::gameOver()
 {
     m_isGameOver = true;
     m_player->Restart();
-    m_counter =0;
+    m_counter = 0;
     DeleteEnemy();
     createEnemies();
 }
@@ -275,7 +282,7 @@ bool Fight::isWon()
 //Permet de supprimer la liste des ennemies
 void Fight::DeleteEnemy()
 {
-     for (auto &&enemy : m_enemyList)
+    for (auto &&enemy : m_enemyList)
     {
         delete enemy;
     }

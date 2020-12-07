@@ -28,16 +28,18 @@ std::string Warrior::getClassName() const
     return "Warrior";
 }
 
+// utilise une carte défensive
 void Warrior::useCard(Card &card)
 {
     Player::useCard(card);
 }
 
+// utilise une carte offensive
 void Warrior::useCard(Card &card, Entity &enemy)
 {
     Player::useCard(card, enemy);
 }
-
+// charge les données des cartes du Warrior
 void Warrior::loadCardsAssets(SharedContext *sharedContext, bool isOffensive)
 {
     std::string filecardInitializer;
